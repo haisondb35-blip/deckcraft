@@ -6,6 +6,7 @@
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
 #![forbid(unsafe_code)]
 
+pub mod assistant;
 pub mod backstage;
 pub mod canvas;
 pub mod control;
@@ -146,7 +147,7 @@ pub const UI_COMMANDS: &[(&str, &str, Option<&str>, &str)] = &[
     ("view.zoomOut", "Zoom Out", Some("Cmd+-"), "{}"),
     ("view.zoom", "Zoom…", None, "{percent}"),
     ("view.fit", "Fit to Window", None, "{}"),
-    ("view.pane", "Task Pane", None, "{pane: format|animation|selection|comments|designer|background|null}"),
+    ("view.pane", "Task Pane", None, "{pane: format|animation|selection|comments|designer|background|assistant|null, toggle?}"),
     ("view.tab", "Ribbon Tab", None, "{tab}"),
     ("view.collapseRibbon", "Collapse the Ribbon", Some("Cmd+F1"), "{}"),
     ("view.dark", "Dark Mode", None, "{on?: bool}"),
@@ -155,7 +156,13 @@ pub const UI_COMMANDS: &[(&str, &str, Option<&str>, &str)] = &[
     ("show.presenter", "Presenter View", None, "{on?: bool}"),
     ("show.end", "End Show", None, "{}"),
     ("app.home", "Home", None, "{on?}"),
-    ("app.backstage", "File", Some("Alt+F"), "{page?: home|new|open|info|saveAs|print|export|account, on?: bool}"),
+    ("app.backstage", "File", Some("Alt+F"), "{page?: home|new|open|info|saveAs|print|export|account|options, on?: bool}"),
+    (
+        "options.set",
+        "Options",
+        None,
+        "{uiScale?: 0.75–1.75, author?, autocorrect?, smartQuotes?, snapToGrid?, gridSpacing?: 1–72 pt, smartGuides?, duplicateOffset?: 0–72 pt, undoLimit?: 10–5000, recoveryMinutes?: 0.5–120} → all of them",
+    ),
     ("app.closePresentation", "Close", Some("Cmd+W"), "{}"),
     ("app.print", "Print", Some("Cmd+P"), "{layout?, perPage?, slides?, includeHidden?, frame?}"),
     ("app.about", "About DeckCraft", None, "{}"),
@@ -227,6 +234,8 @@ pub struct SlideApp {
     pub(crate) thumb_drag: Option<(usize, usize)>,
     /// Selection pane: folded groups, renaming, drag and drop.
     pub selpane: selpane::State,
+    /// The Claude pane: the conversation, and the Claude Code it runs.
+    pub assistant: assistant::Assistant,
 }
 
 impl SlideApp {
@@ -267,11 +276,77 @@ impl SlideApp {
             ui_fonts: uifonts::UiFonts::default(),
             thumb_drag: None,
             selpane: selpane::State::default(),
+            assistant: assistant::Assistant::default(),
         }
     }
 
     pub fn with_control(mut self, rx: Receiver<ControlRequest>) -> Self {
         self.control_rx = Some(rx);
+        self
+    }
+
+    /// `options.set`: the settings File › Options shows (each optional) → all of them.
+    pub fn set_options(&mut self, p: &Value) -> Result<Value, String> {
+        let num = |k: &str, lo: f64, hi: f64| -> Result<Option<f64>, String> {
+            match p.get(k) {
+                None => Ok(None),
+                Some(v) => v.as_f64().filter(|x| (lo..=hi).contains(x)).map(Some).ok_or_else(|| format!("{k} must be {lo} to {hi}")),
+            }
+        };
+        let flag = |k: &str| -> Result<Option<bool>, String> {
+            match p.get(k) {
+                None => Ok(None),
+                Some(v) => v.as_bool().map(Some).ok_or_else(|| format!("{k} must be true or false")),
+            }
+        };
+        if let Some(v) = num("uiScale", 0.75, 1.75)? {
+            self.ui.ui_scale = v as f32;
+        }
+        if let Some(v) = p.get("author") {
+            let name = v.as_str().map(str::trim).filter(|n| !n.is_empty() && n.chars().count() <= 255).ok_or("author must be 1 to 255 characters")?;
+            self.session.prefs.author = name.to_string();
+        }
+        let prefs = &mut self.session.prefs;
+        for (k, slot) in [
+            ("autocorrect", &mut prefs.autocorrect),
+            ("smartQuotes", &mut prefs.smart_quotes),
+            ("snapToGrid", &mut prefs.snap_to_grid),
+            ("smartGuides", &mut prefs.smart_guides),
+        ] {
+            if let Some(v) = flag(k)? {
+                *slot = v;
+            }
+        }
+        if let Some(v) = num("gridSpacing", 1.0, 72.0)? {
+            prefs.grid_spacing = v;
+        }
+        if let Some(v) = num("duplicateOffset", 0.0, 72.0)? {
+            prefs.duplicate_offset = v;
+        }
+        if let Some(v) = num("undoLimit", 10.0, 5000.0)? {
+            prefs.undo_limit = v as usize;
+        }
+        if let Some(v) = num("recoveryMinutes", 0.5, 120.0)? {
+            prefs.recovery_minutes = v;
+        }
+        let pr = &self.session.prefs;
+        Ok(json!({
+            "uiScale": self.ui.ui_scale,
+            "author": pr.author,
+            "autocorrect": pr.autocorrect,
+            "smartQuotes": pr.smart_quotes,
+            "snapToGrid": pr.snap_to_grid,
+            "gridSpacing": pr.grid_spacing,
+            "smartGuides": pr.smart_guides,
+            "duplicateOffset": pr.duplicate_offset,
+            "undoLimit": pr.undo_limit,
+            "recoveryMinutes": pr.recovery_minutes,
+        }))
+    }
+
+    /// How the Claude pane opens its control channel (the desktop app's server).
+    pub fn with_assistant_control(mut self, starter: assistant::ControlStarter) -> Self {
+        self.assistant.starter = Some(starter);
         self
     }
 
@@ -534,7 +609,9 @@ impl SlideApp {
             }
             "app.about" => self.dialog = Some(dialogs::Dialog::new("about")),
             "app.palette" => self.palette = Some((String::new(), 0)),
-            "app.preferences" => self.dialog = Some(dialogs::Dialog::new("preferences")),
+            // File › Options, as in PowerPoint.
+            "app.preferences" => self.open_backstage(backstage::Page::Options),
+            "options.set" => return self.set_options(p),
             "app.openDialog" => self.pick_and_open(),
             "app.insertPictureDialog" => self.pick_and_insert("picture", "insert.picture"),
             "app.insertAudioDialog" => self.pick_and_insert("audio", "insert.audio"),
@@ -1017,7 +1094,17 @@ impl SlideApp {
     }
 
     fn drain_control(&mut self, ctx: &egui::Context) {
+        // The Claude pane's own channel, then the `--control` one.
+        if let Some(rx) = self.assistant.control_rx.take() {
+            self.drain_from(&rx, ctx);
+            self.assistant.control_rx = Some(rx);
+        }
         let Some(rx) = self.control_rx.take() else { return };
+        self.drain_from(&rx, ctx);
+        self.control_rx = Some(rx);
+    }
+
+    fn drain_from(&mut self, rx: &Receiver<ControlRequest>, ctx: &egui::Context) {
         while let Ok(req) = rx.try_recv() {
             let reply = req.reply.clone();
             match control::handle(self, ctx, &req) {
@@ -1032,7 +1119,6 @@ impl SlideApp {
                 }
             }
         }
-        self.control_rx = Some(rx);
     }
 
     fn issue_screenshots(&mut self, ctx: &egui::Context) {

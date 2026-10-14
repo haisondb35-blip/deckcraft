@@ -37,10 +37,11 @@ pub enum Page {
     Print,
     Export,
     Account,
+    Options,
 }
 
 impl Page {
-    pub const ALL: [Page; 8] = [Page::Home, Page::New, Page::Open, Page::Info, Page::SaveAs, Page::Print, Page::Export, Page::Account];
+    pub const ALL: [Page; 9] = [Page::Home, Page::New, Page::Open, Page::Info, Page::SaveAs, Page::Print, Page::Export, Page::Account, Page::Options];
 
     /// The id `app.backstage {page}` takes.
     pub fn id(self) -> &'static str {
@@ -53,6 +54,7 @@ impl Page {
             Page::Print => "print",
             Page::Export => "export",
             Page::Account => "account",
+            Page::Options => "options",
         }
     }
 
@@ -72,6 +74,7 @@ impl Page {
             Page::Print => "Print",
             Page::Export => "Export",
             Page::Account => "Account",
+            Page::Options => "Options",
         }
     }
 
@@ -85,6 +88,7 @@ impl Page {
             Page::Print => Icon::Print,
             Page::Export => Icon::Export,
             Page::Account => Icon::Account,
+            Page::Options => Icon::Settings,
         }
     }
 
@@ -100,7 +104,6 @@ pub enum Nav {
     Page(Page),
     Save,
     Close,
-    Options,
 }
 
 impl Nav {
@@ -109,7 +112,6 @@ impl Nav {
             Nav::Page(p) => p.label(),
             Nav::Save => "Save",
             Nav::Close => "Close",
-            Nav::Options => "Options",
         }
     }
     fn icon(self) -> Icon {
@@ -117,7 +119,6 @@ impl Nav {
             Nav::Page(p) => p.icon(),
             Nav::Save => Icon::Save,
             Nav::Close => Icon::File,
-            Nav::Options => Icon::Settings,
         }
     }
 }
@@ -129,7 +130,7 @@ pub fn entries(has_doc: bool) -> (Vec<Nav>, Vec<Nav>) {
     if has_doc {
         top.extend([Nav::Page(Page::Info), Nav::Save, Nav::Page(Page::SaveAs), Nav::Page(Page::Print), Nav::Page(Page::Export), Nav::Close]);
     }
-    (top, vec![Nav::Page(Page::Account), Nav::Options])
+    (top, vec![Nav::Page(Page::Account), Nav::Page(Page::Options)])
 }
 
 /// Print page: which slides.
@@ -160,6 +161,10 @@ pub struct Backstage {
     pub query: String,
     /// Info: property drafts while a field is being edited.
     props: Vec<String>,
+    /// Options: the pane shown (an id from [`OPTION_PANES`]).
+    pub options_pane: &'static str,
+    /// Options › General: the user name while it is edited.
+    user_name: String,
     pub print_scope: PrintScope,
     pub print_range: String,
     /// `slides`, `notes`, or `h1`…`h9` (handouts with that many slides a page).
@@ -182,6 +187,8 @@ impl Backstage {
             focus: None,
             query: String::new(),
             props: vec![String::new(); PROPERTIES.len()],
+            options_pane: "general",
+            user_name: String::new(),
             print_scope: PrintScope::All,
             print_range: String::new(),
             print_layout: "slides",
@@ -257,10 +264,6 @@ fn act(app: &mut SlideApp, nav: Nav, current: Page) -> Option<Page> {
         }
         Nav::Close => {
             app.close_presentation();
-            Some(current)
-        }
-        Nav::Options => {
-            let _ = app.run("app.preferences", json!({}));
             Some(current)
         }
     }
@@ -400,6 +403,7 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
                     Page::Print => print(app, ui, &mut bs),
                     Page::Export => export(app, ui, &mut bs),
                     Page::Account => account(app, ui),
+                    Page::Options => options(app, ui, &mut bs),
                 }
             });
         });
@@ -1243,3 +1247,186 @@ fn account(app: &mut SlideApp, ui: &mut Ui) {
 #[cfg(test)]
 #[path = "backstage_tests.rs"]
 mod tests;
+
+// ---------- Options ----------
+
+/// File › Options panes, in order (PowerPoint's list, with the ones DeckCraft has settings for).
+pub const OPTION_PANES: [(&str, &str); 5] =
+    [("general", "General"), ("proofing", "Proofing"), ("save", "Save"), ("advanced", "Advanced"), ("agents", "Agents")];
+
+/// File › Options: the panes on the left, the chosen pane's settings on the right, as in
+/// PowerPoint (and WordCraft, GridCraft). Every setting goes through a command (`options.set`,
+/// `view.dark`), so agents reach them too.
+fn options(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
+    let t = Tokens::get(ui.ctx());
+    let current = OPTION_PANES.iter().find(|p| p.0 == bs.options_pane).map_or("general", |p| p.0);
+    ui.horizontal_top(|ui| {
+        ui.vertical(|ui| {
+            ui.set_width(180.0);
+            for (id, label) in OPTION_PANES {
+                let active = current == id;
+                let (r, resp) = ui.allocate_exact_size(vec2(180.0, 32.0), egui::Sense::click());
+                resp.widget_info(|| egui::WidgetInfo::selected(egui::WidgetType::SelectableLabel, true, active, label));
+                if active || resp.hovered() {
+                    ui.painter().rect_filled(r, 4.0, t.hover);
+                }
+                if active {
+                    ui.painter().rect_filled(egui::Rect::from_min_size(r.min, vec2(3.0, r.height())), 1.5, t.accent);
+                }
+                let font = if active { theme::bold(14.0) } else { theme::font(14.0) };
+                ui.painter().text(egui::pos2(r.min.x + 14.0, r.center().y), egui::Align2::LEFT_CENTER, label, font, t.text);
+                if resp.clicked() {
+                    bs.options_pane = id;
+                }
+            }
+        });
+        ui.add_space(12.0);
+        let (line, _) = ui.allocate_exact_size(vec2(1.0, 460.0), egui::Sense::hover());
+        ui.painter().rect_filled(line, 0.0, t.border);
+        ui.add_space(22.0);
+        ui.vertical(|ui| {
+            ui.set_max_width(680.0);
+            match current {
+                "proofing" => options_proofing(app, ui),
+                "save" => options_save(app, ui),
+                "advanced" => options_advanced(app, ui),
+                "agents" => options_agents(app, ui),
+                _ => options_general(app, ui, bs),
+            }
+        });
+    });
+}
+
+fn option_section(ui: &mut Ui, title: &str) {
+    let t = Tokens::get(ui.ctx());
+    ui.add_space(6.0);
+    ui.label(RichText::new(title).font(theme::bold(15.0)).color(t.text));
+    ui.add_space(4.0);
+}
+
+fn option_hint(ui: &mut Ui, text: &str) {
+    let t = Tokens::get(ui.ctx());
+    ui.label(RichText::new(text).font(theme::font(11.5)).color(t.text_dim));
+}
+
+/// Set one option through `options.set`.
+fn set_option(app: &mut SlideApp, key: &str, value: Value) {
+    let mut p = serde_json::Map::new();
+    p.insert(key.to_string(), value);
+    if let Err(e) = app.run("options.set", Value::Object(p)) {
+        app.set_status(e);
+    }
+}
+
+fn options_general(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
+    option_section(ui, "Interface");
+    egui::Grid::new("options_interface").num_columns(2).spacing(vec2(18.0, 10.0)).show(ui, |ui| {
+        ui.label("Interface theme");
+        let dark = app.ui.brightness == theme::Brightness::Dark;
+        egui::ComboBox::from_id_salt("options_theme").width(200.0).selected_text(if dark { "Dark" } else { "Light" }).show_ui(ui, |ui| {
+            for (on, label) in [(false, "Light"), (true, "Dark")] {
+                if ui.selectable_label(dark == on, label).clicked() {
+                    let _ = app.run("view.dark", json!({"on": on}));
+                }
+            }
+        });
+        ui.end_row();
+        ui.label("Interface size");
+        let size = (app.ui.ui_scale * 100.0).round() as i32;
+        egui::ComboBox::from_id_salt("options_interface_size").width(200.0).selected_text(format!("{size}%")).show_ui(ui, |ui| {
+            for v in [75, 90, 100, 110, 125, 150, 175] {
+                if ui.selectable_label(size == v, format!("{v}%")).clicked() {
+                    set_option(app, "uiScale", json!(v as f64 / 100.0));
+                }
+            }
+        });
+        ui.end_row();
+    });
+    option_hint(
+        ui,
+        "Makes the ribbon, its buttons, menus and panes larger or smaller, on top of your system's display scaling. Slide zoom is separate.",
+    );
+    ui.add_space(16.0);
+    option_section(ui, "Personalize");
+    ui.horizontal(|ui| {
+        ui.label("User name");
+        let id = ui.make_persistent_id("options_user_name");
+        if !ui.ctx().memory(|m| m.has_focus(id)) {
+            bs.user_name.clone_from(&app.session.prefs.author);
+        }
+        let resp = ui.add(egui::TextEdit::singleline(&mut bs.user_name).id(id).desired_width(260.0));
+        if resp.lost_focus() && bs.user_name.trim() != app.session.prefs.author && !bs.user_name.trim().is_empty() {
+            let name = bs.user_name.trim().to_string();
+            set_option(app, "author", json!(name));
+        }
+    });
+    option_hint(ui, "New comments are recorded under this name.");
+}
+
+fn options_proofing(app: &mut SlideApp, ui: &mut Ui) {
+    option_section(ui, "AutoCorrect options");
+    let (mut auto, mut quotes) = (app.session.prefs.autocorrect, app.session.prefs.smart_quotes);
+    if ui.checkbox(&mut auto, "Correct text as you type (AutoCorrect)").changed() {
+        set_option(app, "autocorrect", json!(auto));
+    }
+    if ui.checkbox(&mut quotes, "Replace straight quotes with smart quotes").changed() {
+        set_option(app, "smartQuotes", json!(quotes));
+    }
+}
+
+fn options_save(app: &mut SlideApp, ui: &mut Ui) {
+    option_section(ui, "Save presentations");
+    ui.horizontal(|ui| {
+        ui.label("Save AutoRecover information every");
+        let mut m = app.session.prefs.recovery_minutes;
+        if ui.add(egui::DragValue::new(&mut m).range(0.5..=120.0).speed(0.5)).changed() {
+            set_option(app, "recoveryMinutes", json!(m));
+        }
+        ui.label("minutes");
+    });
+    option_hint(ui, "Unsaved presentations are kept so they can be reopened after DeckCraft closes unexpectedly.");
+}
+
+fn options_advanced(app: &mut SlideApp, ui: &mut Ui) {
+    option_section(ui, "Editing options");
+    let p = app.session.prefs.clone();
+    let (mut snap, mut guides) = (p.snap_to_grid, p.smart_guides);
+    if ui.checkbox(&mut snap, "Snap objects to grid").changed() {
+        set_option(app, "snapToGrid", json!(snap));
+    }
+    if ui.checkbox(&mut guides, "Show smart guides").changed() {
+        set_option(app, "smartGuides", json!(guides));
+    }
+    egui::Grid::new("options_editing").num_columns(2).spacing(vec2(18.0, 10.0)).show(ui, |ui| {
+        ui.label("Grid spacing (pt)");
+        let mut g = p.grid_spacing;
+        if ui.add(egui::DragValue::new(&mut g).range(1.0..=72.0).speed(0.5)).changed() {
+            set_option(app, "gridSpacing", json!(g));
+        }
+        ui.end_row();
+        ui.label("Duplicate and paste offset (pt)");
+        let mut o = p.duplicate_offset;
+        if ui.add(egui::DragValue::new(&mut o).range(0.0..=72.0).speed(0.5)).changed() {
+            set_option(app, "duplicateOffset", json!(o));
+        }
+        ui.end_row();
+        ui.label("Maximum number of undos");
+        let mut u = p.undo_limit;
+        if ui.add(egui::DragValue::new(&mut u).range(10..=5000)).changed() {
+            set_option(app, "undoLimit", json!(u));
+        }
+        ui.end_row();
+    });
+}
+
+fn options_agents(app: &mut SlideApp, ui: &mut Ui) {
+    option_section(ui, "Claude");
+    ui.label("Home › Claude opens a pane where Claude works on the open presentation with you. It needs Claude Code installed and signed in on this computer.");
+    if ui.button("Open the Claude pane").clicked() {
+        let _ = app.run("view.pane", json!({"pane": "assistant"}));
+        app.close_backstage();
+    }
+    ui.add_space(16.0);
+    option_section(ui, "Scripts and other agents");
+    ui.label("Every command is available to scripts and AI agents: run `deckcraft-cli mcp` for an MCP server, or start the app with `--control <port>` for the JSON control channel.");
+}

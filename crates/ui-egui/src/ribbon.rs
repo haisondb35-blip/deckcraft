@@ -1001,6 +1001,9 @@ fn home(app: &mut SlideApp, ui: &mut Ui) {
     group(ui, |ui| {
         big(app, ui, Icon::DesignIdeas, "Design\nIdeas", "view.pane", json!({"pane": "designer"}));
     });
+    group(ui, |ui| {
+        big(app, ui, Icon::CommentsBubble, "Claude", "view.pane", json!({"pane": "assistant", "toggle": true}));
+    });
 }
 
 // ---------- Insert ----------

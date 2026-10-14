@@ -213,6 +213,8 @@ fn main() -> eframe::Result {
                 let rx = control_server::start(port, cc.egui_ctx.clone());
                 app = app.with_control(rx);
             }
+            // The Claude pane opens a channel of its own when first asked: a free port, its token.
+            app = app.with_assistant_control(Box::new(|ctx, token| control_server::start_with(0, ctx.clone(), Some(token.to_string()))));
             if sample && let Err(e) = deckcraft_engine::sample::open_sample(&mut app.session) {
                 log::error!("sample: {e}");
             }

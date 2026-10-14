@@ -27,6 +27,7 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
                 "selection" => "Selection",
                 "comments" => "Comments",
                 "designer" => "Design Ideas",
+                "assistant" => "Claude",
                 _ => "Pane",
             };
             ui.horizontal(|ui| {
@@ -43,6 +44,11 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
                 });
             });
             ui.add_space(6.0);
+            // The conversation scrolls by itself above its input box.
+            if pane == "assistant" {
+                crate::assistant::pane(app, ui);
+                return;
+            }
             egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| match pane.as_str() {
                 "format" => format_shape(app, ui),
                 "background" => background(app, ui),
