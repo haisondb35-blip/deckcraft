@@ -384,6 +384,11 @@ pub fn ui(app: &mut SlideApp, ui: &mut Ui) {
     let srect = fit(avail, &doc);
     let ppp = ctx.pixels_per_point();
     let size = ((srect.width() * ppp).round().max(1.0) as u32, (srect.height() * ppp).round().max(1.0) as u32);
+    // On whole screen pixels, one texel to one pixel, so the linear filter doesn't soften it.
+    let srect = Rect::from_min_size(
+        pos2((srect.min.x * ppp).round() / ppp, (srect.min.y * ppp).round() / ppp),
+        egui::vec2(size.0 as f32 / ppp, size.1 as f32 / ppp),
+    );
     if show.ended {
         painter.text(
             pos2(full.center().x, full.min.y + 40.0),

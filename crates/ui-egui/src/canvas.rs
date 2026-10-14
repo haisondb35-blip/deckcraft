@@ -112,8 +112,12 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
     crate::media::gif_repaint(ui.ctx(), &gifs);
     let times: Vec<_> = gifs.iter().map(|g| (g.id, g.t)).collect();
     let st = app.session.active();
-    // One texture pixel in screen points, and the canvas in pixels from the slide's corner.
-    let pixel = vec2(slide_rect.width() / px.0 as f32, slide_rect.height() / px.1 as f32);
+    // One texture pixel in screen points, and the canvas in pixels from the slide's corner. The
+    // texture is placed on whole screen pixels, one texel to one pixel: centring the slide puts
+    // its corner between pixels, and the linear filter then smeared the whole slide, text and
+    // pictures, over a pixel.
+    let pixel = vec2(1.0 / ppp, 1.0 / ppp);
+    let corner = pos2((slide_rect.min.x * ppp).round() / ppp, (slide_rect.min.y * ppp).round() / ppp);
     let visible = visible_region(avail, slide_rect, pixel);
     let tex = match st.map(|d| (d.selection.target, d)) {
         Some((Target::Slides, d)) => {
@@ -127,7 +131,7 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
     };
     if let Some((tex, region)) = tex {
         let at = Rect::from_min_size(
-            slide_rect.min + vec2(region.x as f32 * pixel.x, region.y as f32 * pixel.y),
+            corner + vec2(region.x as f32 * pixel.x, region.y as f32 * pixel.y),
             vec2(region.w as f32 * pixel.x, region.h as f32 * pixel.y),
         );
         app.canvas_region = Some(at);

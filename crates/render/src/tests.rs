@@ -1711,3 +1711,44 @@ fn east_asian_vertical_text_stands_ideographs_upright() {
     let (w, h) = ink(deckcraft_model::text::TextDir::Vertical);
     assert!(h > w * 3, "vert: stroke on its side {w}x{h}");
 }
+
+/// A picture cropped to its middle quarter shows that quarter as sharp as the picture is: it is
+/// decoded for the whole picture's drawn size, not the shape's (where every check of a fine
+/// checkerboard came out grey).
+#[test]
+fn a_cropped_picture_keeps_its_detail() {
+    use deckcraft_model::style::PictureFill;
+    // 400 x 400 pixels of 2-pixel black and white checks.
+    let checks =
+        image::RgbImage::from_fn(400, 400, |x, y| if (x / 2 + y / 2) % 2 == 0 { image::Rgb([0, 0, 0]) } else { image::Rgb([255, 255, 255]) });
+    let mut png = std::io::Cursor::new(Vec::new());
+    image::DynamicImage::ImageRgb8(checks).write_to(&mut png, image::ImageFormat::Png).unwrap();
+    let mut p = deck_with(vec![]);
+    let media = p.add_media("checks.png", "image/png", png.into_inner());
+    // The middle quarter (100 x 100 pixels) in a 100 x 100 pt shape, drawn at 1 px per pt.
+    let fill = PictureFill { media, crop: [0.375, 0.375, 0.375, 0.375], ..Default::default() };
+    let sh = Shape { id: ShapeId(601), xfrm: Some(Xfrm::new(100.0, 100.0, 100.0, 100.0)), kind: ShapeKind::Picture { fill }, ..Default::default() };
+    std::sync::Arc::make_mut(&mut p.slides[0]).shapes = vec![sh];
+    let img = render_slide(&p, 0, &RenderOpts { scale: 1.0, ..Default::default() });
+    let (mut crisp, mut all) = (0, 0);
+    for y in 110..190 {
+        for x in 110..190 {
+            let v = img.pixel(x, y)[0];
+            all += 1;
+            if !(40..=215).contains(&v) {
+                crisp += 1;
+            }
+        }
+    }
+    assert!(crisp * 10 >= all * 8, "{crisp} of {all} pixels are black or white");
+}
+
+#[test]
+fn pictures_are_decoded_for_their_drawn_size_on_both_axes() {
+    let r = |w, h| kurbo::Rect::new(0.0, 0.0, w, h);
+    assert_eq!(crate::paint::wanted_side(r(400.0, 400.0), 1.0, Some((1000, 1000))), 400.0);
+    // A 1000 x 100 picture squeezed into 200 x 200 pt needs 200 px down its 100: 2000 across.
+    assert_eq!(crate::paint::wanted_side(r(200.0, 200.0), 1.0, Some((1000, 100))), 2000.0);
+    assert_eq!(crate::paint::wanted_side(r(300.0, 100.0), 2.0, None), 600.0);
+    assert_eq!(crate::paint::wanted_side(r(f64::NAN, 1.0), 1.0, None), 1.0);
+}

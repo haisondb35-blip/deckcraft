@@ -188,16 +188,6 @@ pub fn picture(ctx: &mut RenderContext, pres: &Presentation, pf: &PictureFill, b
         return;
     };
     let px_scale = crate::scale_of(m);
-    let want = (bounds.width().max(bounds.height()) * px_scale).max(1.0);
-    let frame = gif_time.and_then(|t| images::gif_pixmap(&item.data, &pf.adjust, t));
-    let Some(pm) = frame.or_else(|| images::decode_for(&item.data, want, &pf.adjust)) else {
-        missing(ctx, bounds);
-        return;
-    };
-    let (iw, ih) = (pm.width() as f64, pm.height() as f64);
-    if iw < 1.0 || ih < 1.0 {
-        return;
-    }
     let dest = match &pf.mode {
         PictureMode::Stretch { fill_rect } => {
             let [l, t, r, b] = *fill_rect;
@@ -211,6 +201,22 @@ pub fn picture(ctx: &mut RenderContext, pres: &Presentation, pf: &PictureFill, b
         }
         PictureMode::Tile { .. } => bounds,
     };
+    // The whole picture is drawn over `dest` (a cropped picture's visible part is a fraction of
+    // it), so it is decoded for that size, not the shape's: decoding a picture cropped to a
+    // quarter at the shape's size blurred what showed four times over.
+    let want = match &pf.mode {
+        PictureMode::Stretch { .. } => wanted_side(dest, px_scale, images::pixel_size(&item.data)),
+        PictureMode::Tile { .. } => (bounds.width().max(bounds.height()) * px_scale).max(1.0),
+    };
+    let frame = gif_time.and_then(|t| images::gif_pixmap(&item.data, &pf.adjust, t));
+    let Some(pm) = frame.or_else(|| images::decode_for(&item.data, want, &pf.adjust)) else {
+        missing(ctx, bounds);
+        return;
+    };
+    let (iw, ih) = (pm.width() as f64, pm.height() as f64);
+    if iw < 1.0 || ih < 1.0 {
+        return;
+    }
     let alpha = pf.alpha.unwrap_or(1.0).clamp(0.0, 1.0);
     let image = vello_cpu::Image {
         image: vello_cpu::ImageSource::Pixmap(pm.clone()),
@@ -256,6 +262,22 @@ pub fn picture(ctx: &mut RenderContext, pres: &Presentation, pf: &PictureFill, b
         return;
     }
     draw_image(ctx, &image, iw, ih, dest, m, alpha);
+}
+
+/// The longer side, in pixels, to decode a picture of `size` pixels (its own; unknown for a
+/// metafile) at so that drawn over `dest` (points) at `px_scale` pixels per point no output
+/// pixel is stretched from a coarser one, on either axis: a picture squeezed in one direction
+/// still needs its full detail in the other. Without the picture's size, `dest`'s longer side.
+pub fn wanted_side(dest: Rect, px_scale: f64, size: Option<(u32, u32)>) -> f64 {
+    let (dw, dh) = (dest.width().abs() * px_scale, dest.height().abs() * px_scale);
+    let side = match size {
+        Some((w, h)) if w > 0 && h > 0 => {
+            let (w, h) = (w as f64, h as f64);
+            (dw / w).max(dh / h) * w.max(h)
+        }
+        _ => dw.max(dh),
+    };
+    if side.is_finite() { side.max(1.0) } else { 1.0 }
 }
 
 /// Where the first tile of a tiled picture fill goes in `bounds`: its corner, edge middle or
