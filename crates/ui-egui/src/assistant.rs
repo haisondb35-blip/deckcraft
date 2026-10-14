@@ -50,10 +50,12 @@ pub struct Running {
 pub enum Event {
     /// The conversation's id (to continue it).
     Session(String),
-    /// Text of the reply.
+    /// What Claude says while it works ("Let me look at the slide…").
     Text(String),
-    /// A tool it is using (without the `mcp__deckcraft__` prefix).
+    /// A tool it is using, in words ("Added a slide", "Ran slide.new").
     Step(String),
+    /// The reply, once it has finished.
+    Answer(String),
     /// Finished, with the error if it failed.
     Done(Option<String>),
 }
@@ -61,8 +63,10 @@ pub enum Event {
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Role {
     User,
+    /// The reply (Markdown).
     Claude,
-    Step,
+    /// What Claude did on the way, one line each, folded under the reply.
+    Work,
     Error,
 }
 
@@ -78,10 +82,12 @@ const MAX_MESSAGES: usize = 400;
 const MAX_LINE: u64 = 16 << 20;
 
 /// Appended to Claude Code's system prompt.
-pub const SYSTEM_PROMPT: &str = "You are the assistant inside DeckCraft, a presentation editor compatible with PowerPoint. \
+pub const SYSTEM_PROMPT: &str = "You are the assistant inside DeckCraft, a presentation editor compatible with PowerPoint, shown in a narrow side pane. \
 The presentation the user has open is in the running app: work on it only through the deckcraft tools, which act on exactly what the user sees \
 (every change can be undone with Ctrl+Z). Look before you change: inspect the document or slide, and render a slide to check your result. \
-Prefer the app's commands (list_commands, run_command) over pointer input. Reply in the user's language, briefly, and say what you changed.";
+Prefer the app's commands (list_commands, run_command) over pointer input. \
+Reply in the language the user writes in. Work silently: don't narrate your steps. Your final reply is read in the narrow pane, so keep it short: \
+one or two plain sentences, then at most five short bullet points saying what you changed or found. No headings, tables or code unless asked.";
 
 /// Claude Code's own tools the pane refuses: Claude works on the presentation, not the computer.
 pub const REFUSED_TOOLS: &[&str] =
@@ -93,6 +99,8 @@ pub struct Assistant {
     /// The conversation being continued.
     pub session: Option<String>,
     running: Option<Running>,
+    /// What Claude last said on the way, shown as the reply if it finishes without one.
+    last_note: Option<String>,
     /// The pane's control channel: requests from the Claude it started.
     pub control_rx: Option<Receiver<ControlRequest>>,
     port: Option<u16>,
@@ -111,6 +119,7 @@ impl Default for Assistant {
             input: String::new(),
             session: None,
             running: None,
+            last_note: None,
             control_rx: None,
             port: None,
             token: random_token(),
@@ -206,6 +215,7 @@ impl Assistant {
             return;
         }
         self.input.clear();
+        self.last_note = None;
         self.push(Role::User, prompt.clone());
         let launched = self
             .prepare(ctx)
@@ -213,6 +223,17 @@ impl Assistant {
         match launched {
             Ok(r) => self.running = Some(r),
             Err(e) => self.push(Role::Error, e),
+        }
+    }
+
+    /// Add a line to this answer's work (one folded entry under the question).
+    fn work(&mut self, line: String) {
+        match self.messages.last_mut() {
+            Some(m) if m.role == Role::Work => {
+                m.text.push('\n');
+                m.text.push_str(&line);
+            }
+            _ => self.push(Role::Work, line),
         }
     }
 
@@ -235,17 +256,26 @@ impl Assistant {
         for e in events {
             match e {
                 Event::Session(id) => self.session = Some(id),
-                Event::Text(t) => match self.messages.last_mut() {
-                    Some(m) if m.role == Role::Claude => {
-                        m.text.push_str("\n\n");
-                        m.text.push_str(&t);
-                    }
-                    _ => self.push(Role::Claude, t),
-                },
-                Event::Step(s) => self.push(Role::Step, s),
+                Event::Text(t) => {
+                    let first = t.lines().map(str::trim).find(|l| !l.is_empty()).unwrap_or_default();
+                    let short: String = first.chars().take(140).collect();
+                    self.work(format!("“{short}”"));
+                    self.last_note = Some(t);
+                }
+                Event::Step(s) => self.work(s),
+                Event::Answer(a) => {
+                    self.last_note = None;
+                    self.push(Role::Claude, a);
+                }
                 Event::Done(err) => {
-                    if let Some(e) = err {
-                        self.push(Role::Error, e);
+                    match err {
+                        Some(e) => self.push(Role::Error, e),
+                        // Finished without a reply of its own: what it said last is the reply.
+                        None => {
+                            if let Some(n) = self.last_note.take() {
+                                self.push(Role::Claude, n);
+                            }
+                        }
                     }
                     done = true;
                 }
@@ -326,7 +356,7 @@ pub fn parse_line(line: &str) -> Vec<Event> {
                     .iter()
                     .filter_map(|p| match p.get("type").and_then(Value::as_str) {
                         Some("text") => s(p, "text").filter(|t| !t.trim().is_empty()).map(|t| Event::Text(t.trim().to_string())),
-                        Some("tool_use") => s(p, "name").map(|n| Event::Step(n.trim_start_matches("mcp__deckcraft__").to_string())),
+                        Some("tool_use") => s(p, "name").map(|n| Event::Step(describe(&n, p.get("input").unwrap_or(&Value::Null)))),
                         _ => None,
                     })
                     .collect()
@@ -335,11 +365,234 @@ pub fn parse_line(line: &str) -> Vec<Event> {
         Some("result") => {
             let mut out: Vec<Event> = s(&v, "session_id").map(Event::Session).into_iter().collect();
             let failed = v.get("is_error").and_then(Value::as_bool).unwrap_or(false);
-            let why = s(&v, "result").or_else(|| s(&v, "subtype")).unwrap_or_else(|| "Claude couldn't finish".into());
-            out.push(Event::Done(failed.then_some(why)));
+            let text = s(&v, "result").map(|r| r.trim().to_string()).filter(|r| !r.is_empty());
+            if failed {
+                out.push(Event::Done(Some(text.or_else(|| s(&v, "subtype")).unwrap_or_else(|| "Claude couldn't finish".into()))));
+            } else {
+                out.extend(text.map(Event::Answer));
+                out.push(Event::Done(None));
+            }
             out
         }
         _ => Vec::new(),
+    }
+}
+
+/// A tool call in words, for the folded list of what Claude did.
+pub fn describe(tool: &str, input: &Value) -> String {
+    let name = tool.trim_start_matches("mcp__deckcraft__");
+    let slide = input.get("slide").or_else(|| input.get("index")).and_then(Value::as_u64).map(|n| n + 1);
+    match name {
+        "inspect_document" => "Read the presentation".into(),
+        "inspect_slide" => slide.map_or_else(|| "Looked at a slide".into(), |n| format!("Looked at slide {n}")),
+        "render_slide" => slide.map_or_else(|| "Checked how a slide looks".into(), |n| format!("Checked how slide {n} looks")),
+        "list_commands" => "Looked up the commands".into(),
+        "run_command" => input.get("command").and_then(Value::as_str).map_or_else(|| "Ran a command".into(), |c| format!("Ran {c}")),
+        "batch" => match input.get("commands").and_then(Value::as_array).map(Vec::len) {
+            Some(n) => format!("Ran {n} commands"),
+            None => "Ran several commands".into(),
+        },
+        "add_slide" => "Added a slide".into(),
+        "go_to_slide" => slide.map_or_else(|| "Went to a slide".into(), |n| format!("Went to slide {n}")),
+        "add_shape" => "Added a shape".into(),
+        "add_text_box" => "Added a text box".into(),
+        "set_text" => "Changed text".into(),
+        "insert_picture" => "Inserted a picture".into(),
+        "insert_table" => "Inserted a table".into(),
+        "insert_chart" => "Inserted a chart".into(),
+        "new_presentation" => "Started a new presentation".into(),
+        "open_presentation" => "Opened a presentation".into(),
+        "save_presentation" => "Saved the presentation".into(),
+        "export" => "Exported".into(),
+        "screenshot" => "Looked at the window".into(),
+        "select" => "Selected".into(),
+        "select_tool" => "Picked a tool".into(),
+        "pointer" => "Used the pointer".into(),
+        "key" => "Pressed a key".into(),
+        "type_text" => "Typed text".into(),
+        "call_app" => "Asked the app".into(),
+        other => {
+            let words = other.replace('_', " ");
+            let mut c = words.chars();
+            c.next().map_or_else(String::new, |f| f.to_uppercase().chain(c).collect())
+        }
+    }
+}
+
+/// A run of inline Markdown: its text and how it is set.
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct Span {
+    pub text: String,
+    pub bold: bool,
+    pub italic: bool,
+    pub code: bool,
+}
+
+/// Inline Markdown (`**bold**`, `*italic*` or `_italic_`, `` `code` ``) as spans; anything else,
+/// unmatched markers included, is plain text.
+pub fn spans(line: &str) -> Vec<Span> {
+    let chars: Vec<char> = line.chars().collect();
+    let mut out: Vec<Span> = Vec::new();
+    let (mut bold, mut italic) = (false, false);
+    let mut cur = String::new();
+    let flush = |out: &mut Vec<Span>, cur: &mut String, bold: bool, italic: bool, code: bool| {
+        if !cur.is_empty() {
+            out.push(Span { text: std::mem::take(cur), bold, italic, code });
+        }
+    };
+    let closes = |from: usize, pat: &[char]| -> bool { (from..chars.len()).any(|j| chars.get(j..j + pat.len()).is_some_and(|w| w == pat)) };
+    let mut i = 0;
+    while let Some(&c) = chars.get(i) {
+        if c == '`' && closes(i + 1, &['`']) {
+            flush(&mut out, &mut cur, bold, italic, false);
+            let end = (i + 1..chars.len()).find(|&j| chars.get(j) == Some(&'`')).unwrap_or(chars.len());
+            let code: String = chars.get(i + 1..end).map(|c| c.iter().collect()).unwrap_or_default();
+            out.push(Span { text: code, bold, italic, code: true });
+            i = end + 1;
+            continue;
+        }
+        if c == '*' && chars.get(i + 1) == Some(&'*') && (bold || closes(i + 2, &['*', '*'])) {
+            flush(&mut out, &mut cur, bold, italic, false);
+            bold = !bold;
+            i += 2;
+            continue;
+        }
+        let word_edge = |j: usize| j == 0 || chars.get(j - 1).is_none_or(|p| !p.is_alphanumeric());
+        // An opening marker has text right after it and a closing one later; a closing marker
+        // has text right before it.
+        let opens = !italic && closes(i + 1, &[c]) && chars.get(i + 1).is_some_and(|n| !n.is_whitespace() && *n != c);
+        let shuts = italic && i > 0 && chars.get(i - 1).is_some_and(|p| !p.is_whitespace());
+        if (c == '*' || (c == '_' && (italic || word_edge(i)))) && (opens || shuts) {
+            flush(&mut out, &mut cur, bold, italic, false);
+            italic = !italic;
+            i += 1;
+            continue;
+        }
+        cur.push(c);
+        i += 1;
+    }
+    flush(&mut out, &mut cur, bold, italic, false);
+    out
+}
+
+/// One line of the reply, as Markdown blocks go.
+#[derive(Clone, Debug, PartialEq)]
+pub enum Block {
+    Heading(String),
+    /// A list item: its marker ("•" or "3."), its nesting depth and its text.
+    Item(String, usize, String),
+    Quote(String),
+    Code(String),
+    Rule,
+    Blank,
+    Text(String),
+}
+
+/// The reply's Markdown, line by line (fenced code kept as it is).
+pub fn blocks(text: &str) -> Vec<Block> {
+    let mut out = Vec::new();
+    let mut code: Option<Vec<String>> = None;
+    for raw in text.lines() {
+        let line = raw.trim_end();
+        if line.trim_start().starts_with("```") {
+            match code.take() {
+                Some(lines) => out.push(Block::Code(lines.join("\n"))),
+                None => code = Some(Vec::new()),
+            }
+            continue;
+        }
+        if let Some(lines) = code.as_mut() {
+            lines.push(line.to_string());
+            continue;
+        }
+        let trimmed = line.trim_start();
+        let depth = (line.len() - trimmed.len()) / 2;
+        let hashes = trimmed.chars().take_while(|c| *c == '#').count();
+        if (1..=6).contains(&hashes) && trimmed.chars().nth(hashes) == Some(' ') {
+            out.push(Block::Heading(trimmed.get(hashes + 1..).unwrap_or_default().trim().to_string()));
+        } else if trimmed.is_empty() {
+            out.push(Block::Blank);
+        } else if matches!(trimmed, "---" | "***" | "___") {
+            out.push(Block::Rule);
+        } else if let Some(rest) = trimmed.strip_prefix("- ").or_else(|| trimmed.strip_prefix("* ")).or_else(|| trimmed.strip_prefix("+ ")) {
+            out.push(Block::Item("•".into(), depth, rest.to_string()));
+        } else if let Some(rest) = trimmed.strip_prefix("> ") {
+            out.push(Block::Quote(rest.to_string()));
+        } else {
+            let digits = trimmed.chars().take_while(char::is_ascii_digit).count();
+            let after = trimmed.get(digits..).unwrap_or_default();
+            match (digits, after.strip_prefix(". ").or_else(|| after.strip_prefix(") "))) {
+                (1..=3, Some(rest)) => out.push(Block::Item(format!("{}.", trimmed.get(..digits).unwrap_or_default()), depth, rest.to_string())),
+                _ => out.push(Block::Text(trimmed.to_string())),
+            }
+        }
+    }
+    if let Some(lines) = code {
+        out.push(Block::Code(lines.join("\n")));
+    }
+    out
+}
+
+/// Draw inline Markdown wrapped to the pane.
+fn rich(ui: &mut egui::Ui, text: &str, size: f32, color: egui::Color32, all_bold: bool) {
+    let t = crate::theme::Tokens::get(ui.ctx());
+    let mut job = egui::text::LayoutJob::default();
+    job.wrap.max_width = ui.available_width();
+    for sp in spans(text) {
+        let font = if sp.code {
+            egui::FontId::monospace(size - 1.0)
+        } else if sp.bold || all_bold {
+            crate::theme::bold(size)
+        } else {
+            crate::theme::font(size)
+        };
+        let format = egui::TextFormat {
+            font_id: font,
+            color,
+            italics: sp.italic,
+            background: if sp.code { t.hover } else { egui::Color32::TRANSPARENT },
+            ..Default::default()
+        };
+        job.append(&sp.text, 0.0, format);
+    }
+    ui.add(egui::Label::new(job).wrap());
+}
+
+/// Draw a reply's Markdown: headings, lists, quotes, code, bold and italic.
+pub fn markdown(ui: &mut egui::Ui, text: &str) {
+    let t = crate::theme::Tokens::get(ui.ctx());
+    let size = 13.5;
+    for b in blocks(text) {
+        match b {
+            Block::Heading(h) => {
+                ui.add_space(4.0);
+                rich(ui, &h, size + 1.0, t.text, true);
+            }
+            Block::Item(marker, depth, rest) => {
+                ui.horizontal_top(|ui| {
+                    ui.add_space(4.0 + 14.0 * depth as f32);
+                    ui.label(egui::RichText::new(marker).font(crate::theme::font(size)).color(t.text_dim));
+                    ui.vertical(|ui| rich(ui, &rest, size, t.text, false));
+                });
+            }
+            Block::Quote(q) => {
+                ui.horizontal_top(|ui| {
+                    ui.add_space(6.0);
+                    ui.vertical(|ui| rich(ui, &q, size, t.text_dim, false));
+                });
+            }
+            Block::Code(c) => {
+                egui::Frame::new().fill(t.hover).corner_radius(egui::CornerRadius::same(4)).inner_margin(egui::Margin::same(6)).show(ui, |ui| {
+                    ui.set_width(ui.available_width());
+                    ui.label(egui::RichText::new(c).monospace().size(size - 1.0).color(t.text));
+                });
+            }
+            Block::Rule => {
+                ui.separator();
+            }
+            Block::Blank => ui.add_space(4.0),
+            Block::Text(p) => rich(ui, &p, size, t.text, false),
+        }
     }
 }
 
@@ -439,7 +692,7 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
         if a.messages.is_empty() {
             ui.label(egui::RichText::new("Ask Claude to build or change slides, rewrite text, or check the presentation. Changes appear here as Claude makes them and can be undone.").color(t.text_dim));
         }
-        for m in &a.messages {
+        for (i, m) in a.messages.iter().enumerate() {
             match m.role {
                 Role::User => {
                     egui::Frame::new().fill(t.hover).corner_radius(egui::CornerRadius::same(8)).inner_margin(egui::Margin::same(8)).show(ui, |ui| {
@@ -447,11 +700,16 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
                         ui.label(&m.text);
                     });
                 }
-                Role::Claude => {
-                    ui.label(&m.text);
-                }
-                Role::Step => {
-                    ui.label(egui::RichText::new(format!("· {}", m.text)).small().color(t.text_dim));
+                Role::Claude => markdown(ui, &m.text),
+                Role::Work => {
+                    // What Claude did, folded to one line ("5 steps"); open it to see them.
+                    let n = m.text.lines().count();
+                    let title = if n == 1 { "1 step".to_string() } else { format!("{n} steps") };
+                    egui::CollapsingHeader::new(egui::RichText::new(title).small().color(t.text_dim)).id_salt(("assistant_work", i)).show(ui, |ui| {
+                        for l in m.text.lines() {
+                            ui.label(egui::RichText::new(format!("· {l}")).small().color(t.text_dim));
+                        }
+                    });
                 }
                 Role::Error => {
                     ui.label(egui::RichText::new(&m.text).color(egui::Color32::from_rgb(196, 43, 28)));
@@ -503,10 +761,10 @@ mod tests {
     fn stream_json_lines_become_events() {
         assert_eq!(parse_line(r#"{"type":"system","subtype":"init","session_id":"abc","tools":[]}"#), vec![Event::Session("abc".into())]);
         let a = r#"{"type":"assistant","message":{"content":[{"type":"text","text":" Đã thêm slide. "},{"type":"tool_use","name":"mcp__deckcraft__add_slide","input":{}}]}}"#;
-        assert_eq!(parse_line(a), vec![Event::Text("Đã thêm slide.".into()), Event::Step("add_slide".into())]);
+        assert_eq!(parse_line(a), vec![Event::Text("Đã thêm slide.".into()), Event::Step("Added a slide".into())]);
         assert_eq!(
-            parse_line(r#"{"type":"result","subtype":"success","is_error":false,"result":"ok","session_id":"abc"}"#),
-            vec![Event::Session("abc".into()), Event::Done(None)]
+            parse_line(r#"{"type":"result","subtype":"success","is_error":false,"result":" Xong. ","session_id":"abc"}"#),
+            vec![Event::Session("abc".into()), Event::Answer("Xong.".into()), Event::Done(None)]
         );
         assert_eq!(parse_line(r#"{"type":"result","subtype":"error_max_turns","is_error":true}"#), vec![Event::Done(Some("error_max_turns".into()))]);
         for junk in ["", "not json", "{}", r#"{"type":"user"}"#, r#"{"type":"assistant","message":{}}"#, "[1,2]"] {
@@ -555,8 +813,13 @@ mod tests {
                 a.push((l.prompt.clone(), l.session.clone(), config));
             }
             let (tx, rx) = channel();
-            for e in [Event::Session("s1".into()), Event::Step("add_slide".into()), Event::Text("Đã thêm slide tiêu đề.".into()), Event::Done(None)]
-            {
+            for e in [
+                Event::Session("s1".into()),
+                Event::Text("Để tôi xem slide.".into()),
+                Event::Step("Added a slide".into()),
+                Event::Answer("Đã thêm slide tiêu đề.".into()),
+                Event::Done(None),
+            ] {
                 let _ = tx.send(e);
             }
             Ok(Running { events: rx, stop: Box::new(|| {}) })
@@ -566,7 +829,8 @@ mod tests {
         app.assistant.send(&ctx);
         app.assistant.poll(&ctx);
         let roles: Vec<Role> = app.assistant.messages.iter().map(|m| m.role).collect();
-        assert_eq!(roles, vec![Role::User, Role::Step, Role::Claude]);
+        assert_eq!(roles, vec![Role::User, Role::Work, Role::Claude]);
+        assert_eq!(app.assistant.messages[1].text.lines().count(), 2, "the note and the step fold into one entry");
         assert_eq!(app.assistant.messages[2].text, "Đã thêm slide tiêu đề.");
         assert!(!app.assistant.busy() && app.assistant.input.is_empty());
         assert!(app.assistant.control_rx.is_some(), "the pane's channel is open");
@@ -591,6 +855,47 @@ mod tests {
         a.send(&egui::Context::default());
         assert_eq!(a.messages.last().map(|m| m.role), Some(Role::Error));
         assert!(!a.busy());
+    }
+
+    #[test]
+    fn tool_calls_read_as_words() {
+        assert_eq!(describe("mcp__deckcraft__run_command", &json!({"command": "slide.new"})), "Ran slide.new");
+        assert_eq!(describe("mcp__deckcraft__render_slide", &json!({"slide": 2})), "Checked how slide 3 looks");
+        assert_eq!(describe("mcp__deckcraft__batch", &json!({"commands": [1, 2, 3]})), "Ran 3 commands");
+        assert_eq!(describe("mcp__deckcraft__set_layout_name", &Value::Null), "Set layout name");
+    }
+
+    #[test]
+    fn replies_are_read_as_markdown() {
+        let b = |t: &str, bold: bool, italic: bool, code: bool| Span { text: t.into(), bold, italic, code };
+        assert_eq!(
+            spans("Đã **thêm** slide `slide.new` và *sửa* tiêu đề"),
+            vec![
+                b("Đã ", false, false, false),
+                b("thêm", true, false, false),
+                b(" slide ", false, false, false),
+                b("slide.new", false, false, true),
+                b(" và ", false, false, false),
+                b("sửa", false, true, false),
+                b(" tiêu đề", false, false, false),
+            ]
+        );
+        // Unmatched markers and snake_case stay as they are.
+        assert_eq!(spans("2 * 3 = 6, a_b_c, **x"), vec![b("2 * 3 = 6, a_b_c, **x", false, false, false)]);
+        assert_eq!(
+            blocks("## Kết quả\n\n- Slide 1\n  - Tiêu đề\n2. Hai\n> ghi chú\n---\n```\ncode\n```\nXong."),
+            vec![
+                Block::Heading("Kết quả".into()),
+                Block::Blank,
+                Block::Item("•".into(), 0, "Slide 1".into()),
+                Block::Item("•".into(), 1, "Tiêu đề".into()),
+                Block::Item("2.".into(), 0, "Hai".into()),
+                Block::Quote("ghi chú".into()),
+                Block::Rule,
+                Block::Code("code".into()),
+                Block::Text("Xong.".into()),
+            ]
+        );
     }
 
     #[test]
