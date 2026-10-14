@@ -122,7 +122,7 @@ impl Default for Assistant {
             last_note: None,
             control_rx: None,
             port: None,
-            token: random_token(),
+            token: String::new(),
             starter: None,
             launcher: Arc::new(launch_claude),
             cli: None,
@@ -140,7 +140,10 @@ impl Drop for Assistant {
     }
 }
 
-/// 128 random bits as hex, from the standard library's randomly keyed hasher.
+/// 128 random bits as hex, from the standard library's randomly keyed hasher. Made when the
+/// first question is sent, in the desktop app only (the web build has no clock to read and runs
+/// no Claude Code).
+#[allow(clippy::disallowed_methods)]
 fn random_token() -> String {
     use std::hash::{BuildHasher, Hasher};
     let nanos = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_nanos());
@@ -186,6 +189,9 @@ impl Assistant {
     /// starting the pane's control channel the first time.
     fn prepare(&mut self, ctx: &egui::Context) -> Result<(PathBuf, PathBuf), String> {
         if self.port.is_none() {
+            if self.token.is_empty() {
+                self.token = random_token();
+            }
             let starter = self.starter.as_ref().ok_or("the Claude pane needs the DeckCraft desktop app")?;
             let (port, rx) = starter(ctx, &self.token).ok_or("couldn't open a control channel for Claude")?;
             self.port = Some(port);
