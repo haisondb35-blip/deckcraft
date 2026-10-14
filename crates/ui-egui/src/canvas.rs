@@ -528,6 +528,17 @@ fn overlays(app: &mut SlideApp, ui: &Ui, painter: &egui::Painter, xf: Xf, t: &To
         let a = x.affine();
         let pts = [Point::new(x0, y0), Point::new(x0 + w, y0), Point::new(x0 + w, y0 + h), Point::new(x0, y0 + h)].map(|q| xf.to_screen(a * q));
         poly(painter, pts, Stroke::new(2.0, t.accent));
+        // The composition is in the cell text; underline it where that text is drawn (#101).
+        for (a, b, thick) in deckcraft_engine::cmd::text::composition_underlines(st) {
+            painter.line_segment([xf.to_screen(a), xf.to_screen(b)], Stroke::new(if thick { 2.0 } else { 1.0 }, t.caret));
+        }
+        if !ts.is_range() {
+            let blink = (ui.input(|i| i.time) * 1.6).fract() < 0.6;
+            ui.ctx().request_repaint_after(std::time::Duration::from_millis(300));
+            if blink && let Some((top, bot)) = deckcraft_engine::cmd::text::caret_line(st, ts) {
+                painter.line_segment([xf.to_screen(top), xf.to_screen(bot)], Stroke::new(1.5, t.caret));
+            }
+        }
     }
     // Smart guides, marquee, previews.
     for g in &app.session.tool.guides {

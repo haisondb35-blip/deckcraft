@@ -177,11 +177,17 @@ pub fn layout_for(st: &DocState, t: &TextSel) -> Option<deckcraft_text::TextLayo
 
 /// The insertion point on the slide: its line from top to bottom, in slide coordinates (flips and
 /// vertical text as drawn). Text with no paragraph yet (a placeholder about to be typed in) is
-/// measured as one empty paragraph, so the caret shows where typing begins. `None` for notes and
-/// table cells, which aren't laid out on the slide here.
+/// measured as one empty paragraph, so the caret shows where typing begins. `None` for notes,
+/// which are an egui text field.
 pub fn caret_line(st: &DocState, t: &TextSel) -> Option<(deckcraft_geom::Point, deckcraft_geom::Point)> {
-    if t.notes || t.cell.is_some() {
+    if t.notes {
         return None;
+    }
+    if let Some((row, col)) = t.cell {
+        let placed = cell_on_slide(st, t.shape, row, col)?;
+        let aff = if t.at_line_end() { deckcraft_text::Affinity::Upstream } else { deckcraft_text::Affinity::Downstream };
+        let (cx, top, bot) = placed.layout.caret_drawn(deckcraft_text::Pos { para: t.caret.0, ch: t.caret.1 }, aff)?;
+        return Some((placed.to_slide * deckcraft_geom::Point::new(cx, top), placed.to_slide * deckcraft_geom::Point::new(cx, bot)));
     }
     let sh = st.shape(t.shape)?;
     let ctx = ctx_for(&st.doc, &st.selection)?;
@@ -483,20 +489,35 @@ fn commit(s: &mut Session, p: &Value) -> Result<Value> {
 }
 
 /// Underlines under an input method's composition (#101), in slide coordinates: `(from, to,
-/// thick)` per line, thick under the part being converted. Empty without a composition or when
-/// the edited text isn't laid out on the slide (notes, table cells).
+/// thick)` per line, thick under the part being converted. Empty without a composition, or for
+/// notes (an egui text field draws its own composition).
 pub fn composition_underlines(st: &DocState) -> Vec<(deckcraft_geom::Point, deckcraft_geom::Point, bool)> {
     let (Some(c), Some(t)) = (&st.composition, &st.selection.text) else { return vec![] };
+    if t.notes {
+        return vec![];
+    }
+    if let Some((row, col)) = t.cell {
+        let Some(placed) = cell_on_slide(st, t.shape, row, col) else { return vec![] };
+        return underline_segments(&placed.layout, placed.to_slide, c);
+    }
     let Some(sh) = st.shape(t.shape) else { return vec![] };
     let Some(l) = layout_for(st, t) else { return vec![] };
     let x = xfrm_of(&st.doc, &st.selection, sh);
     let tr = deckcraft_render::shape_geometry(sh, x.w, x.h).text_rect;
     let m = deckcraft_render::text_transform(x.affine(), tr, l.rotation);
+    underline_segments(&l, m, c)
+}
+
+fn underline_segments(
+    layout: &deckcraft_text::TextLayout,
+    to_slide: deckcraft_geom::Affine,
+    c: &crate::Composition,
+) -> Vec<(deckcraft_geom::Point, deckcraft_geom::Point, bool)> {
     let pos = |ch: usize| deckcraft_text::Pos { para: c.start.0, ch: c.start.1 + ch };
     let mut out = vec![];
     let mut add = |a: usize, b: usize, thick: bool| {
-        for (x0, x1, y) in l.composition_underlines(pos(a), pos(b)) {
-            out.push((m * deckcraft_geom::Point::new(x0, y), m * deckcraft_geom::Point::new(x1, y), thick));
+        for (x0, x1, y) in layout.composition_underlines(pos(a), pos(b)) {
+            out.push((to_slide * deckcraft_geom::Point::new(x0, y), to_slide * deckcraft_geom::Point::new(x1, y), thick));
         }
     };
     add(0, c.len, false);
@@ -504,6 +525,35 @@ pub fn composition_underlines(st: &DocState) -> Vec<(deckcraft_geom::Point, deck
         add(a, b.min(c.len), true);
     }
     out
+}
+
+/// A table cell's text laid out the way it is drawn, mapped into slide coordinates.
+fn cell_on_slide(st: &DocState, id: ShapeId, row: usize, col: usize) -> Option<CellText> {
+    let sh = st.shape(id)?;
+    let ShapeKind::Table(tb) = &sh.kind else { return None };
+    let cell = tb.cell(row, col)?;
+    let ctx = ctx_for(&st.doc, &st.selection)?;
+    let heights = super::table_drawn_heights(&st.doc, &st.selection, tb);
+    let rect = deckcraft_render::table_cell_rects(tb, &heights).into_iter().find(|(r, c, _)| *r == row && *c == col)?.2;
+    let mut body = deckcraft_render::table_cell_body(&ctx, tb, row, col, cell);
+    if body.paragraphs.is_empty() {
+        body.paragraphs.push(deckcraft_model::text::Paragraph::default());
+    }
+    let tmp = deckcraft_model::Shape { text: Some(body.clone()), ..Default::default() };
+    let layout = deckcraft_text::layout(
+        &ctx,
+        &tmp,
+        &body,
+        &deckcraft_text::Opts { rect, fields: &deckcraft_text::NoFields, prompt_color: None, no_shrink: false },
+    );
+    let x = xfrm_of(&st.doc, &st.selection, sh);
+    let to_slide = deckcraft_render::text_transform(x.affine(), rect, layout.rotation);
+    Some(CellText { layout, to_slide })
+}
+
+struct CellText {
+    layout: deckcraft_text::TextLayout,
+    to_slide: deckcraft_geom::Affine,
 }
 
 fn insert(s: &mut Session, p: &Value) -> Result<Value> {

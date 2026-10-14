@@ -775,6 +775,41 @@ fn ime_composition_underlines_follow_the_text() {
     assert!(cmd::text::composition_underlines(s.doc().unwrap()).is_empty());
 }
 
+/// #101: a composition in a table cell is underlined inside that cell, the same way slide text is.
+#[test]
+fn ime_composition_in_a_table_cell_is_underlined() {
+    let mut s = session();
+    let id = s.execute("insert.table", &json!({"rows": 2, "cols": 2, "rect": [80.0, 90.0, 400.0, 120.0]})).unwrap()["id"].as_u64().unwrap();
+    s.execute("text.edit", &json!({"id": id, "cell": [0, 0]})).unwrap();
+    assert!(cmd::text::composition_underlines(s.doc().unwrap()).is_empty());
+    let ts = s.doc().unwrap().selection.text.clone().unwrap();
+    assert!(cmd::text::caret_line(s.doc().unwrap(), &ts).is_some(), "the caret is in the cell");
+    s.compose_text("にほんご", Some((2, 4))).unwrap();
+    let u = cmd::text::composition_underlines(s.doc().unwrap());
+    let thin: Vec<_> = u.iter().filter(|x| !x.2).collect();
+    let thick: Vec<_> = u.iter().filter(|x| x.2).collect();
+    assert_eq!((thin.len(), thick.len()), (1, 1), "{u:?}");
+    let sh = s.doc().unwrap().shape(deckcraft_model::ShapeId(id as u32)).unwrap().clone();
+    let x = cmd::xfrm_of(&s.doc().unwrap().doc, &s.doc().unwrap().selection, &sh);
+    let deckcraft_model::ShapeKind::Table(tb) = &sh.kind else { panic!("not a table") };
+    let col = tb.cols[0];
+    let row = cmd::table_drawn_heights(&s.doc().unwrap().doc, &s.doc().unwrap().selection, tb)[0];
+    for (a, b, _) in &u {
+        assert!(b.x > a.x && (a.y - b.y).abs() < 1e-6, "a horizontal line: {a:?} {b:?}");
+        assert!(a.x >= x.x - 1.0 && b.x <= x.x + col + 1.0, "inside the first column");
+        assert!(a.y > x.y && a.y < x.y + row + 1.0, "inside the first row");
+    }
+    assert!(thick[0].0.x > thin[0].0.x && (thick[0].1.x - thin[0].1.x).abs() < 1e-6, "the converted part is the end");
+    let ts = s.doc().unwrap().selection.text.clone().unwrap();
+    let (top, bot) = cmd::text::caret_line(s.doc().unwrap(), &ts).unwrap();
+    assert!(top.x >= x.x && top.x <= x.x + col && top.y >= x.y && bot.y <= x.y + row + 1.0, "caret in the cell");
+    s.commit_text("日本語").unwrap();
+    assert!(cmd::text::composition_underlines(s.doc().unwrap()).is_empty());
+    let sh = s.doc().unwrap().shape(deckcraft_model::ShapeId(id as u32)).unwrap().clone();
+    let deckcraft_model::ShapeKind::Table(tb) = &sh.kind else { panic!("not a table") };
+    assert_eq!(tb.cell(0, 0).map(|c| c.text.text()), Some("日本語".into()));
+}
+
 /// File › Info (#76): the active presentation's name, location, counts and properties.
 #[test]
 fn file_info_reports_the_presentation() {
