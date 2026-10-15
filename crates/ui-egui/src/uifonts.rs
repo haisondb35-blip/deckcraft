@@ -14,8 +14,10 @@ use std::sync::Arc;
 
 use deckcraft_fonts::{FontDb, FontFace};
 
-/// Faces larger than this are left out (egui keeps a copy of each face it is given).
-const MAX_FACE_BYTES: usize = 48 << 20;
+/// Faces larger than this are left out (egui keeps a copy of each face it is given). Large enough
+/// for the stock macOS CJK collections the font database picks: `AppleSDGothicNeo.ttc` (about
+/// 55 MB, the only Hangul face) and `PingFang.ttc` (about 78 MB, Simplified Chinese).
+const MAX_FACE_BYTES: usize = 128 << 20;
 
 /// Faces borrowed for the interface, and the characters already looked at.
 #[derive(Default)]

@@ -18,3 +18,8 @@ kurbo = { workspace = true }
 serde = { workspace = true }
 thiserror = { workspace = true }
 log = { workspace = true }
+
+# Off the web build, krilla compresses each slide's artwork on a background thread while the next
+# slide renders (the same bytes, in parallel).
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+krilla = { workspace = true, features = ["rayon"] }
