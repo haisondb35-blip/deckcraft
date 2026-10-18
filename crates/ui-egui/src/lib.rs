@@ -2679,7 +2679,8 @@ mod tests {
         let before = harness.state().session.prefs.clone();
         let dark_before = harness.state().ui.brightness;
         let change = |harness: &mut egui_kittest::Harness<'static, SlideApp>| {
-            harness.state_mut().run("app.preferences", json!({})).unwrap();
+            // Ctrl+, opens File > Options here; the Preferences dialog is still opened by name.
+            harness.state_mut().dialog = Some(crate::dialogs::Dialog::new("preferences"));
             harness.run_steps(2);
             for label in ["Dark appearance", "Show smart guides", "Snap objects to grid"] {
                 harness
@@ -3421,7 +3422,8 @@ mod tests {
             SlideApp::new(Session::with_new(), Services::default()),
         );
         harness.run_steps(2);
-        harness.state_mut().run("app.preferences", json!({})).unwrap();
+        // Ctrl+, opens File > Options here; the Preferences dialog is still opened by name.
+        harness.state_mut().dialog = Some(crate::dialogs::Dialog::new("preferences"));
         harness.run_steps(4);
         let before = harness.state().ui.ui_scale;
         let rect =
