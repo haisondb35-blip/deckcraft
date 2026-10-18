@@ -115,6 +115,7 @@ plan above.
 
 | Date | Change | Summary |
 |---|---|---|
+| 2026-10-15 | trivial | PPTX trigger click steps survive save, including by-paragraph builds. Interactive-deck gaps remain media actions, audio triggers and click-box geometry; milestone scope and feature scores unchanged |
 | 2026-10-14 | trivial | M13 reliability: remote MCP validates IDs and envelopes, caps replies and rejects incomplete frames; #718 |
 | 2026-10-14 | minor | Community PR wave folded: one Review gate row, one Current focus item 2, one beta row each for items 9 and 10 (timeline and timer controls are in), one after-beta paragraph, one M9 and M10 row, one corpus row in the 2026-10-07 history |
 | 2026-10-13 | trivial | Beta item 3: embedded fonts are in, except MicroType Express subsets |
@@ -139,3 +140,6 @@ plan above.
 | 2026-10-14 | trivial | After beta: pen pressure scales ink width; tilt and pinch zoom remain |
 | 2026-10-10 | minor | Added the alpha gate (six core workflows): all pass, two with partial depth; stage stays alpha |
 | 2026-10-10 | major | Created: current focus, ranked beta plan with hours, milestones M0–M14 with status, the old alpha checklist as history |
+
+PDF writer consolidation preserves the current raster-artwork export and its selectable
+text layer, notes and handouts. It does not advance vector-PDF or printing parity.

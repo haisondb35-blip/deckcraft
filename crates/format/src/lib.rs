@@ -10,7 +10,7 @@ use std::io::{Cursor, Read, Write};
 use std::sync::Arc;
 
 use deckcraft_model::text::{Paragraph, TextBody};
-use deckcraft_model::{LayoutType, Presentation, defaults};
+use deckcraft_model::{LayoutType, Presentation, ShapeKind, defaults};
 
 pub const MIMETYPE: &str = "application/vnd.storyteller.deckcraft+zip";
 /// Files written before the SlideCraft → DeckCraft rename (`.slidecraft`) are still read.
@@ -418,7 +418,12 @@ pub fn outline_to_slides(p: &mut Presentation, text: &str) -> usize {
         let tabs = raw.chars().take_while(|c| *c == '\t').count();
         let spaces = raw.chars().take_while(|c| *c == ' ').count() / 2;
         let level = tabs.max(spaces);
-        let line = raw.trim().trim_start_matches(['-', '*', '•']).trim().to_string();
+        let t = raw.trim();
+        let line = match t.strip_prefix(['-', '*', '•']) {
+            Some(rest) if rest.starts_with([' ', '\t']) => rest.trim(),
+            _ => t,
+        }
+        .to_string();
         if level == 0 {
             slides.push((line, Vec::new()));
         } else if let Some((_, body)) = slides.last_mut() {
@@ -502,6 +507,13 @@ pub fn slides_to_outline(p: &Presentation) -> String {
                         out.push('\t');
                     }
                     out.push_str(&para.text().replace('\u{b}', " "));
+                    out.push('\n');
+                }
+            }
+            if let ShapeKind::Table(t) = &sh.kind {
+                for row in &t.rows {
+                    let cells: Vec<String> = row.cells.iter().map(|c| c.text.text().replace(['\u{b}', '\n'], " ")).collect();
+                    out.push_str(&cells.join("\t"));
                     out.push('\n');
                 }
             }
@@ -812,6 +824,15 @@ mod tests {
     }
 
     #[test]
+    fn outline_keeps_leading_dash_text() {
+        let mut p = defaults::blank_presentation(defaults::WIDE, Default::default(), false);
+        let n = outline_to_slides(&mut p, "-5 °C tonight\n\t--verbose flag\n\t*args and **kwargs\n- Bullets\n\t- Point\n\t• Other");
+        assert_eq!(n, 2);
+        let o = slides_to_outline(&p);
+        assert!(o.contains("-5 °C tonight\n\t--verbose flag\n\t*args and **kwargs\nBullets\n\tPoint\n\tOther"), "{o}");
+    }
+
+    #[test]
     fn markdown_headings_and_list_items() {
         assert_eq!(md_heading("# Intro"), Some("Intro"));
         assert_eq!(md_heading("   ### Deep ###  "), Some("Deep"));
@@ -829,4 +850,33 @@ mod tests {
             assert_eq!(md_list_item(not), None, "{not:?}");
         }
     }
+}
+
+/// #814: slides_to_outline includes table cell text, which it used to skip.
+#[test]
+fn outline_includes_table_text() {
+    use deckcraft_model::table::{Cell, Row, Table};
+    use deckcraft_model::{Shape, ShapeKind, Xfrm};
+    let mut p = defaults::new_presentation(None);
+    let layout = defaults::layout_of_kind(&p, LayoutType::TitleAndContent).unwrap();
+    let mut s = defaults::new_slide(&mut p, layout).expect("slide");
+    s.shapes.retain(|sh| !sh.ph_type().is_some_and(|k| k.is_title()));
+    let mut body = Shape { xfrm: Some(Xfrm::new(0.0, 0.0, 600.0, 100.0)), ..Default::default() };
+    body.text = Some(TextBody::from_text("Text box body"));
+    s.shapes.push(body);
+
+    let mut table = Table { cols: vec![200.0, 200.0], ..Default::default() };
+    for texts in [["Cell A1", "Cell B1"], ["Cell A2", "Cell B2"]] {
+        let cells: Vec<Cell> = texts.iter().map(|t| Cell { text: TextBody::from_text(t), ..Default::default() }).collect();
+        table.rows.push(Row { height: 30.0, cells });
+    }
+    let mut tbl = Shape { xfrm: Some(Xfrm::new(0.0, 100.0, 400.0, 60.0)), ..Default::default() };
+    tbl.kind = ShapeKind::Table(table);
+    s.shapes.push(tbl);
+    p.slides = vec![std::sync::Arc::new(s)];
+
+    let out = slides_to_outline(&p);
+    assert!(out.contains("Text box body"), "{out}");
+    assert!(out.contains("Cell A1\tCell B1"), "{out}");
+    assert!(out.contains("Cell A2\tCell B2"), "{out}");
 }

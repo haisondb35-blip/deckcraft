@@ -1150,19 +1150,17 @@ fn media_options(s: &mut Session, p: &Value) -> Result<Value> {
     Ok(json!({}))
 }
 
-fn shape_id(p: &Value, key: &str) -> Option<deckcraft_model::ShapeId> {
-    p.get(key).and_then(Value::as_u64).map(|v| deckcraft_model::ShapeId(v as u32))
-}
-
 fn sites(s: &mut Session, p: &Value) -> Result<Value> {
-    let id = shape_id(p, "id").ok_or_else(|| bad("shape.sites", "missing `id`"))?;
+    let id = id_param(p, "id", "shape.sites")?.ok_or_else(|| bad("shape.sites", "missing `id`"))?;
     let st = s.doc()?;
     let sh = st.shape(id).ok_or_else(|| bad("shape.sites", "no such shape"))?;
     Ok(json!(crate::connect::sites(&st.doc, &st.selection, sh).iter().map(|q| [q.x, q.y]).collect::<Vec<_>>()))
 }
 
 fn connect(s: &mut Session, p: &Value) -> Result<Value> {
-    let (Some(from), Some(to)) = (shape_id(p, "from"), shape_id(p, "to")) else { return Err(bad("shape.connect", "missing `from` / `to`")) };
+    let (Some(from), Some(to)) = (id_param(p, "from", "shape.connect")?, id_param(p, "to", "shape.connect")?) else {
+        return Err(bad("shape.connect", "missing `from` / `to`"));
+    };
     let st = s.doc()?;
     let site_list = |id| st.shape(id).map(|sh| crate::connect::sites(&st.doc, &st.selection, sh)).unwrap_or_default();
     let (a, b) = (site_list(from), site_list(to));
@@ -1186,7 +1184,7 @@ fn connect(s: &mut Session, p: &Value) -> Result<Value> {
         }
     };
     let (p0, p1) = (a[ia], b[ib]);
-    let id = match shape_id(p, "id") {
+    let id = match id_param(p, "id", "shape.connect")? {
         Some(id) => id,
         None => {
             let preset = str_param(p, "preset").unwrap_or("straightConnector1");

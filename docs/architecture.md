@@ -19,7 +19,7 @@ nothing below L6 uses egui, eframe, winit or rfd.
 | L1 | `model`, `fonts`; `h264`, `hevc`, `vp9`, `av1`, `isobmff` | Presentation, masters, layouts, slides, shapes, text, themes, tables, charts, transitions, animations, placeholder inheritance (`resolve`); font database (craft-fonts + system) with metric-compatible substitutes for Office fonts (Carlito for Calibri, Caladea for Cambria, Liberation for Arial/Times); video decoders and the MP4/MOV demuxer |
 | L2 | `text`, `anim`, `format`, `media` | Shaping (HarfRust), UAX #9 bidi, UAX #14 line breaking, autofit, caret hit testing; per-shape animation state over time, the show state machine, transition frame layouts, Morph matching; `.deckcraft` (zip + JSON + media) and outline text; media probing, decoding, mixer and clock |
 | L3 | `render`, `pptx` | `vello_cpu` raster of slides, masters and layouts (fills, outlines, effects, pictures, tables, charts, Morph frames); PPTX import/export from ECMA-376 |
-| L4 | `pdf` | PDF export through krilla |
+| L4 | `pdf` | App-owned export layout and rendering through the shared `craft-pdf` writer |
 | L5 | `engine` | Sessions, documents, selection, undo history on shared slide snapshots, the command registry (320 commands in `cmd/*`), pointer tools, keys, AutoRecover, the panic guard (`guard.rs`) |
 | L6 | `ui-egui`, `mcp` | The PowerPoint-style interface (ribbon with 10 tabs + contextual tabs, canvas, thumbnails, panes, 41 dialogs, show and presenter windows, the JSON control channel); the MCP server (JSON-RPC 2.0 over stdio), headless or connected to a running app |
 | apps | `deckcraft` (desktop: eframe/wgpu, cpal audio, logging), `deckcraft-cli` (run, render, convert, mcp, app), `deckcraft-web` (trunk; WebGPU with WebGL2 fallback), `xtask` | Exempt from layering |
@@ -94,3 +94,9 @@ macOS, Windows, Linux, FreeBSD and web artifacts.
 | 2026-10-14 | minor | Font dialog; command registry 227; 28 dialogs |
 | 2026-10-13 | minor | Transitions: perspective meshes, background/content parts, CPU compositor |
 | 2026-10-10 | major | Created from the code on main (d556ff9) and AGENTS.md §4 |
+
+The PDF writer dependency enables only `write`. Krilla handles serialization and simple-text
+shaping for notes and footers; slide layout, rasterization, font selection, text mapping,
+links and outlines remain app-owned. PDF embedding and all Hayro production dependencies
+are disabled. Native builds enable parallel compression on the same pinned Krilla backend;
+WASM keeps it disabled. Generated-PDF assertions use a std-only parser as a development dependency.

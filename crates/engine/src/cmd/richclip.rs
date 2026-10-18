@@ -189,8 +189,8 @@ fn tag_style(name: &str, src: &str) -> (i32, i32, i32) {
     let mut underline = i32::from(name == "u");
     if let Some(style) = attr(src, "style") {
         let s = style.to_ascii_lowercase();
-        if s.contains("font-weight:bold") || s.contains("font-weight: bold") || weight_bold(&s) {
-            bold = 1;
+        if let Some(on) = weight_bold(&s) {
+            bold = i32::from(on);
         }
         if s.contains("font-style:italic") || s.contains("font-style: italic") {
             italic = 1;
@@ -206,10 +206,19 @@ fn tag_style(name: &str, src: &str) -> (i32, i32, i32) {
     (bold, italic, underline)
 }
 
-fn weight_bold(style: &str) -> bool {
-    let Some(at) = style.find("font-weight") else { return false };
+/// Whether a `font-weight` in `style` turns bold on (`Some(true)`) or off (`Some(false)`).
+fn weight_bold(style: &str) -> Option<bool> {
+    let at = style.find("font-weight")?;
     let rest = style[at + "font-weight".len()..].trim_start_matches(|c: char| c == ':' || c.is_whitespace());
-    rest.starts_with('6') || rest.starts_with('7') || rest.starts_with('8') || rest.starts_with('9')
+    if rest.starts_with("bold") {
+        return Some(true);
+    }
+    if rest.starts_with("normal") || rest.starts_with("lighter") {
+        return Some(false);
+    }
+    let digits: String = rest.chars().take_while(char::is_ascii_digit).collect();
+    let weight: u32 = digits.parse().ok()?;
+    Some(weight >= 600)
 }
 
 fn attr<'a>(tag: &'a str, key: &str) -> Option<&'a str> {
@@ -307,6 +316,20 @@ fn fold(s: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn google_docs_normal_weight_wrapper_is_not_bold() {
+        let html = "<meta charset=\"utf-8\"><b style=\"font-weight:normal;\" id=\"docs-internal-guid-1\"><span style=\"font-weight:400\">plain words</span></b>";
+        let body = html_to_body(html).unwrap();
+        assert_eq!(body.text(), "plain words");
+        assert_eq!(body.paragraphs[0].runs[0].props.bold, None);
+        let light = html_to_body("<b style=\"font-weight:300\">thin</b>").unwrap();
+        assert_eq!(light.paragraphs[0].runs[0].props.bold, None);
+        let plain = html_to_body("<b>strong</b>").unwrap();
+        assert_eq!(plain.paragraphs[0].runs[0].props.bold, Some(true));
+        let heavy = html_to_body("<span style=\"font-weight:700\">heavy</span>").unwrap();
+        assert_eq!(heavy.paragraphs[0].runs[0].props.bold, Some(true));
+    }
 
     #[test]
     fn bold_italic_and_underline_round_trip() {

@@ -954,8 +954,11 @@ fn symbol_font_characters_draw_in_the_sym_font() {
     // U+F0DE is the Symbol font's double arrow (⇒). It must come from that font, not from
     // whichever installed font happens to map U+F0DE (Wingdings draws an arrow at another angle).
     let symbol = "Symbol";
-    if !FontDb::global().has_family(symbol) {
-        eprintln!("skipped: no Symbol font installed");
+    let db = FontDb::global();
+    // Some installed Symbol faces use Unicode mappings only, without the legacy U+F0xx cmap.
+    // This integration test needs a face that can draw the symbol code used by the document.
+    if !db.has_family(symbol) || !db.face(symbol, "Regular").covers('\u{F0DE}') {
+        eprintln!("skipped: no installed Symbol face covers U+F0DE");
         return;
     }
     let (p, mut sh) = setup("x\u{F0DE}y", 600.0, 300.0);

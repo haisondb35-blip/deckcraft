@@ -97,6 +97,9 @@ Today it can:
 
 ## Getting started
 
+PDF export uses the shared `craft-pdf` writer with import features disabled. See
+[`crates/pdf/README.md`](crates/pdf/README.md) for the dependency and validation requirements.
+
 ```sh
 git clone https://github.com/storytold/deckcraft
 cd deckcraft
