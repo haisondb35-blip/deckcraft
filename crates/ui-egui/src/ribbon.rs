@@ -101,9 +101,13 @@ pub fn title_bar(app: &mut SlideApp, ui: &mut Ui) {
         if icon_toggle(&mut right, Icon::CommentsBubble, "Comments", has_doc, app.ui.pane.as_deref() == Some("comments")).clicked() {
             let _ = app.run("view.pane", json!({"pane": "comments", "toggle": true}));
         }
+        // The assistant pane: Claude or ChatGPT working on the presentation.
+        if icon_toggle(&mut right, Icon::Sparkle, "AI Assistant", true, app.ui.pane.as_deref() == Some("assistant")).clicked() {
+            let _ = app.run("view.pane", json!({"pane": "assistant", "toggle": true}));
+        }
         if icon_toggle(
             &mut right,
-            if app.ui.brightness == theme::Brightness::Dark { Icon::Sparkle } else { Icon::Palette },
+            Icon::Palette,
             "Light/Dark appearance",
             true,
             false,
@@ -1182,9 +1186,6 @@ fn home(app: &mut SlideApp, ui: &mut Ui) {
     });
     group(ui, |ui| {
         big(app, ui, Icon::DesignIdeas, "Design\nIdeas", "view.pane", json!({"pane": "designer"}));
-    });
-    group(ui, |ui| {
-        big(app, ui, Icon::CommentsBubble, "Claude", "view.pane", json!({"pane": "assistant", "toggle": true}));
     });
 }
 

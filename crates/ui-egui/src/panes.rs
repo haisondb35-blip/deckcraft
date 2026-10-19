@@ -28,7 +28,7 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
                 "selection" => "Selection",
                 "comments" => "Comments",
                 "designer" => "Design Ideas",
-                "assistant" => "Claude",
+                "assistant" => "AI Assistant",
                 "smartart" => "Text Pane",
                 "thesaurus" => "Thesaurus",
                 "revisions" => "Revisions",
