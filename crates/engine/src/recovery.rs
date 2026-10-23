@@ -44,6 +44,11 @@ pub fn instance_id() -> u64 {
     *ID.get_or_init(|| {
         use std::hash::{BuildHasher, Hasher};
         let mut h = std::collections::hash_map::RandomState::new().build_hasher();
+        // No PIDs and no std::time on wasm (`std::process::id()` and
+        // `SystemTime::now()` panic there): the browser clock stands in.
+        #[cfg(target_arch = "wasm32")]
+        h.write_u64(js_sys::Date::now() as u64);
+        #[cfg(not(target_arch = "wasm32"))]
         h.write_u32(std::process::id());
         #[cfg(not(target_arch = "wasm32"))]
         if let Ok(d) = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH) {
