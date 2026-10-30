@@ -4,7 +4,6 @@
 use deckcraft_engine::Session;
 use egui_kittest::kittest::Queryable;
 use egui_kittest::{Harness, Node};
-use serde_json::json;
 
 use crate::theme::Brightness;
 use crate::{Services, SlideApp};
@@ -31,7 +30,9 @@ fn harness() -> Harness<'static, SlideApp> {
 }
 
 fn open_options(h: &mut Harness<'_, SlideApp>) {
-    h.state_mut().run("app.preferences", json!({})).expect("open Options");
+    // brian-local: `app.preferences` opens the File tab's Options page, so the dialog is opened
+    // directly, as the other Preferences tests do.
+    h.state_mut().dialog = Some(crate::dialogs::Dialog::new("preferences"));
     h.run_steps(3);
 }
 

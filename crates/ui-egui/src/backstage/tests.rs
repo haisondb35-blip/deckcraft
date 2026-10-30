@@ -490,7 +490,8 @@ fn start_screen_opens_the_palette_and_preferences() {
     let mut h = harness(SlideApp::new(Session::new(), Services::default()));
     h.key_press_modifiers(Modifiers::COMMAND, Key::Comma);
     h.run_steps(3);
-    assert_eq!(h.state().dialog.as_ref().map(|d| d.id.as_str()), Some("preferences"), "Ctrl+, opens Preferences");
+    // brian-local: Ctrl+, opens the File tab's Options page.
+    assert_eq!(h.state().backstage.as_ref().map(|b| b.page), Some(Page::Options), "Ctrl+, opens Options");
     assert!(h.state().session.active().is_none(), "without creating a presentation");
 }
 
@@ -657,19 +658,16 @@ fn print_slides_follow_the_settings() {
     assert_eq!(print_page_size(&bs, &doc), (doc.slide_size.width as f32, doc.slide_size.height as f32), "slides print slide-shaped");
 }
 
-/// Options in the File tab opens the Preferences dialog, and Cancel closes it (#782, #752).
+/// Options in the File tab opens its Options page, with no dialog over it (brian-local: the page
+/// replaces upstream's Preferences dialog; #782, #752).
 #[test]
-fn options_in_backstage_opens_preferences_and_cancel_closes_it() {
+fn options_in_backstage_opens_the_options_page() {
     let mut h = harness(new_app());
     h.get_by_label("File").click();
     h.run_steps(3);
     assert!(h.state().backstage_open());
     h.get_by_label("Options").click();
     h.run_steps(3);
-    assert!(h.state().dialog.is_some(), "Options opens Preferences dialog");
-    assert_eq!(h.state().dialog.as_ref().map(|d| d.id.as_str()), Some("preferences"));
-    h.query_all_by_role_and_label(Role::Button, "Cancel").next().expect("Cancel button").click_accesskit();
-    h.run_steps(3);
-    assert!(h.state().dialog.is_none(), "Cancel closes Preferences dialog");
-    assert!(h.state().backstage_open(), "Backstage remains open");
+    assert_eq!(h.state().backstage.as_ref().map(|b| b.page), Some(Page::Options), "Options opens the Options page");
+    assert!(h.state().dialog.is_none(), "no dialog over it");
 }
