@@ -34,6 +34,9 @@ pub enum InboxEvent {
 pub type Inbox = std::sync::Arc<std::sync::Mutex<Vec<InboxEvent>>>;
 
 /// Platform services injected by the host (desktop or web).
+/// `(text, html, png, objects)`: see [`Services::clipboard_set_objects`].
+pub type ClipboardSetObjectsFn = Box<dyn FnMut(&str, Option<&str>, Option<&[u8]>, &[u8]) -> bool>;
+
 #[derive(Default)]
 pub struct Services {
     /// Open-file dialog for a purpose (`open`, `picture`, `audio`, `video`) → path.
@@ -54,6 +57,13 @@ pub struct Services {
     pub clipboard_html: Option<Box<dyn FnMut() -> Option<String>>>,
     /// Put HTML and its plain-text alternative on the system clipboard. `true` when it landed.
     pub clipboard_set_html: Option<Box<dyn FnMut(&str, &str) -> bool>>,
+    /// Put copied slides or objects on the system clipboard in one go, as PowerPoint does: the
+    /// plain text, HTML when there is some, a PNG picture when there is one (for other apps), and
+    /// DeckCraft's own bytes (`deckcraft_engine::clipboard_data`), which every DeckCraft window
+    /// pastes as slides and objects. `true` when it landed.
+    pub clipboard_set_objects: Option<ClipboardSetObjectsFn>,
+    /// DeckCraft's own bytes on the system clipboard, when slides or objects were copied last.
+    pub clipboard_objects: Option<Box<dyn FnMut() -> Option<Vec<u8>>>>,
     /// Audio output for media playback (cpal on desktop); without one media plays silently.
     pub audio_out: Option<Box<dyn deckcraft_media::AudioOut>>,
 }

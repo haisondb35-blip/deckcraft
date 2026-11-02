@@ -31,6 +31,11 @@ arboard = { workspace = true, features = ["image-data"] }
 image = { workspace = true }
 cpal = "0.16"
 
+[target.'cfg(windows)'.dependencies]
+# Copied slides and objects go on the clipboard under DeckCraft's own registered format next to
+# text, HTML and a picture (arboard has no custom formats; it uses this crate underneath).
+clipboard-win = "5.4"
+
 [target.'cfg(target_os = "macos")'.dependencies]
 # Finder double-click, Open With, Dock drops and `open -a DeckCraft deck.pptx` arrive as a
 # kAEOpenDocuments Apple event, which winit 0.30 doesn't handle. This audited crate (also used by

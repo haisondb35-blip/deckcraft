@@ -148,17 +148,21 @@ impl SlideApp {
                 egui::Event::Paste(text) => {
                     // Our own marker for objects without text: paste what the session copied.
                     let text = if text == OBJECTS_MARKER { String::new() } else { text };
+                    // Slides or objects a DeckCraft window copied paste as they are, not as text.
+                    let ours = self.adopt_clipboard_objects();
                     // A picture (TIFF from Keynote, a screenshot) lands when the paste has no text.
                     // Text keeps its HTML (bold, italic, underline) when the host can read it.
                     let html = self.services.clipboard_html.as_mut().and_then(|f| f()).filter(|h| !h.is_empty());
                     // egui 0.37 sends `PasteImage` directly; the services fallback stays for
                     // integrations that still send an empty `Paste`. Never insert twice.
-                    let img = if text.is_empty() && !pasted_image_event { self.services.clipboard_image.as_mut().and_then(|f| f()) } else { None };
+                    let img =
+                        if text.is_empty() && !pasted_image_event && !ours { self.services.clipboard_image.as_mut().and_then(|f| f()) } else { None };
                     let revision = self.session.active().map(|d| d.revision);
                     let r = match img {
                         Some(png) => self
                             .session
                             .execute("insert.picture", &json!({"name": "Pasted image.png", "data": deckcraft_engine::cmd::base64_encode(&png)})),
+                        None if ours => self.session.execute("edit.paste", &json!({})),
                         None => {
                             let mut params = json!({"text": text});
                             if let Some(h) = html {

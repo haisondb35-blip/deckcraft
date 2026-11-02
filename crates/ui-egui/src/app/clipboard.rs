@@ -1,3 +1,5 @@
+use deckcraft_engine::clipboard_data;
+
 use super::{SlideApp, Value, json};
 
 /// Text put on the system clipboard when the copied objects (a rectangle, a picture, slides…)
@@ -23,10 +25,45 @@ impl SlideApp {
         let Ok(v) = self.session.execute(cmd, &json!({})) else { return };
         let text = v.get("text").and_then(Value::as_str).unwrap_or("").to_string();
         let html = v.get("html").and_then(Value::as_str).unwrap_or("").to_string();
+        if self.publish_objects(&text, &html) {
+            return;
+        }
         if self.session.clipboard.slides.is_empty() && !html.is_empty() && self.services.clipboard_set_html.as_mut().is_some_and(|f| f(&html, &text))
         {
             return;
         }
         ctx.copy_text(system_clipboard_text(&text));
+    }
+
+    /// Put copied slides or objects on the system clipboard with DeckCraft's own bytes, so any
+    /// DeckCraft window pastes them as they are, and a picture of them for other apps. `false`
+    /// when the copy holds neither or the host can't (then the text goes out as before).
+    pub(super) fn publish_objects(&mut self, text: &str, html: &str) -> bool {
+        if self.services.clipboard_set_objects.is_none() {
+            return false;
+        }
+        let stamp = clipboard_data::new_stamp();
+        let Some(bytes) = clipboard_data::encode(&self.session.clipboard, stamp) else { return false };
+        let png = deckcraft_engine::cmd::edit::clipboard_png(&self.session);
+        let html = (!html.is_empty() && self.session.clipboard.slides.is_empty()).then_some(html);
+        let text = system_clipboard_text(text);
+        let landed = self.services.clipboard_set_objects.as_mut().is_some_and(|f| f(&text, html, png.as_deref(), &bytes));
+        if landed {
+            self.clip_stamp = stamp;
+        }
+        landed
+    }
+
+    /// Before a paste: when the system clipboard holds slides or objects some DeckCraft window
+    /// copied (this one or another), paste those. `true` when it does; a copy this window made
+    /// keeps the session's clipboard.
+    pub(super) fn adopt_clipboard_objects(&mut self) -> bool {
+        let Some(read) = self.services.clipboard_objects.as_mut() else { return false };
+        let Some((stamp, clip)) = read().and_then(|b| clipboard_data::decode(&b)) else { return false };
+        if stamp != self.clip_stamp {
+            self.clip_stamp = stamp;
+            self.session.clipboard = clip;
+        }
+        true
     }
 }

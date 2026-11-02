@@ -72,7 +72,7 @@ pub use panels::notes;
 pub use panels::selpane;
 pub use panels::thumbs;
 pub use ribbon::qat;
-pub use services::{DownloadFn, Inbox, InboxEvent, InboxFile, OpenAsyncFn, PickFn, ReadFn, Services, WriteFn};
+pub use services::{ClipboardSetObjectsFn, DownloadFn, Inbox, InboxEvent, InboxFile, OpenAsyncFn, PickFn, ReadFn, Services, WriteFn};
 use state::{FilePlace, FilePurpose, ImeDescriptorKey, ImeDestination, ImeTerminalStamp};
 pub use state::{RECENT_MAX, UiState, ViewMode, ZOOM_RANGE};
 
@@ -305,6 +305,9 @@ pub struct SlideApp {
     updates_rt: updates_ui::Runtime,
     /// Text for the system clipboard from a Copy or Cut command, handed over on the next frame.
     pending_copy: Option<String>,
+    /// Stamp of the slides or objects this window put on the system clipboard last, or took from
+    /// it: a paste of the same copy keeps the session's clipboard (and its paste offsets).
+    clip_stamp: u64,
     /// Bounded screenshot completion slots for the control channel (egui 0.37 callbacks).
     capture: capture::Capture,
     styled: bool,

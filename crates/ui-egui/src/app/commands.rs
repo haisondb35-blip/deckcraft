@@ -18,6 +18,10 @@ impl SlideApp {
     /// Run a command by id (UI commands here, everything else in the engine). Errors show in the
     /// status bar and are returned.
     pub fn run(&mut self, id: &str, params: Value) -> Result<Value, String> {
+        // The ribbon's and menus' Paste: slides or objects copied in another DeckCraft window.
+        if id == "edit.paste" && params.get("text").is_none() {
+            self.adopt_clipboard_objects();
+        }
         let r = if UI_COMMANDS.iter().any(|c| c.0 == id) {
             self.run_ui(id, &params)
         } else {
@@ -27,8 +31,10 @@ impl SlideApp {
             // Copy and Cut from the ribbon, menus, the slide's context menu or the control channel
             // put the text on the system clipboard, as Ctrl+C and Ctrl+X do (#431).
             Ok(v) if matches!(id, "edit.copy" | "edit.cut") => {
-                if let Some(t) = v.get("text").and_then(Value::as_str) {
-                    self.pending_copy = Some(t.to_string());
+                let text = v.get("text").and_then(Value::as_str).unwrap_or("").to_string();
+                let html = v.get("html").and_then(Value::as_str).unwrap_or("").to_string();
+                if !self.publish_objects(&text, &html) && v.get("text").is_some() {
+                    self.pending_copy = Some(text);
                 }
             }
             Ok(_) => {}

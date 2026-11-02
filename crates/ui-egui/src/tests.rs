@@ -874,6 +874,54 @@ fn copy_then_paste_shortcut_duplicates_an_object_without_text() {
     assert!(pasted.text.as_ref().is_none_or(|t| t.text().is_empty()), "a copy of the rectangle, not a text box holding the marker");
 }
 
+#[test]
+fn slides_copied_in_one_window_paste_as_slides_in_another() {
+    // Each DeckCraft window is its own process; the copy travels on the system clipboard, here a
+    // shared cell: the text, whether a picture came along, and DeckCraft's own bytes.
+    type Board = std::rc::Rc<std::cell::RefCell<Option<(String, bool, Vec<u8>)>>>;
+    let board: Board = Default::default();
+    let window = |board: &Board| {
+        let (put, get) = (board.clone(), board.clone());
+        let services = Services {
+            clipboard_set_objects: Some(Box::new(move |text, _html, png, objects| {
+                *put.borrow_mut() = Some((text.to_string(), png.is_some(), objects.to_vec()));
+                true
+            })),
+            clipboard_objects: Some(Box::new(move || get.borrow().as_ref().map(|b| b.2.clone()))),
+            ..Default::default()
+        };
+        let mut h = egui_kittest::Harness::builder().with_size(egui::vec2(1200.0, 800.0)).build_ui_state(
+            |ui, app: &mut SlideApp| {
+                app.logic(ui.ctx());
+                app.ui(ui);
+            },
+            SlideApp::new(Session::with_new(), services),
+        );
+        h.run_steps(2);
+        h
+    };
+    let mut a = window(&board);
+    let mut b = window(&board);
+    let slides = |h: &egui_kittest::Harness<'_, SlideApp>| h.state().session.doc().unwrap().doc.slides.len();
+    a.state_mut().session.execute("shape.insert", &json!({"preset": "rect", "rect": [10, 10, 50, 50]})).unwrap();
+    a.state_mut().run("edit.copy", json!({"scope": "slides"})).unwrap();
+    let (text, picture, _) = board.borrow().clone().unwrap();
+    assert!(picture, "other apps get a picture of the slide");
+    let before = slides(&b);
+    // Ctrl+V in the other window: the text egui hands over, the objects read next to it.
+    b.event(egui::Event::Paste(text.clone()));
+    b.run_steps(2);
+    assert_eq!(slides(&b), before + 1, "a slide, not a text box");
+    // The ribbon's Paste does the same.
+    b.state_mut().run("edit.paste", json!({})).unwrap();
+    assert_eq!(slides(&b), before + 2);
+    // Something copied in another app replaces the clipboard: its text pastes, no slide.
+    *board.borrow_mut() = None;
+    b.event(egui::Event::Paste("from another app".into()));
+    b.run_steps(2);
+    assert_eq!(slides(&b), before + 2);
+}
+
 /// #188: Ctrl/Cmd+A with the slide thumbnail pane focused selects every slide; with the
 /// canvas focused it still selects shapes.
 #[test]

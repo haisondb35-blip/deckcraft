@@ -470,8 +470,9 @@ pub(crate) fn bake_theme(shapes: &mut [Shape], scheme: &deckcraft_color::ColorSc
     }
 }
 
-/// Paste Special › Picture: the copied shapes drawn into one PNG picture.
-fn paste_picture(s: &mut Session) -> Result<Value> {
+/// The clipboard's shapes drawn on the current slide's deck at `SCALE`, with their bounds (points).
+/// `render_shape` draws the bounds plus an 8 pt margin (room for shadows and outlines).
+fn draw_clipboard_shapes(s: &Session) -> Result<(deckcraft_render::Image, deckcraft_geom::Rect)> {
     let mut clip = s.clipboard.clone();
     if clip.shapes.is_empty() {
         return Err(bad("edit.pasteSpecial", "copy shapes first to paste them as a picture"));
@@ -496,14 +497,35 @@ fn paste_picture(s: &mut Session) -> Result<Value> {
         Shape { id: gid, xfrm: Some(gx), kind: deckcraft_model::ShapeKind::Group { children: clip.shapes.clone(), child: gx }, ..Default::default() }
     };
     slide.shapes = vec![one];
-    const SCALE: f64 = 2.0;
     let img = deckcraft_render::render_shape(&doc, &slide, gid, SCALE).ok_or_else(|| bad("edit.pasteSpecial", "the shapes could not be drawn"))?;
-    // render_shape draws the bounds plus an 8 pt margin (room for shadows and outlines).
+    Ok((img, b))
+}
+
+const SCALE: f64 = 2.0;
+
+/// Paste Special › Picture: the copied shapes drawn into one PNG picture.
+fn paste_picture(s: &mut Session) -> Result<Value> {
+    let (img, b) = draw_clipboard_shapes(s)?;
+    let st = s.doc()?;
+    let clip = &s.clipboard;
     let (w, h) = (img.width as f64 / SCALE, img.height as f64 / SCALE);
     let same_slide = clip.shapes.iter().any(|c| st.shape(c.id).is_some());
     let off = if same_slide { s.prefs.duplicate_offset } else { 0.0 };
     let png = img.to_png();
     s.execute("insert.picture", &json!({"data": base64_encode(&png), "name": "Picture.png", "rect": [b.x0 - 8.0 + off, b.y0 - 8.0 + off, w, h]}))
+}
+
+/// The clipboard as a PNG for other apps (Paint, PhotoCraft, a mail): the copied shapes as Paste
+/// Special › Picture draws them, or the first copied slide when it is in the current deck.
+pub fn clipboard_png(s: &Session) -> Option<Vec<u8>> {
+    if !s.clipboard.shapes.is_empty() {
+        return draw_clipboard_shapes(s).ok().map(|(img, _)| img.to_png());
+    }
+    let st = s.doc().ok()?;
+    let first = s.clipboard.slides.first()?;
+    let index = st.doc.slides.iter().position(|x| x.id == first.id)?;
+    let (png, _, _) = super::file::render_png(&st.doc, index, 1.0, false);
+    (!png.is_empty()).then_some(png)
 }
 
 fn paste_text(s: &mut Session, p: &Value) -> Result<Value> {
