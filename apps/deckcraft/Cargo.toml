@@ -35,6 +35,8 @@ cpal = "0.16"
 # Copied slides and objects go on the clipboard under DeckCraft's own registered format next to
 # text, HTML and a picture (arboard has no custom formats; it uses this crate underneath).
 clipboard-win = "5.4"
+# The clipboard as every Craft app reads and writes it (crates/craft-clipboard, shared).
+craft-clipboard = { path = "../../crates/craft-clipboard" }
 
 [target.'cfg(target_os = "macos")'.dependencies]
 # Finder double-click, Open With, Dock drops and `open -a DeckCraft deck.pptx` arrive as a

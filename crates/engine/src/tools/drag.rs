@@ -31,6 +31,7 @@ impl Session {
                 let nx = self.snap_resize(nx, &orig, handle, id, tol);
                 self.set_xfrm(id, nx)?;
             }
+            Drag::Crop { id, handle, orig, crop, start } => self.drag_crop(id, handle, orig, crop, start, p)?,
             Drag::LineEnd { id, end, orig } => {
                 let a = orig.affine();
                 let (p0, p1) = (a * Point::new(0.0, 0.0), a * Point::new(orig.w, orig.h));
