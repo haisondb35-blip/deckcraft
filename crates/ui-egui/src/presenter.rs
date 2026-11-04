@@ -181,7 +181,7 @@ impl View {
                     commands.push(key(name));
                 }
             }
-            if ui.button("End Show").clicked() {
+            if ui.button(crate::i18n::tr("End Show")).clicked() {
                 commands.push(Command::End);
             }
         });
@@ -242,7 +242,7 @@ impl View {
                 right.label("End of slide show");
             }
             right.horizontal(|ui| {
-                ui.label("Notes");
+                ui.label(crate::i18n::tr("Notes"));
                 if ui.button("A−").clicked() {
                     commands.push(key(egui::Key::OpenBracket.name()));
                 }

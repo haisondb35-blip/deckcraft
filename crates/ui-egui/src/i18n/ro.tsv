@@ -1,0 +1,423 @@
+# Română (ro) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	AaBbCcDd	AaBbCcDd
+	About	Despre
+	Accept	Acceptă
+	Action	Acțiune
+	Add Shape	Adăugare formă
+	Add to Dictionary	Adăugați în dicționar
+	Add to Quick Access Toolbar	Adăugați în bara de acces rapid
+	Advanced	Avansat
+	After:	După:
+	Agents	Agenți
+	Align	Aliniere
+	Align Center	Aliniere la centru
+	Align Left	Aliniere la stânga
+	Align Right	Aliniere la dreapta
+	Align Text	Aliniere text
+	Alignment	Aliniere
+	Alignment:	Aliniere:
+	All	Toate
+	All Borders	Toate marginile
+	All caps	Toate majusculele
+	Alt Text	Text alternativ
+	Alt text	Text alternativ
+	Angle	Unghi
+	Animations	Animații
+	Arrange	Aranjare
+	Arrow	Săgeată
+	Arrows	Săgeți
+	Author	Autor
+	AutoCorrect	Corectare automată
+	Automatic	Automat
+	Back	Înapoi
+	Backspace	Backspace
+	Banded Columns	Coloane alternante
+	Banded Rows	Rânduri alternante
+	Binary assets added	Resurse binare adăugate
+	Binary assets removed	Resurse binare eliminate
+	Bold	Aldin
+	Borders	Borduri
+	Bottom	Jos
+	Bottom Border	Bordură jos
+	Bring Forward	Aducere în față
+	Bullets	Marcatori
+	Cancel	Anulare
+	Capitalize Each Word	Fiecare cuvânt cu majusculă
+	Categories	Categorii
+	Cell Margins	Margini celulă
+	Center	Centru
+	Centered	Centrat
+	Change Case	Schimbare majuscule
+	Change Colors	Schimbare culori
+	Change File Type	Schimbare tip de fișier
+	Change Picture	Schimbare imagine
+	Change Picture…	Schimbare imagine…
+	Change Shape	Schimbare formă
+	Character Spacing	Spațiere caractere
+	Chart	Diagramă
+	Chart Design	Proiectare diagramă
+	Clear	Golire
+	Clear All	Golire totală
+	Clear All Formatting	Ștergere toată formatarea
+	Close	Închidere
+	Collapse	Restrângere
+	Color	Culoare
+	Colors	Culori
+	Columns	Coloane
+	Comment	Comentariu
+	Comments	Comentarii
+	Commits	Commit-uri
+	Company	Companie
+	Compare	Comparare
+	Compress Pictures	Comprimare imagini
+	Contributors	Contribuitori
+	Convert	Conversie
+	Convert to Shapes	Conversie în forme
+	Convert to Text	Conversie în text
+	Copy	Copiere
+	Corrections	Corecturi
+	Create	Creare
+	Create PDF	Creare PDF
+	Crop	Decupare
+	Custom	Personalizat
+	Customize Quick Access Toolbar	Personalizare bară de acces rapid
+	Cut	Decupare
+	Cycle	Ciclu
+	Dark	Întunecată
+	Dark Mode	Mod întunecat
+	Date	Dată
+	Date and Time	Data și ora
+	Decimal	Zecimal
+	Decrease Font Size	Micșorare font
+	Delete	Ștergere
+	Delete Columns	Ștergere coloane
+	Delete Rows	Ștergere rânduri
+	Delete Table	Ștergere tabel
+	Demote	Retrogradare
+	Design	Design
+	Diamond	Romb
+	Direction	Direcție
+	Display	Afișare
+	Display name	Nume afișat
+	Distribute Columns	Distribuire coloane
+	Distribute Rows	Distribuire rânduri
+	Distributed	Distribuit
+	Dot	Punct
+	Dotted	Punctat
+	Double	Dublu
+	Down	Jos
+	Download	Descărcare
+	Draw	Desenare
+	Draw Table	Desenare tabel
+	Duplicate	Duplicare
+	Edit	Editare
+	Effects	Efecte
+	Emphasis	Accentuare
+	English (Australia)	Engleză (Australia)
+	English (Canada)	Engleză (Canada)
+	English (United Kingdom)	Engleză (Regatul Unit)
+	English (United States)	Engleză (Statele Unite)
+	Enter	Enter
+	Equation	Ecuație
+	Eraser	Radieră
+	Exactly	Exact
+	Expand	Extindere
+	Export	Exportare
+	File	Fișier
+	Fill	Umplere
+	Find	Găsire
+	Find Next	Găsire următorul
+	Find and Replace	Găsire și înlocuire
+	Find what:	De găsit:
+	Find…	Găsire…
+	First	Primul
+	First Column	Prima coloană
+	First commit	Primul commit
+	First line	Primul rând
+	Fit	Potrivire
+	Flip Horizontal	Răsturnare orizontală
+	Flip Vertical	Răsturnare verticală
+	Font	Font
+	Font Color	Culoare font
+	Fonts	Fonturi
+	Font…	Font…
+	Footer	Subsol
+	Format	Format
+	Format Painter (double-click to keep it on)	Pensulă de formatare (dublu clic pentru a o menține activă)
+	Format Shape	Formatare formă
+	Format Shape…	Formatare formă…
+	French (France)	Franceză (Franța)
+	General	General
+	Glow	Strălucire
+	Grab bag	Diverse
+	Gradient fill	Umplere în degrade
+	Gradient stops	Puncte de degrade
+	Grayscale	Tonuri de gri
+	Gridlines	Linii de grilă
+	Group	Grupare
+	Header	Antet
+	Header Row	Rând de antet
+	Height:	Înălțime:
+	Help	Ajutor
+	Hide	Ascundere
+	Hierarchy	Ierarhie
+	Highlighter	Marker
+	Home	Pornire
+	Horizontal	Orizontal
+	Icons	Pictograme
+	Ignore All	Ignorați toate
+	Increase Font Size	Mărire font
+	Indentation	Indentare
+	Info	Informații
+	Ink to Shape	Cerneală în formă
+	Insert	Inserare
+	Insert Hyperlink	Inserare hyperlink
+	Insert Table	Inserare tabel
+	Insert Table…	Inserare tabel…
+	Insert…	Inserare…
+	Inside Borders	Borduri interioare
+	Inside Horizontal Border	Bordură orizontală interioară
+	Inside Vertical Border	Bordură verticală interioară
+	Interface	Interfață
+	Interface language	Limba interfeței
+	Interface size	Dimensiunea interfeței
+	Italic	Cursiv
+	Japanese	Japoneză
+	Join the ArtCraft community on Discord	Alăturați-vă comunității ArtCraft pe Discord
+	Justify	Aliniere stânga-dreapta
+	Language	Limbă
+	Large	Mare
+	Last	Ultimul
+	Last Column	Ultima coloană
+	Last commit	Ultimul commit
+	Layout	Aspect
+	Layouts	Aspecte
+	Left	Stânga
+	Left Border	Bordură stângă
+	Letter	Scrisoare
+	Light	Luminoasă
+	Line	Linie
+	Line Spacing	Spațiere între rânduri
+	Line Spacing Options…	Opțiuni spațiere între rânduri…
+	Line delta	Diferență linii
+	Line spacing	Spațiere între rânduri
+	Linear	Liniar
+	Lines added	Linii adăugate
+	Lines deleted	Linii șterse
+	Link	Link
+	Link…	Link…
+	List	Listă
+	Location	Locație
+	Lock aspect ratio	Blochează raportul de aspect
+	Mark as decorative	Marcați ca decorativ
+	Match case	Potrivire majuscule/minuscule
+	Matrix	Matrice
+	Medium	Mediu
+	Merged PRs	PR-uri integrate
+	Middle	La mijloc
+	Model	Model
+	Models	Modele
+	More Colors…	Mai multe culori…
+	More Columns…	Mai multe coloane…
+	Move Down	Mutare în jos
+	Move Up	Mutare în sus
+	Name	Nume
+	Name (A–Z)	Nume (A–Z)
+	Name:	Nume:
+	Narrow	Îngust
+	New	Nou
+	New Comment	Comentariu nou
+	New Window	Fereastră nouă
+	Next	Următorul
+	Next Page	Pagina următoare
+	No Border	Fără bordură
+	No Color	Fără culoare
+	No Fill	Fără umplere
+	No Glow	Fără strălucire
+	No Outline	Fără contur
+	No Reflection	Fără reflexie
+	No Shadow	Fără umbră
+	No Soft Edges	Fără margini estompate
+	No Transform	Fără transformare
+	No contributor data was built into this copy.	Această copie nu include date despre contribuitori.
+	No fill	Fără umplere
+	No model credits were built into this copy.	Această copie nu include mențiuni despre modele.
+	None	Niciunul
+	Normal	Normală
+	Not saved yet	Încă nesalvat
+	Notes	Note
+	Number of columns:	Număr de coloane:
+	Number of rows:	Număr de rânduri:
+	Numbering	Numerotare
+	Open	Deschidere
+	Open…	Deschidere…
+	Options	Opțiuni
+	Orientation	Orientare text
+	Outside Borders	Borduri exterioare
+	Oval	Oval
+	PDF (*.pdf)	PDF (*.pdf)
+	PRs	PR-uri
+	Page Number	Număr de pagină
+	Page Setup…	Configurare pagină…
+	Paper	Hârtie
+	Paragraph	Paragraf
+	Paragraph…	Paragraf…
+	Paste	Lipire
+	Paste (⌘V)	Lipire (⌘V)
+	Paste Formatting	Lipire formatare
+	Paste Special	Lipire specială
+	Paste Special…	Lipire specială…
+	Path	Traseu
+	Pause	Pauză
+	Pen	Pix
+	Pencil	Creion
+	Personalize	Personalizare
+	Picture	Imagine
+	Picture Border	Bordură imagine
+	Picture Format	Format imagine
+	Pictures	Imagini
+	Play	Redare
+	Position	Poziție
+	Preset gradients	Degradeuri presetate
+	Presets	Presetări
+	Preview	Previzualizare
+	Previous	Anteriorul
+	Previous Page	Pagina anterioară
+	Print	Imprimare
+	Process	Proces
+	Product Information	Informații despre produs
+	Promote	Promovare
+	Proofing	Verificare
+	Properties	Proprietăți
+	Pyramid	Piramidă
+	Quick Access Toolbar	Bară de acces rapid
+	Radial	Radial
+	Real name	Nume real
+	Recent	Recente
+	Rectangle	Dreptunghi
+	Rectangular	Dreptunghiular
+	Redo	Refacere
+	Reflection	Reflexie
+	Reject	Respingere
+	Relationship	Relație
+	Remove	Eliminare
+	Remove Background	Eliminare fundal
+	Remove from Quick Access Toolbar	Eliminare din bara de acces rapid
+	Rename	Redenumire
+	Reopen	Redeschidere
+	Replace	Înlocuire
+	Replace All	Înlocuire totală
+	Replace with:	Înlocuire cu:
+	Replace…	Înlocuire…
+	Reset	Resetare
+	Reset Crop	Resetare decupare
+	Reset Picture	Resetare imagine
+	Resolve	Rezolvare
+	Reverse the order	Inversare ordine
+	Review	Revizuire
+	Right	Dreapta
+	Right Border	Bordură dreaptă
+	Right-to-Left Text Direction	Direcție text de la dreapta la stânga
+	Rotate	Rotire
+	Rotate Left 90°	Rotire la stânga cu 90°
+	Rotate Right 90°	Rotire la dreapta cu 90°
+	Rotate all text 270°	Rotește tot textul cu 270°
+	Rotate all text 90°	Rotește tot textul cu 90°
+	Rotate with shape	Rotire odată cu forma
+	Rotation	Rotire
+	Ruler	Riglă
+	Save	Salvare
+	Save As	Salvare ca
+	Save as type	Tip fișier
+	Saved	Salvat
+	Scroll ribbon left	Derulare panglică la stânga
+	Scroll ribbon right	Derulare panglică la dreapta
+	Search icons	Căutați pictograme
+	Select	Selectare
+	Select All	Selectare totală
+	Selection	Selecție
+	Send Backward	Trimitere în spate
+	Sentence case.	Majusculă la începutul propoziției.
+	Set	Setare
+	Shading	Umbrire
+	Shadow	Umbră
+	Shape Effects	Efecte de formă
+	Shape Fill	Umplere formă
+	Shape Format	Format formă
+	Shape Outline	Contur formă
+	Shapes	Forme
+	Show	Afișare
+	Single	Simplu
+	Size	Dimensiune
+	Size:	Dimensiune:
+	Small caps	Majuscule mici
+	SmartArt	SmartArt
+	SmartArt Design	Design SmartArt
+	SmartArt Styles	Stiluri SmartArt
+	Soft Edges	Margini estompate
+	Solid fill	Umplere uniformă
+	Sort	Sortare
+	Space	Spațiu
+	Spacing	Spațiere
+	Spacing (pt):	Spațiere (pt):
+	Special	Special
+	Spelling	Ortografie
+	Square	Pătrat
+	Stacked	Suprapus
+	Standard Colors	Culori standard
+	Stop	Oprire
+	Strikethrough	Tăiere cu o linie
+	Subject	Subiect
+	Subscript	Indice
+	Superscript	Exponent
+	Swedish	Suedeză
+	Symbol	Simbol
+	Tab	Tab
+	Table	Tabel
+	Table Design	Design tabel
+	Tabs	Tabulatori
+	Tabs…	Tabulatori…
+	Templates	Șabloane
+	Text	Text
+	Text Box	Casetă de text
+	Text Direction	Direcție text
+	Text Effects	Efecte de text
+	Text Fill	Umplere text
+	Text Highlight Color	Culoare de evidențiere text
+	Text Outline	Contur text
+	Text Pane	Panou text
+	Theme Colors	Culori de temă
+	Themes	Teme
+	Thesaurus	Dicționar de sinonime
+	Tight	Strâns
+	Title	Titlu
+	Top	Sus
+	Top Border	Bordură sus
+	Total Row	Rând total
+	Transform	Transformare
+	Translate	Traducere
+	Transparency	Transparență
+	Triple	Triplu
+	Type	Tip
+	Underline	Subliniere
+	Undo	Anulare acțiune
+	Ungroup	Anulare grupare
+	Up	Sus
+	Username	Nume utilizator
+	Version	Versiune
+	Vertical	Vertical
+	View	Vizualizare
+	Volume	Volum
+	Wave	Val
+	Weight	Grosime
+	Wide	Lat
+	Width:	Lățime:
+	WordArt	WordArt
+	Zoom	Zoom
+	Zoom In	Mărire
+	Zoom Out	Micșorare
+	Zoom…	Zoom…

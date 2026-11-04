@@ -1,0 +1,517 @@
+# Türkçe (tr) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	AI Assistant	Yapay Zeka Asistanı
+	AaBbCcDd	AaBbCcÇç
+	About	Hakkında
+	Accept	Kabul Et
+	Accessibility Checker	Erişilebilirlik Denetleyicisi
+	Action	Eylem
+	Add Shape	Şekil Ekle
+	Add comments	Yorum ekle
+	Add to Dictionary	Sözlüğe Ekle
+	Add to Quick Access Toolbar	Hızlı Erişim Araç Çubuğuna Ekle
+	Advanced	Gelişmiş
+	After	Sonra
+	After:	Sonra:
+	Agents	Ajanlar
+	Align	Hizala
+	Align Center	Ortaya Hizala
+	Align Left	Sola Hizala
+	Align Right	Sağa Hizala
+	Align Text	Metni Hizala
+	Alignment	Hizalama
+	Alignment:	Hizalama:
+	All	Tümü
+	All Borders	Tüm Kenarlıklar
+	All caps	Tümü büyük harf
+	Alt Text	Alternatif Metin
+	Alt text	Alternatif metin
+	Angle	Açı
+	Animations	Animasyonlar
+	Appearance	Görünüm
+	Apply to All	Tümüne Uygula
+	Arrange	Sırala
+	Arrow	Ok
+	Arrows	Oklar
+	At	Şu tarihte:
+	Audio	Ses
+	Author	Yazar
+	AutoCorrect	Otomatik Düzelt
+	Automatic	Otomatik
+	Back	Geri
+	Background	Arka plan
+	Backspace	Geri Sil
+	Banded Columns	Şeritli Sütunlar
+	Banded Rows	Şeritli Satırlar
+	Baseline	Temel
+	Bevel	Eğim
+	Binary assets added	Eklenen ikili varlıklar
+	Binary assets removed	Kaldırılan ikili varlıklar
+	Black	Siyah
+	Blur	Bulanıklaştırma
+	Bold	Kalın
+	Borders	Kenarlıklar
+	Both	Her ikisi de
+	Bottom	Alt
+	Bottom Border	Alt Kenarlık
+	Bottom Left	Sol Alt
+	Bottom Right	Sağ Alt
+	Brightness	Parlaklık
+	Bring Forward	Öne Getir
+	Bring to Front	En Öne Getir
+	Browse	Göz at
+	Bullets	Madde İşaretleri
+	Cancel	İptal
+	Capitalize Each Word	Her Sözcüğün İlk Harfini Büyüt
+	Caps	Kapaklar
+	Categories	Kategoriler
+	Cell Margins	Hücre Kenar Boşlukları
+	Center	Orta
+	Centered	Ortalanmış
+	Change Case	Harf Büyüklüğünü Değiştir
+	Change Colors	Renkleri Değiştir
+	Change File Type	Dosya Türünü Değiştir
+	Change Picture	Resmi Değiştir
+	Change Picture…	Resmi Değiştir…
+	Change Shape	Şekli Değiştir
+	Character Spacing	Karakter Aralığı
+	Chart	Grafik
+	Chart Design	Grafik Tasarımı
+	Check the sign-in again	Oturumu yeniden denetle
+	Checking sign-in…	Oturum açma denetleniyor…
+	Clear	Temizle
+	Clear All	Tümünü Temizle
+	Clear All Formatting	Tüm Biçimlendirmeyi Temizle
+	Click to add text	Metin eklemek için tıklayın
+	Close	Kapat
+	Collapse	Daralt
+	Color	Renk
+	Colors	Renkler
+	Columns	Sütunlar
+	Comment	Açıklama
+	Comments	Açıklamalar
+	Commits	Commit'ler
+	Company	Şirket
+	Compare	Karşılaştır
+	Compress Pictures	Resimleri Sıkıştır
+	Contour	Kontur
+	Contrast	Kontrast
+	Contributors	Katkıda Bulunanlar
+	Convert	Dönüştür
+	Convert to Shapes	Şekillere Dönüştür
+	Convert to Text	Metne Dönüştür
+	Copy	Kopyala
+	Corrections	Düzeltmeler
+	Create	Oluştur
+	Create PDF	PDF Oluştur
+	Crop	Kırp
+	Cross	Çapraz
+	Custom	İsteğe Uyarlanmış
+	Customize Quick Access Toolbar	Hızlı Erişim Araç Çubuğunu Özelleştir
+	Cut	Kes
+	Cycle	Döngü
+	Dark	Koyu
+	Dark Mode	Koyu Mod
+	Dash	Çizgi
+	Date	Tarih
+	Date and Time	Tarih ve Saat
+	Decimal	Ondalık
+	Decrease Font Size	Yazı Tipi Boyutunu Küçült
+	Delete	Sil
+	Delete Columns	Sütunları Sil
+	Delete Rows	Satırları Sil
+	Delete Table	Tabloyu Sil
+	Demote	Düzey Düşür
+	Depth	Derinlik
+	Design	Tasarım
+	Diamond	Eşkenar Dörtgen
+	Direction	Yön
+	Display	Ekran
+	Display name	Görünen ad
+	Distance	Uzaklık
+	Distribute Columns	Sütunları Eşit Dağıt
+	Distribute Rows	Satırları Eşit Dağıt
+	Distributed	Dağıtılmış
+	Dot	Nokta
+	Dotted	Noktalı
+	Double	Çift
+	Down	Aşağı
+	Download	İndir
+	Draw	Çiz
+	Draw Table	Tablo Çiz
+	Duplicate	Çoğalt
+	Duration	Süre
+	Edit	Düzenle
+	Effects	Efektler
+	Emphasis	Vurgu
+	English (Australia)	İngilizce (Avustralya)
+	English (Canada)	İngilizce (Kanada)
+	English (United Kingdom)	İngilizce (Birleşik Krallık)
+	English (United States)	İngilizce (Amerika Birleşik Devletleri)
+	Enter	Giriş
+	Equation	Denklem
+	Eraser	Silgi
+	Exactly	Tam
+	Exit	Çıkış
+	Expand	Genişlet
+	Export	Dışarı Aktar
+	Export…	İhracat…
+	Eyedropper	Damlalık
+	File	Dosya
+	Fill	Doldur
+	Find	Bul
+	Find Next	Sonrakini Bul
+	Find and Replace	Bul ve Değiştir
+	Find what:	Aranan:
+	Find…	Bul…
+	First	İlk
+	First Column	İlk Sütun
+	First commit	İlk commit
+	First line	İlk satır
+	Fit	Sığdır
+	Fit to Window	Pencereye Sığdır
+	Flat	Düz
+	Flip Horizontal	Yatay Çevir
+	Flip Vertical	Dikey Çevir
+	Font	Yazı Tipi
+	Font Color	Yazı Tipi Rengi
+	Fonts	Yazı Tipleri
+	Font…	Yazı Tipi…
+	Footer	Altbilgi
+	Foreground	Ön plan
+	Format	Biçim
+	Format Painter (double-click to keep it on)	Biçim Boyacısı (açık tutmak için çift tıklayın)
+	Format Shape	Şekli Biçimlendir
+	Format Shape…	Şekli Biçimlendir…
+	French (France)	Fransızca (Fransa)
+	From	Gönderen
+	From Left	Soldan
+	From Right	Sağdan
+	Full	Tam
+	General	Genel
+	Glow	Parıltı
+	Grab bag	Çeşitli
+	Gradient fill	Degrade dolgu
+	Gradient stops	Degrade durakları
+	Gradient…	Gradyan…
+	Grayscale	Gri tonlamalı
+	Gridlines	Kılavuz Çizgileri
+	Group	Gruplandır
+	Guides	Kılavuzlar
+	Header	Üstbilgi
+	Header Row	Başlık Satırı
+	Height	Yükseklik
+	Height:	Yükseklik:
+	Help	Yardım
+	Hide	Gizle
+	Hide All	Tümünü Gizle
+	Hierarchy	Hiyerarşi
+	High	Yüksek
+	Highlighter	Vurgulayıcı
+	Home	Giriş
+	Horizontal	Yatay
+	Icons	Simgeler
+	Ignore All	Tümünü Yoksay
+	In	içinde
+	Increase Font Size	Yazı Tipi Boyutunu Büyüt
+	Indentation	Girintileme
+	Info	Bilgi
+	Ink to Shape	Mürekkepten Şekle
+	Insert	Ekle
+	Insert Hyperlink	Bağlantı Ekle
+	Insert Table	Tablo Ekle
+	Insert Table…	Tablo Ekle…
+	Inside Borders	İç Kenarlıklar
+	Inside Horizontal Border	İç Yatay Kenarlık
+	Inside Vertical Border	İç Dikey Kenarlık
+	Install	Yükle
+	Interface	Arayüz
+	Interface language	Arayüz dili
+	Interface size	Arayüz boyutu
+	Italic	İtalik
+	Japanese	Japonca
+	Join the ArtCraft community on Discord	Discord'da ArtCraft topluluğuna katılın
+	Justify	İki Yana Yasla
+	Language	Dil
+	Large	Büyük
+	Last	Son
+	Last Column	Son Sütun
+	Last commit	Son commit
+	Layout	Düzen
+	Layouts	Düzenler
+	Left	Sol
+	Left Border	Sol Kenarlık
+	Letter	Mektup
+	Light	Açık
+	Lighting	Aydınlatma
+	Line	Satır
+	Line Spacing	Satır Aralığı
+	Line Spacing Options…	Satır Aralığı Seçenekleri…
+	Line delta	Satır farkı
+	Line spacing	Satır aralığı
+	Linear	Doğrusal
+	Lines added	Eklenen satırlar
+	Lines deleted	Silinen satırlar
+	Link	Köprü
+	Link…	Bağlantı…
+	List	Liste
+	Location	Konum
+	Lock	Kilit
+	Lock aspect ratio	En boy oranını kilitle
+	Low	Düşük
+	Mark as decorative	Dekoratif olarak işaretle
+	Match case	Büyük/küçük harfe duyarlı
+	Matrix	Matris
+	Medium	Orta
+	Merged PRs	Birleştirilen PR'lar
+	Middle	Orta
+	Mirror	Yansıt
+	Miter	Gönye
+	Model	Model
+	Models	Modeller
+	More Colors…	Diğer Renkler…
+	More Columns…	Diğer Sütunlar…
+	More options	Diğer seçenekler
+	Motion	Hareket
+	Move Down	Aşağı taşı
+	Move Up	Yukarı taşı
+	Multiple	Birden çok
+	Name	Ad
+	Name (A–Z)	Ad (A–Z)
+	Name:	Ad:
+	Narrow	Dar
+	New	Yeni
+	New Comment	Yeni Yorum
+	New Window	Yeni Pencere
+	New chat	Yeni sohbet
+	Next	Sonraki
+	Next Page	Sonraki Sayfa
+	No Border	Kenarlık Yok
+	No Color	Renk Yok
+	No Fill	Dolgu Yok
+	No Glow	Parlama Yok
+	No Outline	Anahat Yok
+	No Reflection	Yansıma Yok
+	No Shadow	Gölge Yok
+	No Soft Edges	Yumuşak Kenar Yok
+	No Transform	Dönüşüm Yok
+	No contributor data was built into this copy.	Bu kopyaya katkıda bulunan verisi eklenmemiş.
+	No fill	Dolgu yok
+	No model credits were built into this copy.	Bu kopyaya model katkıları eklenmemiş.
+	None	Yok
+	Normal	Normal
+	Not installed	Yüklü değil
+	Not saved yet	Henüz kaydedilmedi
+	Not signed in	Oturum açılmadı
+	Notes	Notlar
+	Number of columns:	Sütun sayısı:
+	Number of rows:	Satır sayısı:
+	Numbering	Numaralandırma
+	Open	Aç
+	Open…	Aç…
+	Options	Seçenekler
+	Orientation	Yönlendirme
+	Out	Dışarı
+	Outside Borders	Dış Kenarlıklar
+	Oval	Oval
+	PDF (*.pdf)	PDF Belgesi (*.pdf)
+	PRs	PR'lar
+	Page Number	Sayfa Numarası
+	Page Setup…	Sayfa Yapısı…
+	Paper	Kağıt
+	Paragraph	Paragraf
+	Paragraph…	Paragraf…
+	Paste	Yapıştır
+	Paste (⌘V)	Yapıştır (⌘V)
+	Paste Formatting	Biçimlendirmeyi Yapıştır
+	Paste Special	Özel Yapıştır
+	Paste Special…	Özel Yapıştır…
+	Path	Yol
+	Pattern	Desen
+	Pause	Duraklat
+	Pen	Kalem
+	Pencil	Kalem
+	Personalize	Kişiselleştir
+	Perspective	Perspektif
+	Picture	Resim
+	Picture Border	Resim Kenarlığı
+	Picture Format	Resim Biçimi
+	Pictures	Resimler
+	Play	Oyna
+	Position	Konum
+	Preferences	Tercihler
+	Preferences…	Tercihler…
+	Presentation	Sunum
+	Preserve	Koru
+	Preset gradients	Hazır degradeler
+	Presets	Ön ayarlar
+	Preview	Önizleme
+	Previous	Önceki
+	Previous Page	Önceki sayfa
+	Print	Yazdır
+	Print…	Yazdır…
+	Process	Süreç
+	Promote	Düzey Yükselt
+	Proofing	Dil Denetimi
+	Properties	Özellikler
+	Pyramid	Piramit
+	Quick Access Toolbar	Hızlı Erişim Araç Çubuğu
+	Radial	Radyal
+	Real name	Gerçek ad
+	Recent	Son Kullanılanlar
+	Rectangle	Dikdörtgen
+	Rectangular	Dikdörtgen
+	Redo	Yinele
+	Reflection	Yansıma
+	Regular	Düzenli
+	Reject	Reddet
+	Relationship	İlişki
+	Remove	Kaldır
+	Remove Background	Arka Planı Kaldır
+	Remove from Quick Access Toolbar	Hızlı Erişim Araç Çubuğundan Kaldır
+	Remove from Recent	Son kullanılanlardan kaldır
+	Remove stop	Durağı kaldır
+	Rename	Yeniden adlandır
+	Reopen	Yeniden Aç
+	Replace	Değiştir
+	Replace All	Tümünü Değiştir
+	Replace with:	Şununla değiştir:
+	Replace…	Değiştir…
+	Reset	Sıfırla
+	Reset Crop	Kırpmayı Sıfırla
+	Reset Picture	Resmi Sıfırla
+	Resolution	Çözünürlük
+	Resolve	Çöz
+	Resume	Devam et
+	Reverse the order	Sırayı tersine çevir
+	Revert	Geri Döndür
+	Review	Gözden Geçir
+	Revisions	Düzeltmeler
+	Right	Sağ
+	Right Border	Sağ Kenarlık
+	Right-to-Left Text Direction	Sağdan Sola Metin Yönü
+	Rotate	Döndür
+	Rotate Left 90°	Sola 90° Döndür
+	Rotate Right 90°	Sağa 90° Döndür
+	Rotate all text 270°	Tüm metni 270° döndür
+	Rotate all text 90°	Tüm metni 90° döndür
+	Rotate with shape	Şekille birlikte döndür
+	Rotation	Döndürme
+	Round	Yuvarlak
+	Ruler	Cetvel
+	Saturation	Doygunluk
+	Save	Kaydet
+	Save As	Farklı Kaydet
+	Save As…	Farklı Kaydet…
+	Save as type	Kayıt türü
+	Saved	Kaydedildi
+	Scroll ribbon left	Şeridi sola kaydır
+	Scroll ribbon right	Şeridi sağa kaydır
+	Search icons	Simgelerde ara
+	Select	Seç
+	Select All	Tümünü Seç
+	Selected	Seçilen
+	Selection	Seçim
+	SemiBold	Yarı Kalın
+	Send	Gönder
+	Send Backward	Arkaya Gönder
+	Send to Back	En Arkaya Gönder
+	Sentence case.	Cümle düzeni.
+	Set	Ayarla
+	Settings	Ayarlar
+	Shading	Gölgelendirme
+	Shadow	Gölge
+	Shape Effects	Şekil Efektleri
+	Shape Fill	Şekil Dolgusu
+	Shape Format	Şekil Biçimi
+	Shape Outline	Şekil Çizgisi
+	Shapes	Şekiller
+	Show	Göster
+	Show All	Tümünü Göster
+	Sign in	Oturum aç
+	Sign-in unknown	Oturum durumu bilinmiyor
+	Single	Tek
+	Size	Boyut
+	Size:	Boyut:
+	Small	Küçük
+	Small caps	Küçük büyük harf
+	SmartArt	SmartArt
+	SmartArt Design	SmartArt Tasarımı
+	SmartArt Styles	SmartArt Stilleri
+	Snap	Yapış
+	Soft Edges	Yumuşak Kenarlar
+	Solid	Düz
+	Solid fill	Düz dolgu
+	Sort	Sırala
+	Space	Boşluk
+	Spacing	Aralık
+	Spacing (pt):	Aralık (pt):
+	Special	Özel
+	Spelling	Yazım Denetimi
+	Square	Kare
+	Stacked	Yığılmış
+	Standard Colors	Standart Renkler
+	Stop	Durdur
+	Strikethrough	Üstü Çizili
+	Subject	Konu
+	Subscript	Abonelik
+	Superscript	Üst simge
+	Swedish	İsveççe
+	Symbol	Simge
+	Tab	Sekme
+	Table	Tablo
+	Table Design	Tablo Tasarımı
+	Tabs	Sekmeler
+	Tabs…	Sekmeler…
+	Tags	Etiketler
+	Templates	Şablonlar
+	Text	Metin
+	Text Box	Metin Kutusu
+	Text Direction	Metin Yönü
+	Text Effects	Metin Efektleri
+	Text Fill	Metin Dolgusu
+	Text Highlight Color	Metin Vurgu Rengi
+	Text Outline	Metin Anahattı
+	Text Pane	Metin Bölmesi
+	Theme Colors	Tema Renkleri
+	Themes	Temalar
+	Thesaurus	Eş Anlamlılar Sözlüğü
+	Tight	Sıkı
+	Title	Başlık
+	Top	Üst
+	Top Border	Üst Kenarlık
+	Top Left	Sol Üst
+	Top Right	Sağ Üst
+	Total Row	Toplam Satırı
+	Transform	Dönüştür
+	Translate	Çevir
+	Transparency	Şeffaflık
+	Trim	Kırpma
+	Triple	Üçlü
+	Type	Tür
+	Underline	Altı Çizili
+	Undo	Geri Al
+	Ungroup	Grubu Çöz
+	Unlock	Kilidi aç
+	Up	Yukarı
+	Update	Güncelleme
+	Username	Kullanıcı adı
+	Version	Sürüm
+	Vertical	Dikey
+	Video	video
+	View	Görünüm
+	Volume	Cilt
+	Warp	Deforme Et
+	Wave	Dalga
+	Weight	Ağırlık
+	White	Beyaz
+	Wide	Geniş
+	Width	Genişlik
+	Width:	Genişlik:
+	WordArt	WordArt
+	Zoom	Yakınlaştır
+	Zoom In	Yakınlaştır
+	Zoom Out	Uzaklaştır

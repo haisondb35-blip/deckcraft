@@ -1,0 +1,501 @@
+# Srpski (sr) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	About	O programu
+	Accept	Prihvati
+	Action	Radnja
+	Add Shape	Dodaj oblik
+	Add to Dictionary	Dodaj u rečnik
+	Add to Quick Access Toolbar	Dodaj na traku sa alatkama za brzi pristup
+	Advanced	Napredno
+	After	Posle
+	After:	Posle:
+	Agents	Agenti
+	Align	Poravnanje
+	Align Center	Poravnaj po sredini
+	Align Left	Levo poravnanje
+	Align Right	Desno poravnanje
+	Align Text	Poravnaj tekst
+	Alignment	Poravnanje
+	Alignment:	Poravnanje:
+	All	Svi
+	All Borders	Sve ivice
+	All caps	Sva velika slova
+	Alt Text	Alternativni tekst
+	Alt text	Alternativni tekst
+	Angle	Ugao
+	Animations	Animacije
+	Appearance	Izgled
+	Apply to All	Primeni na sve
+	Arrange	Raspored
+	Arrow	Strelica
+	Arrows	Strelice
+	At	Na
+	Audio	Zvuk
+	Author	Autor
+	AutoCorrect	Automatska ispravka
+	Automatic	Automatski
+	Back	Nazad
+	Background	Pozadina
+	Backspace	Backspace
+	Banded Columns	Trakaste kolone
+	Banded Rows	Trakasti redovi
+	Baseline	Osnovna linija
+	Bevel	Zakošeno
+	Binary assets added	Dodati binarni resursi
+	Binary assets removed	Uklonjeni binarni resursi
+	Black	Crna
+	Blur	Zamućenje
+	Bold	Podebljano
+	Borders	Ivice
+	Both	Oba
+	Bottom	Dole
+	Bottom Border	Donja ivica
+	Bottom Left	Dole levo
+	Bottom Right	Dole desno
+	Brightness	Osvetljenost
+	Bring Forward	Pomeri napred
+	Bring to Front	Premesti na vrh
+	Browse	Pregledaj
+	Bullets	Oznake
+	Cancel	Otkaži
+	Capitalize Each Word	Veliko početno slovo svake reči
+	Caps	Završeci
+	Categories	Kategorije
+	Cell Margins	Margine ćelije
+	Center	Centrirano
+	Centered	Centrirano
+	Change Case	Promeni veličinu slova
+	Change Colors	Promeni boje
+	Change File Type	Promeni tip fajla
+	Change Picture	Promeni sliku
+	Change Picture…	Promeni sliku…
+	Change Shape	Promeni oblik
+	Character Spacing	Razmak između znakova
+	Chart	Grafikon
+	Chart Design	Dizajn grafikona
+	Clear	Obriši
+	Clear All	Obriši sve
+	Clear All Formatting	Obriši sve formatiranje
+	Click to add text	Kliknite da dodate tekst
+	Close	Zatvori
+	Collapse	Skupi
+	Color	Boja
+	Colors	Boje
+	Columns	Kolone
+	Comment	Komentar
+	Comments	Komentari
+	Commits	Commit-ovi
+	Company	Kompanija
+	Compare	Upoređivanje
+	Compress Pictures	Kompresuj slike
+	Contour	Kontura
+	Contrast	Kontrast
+	Contributors	Saradnici
+	Convert	Pretvori
+	Convert to Shapes	Pretvori u oblike
+	Convert to Text	Pretvori u tekst
+	Copy	Kopiraj
+	Corrections	Ispravke
+	Create	Napravi
+	Create PDF	Napravi PDF
+	Crop	Opseci
+	Cross	Krst
+	Custom	Prilagođeno
+	Customize Quick Access Toolbar	Prilagodi traku za brzi pristup
+	Cut	Iseci
+	Cycle	Ciklus
+	Dark	Tamna
+	Dark Mode	Tamni režim
+	Dash	Crtica
+	Date	Datum
+	Date and Time	Datum i vreme
+	Decimal	Decimalni
+	Decrease Font Size	Smanji veličinu fonta
+	Delete	Obriši
+	Delete Columns	Obriši kolone
+	Delete Rows	Obriši redove
+	Delete Table	Obriši tabelu
+	Demote	Spusti nivo
+	Depth	Dubina
+	Design	Dizajn
+	Diamond	Dijamant
+	Direction	Smer
+	Display	Ekran
+	Display name	Ime za prikaz
+	Distance	Udaljenost
+	Distribute Columns	Ravnomerno razmesti kolone
+	Distribute Rows	Ravnomerno razmesti redove
+	Distributed	Rasprostrto
+	Dot	Tačka
+	Dotted	Tačkasta
+	Double	Duplo
+	Down	Nadole
+	Download	Preuzmi
+	Draw	Crtanje
+	Draw Table	Nacrtaj tabelu
+	Duplicate	Дупликат
+	Duration	Trajanje
+	Edit	Uređivanje
+	Effects	Efekti
+	English (Australia)	Engleski (Australija)
+	English (Canada)	Engleski (Kanada)
+	English (United Kingdom)	Engleski (Velika Britanija)
+	English (United States)	Engleski (SAD)
+	Enter	Unos
+	Equation	Jednačina
+	Eraser	Gumica
+	Exactly	Tačno
+	Exit	Izađi
+	Expand	Proširi
+	Export	Izvezi
+	Export…	Izvoz…
+	Eyedropper	Pipeta
+	File	Datoteka
+	Fill	Popuni
+	Find	Pronađi
+	Find Next	Pronađi sledeće
+	Find and Replace	Pronađi i zameni
+	Find what:	Pronađi:
+	Find…	Pronađi…
+	First	Prvi
+	First Column	Prva kolona
+	First commit	Prvi commit
+	First line	Prvi red
+	Fit	Uklopi
+	Fit to Window	Uklopi u prozor
+	Flat	Ravno
+	Flip Horizontal	Okreni horizontalno
+	Flip Vertical	Okreni vertikalno
+	Font	Font
+	Font Color	Boja fonta
+	Fonts	Fontovi
+	Font…	Font…
+	Footer	Podnožje
+	Foreground	Prednji plan
+	Format	Oblikovanje
+	Format Painter (double-click to keep it on)	Kopiraj oblikovanje (dupli klik da ostane uključeno)
+	Format Shape	Format oblika
+	Format Shape…	Formatiraj oblik…
+	French (France)	Francuski (Francuska)
+	From	Od
+	From Left	Sleva
+	From Right	Zdesna
+	Full	Potpuna
+	General	Opšte
+	Glow	Sjaj
+	Grab bag	Razno
+	Gradient fill	Prelivajuća popuna
+	Gradient stops	Tačke preliva
+	Gradient…	Gradijent…
+	Grayscale	Nijanse sive
+	Gridlines	Linije mreže
+	Group	Grupiši
+	Guides	Vodilje
+	Header	Zaglavlje
+	Header Row	Red zaglavlja
+	Height	Visina
+	Height:	Visina:
+	Help	Pomoć
+	Hide	Сакриј
+	Hide All	Sakrij sve
+	Hierarchy	Hijerarhija
+	High	Visoko
+	Highlighter	Marker
+	Home	Početna
+	Horizontal	Horizontalno
+	Icons	Ikone
+	Ignore All	Zanemari sve
+	In	Ulaz
+	Increase Font Size	Povećaj veličinu fonta
+	Indentation	Uvlačenje
+	Info	Informacije
+	Ink to Shape	Rukopis u oblik
+	Insert	Umetni
+	Insert Hyperlink	Umetni hiperveze
+	Insert Table	Umetni tabelu
+	Insert Table…	Umetni tabelu…
+	Inside Borders	Unutrašnje ivice
+	Inside Horizontal Border	Unutrašnja horizontalna ivica
+	Inside Vertical Border	Unutrašnja vertikalna ivica
+	Interface	Interfejs
+	Interface language	Jezik interfejsa
+	Interface size	Veličina interfejsa
+	Italic	Kurziv
+	Japanese	Japanski
+	Join the ArtCraft community on Discord	Pridružite se ArtCraft zajednici na Discord-u
+	Justify	Obostrano poravnanje
+	Language	Jezik
+	Large	Velika
+	Last	Zadnji
+	Last Column	Zadnja kolona
+	Last commit	Zadnji commit
+	Layout	Raspored
+	Layouts	Rasporedi
+	Left	Levo
+	Left Border	Leva ivica
+	Letter	Letter
+	Light	Svetla
+	Lighting	Osvetljenje
+	Line	Linija
+	Line Spacing	Proređenost
+	Line Spacing Options…	Opcije proređenosti…
+	Line delta	Razlika u linijama
+	Line spacing	Proređenost
+	Linear	Linearno
+	Lines added	Dodati redovi
+	Lines deleted	Obrisani redovi
+	Link	Veza
+	Link…	Veza…
+	List	Lista
+	Location	Lokacija
+	Lock	Zaključaj
+	Lock aspect ratio	Zaključaj odnos širine i visine
+	Low	Nisko
+	Mark as decorative	Označi kao dekorativno
+	Match case	Osetljivo na velika/mala slova
+	Matrix	Matrica
+	Medium	Srednja
+	Merged PRs	Spojeni PR-ovi
+	Middle	Sredina
+	Mirror	Preslikavanje
+	Miter	Šiljato
+	Model	Model
+	Models	Modeli
+	More Colors…	Još boja…
+	More Columns…	Još kolona…
+	Motion	Pokret
+	Move Down	Pomeri nadole
+	Move Up	Pomeri nagore
+	Name	Ime
+	Name (A–Z)	Naziv (A–Š)
+	Name:	Naziv:
+	Narrow	Usko
+	New	Novo
+	New Comment	Novi komentar
+	New Window	Novi prozor
+	Next	Sledeći
+	Next Page	Sledeća strana
+	No Border	Bez ivice
+	No Color	Без боје
+	No Fill	Bez popune
+	No Glow	Bez sjaja
+	No Outline	Bez konture
+	No Reflection	Bez odraza
+	No Shadow	Bez senke
+	No Soft Edges	Bez mekih ivica
+	No Transform	Bez transformacije
+	No contributor data was built into this copy.	Ova verzija ne sadrži podatke o saradnicima.
+	No fill	Bez popune
+	No model credits were built into this copy.	Ova verzija ne sadrži zasluge za AI modele.
+	None	Nijedno
+	Normal	Normalno
+	Not saved yet	Još nije sačuvano
+	Notes	Beleške
+	Number of columns:	Broj kolona:
+	Number of rows:	Broj redova:
+	Numbering	Numeracija
+	Open	Otvori
+	Open…	Otvori…
+	Options	Opcije
+	Orientation	Orijentacija
+	Out	Izlaz
+	Outside Borders	Spoljašnje ivice
+	Oval	Ovalno
+	PDF (*.pdf)	PDF (*.pdf)
+	PRs	PR-ovi
+	Page Number	Broj stranice
+	Page Setup…	Podešavanje stranice…
+	Paper	Papir
+	Paragraph	Pasus
+	Paragraph…	Pasus…
+	Paste	Nalepi
+	Paste (⌘V)	Nalepi (⌘V)
+	Paste Formatting	Nalepi oblikovanje
+	Paste Special	Specijalno lepljenje
+	Paste Special…	Specijalno lepljenje…
+	Path	Putanja
+	Pattern	Šara
+	Pause	Pauza
+	Pen	Pero
+	Pencil	Olovka
+	Personalize	Personalizacija
+	Perspective	Perspektiva
+	Picture	Slika
+	Picture Border	Ivica slike
+	Picture Format	Format slike
+	Pictures	Slike
+	Play	Pusti
+	Position	Položaj
+	Preferences	Podešavanja
+	Preferences…	Podešavanja…
+	Presentation	Prikaz
+	Preserve	Očuvaj
+	Preset gradients	Unapred zadati prelivi
+	Presets	Šabloni
+	Preview	Pregled
+	Previous	Prethodni
+	Previous Page	Prethodna stranica
+	Print	Štampaj
+	Print…	Štampaj…
+	Process	Proces
+	Product Information	Informacije o proizvodu
+	Promote	Podigni nivo
+	Proofing	Provera pisanja
+	Properties	Svojstva
+	Pyramid	Piramida
+	Quick Access Toolbar	Traka za brzi pristup
+	Radial	Radijalno
+	Real name	Pravo ime
+	Recent	Nedavno
+	Rectangle	Pravougaonik
+	Rectangular	Pravougaona
+	Redo	Ponovi
+	Reflection	Odraz
+	Regular	Obično
+	Reject	Odbij
+	Relationship	Odnos
+	Remove	Ukloni
+	Remove Background	Ukloni pozadinu
+	Remove from Quick Access Toolbar	Ukloni sa trake sa alatkama za brzi pristup
+	Remove from Recent	Ukloni iz nedavnih
+	Remove stop	Ukloni tačku
+	Rename	Преименуј
+	Reopen	Ponovo otvori
+	Replace	Zameni
+	Replace All	Zameni sve
+	Replace with:	Zameni sa:
+	Replace…	Zameni…
+	Reset	Resetuj
+	Reset Crop	Poništi isecanje
+	Reset Picture	Resetuj sliku
+	Resolution	Rezolucija
+	Resolve	Reši
+	Resume	Nastavi
+	Reverse the order	Obrni redosled
+	Revert	Vrati sačuvano
+	Review	Pregled
+	Right	Desno
+	Right Border	Desna ivica
+	Right-to-Left Text Direction	Smer teksta sa desna na levo
+	Rotate	Rotiraj
+	Rotate Left 90°	Rotiraj ulevo za 90°
+	Rotate Right 90°	Rotiraj udesno za 90°
+	Rotate all text 270°	Rotiraj sav tekst za 270°
+	Rotate all text 90°	Rotiraj sav tekst za 90°
+	Rotate with shape	Rotiraj sa oblikom
+	Rotation	Rotacija
+	Round	Zaobljeno
+	Ruler	Lenjir
+	Saturation	Zasićenost
+	Save	Sačuvaj
+	Save As	Sačuvaj kao
+	Save As…	Sačuvaj kao…
+	Save as type	Sačuvaj kao tip
+	Saved	Sačuvano
+	Scroll ribbon left	Pomeri traku levo
+	Scroll ribbon right	Pomeri traku desno
+	Search icons	Pretraži ikonice
+	Select	Selekcija
+	Select All	Izaberi sve
+	Selected	Izabrano
+	Selection	Izbor
+	SemiBold	Polupodebljano
+	Send Backward	Pomeri nazad
+	Send to Back	Premesti na dno
+	Sentence case.	Veliko slovo na početku rečenice.
+	Set	Postavi
+	Settings	Podešavanja
+	Shading	Senčenje
+	Shadow	Senka
+	Shape Effects	Efekti oblika
+	Shape Fill	Popuna oblika
+	Shape Format	Format oblika
+	Shape Outline	Kontura oblika
+	Shapes	Oblici
+	Show	Prikaži
+	Show All	Prikaži sve
+	Single	Jednostruko
+	Size	Veličina
+	Size:	Veličina:
+	Small	Mala
+	Small caps	kapitelke
+	SmartArt	SmartArt
+	SmartArt Design	SmartArt dizajn
+	SmartArt Styles	SmartArt stilovi
+	Snap	Prianjanje
+	Soft Edges	Meke ivice
+	Solid	Puna
+	Solid fill	Jednobojna popuna
+	Sort	Sortiraj
+	Space	Razmak
+	Spacing	Razmak
+	Spacing (pt):	Razmak (pt):
+	Special	Posebno
+	Spelling	Pravopis
+	Square	Kvadratno
+	Stacked	Naslagano
+	Standard Colors	Standardne boje
+	Stop	Zaustavi
+	Strikethrough	Precrtano
+	Subject	Predmet
+	Subscript	Indeks
+	Superscript	Eksponent
+	Swedish	Švedski
+	Symbol	Simbol
+	Tab	Tab
+	Table	Tabela
+	Table Design	Dizajn tabele
+	Tabs	Tabulatori
+	Tabs…	Tabulatori…
+	Templates	Šabloni
+	Text	Tekst
+	Text Box	Текстуално поље
+	Text Direction	Smer teksta
+	Text Effects	Efekti teksta
+	Text Fill	Popuna teksta
+	Text Highlight Color	Boja isticanja teksta
+	Text Outline	Kontura teksta
+	Text Pane	Okno za tekst
+	Theme Colors	Boje teme
+	Themes	Teme
+	Thesaurus	Rečnik sinonima
+	Tight	Tesno
+	Title	Naslov
+	To	Do
+	Top	Gore
+	Top Border	Gornja ivica
+	Top Left	Gore levo
+	Top Right	Gore desno
+	Total Row	Red ukupno
+	Transform	Transformacija
+	Translate	Prevedi
+	Transparency	Providnost
+	Trim	Odseci ivice
+	Triple	Trostruko
+	Type	Tip
+	Underline	Podvučeno
+	Undo	Opozovi
+	Ungroup	Razgrupiši
+	Unlock	Otključaj
+	Up	Gore
+	Update	Ažuriraj
+	Username	Korisničko ime
+	Version	Verzija
+	Vertical	Uspravno
+	Video	Video
+	View	Prikaz
+	Volume	Tom
+	Warp	Krivljenje
+	Wave	Talas
+	Weight	Debljina
+	White	Bela
+	Wide	Široko
+	Width	Širina
+	Width:	Širina:
+	WordArt	WordArt
+	Zoom	Uvećanje
+	Zoom In	Uvećaj prikaz
+	Zoom Out	Umanji prikaz

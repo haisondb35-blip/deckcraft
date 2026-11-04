@@ -80,6 +80,8 @@ pub struct UiState {
     /// for decks with clickable choices (#1445).
     pub show_keep_cursor: bool,
     pub ui_scale: f32,
+    /// The interface language (`vi`, `de`…); empty: the system's ([`crate::i18n`]).
+    pub language: String,
     /// Format Shape pane: tab (`fill`, `effects`, `size`, `picture`, `text`).
     pub format_tab: String,
     /// The Text Pane's current SmartArt line (Add Shape, Promote and Demote act on it).
@@ -120,6 +122,7 @@ impl Default for UiState {
             presenter_view: true,
             show_keep_cursor: false,
             ui_scale: 1.0,
+            language: String::new(),
             format_tab: "fill".into(),
             smartart_row: 0,
             smartart_focus: None,

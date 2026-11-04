@@ -144,6 +144,16 @@ impl SlideApp {
         if let Some(v) = num("uiScale", 0.75, 1.75)? {
             self.ui.ui_scale = v as f32;
         }
+        if let Some(v) = p.get("language") {
+            let code = v.as_str().map(str::trim).ok_or("language must be a code such as \"vi\", or \"\" for the system's")?;
+            self.ui.language = match code {
+                "" | "auto" => String::new(),
+                c => crate::i18n::Language::parse(c)
+                    .map(|l| l.code().to_string())
+                    .ok_or_else(|| format!("no interface language {c:?}; one of {}", crate::i18n::Language::ALL.map(|l| l.code()).join(", ")))?,
+            };
+            crate::i18n::set_current(crate::i18n::Language::from_pref(&self.ui.language));
+        }
         if let Some(v) = p.get("author") {
             let name = v.as_str().map(str::trim).filter(|n| !n.is_empty() && n.chars().count() <= 255).ok_or("author must be 1 to 255 characters")?;
             self.session.prefs.author = name.to_string();
@@ -174,6 +184,8 @@ impl SlideApp {
         let pr = &self.session.prefs;
         Ok(serde_json::json!({
             "uiScale": self.ui.ui_scale,
+            "language": self.ui.language,
+            "interfaceLanguage": crate::i18n::Language::from_pref(&self.ui.language).code(),
             "author": pr.author,
             "autocorrect": pr.autocorrect,
             "smartQuotes": pr.smart_quotes,
@@ -335,6 +347,8 @@ impl SlideApp {
             log::debug!("ignoring SlideApp::ui for render-only viewport {:?}", ctx.viewport_id());
             return;
         }
+        // The interface language for everything drawn this frame (File › Options › General).
+        crate::i18n::set_current(crate::i18n::Language::from_pref(&self.ui.language));
         self.ui_inner(ui);
         // The last writer (all panels, dialogs, the custom producer and deferred child windows)
         // has run. Observe the actual custom descriptor for this pass, then reconcile the reset

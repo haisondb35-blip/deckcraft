@@ -1,0 +1,521 @@
+# Русский (ru) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	AI Assistant	ИИ-помощник
+	AaBbCcDd	АаБбВвГг
+	About	О программе
+	Accept	Принять
+	Accessibility Checker	Проверка доступности
+	Action	Операция
+	Add Shape	Добавить фигуру
+	Add comments	Добавить комментарии
+	Add to Dictionary	Добавить в словарь
+	Add to Quick Access Toolbar	Добавить на панель быстрого доступа
+	Advanced	Дополнительно
+	After:	После:
+	Agents	Агенты
+	Align	Выровнять
+	Align Center	По центру
+	Align Left	По левому краю
+	Align Right	По правому краю
+	Align Text	Выравнивание текста
+	Alignment	Выравнивание
+	Alignment:	Выравнивание:
+	All	Все
+	All Borders	Все границы
+	All caps	Все прописные
+	Alt Text	Замещающий текст
+	Alt text	Замещающий текст
+	Angle	Угол
+	Animations	Анимация
+	Appearance	Внешний вид
+	Apply to All	Применить ко всем
+	Arrange	Упорядочить
+	Arrow	Стрелка
+	Arrows	Стрелки
+	Audio	Аудио
+	Author	Автор
+	AutoCorrect	Автозамена
+	Automatic	Автоматически
+	Back	Назад
+	Background	Фон
+	Backspace	Backspace
+	Banded Columns	Чередующиеся столбцы
+	Banded Rows	Чередующиеся строки
+	Baseline	Базовая линия
+	Bevel	Скошенные
+	Binary assets added	Добавлены двоичные ресурсы
+	Binary assets removed	Удалённые бинарные ресурсы
+	Black	Чёрный
+	Blur	Размытие
+	Bold	Полужирный
+	Borders	Границы
+	Both	Оба
+	Bottom	Снизу
+	Bottom Border	Нижняя граница
+	Bottom Left	Снизу слева
+	Bottom Right	Снизу справа
+	Brightness	Яркость
+	Bring Forward	Переместить вперёд
+	Bring to Front	На передний план
+	Bullets	Маркеры
+	Cancel	Отмена
+	Capitalize Each Word	Каждое Слово С Прописной
+	Caps	Концы
+	Categories	Категории
+	Cell Margins	Поля ячеек
+	Center	По центру
+	Centered	По центру
+	Change Case	Изменить регистр
+	Change Colors	Изменить цвета
+	Change File Type	Изменить тип файла
+	Change Picture	Заменить рисунок
+	Change Picture…	Заменить рисунок…
+	Change Shape	Изменить фигуру
+	Character Spacing	Межзнаковый интервал
+	Chart	Диаграмма
+	Chart Design	Конструктор диаграмм
+	Check the sign-in again	Проверить вход ещё раз
+	Checking sign-in…	Проверка входа…
+	Clear	Очистить
+	Clear All	Очистить всё
+	Clear All Formatting	Очистить всё форматирование
+	Click to add text	Щёлкните, чтобы добавить текст
+	Close	Закрыть
+	Close Path	Замкнуть контур
+	Collapse	Свернуть
+	Color	Цвет
+	Colors	Цвета
+	Columns	Столбцы
+	Comment	Комментарий
+	Comments	Комментарии
+	Commits	Коммиты
+	Company	Организация
+	Compare	Сравнить
+	Compress Pictures	Сжать рисунки
+	Contour	Контур
+	Contrast	Контраст
+	Contributors	Участники
+	Convert	Преобразовать
+	Convert to Shapes	Преобразовать в фигуры
+	Convert to Text	Преобразовать в текст
+	Copy	Копировать
+	Corrections	Коррекция
+	Create	Создать
+	Create PDF	Создать PDF
+	Crop	Обрезать
+	Cross	Крестик
+	Custom	Пользовательский
+	Customize Quick Access Toolbar	Настроить панель быстрого доступа
+	Cut	Вырезать
+	Cycle	Цикл
+	Dark	Тёмная
+	Dark Mode	Тёмный режим
+	Dash	Штрих
+	Date	Дата
+	Date and Time	Дата и время
+	Decimal	По разделителю
+	Decrease Font Size	Уменьшить размер шрифта
+	Delete	Удалить
+	Delete Columns	Удалить столбцы
+	Delete Point	Удалить точку
+	Delete Rows	Удалить строки
+	Delete Table	Удалить таблицу
+	Demote	Понизить уровень
+	Depth	Глубина
+	Design	Дизайн
+	Diamond	Ромб
+	Direction	Направление
+	Display	Отображение
+	Display name	Отображаемое имя
+	Distance	Расстояние
+	Distribute Columns	Выровнять ширину столбцов
+	Distribute Rows	Выровнять высоту строк
+	Distributed	Распределённое
+	Dot	Точка
+	Dotted	Пунктирная
+	Double	Двойной
+	Down	Вниз
+	Download	Скачать
+	Draw	Рисование
+	Draw Table	Нарисовать таблицу
+	Duplicate	Дублировать
+	Duration	Длительность
+	Edit	Изменение
+	Edit Text	Редактировать текст
+	Effects	Эффекты
+	Emphasis	Выделение
+	English (Australia)	Английский (Австралия)
+	English (Canada)	Английский (Канада)
+	English (United Kingdom)	Английский (Великобритания)
+	English (United States)	Английский (США)
+	Enter	Ввод
+	Equation	Уравнение
+	Eraser	Ластик
+	Exactly	Точно
+	Exit	Выйти
+	Expand	Развернуть
+	Export	Экспорт
+	Export…	Экспортировать…
+	Eyedropper	Пипетка
+	File	Файл
+	Fill	Заполнить
+	Find	Найти
+	Find Next	Найти далее
+	Find and Replace	Найти и заменить
+	Find what:	Найти:
+	Find…	Найти…
+	First	Первый
+	First Column	Первый столбец
+	First commit	Первый коммит
+	First line	Первая строка
+	Fit	По размеру
+	Flip Horizontal	Отразить слева направо
+	Flip Vertical	Отразить сверху вниз
+	Font	Шрифт
+	Font Color	Цвет шрифта
+	Fonts	Шрифты
+	Font…	Шрифт…
+	Footer	Нижний колонтитул
+	Foreground	Передний план
+	Format	Формат
+	Format Painter (double-click to keep it on)	Формат по образцу (дважды щёлкните, чтобы закрепить)
+	Format Shape	Формат фигуры
+	Format Shape…	Формат фигуры…
+	French (France)	Французский (Франция)
+	From	С
+	Full	Полная
+	General	Общий
+	Glow	Свечение
+	Grab bag	Разное
+	Gradient fill	Градиентная заливка
+	Gradient stops	Точки градиента
+	Gradient…	Градиент…
+	Grayscale	Оттенки серого
+	Gridlines	Сетка
+	Group	Группировать
+	Guides	Направляющие
+	Header	Верхний колонтитул
+	Header Row	Строка заголовка
+	Height	Высота
+	Height:	Высота:
+	Help	Справка
+	Hide	Скрыть
+	Hide All	Скрыть все
+	Hierarchy	Иерархия
+	High	Высокая
+	Highlighter	Маркер
+	Home	Главная
+	Horizontal	По горизонтали
+	Icons	Значки
+	Ignore All	Пропустить все
+	In	Начало
+	Increase Font Size	Увеличить размер шрифта
+	Indentation	Отступы
+	Info	Сведения
+	Ink to Shape	Рукописный ввод в фигуры
+	Insert	Вставить
+	Insert Hyperlink	Вставить гиперссылку
+	Insert Table	Вставить таблицу
+	Insert Table…	Вставить таблицу…
+	Inside Borders	Внутренние границы
+	Inside Horizontal Border	Внутренняя горизонтальная граница
+	Inside Vertical Border	Внутренняя вертикальная граница
+	Install	Установить
+	Interface	Интерфейс
+	Interface language	Язык интерфейса
+	Interface size	Размер интерфейса
+	Italic	Курсив
+	Japanese	Японский
+	Join the ArtCraft community on Discord	Присоединяйтесь к сообществу ArtCraft в Discord
+	Justify	По ширине
+	Language	Язык
+	Language:	Язык:
+	Large	Большой
+	Last	Последний
+	Last Column	Последний столбец
+	Last commit	Последний коммит
+	Layout	Макет
+	Layouts	Макеты
+	Left	Слева
+	Left Border	Левая граница
+	Letter	Letter
+	Light	Светлая
+	Lighting	Освещение
+	Line	Линия
+	Line Spacing	Межстрочный интервал
+	Line Spacing Options…	Параметры межстрочного интервала…
+	Line delta	Разница строк
+	Line spacing	Межстрочный интервал
+	Linear	Линейный
+	Lines added	Добавлено строк
+	Lines deleted	Удалено строк
+	Link	Ссылка
+	Link…	Ссылка…
+	List	Список
+	Location	Расположение
+	Lock	Заблокировать
+	Lock aspect ratio	Сохранять пропорции
+	Low	Низкая
+	Mark as decorative	Пометить как декоративный
+	Match case	С учётом регистра
+	Matrix	Матрица
+	Media	Носитель
+	Medium	Средняя
+	Merged PRs	Принятые PR
+	Middle	По центру
+	Mirror	Зеркало
+	Miter	Острые
+	Model	Модель
+	Models	Модели
+	More Colors…	Другие цвета…
+	More Columns…	Другие колонки…
+	More options	Ещё
+	Motion	Motion
+	Move Down	Переместить вниз
+	Move Up	Переместить вверх
+	Multiple	Несколько
+	Name	Имя
+	Name (A–Z)	Имя (А–Я)
+	Name:	Имя:
+	Narrow	Узкие
+	New	Создать
+	New Comment	Новый комментарий
+	New Window	Новое окно
+	New chat	Новый чат
+	Next	Далее
+	Next Page	Следующая страница
+	No Border	Без границы
+	No Color	Без цвета
+	No Fill	Нет заливки
+	No Glow	Без свечения
+	No Outline	Нет контура
+	No Reflection	Без отражения
+	No Shadow	Без тени
+	No Soft Edges	Без сглаживания
+	No Transform	Без трансформации
+	No contributor data was built into this copy.	В эту сборку не включены данные об участниках.
+	No fill	Нет заливки
+	No model credits were built into this copy.	В эту сборку не включены сведения о моделях.
+	None	Нет
+	Normal	Обычные
+	Not installed	Не установлено
+	Not saved yet	Ещё не сохранено
+	Not signed in	Вход не выполнен
+	Notes	Заметки
+	Number of columns:	Число столбцов:
+	Number of rows:	Число строк:
+	Numbering	Нумерация
+	Offset X	Смещение X
+	Open	Открыть
+	Open…	Открыть…
+	Options	Параметры
+	Orientation	Ориентация
+	Out	Конец
+	Outside Borders	Внешние границы
+	Oval	Овал
+	PDF (*.pdf)	Файл PDF (*.pdf)
+	PRs	PR
+	Page Number	Номер страницы
+	Page Setup…	Параметры страницы…
+	Paper	Бумага
+	Paragraph	Абзац
+	Paragraph…	Абзац…
+	Paste	Вставить
+	Paste (⌘V)	Вставить (⌘V)
+	Paste Formatting	Вставить форматирование
+	Paste Special	Специальная вставка
+	Paste Special…	Специальная вставка…
+	Path	Контур
+	Pattern	Узор
+	Pause	Пауза
+	Pen	Перо
+	Pencil	Карандаш
+	Percent:	Проценты:
+	Personalize	Персонализация
+	Perspective	Перспектива
+	Picture	Рисунок
+	Picture Border	Граница рисунка
+	Picture Format	Формат рисунка
+	Pictures	Изображения
+	Play	Воспроизвести
+	Position	Положение
+	Preferences	Настройки
+	Preferences…	Настройки…
+	Presentation	Представление
+	Preset gradients	Готовые градиенты
+	Presets	Наборы
+	Preview	Предварительный просмотр
+	Previous	Назад
+	Previous Page	Предыдущая страница
+	Print	Печать
+	Print…	Печать…
+	Process	Процесс
+	Product Information	Сведения о продукте
+	Promote	Повысить уровень
+	Proofing	Правописание
+	Properties	Свойства
+	Pyramid	Пирамида
+	Quick Access Toolbar	Панель быстрого доступа
+	Radial	Радиальный
+	Real name	Настоящее имя
+	Recent	Последние
+	Recolor	Перекрасить
+	Rectangle	Прямоугольник
+	Rectangular	Прямоугольная
+	Redo	Вернуть
+	Reflection	Отражение
+	Regular	Обычный
+	Reject	Отклонить
+	Relationship	Связь
+	Remove	Удалить
+	Remove Background	Удалить фон
+	Remove from Quick Access Toolbar	Удалить с панели быстрого доступа
+	Remove from Recent	Убрать из недавних
+	Remove stop	Удалить ограничитель
+	Rename	Переименовать
+	Reopen	Открыть снова
+	Replace	Заменить
+	Replace All	Заменить все
+	Replace Font	Заменить шрифт
+	Replace with:	Заменить на:
+	Replace…	Заменить…
+	Reset	Сбросить
+	Reset Crop	Сбросить обрезку
+	Reset Picture	Сбросить рисунок
+	Resolution	Разрешение
+	Resolve	Отметить решённым
+	Resume	Продолжить
+	Reverse the order	Обратный порядок
+	Revert	Восстановить
+	Review	Рецензирование
+	Revisions	Ревизии
+	Right	Справа
+	Right Border	Правая граница
+	Right-to-Left Text Direction	Направление текста справа налево
+	Rotate	Повернуть
+	Rotate Left 90°	Повернуть влево на 90°
+	Rotate Right 90°	Повернуть вправо на 90°
+	Rotate all text 270°	Повернуть весь текст на 270°
+	Rotate all text 90°	Повернуть весь текст на 90°
+	Rotate with shape	Вращать вместе с фигурой
+	Rotation	Поворот
+	Round	Круглые
+	Rounded	Скруглённый
+	Ruler	Линейка
+	Saturation	Насыщенность
+	Save	Сохранить
+	Save As	Сохранить как
+	Save As…	Сохранить как…
+	Save as type	Тип файла
+	Saved	Сохранено
+	Scroll ribbon left	Прокрутить ленту влево
+	Scroll ribbon right	Прокрутить ленту вправо
+	Search icons	Поиск значков
+	Select	Выделение
+	Select All	Выделить всё
+	Selected	Выбранные
+	Selection	Выделение
+	Send	Отправить
+	Send Backward	Переместить назад
+	Send to Back	На задний план
+	Sentence case.	Как в предложениях.
+	Set	Установить
+	Set Zoom	Задать масштаб
+	Settings	Настройки
+	Shading	Заливка
+	Shadow	Тень
+	Shape Effects	Эффекты формы
+	Shape Fill	Заливка фигуры
+	Shape Format	Формат фигуры
+	Shape Outline	Контур фигуры
+	Shapes	Фигуры
+	Show	Показать
+	Show All	Показать всё
+	Sign in	Войти
+	Sign-in unknown	Состояние входа неизвестно
+	Single	Одинарный
+	Size	Размер
+	Size:	Размер:
+	Small	Малый
+	Small caps	Малые прописные
+	SmartArt	SmartArt
+	SmartArt Design	Конструктор SmartArt
+	SmartArt Styles	Стили SmartArt
+	Snap	Привязка
+	Soft Edges	Сглаживание
+	Solid	Сплошная
+	Solid fill	Сплошная заливка
+	Sort	Сортировка
+	Space	Пробел
+	Spacing	Интервал
+	Spacing (pt):	Интервал (пт):
+	Special	Дополнительный
+	Spelling	Орфография
+	Square	Квадрат
+	Stacked	Стопкой
+	Standard Colors	Стандартные цвета
+	Start:	Начало:
+	Stop	Остановить
+	Strikethrough	Зачёркивание
+	Subject	Тема
+	Subscript	Подстрочный
+	Superscript	Надстрочный
+	Swedish	Шведский
+	Symbol	Символ
+	Tab	Табуляция
+	Table	Таблица
+	Table Design	Конструктор таблиц
+	Tabs	Табуляции
+	Tabs…	Табуляция…
+	Tags	Теги
+	Templates	Шаблоны
+	Text	Текстовый
+	Text Box	Надпись
+	Text Direction	Направление текста
+	Text Effects	Текстовые эффекты
+	Text Fill	Заливка текста
+	Text Highlight Color	Цвет выделения текста
+	Text Outline	Контур текста
+	Text Pane	Область текста
+	Theme Colors	Цвета темы
+	Themes	Темы
+	Thesaurus	Тезаурус
+	Tight	Плотный
+	Title	Название
+	Top	Сверху
+	Top Border	Верхняя граница
+	Top Left	Сверху слева
+	Top Right	Сверху справа
+	Total Row	Строка итогов
+	Transform	Трансформировать
+	Translate	Перевести
+	Transparency	Прозрачность
+	Trim	Подрезать
+	Triple	Тройная
+	Type	Тип
+	Underline	Подчёркивание
+	Undo	Отменить
+	Ungroup	Разгруппировать
+	Unlock	Разблокировать
+	Up	Вверх
+	Update	Обновить
+	Username	Имя пользователя
+	Version	Версия
+	Vertical	Вертикально
+	Video	Видео
+	View	Вид
+	Volume	Том
+	Warp	Деформация
+	Wave	Волна
+	Weight	Толщина
+	White	Белый
+	Wide	Широкие
+	Width	Ширина
+	Width:	Ширина:
+	WordArt	WordArt
+	Zoom	Масштаб
+	Zoom In	Увеличить
+	Zoom Out	Уменьшить

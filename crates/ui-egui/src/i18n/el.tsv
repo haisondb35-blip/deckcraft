@@ -1,0 +1,379 @@
+# Ελληνικά (el) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	About	Πληροφορίες
+	Accessibility Checker	Έλεγχος προσβασιμότητας
+	Action	Ενέργεια
+	Add comments	Προσθήκη σχολίων
+	Add to Dictionary	Προσθήκη στο λεξικό
+	Advanced	Για προχωρημένους
+	After	Μετά
+	Align	Στοίχιση
+	Align Left	Στοίχιση αριστερά
+	Align Right	Στοίχιση δεξιά
+	Alignment	Στοίχιση
+	Alignment:	Στοίχιση:
+	All	Όλα
+	Angle	Γωνία
+	Animations	Κινήσεις
+	Appearance	Εμφάνιση
+	Apply to All	Εφαρμογή σε όλα
+	Arrange	Διάταξη
+	Arrow	Βέλος
+	At	Στο
+	Audio	Ήχος
+	Author	Συντάκτης
+	Automatic	Αυτόματα
+	Back	Πίσω
+	Background	Φόντο
+	Backspace	Backspace
+	Baseline	Γραμμή βάσης
+	Bevel	Λοξή
+	Binary assets added	Δυαδικά στοιχεία που προστέθηκαν
+	Binary assets removed	Δυαδικά αρχεία που αφαιρέθηκαν
+	Black	Μαύρο
+	Blur	Θόλωση
+	Bold	Έντονη γραφή
+	Borders	Περιγράμματα
+	Both	Και τα δύο
+	Bottom	Κάτω
+	Bottom Left	Κάτω αριστερά
+	Bottom Right	Κάτω δεξιά
+	Brightness	Φωτεινότητα
+	Bring Forward	Μεταφορά ένα βήμα εμπρός
+	Bring to Front	Μεταφορά στο προσκήνιο
+	Browse	Περιήγηση
+	Cancel	Ακύρωση
+	Caps	Άκρα
+	Center	Στο κέντρο
+	Change Case	Αλλαγή πεζών/κεφαλαίων
+	Change File Type	Αλλαγή τύπου αρχείου
+	Chart	Γράφημα
+	Chart Design	Σχεδίαση γραφήματος
+	Clear	Απαλοιφή
+	Clear All	Απαλοιφή όλων
+	Click to add text	Κάντε κλικ για προσθήκη κειμένου
+	Close	Κλείσιμο
+	Close Path	Κλείσιμο διαδρομής
+	Collapse	Σύμπτυξη
+	Color	Χρώμα
+	Colors	Χρώματα
+	Columns	Στήλες
+	Comment	Σχόλιο
+	Comments	Σχόλια
+	Commits	Καταχωρίσεις
+	Company	Εταιρεία
+	Compare	Σύγκριση
+	Contour	Περίγραμμα
+	Contrast	Αντίθεση
+	Contributors	Συντελεστές
+	Convert	Μετατροπή
+	Copy	Αντιγραφή
+	Create	Δημιουργία
+	Create PDF	Δημιουργία PDF
+	Crop	Περικοπή
+	Cross	Σταυρός
+	Custom	Προσαρμοσμένη
+	Cut	Αποκοπή
+	Dark	Σκοτεινό
+	Dark Mode	Σκοτεινή λειτουργία
+	Dash	Παύλα
+	Date	Ημερομηνία
+	Date and Time	Ημερομηνία και ώρα
+	Decimal	Δεκαδικός αριθμός
+	Decrease Font Size	Μείωση μεγέθους γραμματοσειράς
+	Delete	Διαγραφή
+	Delete Point	Διαγραφή σημείου
+	Depth	Βάθος
+	Diamond	Ρόμβος
+	Direction	Κατεύθυνση
+	Display	Οθόνη
+	Display name	Εμφανιζόμενο όνομα
+	Distance	Απόσταση
+	Distributed	Κατανεμημένη
+	Dot	Τελεία
+	Dotted	Με τελείες
+	Double	Διπλή
+	Down	Κάτω
+	Download	Λήψη
+	Draw	Σχεδίαση
+	Duplicate	Δημιουργία αντιγράφου
+	Duration	Διάρκεια
+	Edit	Επεξεργασία
+	Edit Text	Επεξεργασία κειμένου
+	Effects	Εφέ
+	Enter	Εισαγωγή
+	Eraser	Γόμα
+	Exit	Έξοδος
+	Expand	Επέκταση
+	Export	Εξαγωγή
+	Export…	Εξαγωγή…
+	Eyedropper	Σταγονόμετρο (Eyedropper Tool)
+	File	Αρχείο
+	Fill	Συμπλήρωση
+	Find	Εύρεση
+	Find Next	Εύρεση επόμενου
+	Find and Replace	Εύρεση και αντικατάσταση
+	Find what:	Εύρεση:
+	Find…	Εύρεση…
+	First	Πρώτο
+	First commit	Πρώτη καταχώριση
+	Fit	Προσαρμογή
+	Fit to Window	Προσαρμογή στο παράθυρο
+	Flat	Επίπεδο
+	Flip Horizontal	Οριζόντια αναστροφή
+	Flip Vertical	Κατακόρυφη αναστροφή
+	Font	Γραμματοσειρά
+	Font Color	Χρώμα γραμματοσειράς
+	Fonts	Γραμματοσειρές
+	Footer	Υποσέλιδο
+	Foreground	Προσκήνιο
+	Format	Μορφοποίηση
+	Format Painter (double-click to keep it on)	Αντιγραφή μορφοποίησης (διπλό κλικ για συνεχή χρήση)
+	From	Από
+	From Left	Από αριστερά
+	From Right	Από δεξιά
+	Full	Πλήρης
+	General	Γενικά
+	Glow	Λάμψη
+	Grab bag	Διάφορα
+	Gradient stops	Σημεία διαβάθμισης
+	Gradient…	Διαβάθμιση…
+	Grayscale	Κλίμακα του γκρι
+	Gridlines	Γραμμές πλέγματος
+	Group	Ομαδοποίηση
+	Guides	Οδηγοί
+	Header	Κεφαλίδα
+	Height	Ύψος
+	Height:	Ύψος:
+	Help	Βοήθεια
+	Hide	Απόκρυψη
+	Hide All	Απόκρυψη όλων
+	High	Υψηλή
+	Highlighter	Εργαλείο επισήμανσης
+	Home	Αρχική
+	Horizontal	Οριζόντια
+	Icons	Εικονίδια
+	Ignore All	Παράβλεψη όλων
+	In	Είσοδος
+	Increase Font Size	Αύξηση μεγέθους γραμματοσειράς
+	Info	Πληροφορίες
+	Insert	Εισαγωγή
+	Insert Hyperlink	Εισαγωγή υπερσύνδεσης
+	Insert…	Εισαγωγή…
+	Interface	Περιβάλλον
+	Interface language	Γλώσσα περιβάλλοντος
+	Interface size	Μέγεθος περιβάλλοντος
+	Italic	Πλάγια γραφή
+	Japanese	Ιαπωνικά
+	Justify	Πλήρης στοίχιση
+	Language	Γλώσσα
+	Language:	Γλώσσα:
+	Large	Μεγάλο
+	Last	Τελευταίο
+	Last commit	Τελευταία καταχώριση
+	Layout	Διάταξη
+	Left	Αριστερά
+	Letter	Μέγεθος Letter
+	Light	Φωτεινό
+	Lighting	Φωτισμός
+	Line	Γραμμή
+	Line delta	Καθαρή μεταβολή γραμμών
+	Line spacing	Διάστιχο
+	Linear	Γραμμική
+	Lines added	Γραμμές που προστέθηκαν
+	Lines deleted	Γραμμές που διαγράφηκαν
+	Link	Σύνδεση
+	Link…	Σύνδεση…
+	List	Λίστα
+	Location	Τοποθεσία
+	Lock	Κλείδωμα
+	Low	Χαμηλή
+	Match case	Διάκριση πεζών και κεφαλαίων
+	Media	Μέσα
+	Medium	Μέτριος
+	Merged PRs	Συγχωνευμένα αιτήματα αλλαγών
+	Middle	Μέση
+	Mirror	Κατοπτρισμός
+	Miter	Οξεία
+	Model	Μοντέλο
+	Models	Μοντέλα
+	More options	Περισσότερες επιλογές
+	Motion	Κίνηση
+	Move Down	Μετακίνηση κάτω
+	Move Up	Μετακίνηση επάνω
+	Multiple	Πολλαπλές σελίδες
+	Name	Όνομα
+	Name (A–Z)	Όνομα (Α–Ω)
+	Name:	Όνομα:
+	Narrow	Στενά
+	New	Νέο
+	New Comment	Νέο σχόλιο
+	New Window	Νέο παράθυρο
+	Next	Επόμενο
+	Next Page	Επόμενη σελίδα
+	No Color	Χωρίς χρώμα
+	No contributor data was built into this copy.	Αυτή η έκδοση δεν περιλαμβάνει δεδομένα συντελεστών.
+	No fill	Χωρίς γέμισμα
+	No model credits were built into this copy.	Αυτή η έκδοση δεν περιλαμβάνει πληροφορίες αναγνώρισης συνεισφορών μοντέλων.
+	None	Κανένα
+	Normal	Κανονικό
+	Not saved yet	Δεν έχει αποθηκευτεί ακόμη
+	Notes	Σημειώσεις
+	Offset X	Μετατόπιση X
+	Open	Άνοιγμα
+	Open…	Άνοιγμα…
+	Options	Επιλογές
+	Orientation	Προσανατολισμός κειμένου
+	Out	Έξοδος
+	Oval	Έλλειψη
+	PDF (*.pdf)	PDF (*.pdf)
+	PRs	Αιτήματα αλλαγών
+	Page Number	Αριθμός σελίδας
+	Page Setup…	Διαμόρφωση σελίδας…
+	Paper	Χαρτί
+	Paragraph	Παράγραφος
+	Paste	Επικόλληση
+	Paste Formatting	Επικόλληση μορφοποίησης
+	Paste Special	Ειδική επικόλληση
+	Paste Special…	Ειδική επικόλληση…
+	Path	Διαδρομή
+	Pattern	Μοτίβο
+	Pause	Παύση
+	Pen	Πένα (Pen Tool)
+	Pencil	Μολύβι
+	Percent:	Ποσοστό:
+	Perspective	Προοπτική
+	Pictures	Εικόνες
+	Play	Αναπαραγωγή
+	Position	Θέση
+	Preferences	Προτιμήσεις
+	Preferences…	Προτιμήσεις…
+	Presentation	Παρουσίαση
+	Preserve	Διατήρηση
+	Presets	Προεπιλογές
+	Preview	Προεπισκόπηση
+	Previous	Προηγούμενο
+	Previous Page	Προηγούμενη σελίδα
+	Print	Εκτύπωση
+	Print…	Εκτύπωση…
+	Promote	Προαγωγή
+	Properties	Ιδιότητες
+	Radial	Ακτινικό
+	Real name	Πραγματικό όνομα
+	Recent	Πρόσφατα
+	Recolor	Επαναχρωματισμός
+	Rectangle	Ορθογώνιο
+	Rectangular	Ορθογώνια
+	Redo	Επανάληψη
+	Regular	Κανονικό
+	Remove	Κατάργηση
+	Remove Background	Αφαίρεση φόντου
+	Remove from Recent	Αφαίρεση από τα πρόσφατα
+	Remove stop	Αφαίρεση σημείου διαβάθμισης
+	Rename	Μετονομασία
+	Replace	Αντικατάσταση
+	Replace All	Αντικατάσταση όλων
+	Replace Font	Αντικατάσταση γραμματοσειράς
+	Replace with:	Αντικατάσταση με:
+	Replace…	Αντικατάσταση…
+	Reset	Επαναφορά
+	Reset to Defaults	Επαναφορά στις προεπιλογές
+	Resolution	Ανάλυση
+	Resume	Συνέχιση
+	Reverse the order	Αντιστροφή σειράς
+	Revert	Επαναφορά αποθηκευμένης έκδοσης
+	Review	Αναθεώρηση
+	Revisions	Αναθεωρήσεις
+	Right	Δεξιά
+	Rotate	Περιστροφή
+	Rotation	Περιστροφή
+	Round	Στρογγυλή
+	Rounded	Στρογγυλεμένο
+	Ruler	Χάρακας
+	Saturation	Κορεσμός
+	Save	Αποθήκευση
+	Save As	Αποθήκευση ως
+	Save As…	Αποθήκευση ως…
+	Save as type	Τύπος αρχείου
+	Saved	Αποθηκεύτηκε
+	Scale X	Κλιμάκωση X
+	Scale Y	Κλιμάκωση Y
+	Select	Επιλογή
+	Select All	Επιλογή όλων
+	Selected	Επιλεγμένα
+	Selection	Επιλογή
+	SemiBold	Ημιέντονα
+	Send Backward	Μεταφορά ένα βήμα πίσω
+	Send to Back	Μεταφορά στο παρασκήνιο
+	Set Zoom	Ορισμός ζουμ
+	Settings	Ρυθμίσεις
+	Shading	Σκίαση
+	Shadow	Σκιά
+	Shape Effects	Εφέ σχημάτων
+	Shapes	Σχήματα
+	Show	Εμφάνιση
+	Show All	Εμφάνιση όλων
+	Single	Μονή
+	Size	Μέγεθος
+	Size:	Μέγεθος:
+	Small	Μικρό
+	Snap	Προσκόλληση
+	Solid	Συνεχής
+	Sort	Ταξινόμηση
+	Space	Διάστημα
+	Spacing	Διάστημα
+	Special	Ειδική
+	Spelling	Ορθογραφικός έλεγχος
+	Square	Τετράγωνο
+	Stacked	Στοιβαγμένο
+	Start:	Αρχή:
+	Stop	Διακοπή
+	Strikethrough	Διαγραφή με γραμμή
+	Subject	Θέμα
+	Subscript	Δείκτης
+	Superscript	Εκθέτης
+	Symbol	Σύμβολο
+	Tab	Στηλοθέτης
+	Table	Πίνακας
+	Table Design	Σχεδίαση πίνακα
+	Tabs	Στηλοθέτες
+	Tags	Ετικέτες
+	Templates	Πρότυπα
+	Text	Κείμενο
+	Text Box	Πλαίσιο κειμένου
+	Themes	Θέματα
+	Title	Τίτλος
+	Top	Επάνω
+	Top Left	Επάνω αριστερά
+	Top Right	Επάνω δεξιά
+	Transform	Μετασχηματισμός
+	Translate	Μετάφραση
+	Transparency	Διαφάνεια
+	Trim	Περικοπή περιθωρίων
+	Type	Τύπος
+	Underline	Υπογράμμιση
+	Undo	Αναίρεση
+	Ungroup	Κατάργηση ομαδοποίησης
+	Unlock	Ξεκλείδωμα
+	Up	Πάνω
+	Update	Ενημέρωση
+	Username	Όνομα χρήστη
+	Version	Έκδοση
+	Vertical	Κατακόρυφα
+	Video	Βίντεο
+	View	Προβολή
+	Volume	Όγκος
+	Warp	Παραμόρφωση
+	Wave	Κύμα
+	Weight	Βάρος
+	White	Λευκό
+	Wide	Πλατιά
+	Width	Πλάτος
+	Width:	Πλάτος:
+	Zoom	Μεγέθυνση
+	Zoom In	Μεγέθυνση
+	Zoom Out	Σμίκρυνση
+	Zoom…	Μεγέθυνση…

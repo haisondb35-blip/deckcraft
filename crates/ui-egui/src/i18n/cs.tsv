@@ -1,0 +1,534 @@
+# Čeština (cs) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	AI Assistant	AI asistent
+	AaBbCcDd	AaÁáBbCc
+	About	O aplikaci
+	Accept	Přijmout
+	Accessibility Checker	Kontrola přístupnosti
+	Action	Akce
+	Add Shape	Přidat tvar
+	Add comments	Přidat komentáře
+	Add to Dictionary	Přidat do slovníku
+	Add to Quick Access Toolbar	Přidat na panel nástrojů Rychlý přístup
+	Advanced	Pokročilé
+	After	Po
+	After:	Za:
+	Agents	Agenti
+	Align	Zarovnat
+	Align Center	Zarovnat na střed
+	Align Left	Zarovnat doleva
+	Align Right	Zarovnat doprava
+	Align Text	Zarovnat text
+	Alignment	Zarovnání
+	Alignment:	Zarovnání:
+	All	Vše
+	All Borders	Všechna ohraničení
+	All caps	Všechna velká
+	Alt Text	Alternativní text
+	Alt text	Alternativní text
+	Angle	Úhel
+	Animations	Animace
+	Appearance	Vzhled
+	Apply to All	Použít na všechny
+	Arrange	Uspořádat
+	Arrow	Šipka
+	Arrows	Šipky
+	At	Pozice
+	Author	Autor
+	AutoCorrect	Automatické opravy
+	Automatic	Automaticky
+	Back	Zpět
+	Background	Pozadí
+	Backspace	Backspace
+	Banded Columns	Pruhované sloupce
+	Banded Rows	Pruhované řádky
+	Baseline	Účaří
+	Bevel	Zkosený
+	Binary assets added	Přidané binární soubory
+	Binary assets removed	Odebrané binární soubory
+	Black	Černá
+	Blur	Rozostření
+	Bold	Tučné
+	Borders	Ohraničení
+	Both	Obě
+	Bottom	Dole
+	Bottom Border	Dolní ohraničení
+	Bottom Left	Vlevo dole
+	Bottom Right	Vpravo dole
+	Brightness	Jas
+	Bring Forward	Přenést blíž
+	Bring to Front	Přenést do popředí
+	Browse	Procházet
+	Bullets	Odrážky
+	Cancel	Zrušit
+	Capitalize Each Word	Velká Počáteční Písmena Slov
+	Caps	Konce
+	Categories	Kategorie
+	Cell Margins	Okraje buňky
+	Center	Zarovnat na střed
+	Centered	Na střed
+	Change Case	Změnit velikost písmen
+	Change Colors	Změnit barvy
+	Change File Type	Změnit typ souboru
+	Change Picture	Změnit obrázek
+	Change Picture…	Změnit obrázek…
+	Change Shape	Změnit tvar
+	Character Spacing	Proložení znaků
+	Chart	Graf
+	Chart Design	Návrh grafu
+	Check the sign-in again	Znovu zkontrolovat přihlášení
+	Checking sign-in…	Kontrola přihlášení…
+	Clear	Vymazat
+	Clear All	Vymazat vše
+	Clear All Formatting	Vymazat veškeré formátování
+	Click to add text	Kliknutím přidáte text
+	Close	Zavřít
+	Close Path	Uzavřít cestu
+	Collapse	Sbalit
+	Color	Barva
+	Colors	Barvy
+	Columns	Sloupce
+	Comment	Komentář
+	Comments	Komentáře
+	Commits	Commity
+	Company	Společnost
+	Compare	Porovnat
+	Compress Pictures	Komprimovat obrázky
+	Contour	Kontura
+	Contrast	Kontrast
+	Contributors	Přispěvatelé
+	Convert	Převést
+	Convert to Shapes	Převést na tvary
+	Convert to Text	Převést na text
+	Copy	Kopírovat
+	Corrections	Opravy
+	Create	Vytvořit
+	Create PDF	Vytvořit PDF
+	Crop	Oříznout
+	Cross	Kříž
+	Custom	Vlastní
+	Customize Quick Access Toolbar	Přizpůsobit panel nástrojů Rychlý přístup
+	Cut	Vyjmout
+	Cycle	Cyklus
+	Dark	Tmavý
+	Dark Mode	Tmavý režim
+	Dash	Čárka
+	Date	Datum
+	Date and Time	Datum a čas
+	Decimal	Desetinné
+	Decrease Font Size	Zmenšit písmo
+	Delete	Odstranit
+	Delete Columns	Odstranit sloupce
+	Delete Point	Odstranit bod
+	Delete Rows	Odstranit řádky
+	Delete Table	Odstranit tabulku
+	Demote	Snížit úroveň
+	Depth	Hloubka
+	Design	Návrh
+	Diamond	Kosočtverec
+	Direction	Směr
+	Display	Zobrazení
+	Display name	Zobrazované jméno
+	Distance	Vzdálenost
+	Distribute Columns	Rovnoměrně rozložit sloupce
+	Distribute Rows	Rovnoměrně rozložit řádky
+	Distributed	Rozložit do šířky
+	Dot	Tečka
+	Dotted	Tečkovaný
+	Double	Dvojité
+	Down	Dolů
+	Download	Stáhnout
+	Draw	Kreslení
+	Draw Table	Nakreslit tabulku
+	Duplicate	Duplikovat
+	Duration	Doba trvání
+	Edit	Úpravy
+	Edit Text	Upravit text
+	Effects	Efekty
+	Emphasis	Zdůraznění
+	English (Australia)	Angličtina (Austrálie)
+	English (Canada)	Angličtina (Kanada)
+	English (United Kingdom)	Angličtina (Spojené království)
+	English (United States)	Angličtina (Spojené státy)
+	Enter	Zadat
+	Equation	Rovnice
+	Eraser	Guma
+	Exactly	Přesně
+	Exit	Ukončit
+	Expand	Rozbalit
+	Export	Exportovat
+	Export…	Exportovat…
+	Eyedropper	Kapátko
+	File	Soubor
+	Fill	Vyplnit
+	Find	Najít
+	Find Next	Najít další
+	Find and Replace	Najít a nahradit
+	Find what:	Najít:
+	Find…	Najít…
+	First	První
+	First Column	První sloupec
+	First commit	První commit
+	First line	První řádek
+	Fit	Přizpůsobit
+	Flat	Ploché
+	Flip Horizontal	Převrátit vodorovně
+	Flip Vertical	Převrátit svisle
+	Font	Písmo
+	Font Color	Barva písma
+	Fonts	Písma
+	Font…	Písmo…
+	Footer	Zápatí
+	Foreground	Popředí
+	Format	Formát
+	Format Painter (double-click to keep it on)	Štětec formátu (dvojklikem zůstane zapnutý)
+	Format Shape	Formát obrazce
+	Format Shape…	Formátovat obrazec…
+	French (France)	Francouzština (Francie)
+	From	Od
+	From Left	Zleva
+	From Right	Zprava
+	Full	Úplná
+	General	Obecný
+	Glow	Záře
+	Grab bag	Různé
+	Gradient fill	Přechodová výplň
+	Gradient stops	Zarážky přechodu
+	Gradient…	Přechod…
+	Grayscale	Stupně šedi
+	Gridlines	Mřížka
+	Group	Seskupit
+	Guides	Vodítka
+	Header	Záhlaví
+	Header Row	Řádek záhlaví
+	Height	Výška
+	Height:	Výška:
+	Help	Nápověda
+	Hide	Skrýt
+	Hide All	Skrýt vše
+	Hierarchy	Hierarchie
+	High	Vysoká
+	Highlighter	Zvýrazňovač
+	Home	Domů
+	Horizontal	Vodorovně
+	Icons	Ikony
+	Ignore All	Ignorovat vše
+	In	Vstup
+	Increase Font Size	Zvětšit písmo
+	Indentation	Odsazení
+	Info	Informace
+	Ink to Shape	Rukopis na tvar
+	Insert	Vložit
+	Insert Hyperlink	Vložit hypertextový odkaz
+	Insert Table	Vložit tabulku
+	Insert Table…	Vložit tabulku…
+	Insert…	Vložit…
+	Inside Borders	Vnitřní ohraničení
+	Inside Horizontal Border	Vnitřní vodorovné ohraničení
+	Inside Vertical Border	Vnitřní svislé ohraničení
+	Install	Nainstalovat
+	Interface	Rozhraní
+	Interface language	Jazyk rozhraní
+	Interface size	Velikost rozhraní
+	Italic	Kurzíva
+	Japanese	Japonština
+	Join the ArtCraft community on Discord	Připojte se ke komunitě ArtCraft na Discordu
+	Justify	Do bloku
+	Language	Jazyk
+	Language:	Jazyk:
+	Large	Velké
+	Last	Poslední
+	Last Column	Poslední sloupec
+	Last commit	Poslední commit
+	Layout	Rozvržení
+	Layouts	Rozvržení
+	Left	Doleva
+	Left Border	Levé ohraničení
+	Letter	Letter
+	Light	Světlý
+	Lighting	Osvětlení
+	Line	Čára
+	Line Spacing	Řádkování
+	Line Spacing Options…	Možnosti řádkování…
+	Line delta	Rozdíl řádků
+	Line spacing	Řádkování
+	Linear	Lineární
+	Lines added	Přidané řádky
+	Lines deleted	Odstraněné řádky
+	Link	Odkaz
+	Link…	Odkaz…
+	List	Seznam
+	Location	Umístění
+	Lock	Zamknout
+	Lock aspect ratio	Zamknout poměr stran
+	Low	Nízká
+	Mark as decorative	Označit jako dekorativní
+	Match case	Rozlišovat malá a velká písmena
+	Matrix	Matice
+	Media	Médium
+	Medium	Střední
+	Merged PRs	Sloučené PR
+	Middle	Uprostřed
+	Mirror	Zrcadlit
+	Miter	Ostrý
+	Model	Model
+	Models	Modely
+	More Colors…	Další barvy…
+	More Columns…	Další sloupce…
+	More options	Další možnosti
+	Motion	Pohyb
+	Move Down	Posunout dolů
+	Move Up	Posunout nahoru
+	Multiple	Více stránek
+	Name	Jméno
+	Name (A–Z)	Jméno (A–Z)
+	Name:	Název:
+	Narrow	Úzké
+	New	Nový
+	New Comment	Nový komentář
+	New Window	Nové okno
+	New chat	Nová konverzace
+	Next	Další
+	Next Page	Další stránka
+	No Border	Bez ohraničení
+	No Color	Bez barvy
+	No Fill	Bez výplně
+	No Glow	Bez záře
+	No Outline	Bez obrysu
+	No Reflection	Bez odrazu
+	No Shadow	Bez stínu
+	No Soft Edges	Bez měkkých okrajů
+	No Transform	Bez transformace
+	No contributor data was built into this copy.	Tato kopie neobsahuje údaje o přispěvatelích.
+	No fill	Bez výplně
+	No model credits were built into this copy.	Tato kopie neobsahuje uvedení modelů.
+	None	Žádné
+	Normal	Normální
+	Not installed	Není nainstalováno
+	Not saved yet	Zatím neuloženo
+	Not signed in	Nepřihlášeno
+	Notes	Poznámky
+	Number of columns:	Počet sloupců:
+	Number of rows:	Počet řádků:
+	Numbering	Číslování
+	Offset X	Posun X
+	Open	Otevřít
+	Open…	Otevřít…
+	Options	Možnosti
+	Orientation	Orientace textu
+	Out	Výstup
+	Outside Borders	Vnější ohraničení
+	Oval	Ovál
+	PDF (*.pdf)	Soubor PDF (*.pdf)
+	PRs	PR
+	Page Number	Číslo stránky
+	Page Setup…	Vzhled stránky…
+	Paper	Papír
+	Paragraph	Odstavec
+	Paragraph…	Odstavec…
+	Paste	Vložit
+	Paste (⌘V)	Vložit (⌘V)
+	Paste Formatting	Vložit formátování
+	Paste Special	Vložit jinak
+	Paste Special…	Vložit jinak…
+	Path	Cesta
+	Pattern	Vzorek
+	Pause	Pozastavit
+	Pen	Pero
+	Pencil	Tužka
+	Percent:	Procento:
+	Personalize	Přizpůsobení
+	Perspective	Perspektiva
+	Picture	Obrázek
+	Picture Border	Ohraničení obrázku
+	Picture Format	Formát obrázku
+	Pictures	Obrázky
+	Play	Přehrát
+	Position	Pozice
+	Preferences	Předvolby
+	Preferences…	Předvolby…
+	Presentation	Prezentace
+	Preserve	Zachovat
+	Preset gradients	Předdefinované přechody
+	Presets	Přednastavení
+	Preview	Náhled
+	Previous	Předchozí
+	Previous Page	Předchozí stránka
+	Print	Tisknout
+	Print…	Tisk…
+	Process	Proces
+	Product Information	Informace o produktu
+	Promote	Zvýšit úroveň
+	Proofing	Kontrola pravopisu
+	Properties	Vlastnosti
+	Pyramid	Pyramida
+	Quick Access Toolbar	Panel nástrojů Rychlý přístup
+	Radial	Kruhové
+	Real name	Skutečné jméno
+	Recent	Naposledy použité
+	Recolor	Přebarvit
+	Rectangle	Obdélník
+	Rectangular	Obdélníková
+	Redo	Znovu
+	Reflection	Odraz
+	Regular	Normální
+	Reject	Odmítnout
+	Relationship	Vztah
+	Remove	Odebrat
+	Remove Background	Odstranit pozadí
+	Remove from Quick Access Toolbar	Odebrat z panelu nástrojů Rychlý přístup
+	Remove from Recent	Odebrat z nedávných souborů
+	Remove stop	Odstranit zarážku
+	Rename	Přejmenovat
+	Reopen	Znovu otevřít
+	Replace	Nahradit
+	Replace All	Nahradit vše
+	Replace Font	Nahradit písmo
+	Replace with:	Nahradit čím:
+	Replace…	Nahradit…
+	Reset	Obnovit
+	Reset Crop	Zrušit oříznutí
+	Reset Picture	Obnovit obrázek
+	Reset to Defaults	Obnovit výchozí hodnoty
+	Resolution	Rozlišení
+	Resolve	Vyřešit
+	Resume	Pokračovat
+	Reverse the order	Obrátit pořadí
+	Revert	Vrátit k uložené verzi
+	Review	Revize
+	Revisions	Revize
+	Right	Doprava
+	Right Border	Pravé ohraničení
+	Right-to-Left Text Direction	Směr textu zprava doleva
+	Rotate	Otočit
+	Rotate Left 90°	Otočit doleva o 90°
+	Rotate Right 90°	Otočit doprava o 90°
+	Rotate all text 270°	Otočit všechen text o 270°
+	Rotate all text 90°	Otočit všechen text o 90°
+	Rotate with shape	Otáčet s obrazcem
+	Rotation	Otočení
+	Round	Kulatý
+	Rounded	Zaoblené
+	Ruler	Pravítko
+	Saturation	Sytost
+	Save	Uložit
+	Save As	Uložit jako
+	Save As…	Uložit jako…
+	Save as type	Typ souboru
+	Saved	Uložené
+	Scale X	Měřítko X
+	Scale Y	Měřítko Y
+	Scroll ribbon left	Posunout pás karet doleva
+	Scroll ribbon right	Posunout pás karet doprava
+	Search icons	Hledat ikony
+	Select	Výběr
+	Select All	Vybrat vše
+	Selected	Vybrané
+	Selection	Výběr
+	SemiBold	Polotučné
+	Send	Odeslat
+	Send Backward	Přesunout dál
+	Send to Back	Přesunout do pozadí
+	Sentence case.	Velké písmeno na začátku věty.
+	Set	Nastavit
+	Set Zoom	Nastavit zvětšení
+	Settings	Nastavení
+	Shading	Stínování
+	Shadow	Stíny
+	Shape Effects	Efekty tvarů
+	Shape Fill	Výplň tvaru
+	Shape Format	Formát tvaru
+	Shape Outline	Obrys tvaru
+	Shapes	Obrazce
+	Show	Zobrazit
+	Show All	Zobrazit vše
+	Sign in	Přihlásit se
+	Sign-in unknown	Stav přihlášení není známý
+	Single	Jednoduché
+	Size	Velikost
+	Size:	Velikost:
+	Small	Malé
+	Small caps	Kapitálky
+	SmartArt	SmartArt
+	SmartArt Design	Návrh SmartArt
+	SmartArt Styles	Styly SmartArt
+	Snap	Přichytávat
+	Soft Edges	Měkké okraje
+	Solid	Plná
+	Solid fill	Plná výplň
+	Sort	Seřadit
+	Space	Mezera
+	Spacing	Rozestupy
+	Spacing (pt):	Mezery (b.):
+	Special	Speciální
+	Spelling	Pravopis
+	Square	Čtverec
+	Stacked	Soustředně
+	Standard Colors	Standardní barvy
+	Start:	Začátek:
+	Stop	Zastavit
+	Strikethrough	Přeškrtnutí
+	Subject	Předmět
+	Subscript	Dolní index
+	Superscript	Horní index
+	Swedish	Švédština
+	Symbol	Symbol
+	Tab	Tabulátor
+	Table	Tabulka
+	Table Design	Návrh tabulky
+	Tabs	Tabulátory
+	Tabs…	Tabulátory…
+	Tags	Značky
+	Templates	Šablony
+	Text	Text
+	Text Box	Textové pole
+	Text Direction	Směr textu
+	Text Effects	Textové efekty
+	Text Fill	Výplň textu
+	Text Highlight Color	Barva zvýraznění textu
+	Text Outline	Obrys textu
+	Text Pane	Podokno textu
+	Theme Colors	Barvy motivu
+	Themes	Motivy
+	Thesaurus	Tezaurus
+	Tight	Těsné
+	Title	Název
+	To	Do
+	Top	Nahoře
+	Top Border	Horní ohraničení
+	Top Left	Vlevo nahoře
+	Top Right	Vpravo nahoře
+	Total Row	Řádek součtů
+	Transform	Transformace
+	Translate	Přeložit
+	Transparency	Průhlednost
+	Trim	Odstranit okraje
+	Triple	Trojité
+	Type	Typ
+	Underline	Podtržení
+	Undo	Zpět
+	Ungroup	Zrušit seskupení
+	Unlock	Odemknout
+	Up	Nahoru
+	Update	Aktualizovat
+	Username	Uživatelské jméno
+	Version	Verze
+	Vertical	Svisle
+	Video	Video
+	View	Zobrazení
+	Volume	Ročník
+	Warp	Pokřivení
+	Wave	Vlny
+	Weight	Tloušťka
+	White	Bílá
+	Wide	Široké
+	Width	Šířka
+	Width:	Šířka:
+	WordArt	WordArt
+	Zoom	Lupa
+	Zoom In	Přiblížit
+	Zoom Out	Oddálit
+	Zoom…	Lupa…

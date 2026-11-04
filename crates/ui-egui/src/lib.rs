@@ -20,6 +20,7 @@ pub mod backstage;
 pub mod canvas;
 pub mod capture;
 pub mod control;
+pub mod i18n;
 pub mod dialogs;
 pub mod doc_window;
 pub mod eyedropper;
@@ -135,7 +136,7 @@ pub const UI_COMMANDS: &[(&str, &str, Option<&str>, &str)] = &[
         "options.set",
         "Options",
         None,
-        "{uiScale?: 0.75–1.75, author?, autocorrect?, smartQuotes?, snapToGrid?, gridSpacing?: 1–72 pt, smartGuides?, duplicateOffset?: 0–72 pt, undoLimit?: 10–5000, recoveryMinutes?: 0.5–120} → all of them",
+        "{uiScale?: 0.75–1.75, language?: \"\" (system) | en | vi | de | fr…, author?, autocorrect?, smartQuotes?, snapToGrid?, gridSpacing?: 1–72 pt, smartGuides?, duplicateOffset?: 0–72 pt, undoLimit?: 10–5000, recoveryMinutes?: 0.5–120} → all of them",
     ),
     ("app.closePresentation", "Close", Some("Cmd+W"), "{}"),
     (

@@ -1,0 +1,512 @@
+# 简体中文 (zh) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	About	关于
+	Accept	接受
+	Accessibility Checker	无障碍检查器
+	Action	动作
+	Add Shape	添加形状
+	Add comments	添加注释
+	Add to Dictionary	添加到词典
+	Add to Quick Access Toolbar	添加到快速访问工具栏
+	Advanced	高级
+	After:	段后：
+	Agents	智能体
+	Align	对齐
+	Align Center	水平居中
+	Align Left	左对齐
+	Align Right	右对齐
+	Align Text	对齐文本
+	Alignment	对齐方式
+	Alignment:	对齐：
+	All	全部
+	All Borders	所有框线
+	All caps	全部大写
+	Alt Text	替代文字
+	Alt text	替代文字
+	Angle	角度
+	Animations	动画
+	Appearance	外观
+	Apply to All	应用到全部
+	Arrange	排列
+	Arrow	箭头
+	Arrows	箭头
+	Audio	音频
+	Author	作者
+	AutoCorrect	自动更正
+	Automatic	自动
+	Back	返回
+	Background	背景
+	Backspace	Backspace
+	Banded Columns	镶边列
+	Banded Rows	镶边行
+	Baseline	基线
+	Bevel	斜角
+	Binary assets added	新增二进制资源
+	Binary assets removed	删除二进制资源
+	Black	黑
+	Blur	模糊
+	Bold	粗体
+	Borders	边框
+	Both	两者
+	Bottom	下
+	Bottom Border	下框线
+	Bottom Left	左下
+	Bottom Right	右下
+	Brightness	亮度
+	Bring Forward	前移一层
+	Bring to Front	置于顶层
+	Browse	浏览
+	Bullets	项目符号
+	Cancel	取消
+	Capitalize Each Word	每个单词首字母大写
+	Caps	端点
+	Categories	类别
+	Cell Margins	单元格边距
+	Center	居中
+	Centered	居中
+	Change Case	更改大小写
+	Change Colors	更改颜色
+	Change File Type	更改文件类型
+	Change Picture	更改图片
+	Change Picture…	更改图片…
+	Change Shape	更改形状
+	Character Spacing	字符间距
+	Chart	图表
+	Chart Design	图表设计
+	Clear	清除
+	Clear All	全部清除
+	Clear All Formatting	清除所有格式
+	Click to add text	单击以添加文字
+	Close	关闭
+	Close Path	闭合路径
+	Collapse	折叠
+	Color	颜色
+	Colors	颜色
+	Columns	列
+	Comment	批注
+	Comments	批注
+	Commits	提交数
+	Company	公司
+	Compare	比较
+	Compress Pictures	压缩图片
+	Contour	等高线
+	Contrast	对比度
+	Contributors	贡献者
+	Convert	转换
+	Convert to Shapes	转换为形状
+	Convert to Text	转换为文本
+	Copy	复制
+	Corrections	更正
+	Create	创建
+	Create PDF	创建 PDF
+	Crop	裁剪
+	Cross	叉号
+	Custom	自定义
+	Customize Quick Access Toolbar	自定义快速访问工具栏
+	Cut	剪切
+	Cycle	循环
+	Dark	深色
+	Dark Mode	深色模式
+	Dash	线段
+	Date	日期
+	Date and Time	日期和时间
+	Decimal	小数点对齐
+	Decrease Font Size	减小字号
+	Delete	删除
+	Delete Columns	删除列
+	Delete Point	删除点
+	Delete Rows	删除行
+	Delete Table	删除表格
+	Demote	降级
+	Depth	深度
+	Design	设计
+	Diamond	菱形
+	Direction	方向
+	Display	显示
+	Display name	显示名称
+	Distance	距离
+	Distribute Columns	平均分布各列
+	Distribute Rows	平均分布各行
+	Distributed	分散对齐
+	Dot	圆点
+	Dotted	点线
+	Double	双线
+	Down	向下
+	Download	下载
+	Draw	绘图
+	Draw Table	绘制表格
+	Duplicate	复制
+	Duration	持续时间
+	Edit	编辑
+	Edit Text	编辑文字
+	Effects	效果
+	English (Australia)	英语（澳大利亚）
+	English (Canada)	英语（加拿大）
+	English (United Kingdom)	英语（英国）
+	English (United States)	英语（美国）
+	Enter	输入
+	Equation	公式
+	Eraser	橡皮擦
+	Exactly	固定值
+	Exit	退出
+	Expand	扩展
+	Export	导出
+	Export…	导出…
+	Eyedropper	吸管
+	File	文件
+	Fill	填充
+	Find	查找
+	Find Next	查找下一个
+	Find and Replace	查找和替换
+	Find what:	查找内容：
+	Find…	查找…
+	First	首次提交
+	First Column	第一列
+	First commit	首次提交
+	First line	首行
+	Fit	适合
+	Flip Horizontal	水平翻转
+	Flip Vertical	垂直翻转
+	Font	字体
+	Font Color	字体颜色
+	Fonts	字体
+	Font…	字体…
+	Footer	页脚
+	Foreground	前景色
+	Format	格式
+	Format Painter (double-click to keep it on)	格式刷（双击可持续使用）
+	Format Shape	设置形状格式
+	Format Shape…	设置形状格式…
+	French (France)	法语（法国）
+	From	从
+	Full	完整
+	General	常规
+	Glow	发光
+	Grab bag	随机展示
+	Gradient fill	渐变填充
+	Gradient stops	渐变光圈
+	Gradient…	渐变…
+	Grayscale	灰度
+	Gridlines	网格线
+	Group	组合
+	Guides	参考线
+	Header	页眉
+	Header Row	标题行
+	Height	高度
+	Height:	高：
+	Help	帮助
+	Hide	隐藏
+	Hide All	隐藏全部
+	Hierarchy	层次结构
+	High	高
+	Highlighter	荧光笔
+	Home	开始
+	Horizontal	水平
+	Icons	图标
+	Ignore All	全部忽略
+	Increase Font Size	增大字号
+	Indentation	缩进
+	Info	信息
+	Ink to Shape	墨迹转形状
+	Insert	插入
+	Insert Hyperlink	插入超链接
+	Insert Table	插入表格
+	Insert Table…	插入表格…
+	Inside Borders	内部框线
+	Inside Horizontal Border	内部横框线
+	Inside Vertical Border	内部竖框线
+	Interface	界面
+	Interface language	界面语言
+	Interface size	界面大小
+	Italic	斜体
+	Japanese	日语
+	Join the ArtCraft community on Discord	加入 Discord 上的 ArtCraft 社区
+	Justify	两端对齐
+	Language	语言
+	Language:	语言：
+	Large	大
+	Last	最近提交
+	Last Column	最后一列
+	Last commit	最近提交
+	Layout	布局
+	Layouts	布局
+	Left	左对齐
+	Left Border	左框线
+	Letter	信纸
+	Light	浅色
+	Lighting	照明
+	Line	直线
+	Line Spacing	行距
+	Line Spacing Options…	行距选项…
+	Line delta	行数变化
+	Line spacing	行距
+	Linear	线性
+	Lines added	新增行数
+	Lines deleted	删除行数
+	Link	链接
+	Link…	链接…
+	List	列表
+	Location	位置
+	Lock	锁定
+	Lock aspect ratio	锁定纵横比
+	Low	低
+	Mark as decorative	标记为装饰性
+	Match case	区分大小写
+	Matrix	矩阵
+	Media	介质
+	Medium	中等
+	Merged PRs	已合并的 PR
+	Middle	中部
+	Mirror	镜像
+	Miter	斜接
+	Model	模型
+	Models	模型
+	More Colors…	其他颜色…
+	More Columns…	更多栏…
+	More options	更多选项
+	Motion	运动
+	Move Down	下移
+	Move Up	上移
+	Multiple	多页
+	Name	名称
+	Name (A–Z)	名称（A–Z）
+	Name:	名称：
+	Narrow	窄
+	New	新建
+	New Comment	新建批注
+	New Window	新建窗口
+	Next	下一条
+	Next Page	下一页
+	No Border	无框线
+	No Color	无颜色
+	No Fill	无填充
+	No Glow	无发光
+	No Outline	无轮廓
+	No Reflection	无映像
+	No Shadow	无阴影
+	No Soft Edges	无柔化边缘
+	No Transform	无转换
+	No contributor data was built into this copy.	此版本未内置贡献者数据。
+	No fill	无填充
+	No model credits were built into this copy.	此版本未内置模型致谢信息。
+	None	无
+	Normal	普通
+	Not saved yet	尚未保存
+	Notes	备注
+	Number of columns:	列数：
+	Number of rows:	行数：
+	Numbering	编号
+	Offset X	X 偏移
+	Open	打开
+	Open…	打开…
+	Options	选项
+	Orientation	方向
+	Outside Borders	外侧框线
+	Oval	椭圆
+	PDF (*.pdf)	PDF 文件 (*.pdf)
+	PRs	PR 数
+	Page Number	页码
+	Page Setup…	页面设置…
+	Paper	纸张
+	Paragraph	段落
+	Paragraph…	段落…
+	Paste	粘贴
+	Paste (⌘V)	粘贴 (⌘V)
+	Paste Formatting	粘贴格式
+	Paste Special	特殊粘贴
+	Paste Special…	选择性粘贴…
+	Path	路径
+	Pattern	图案
+	Pause	暂停
+	Pen	钢笔
+	Pencil	铅笔
+	Percent:	百分比：
+	Personalize	个性化
+	Perspective	透视
+	Picture	图片
+	Picture Border	图片边框
+	Picture Format	图片格式
+	Pictures	图片
+	Play	播放
+	Position	位置
+	Preferences	首选项
+	Preferences…	首选项…
+	Presentation	演示
+	Preserve	保留
+	Preset gradients	预设渐变
+	Presets	预设
+	Preview	预览
+	Previous	上一条
+	Previous Page	上一页
+	Print	打印
+	Print…	打印…
+	Process	流程
+	Product Information	产品信息
+	Promote	升级
+	Proofing	校对
+	Properties	属性
+	Pyramid	棱锥图
+	Quick Access Toolbar	快速访问工具栏
+	Radial	径向
+	Real name	真实姓名
+	Recent	最近
+	Recolor	重新着色
+	Rectangle	矩形
+	Rectangular	矩形
+	Redo	重做
+	Reflection	映像
+	Regular	常规
+	Reject	拒绝
+	Relationship	关系
+	Remove	删除
+	Remove Background	移除背景
+	Remove from Quick Access Toolbar	从快速访问工具栏删除
+	Remove from Recent	从最近的文件中移除
+	Remove stop	移除色标
+	Rename	重命名
+	Reopen	重新打开
+	Replace	替换
+	Replace All	全部替换
+	Replace Font	替换字体
+	Replace with:	替换为：
+	Replace…	替换…
+	Reset	重置
+	Reset Crop	重设裁剪
+	Reset Picture	重设图片
+	Reset to Defaults	恢复默认值
+	Resolution	分辨率
+	Resolve	解决
+	Resume	继续
+	Reverse the order	反转顺序
+	Revert	恢复
+	Review	审阅
+	Revisions	修订
+	Right	右对齐
+	Right Border	右框线
+	Right-to-Left Text Direction	从右向左文字方向
+	Rotate	旋转
+	Rotate Left 90°	向左旋转 90°
+	Rotate Right 90°	向右旋转 90°
+	Rotate all text 270°	将所有文字旋转 270°
+	Rotate all text 90°	将所有文字旋转 90°
+	Rotate with shape	与形状一起旋转
+	Rotation	旋转
+	Round	圆角
+	Rounded	圆体
+	Ruler	标尺
+	Saturation	饱和度
+	Save	保存
+	Save As	另存为
+	Save As…	另存为…
+	Save as type	保存类型
+	Saved	已保存
+	Scroll ribbon left	向左滚动功能区
+	Scroll ribbon right	向右滚动功能区
+	Search icons	搜索图标
+	Select	选择
+	Select All	全选
+	Selected	已选
+	Selection	所选内容
+	SemiBold	半粗
+	Send Backward	后移一层
+	Send to Back	置于底层
+	Sentence case.	句首字母大写。
+	Set	设置
+	Set Zoom	设置缩放
+	Settings	设置
+	Shading	底纹
+	Shadow	阴影
+	Shape Effects	形状效果
+	Shape Fill	形状填充
+	Shape Format	形状格式
+	Shape Outline	形状轮廓
+	Shapes	形状
+	Show	显示
+	Show All	全部显示
+	Single	单线
+	Size	纸张大小
+	Size:	尺寸：
+	Small	小
+	Small caps	小型大写字母
+	SmartArt	SmartArt
+	SmartArt Design	SmartArt 设计
+	SmartArt Styles	SmartArt 样式
+	Snap	吸附
+	Soft Edges	柔化边缘
+	Solid	实线
+	Solid fill	纯色填充
+	Sort	排序
+	Space	空格
+	Spacing	间距
+	Spacing (pt):	间距（磅）：
+	Special	特殊
+	Spelling	拼写检查
+	Square	正方形
+	Stacked	堆积
+	Standard Colors	标准色
+	Start:	起点：
+	Stop	停止
+	Strikethrough	删除线
+	Subject	主题
+	Subscript	下标
+	Superscript	上标
+	Swedish	瑞典语
+	Symbol	符号
+	Tab	定位字符
+	Table	表格
+	Table Design	表格设计
+	Tabs	制表符
+	Tabs…	制表位…
+	Tags	标签
+	Templates	模板
+	Text	文本
+	Text Box	文本框
+	Text Direction	文字方向
+	Text Effects	文本效果
+	Text Fill	文本填充
+	Text Highlight Color	文本突出显示颜色
+	Text Outline	文本轮廓
+	Text Pane	文本窗格
+	Theme Colors	主题颜色
+	Themes	主题
+	Thesaurus	同义词库
+	Tight	紧密
+	Title	标题
+	To	到
+	Top	上
+	Top Border	上框线
+	Top Left	左上
+	Top Right	右上
+	Total Row	汇总行
+	Transform	变换
+	Translate	翻译
+	Transparency	透明度
+	Trim	修边
+	Triple	三线
+	Type	类型
+	Underline	下划线
+	Undo	撤销
+	Ungroup	取消组合
+	Unlock	解除锁定
+	Up	上移
+	Update	更新
+	Username	用户名
+	Version	版本
+	Vertical	垂直
+	Video	视频
+	View	视图
+	Volume	卷
+	Warp	变形
+	Wave	波浪
+	Weight	粗细
+	White	白色
+	Wide	宽
+	Width	宽度
+	Width:	宽：
+	WordArt	艺术字
+	Zoom	缩放
+	Zoom In	放大
+	Zoom Out	缩小

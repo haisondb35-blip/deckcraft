@@ -1,0 +1,522 @@
+# Español (es) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	AaBbCcDd	AaBbCcDd
+	About	Acerca de
+	Accept	Aceptar
+	Accessibility Checker	Comprobador de accesibilidad
+	Action	Acción
+	Add Shape	Agregar forma
+	Add comments	Añadir comentarios
+	Add to Dictionary	Añadir al diccionario
+	Add to Quick Access Toolbar	Agregar a la barra de herramientas de acceso rápido
+	Advanced	Avanzado
+	After	Después
+	After:	Después:
+	Agents	Agentes
+	Align	Alinear
+	Align Center	Alinear al centro
+	Align Left	Alinear a la izquierda
+	Align Right	Alinear a la derecha
+	Align Text	Alinear texto
+	Alignment	Alineación
+	Alignment:	Alineación:
+	All	Todas
+	All Borders	Todos los bordes
+	All caps	Mayúsculas
+	Alt Text	Texto alternativo
+	Alt text	Texto alternativo
+	Angle	Ángulo
+	Animations	Animaciones
+	Appearance	Apariencia
+	Apply to All	Aplicar a todo
+	Arrange	Organizar
+	Arrow	Flecha
+	Arrows	Flechas
+	At	En
+	Audio	Audio
+	Author	Autor
+	AutoCorrect	Autocorrección
+	Automatic	Automático
+	Back	Atrás
+	Background	Fondo
+	Backspace	Retroceso
+	Banded Columns	Columnas con bandas
+	Banded Rows	Filas con bandas
+	Baseline	Línea de base
+	Bevel	Bisel
+	Binary assets added	Recursos binarios añadidos
+	Binary assets removed	Recursos binarios eliminados
+	Black	Negro
+	Blur	Desenfocar
+	Bold	Negrita
+	Borders	Bordes
+	Both	Ambas
+	Bottom	Abajo
+	Bottom Border	Borde inferior
+	Bottom Left	Abajo a la izquierda
+	Bottom Right	Abajo a la derecha
+	Brightness	Brillo
+	Bring Forward	Traer adelante
+	Bring to Front	Traer al frente
+	Browse	Examinar
+	Bullets	Viñetas
+	Cancel	Cancelar
+	Capitalize Each Word	Mayúscula inicial en cada palabra
+	Caps	Extremos
+	Categories	Categorías
+	Cell Margins	Márgenes de celda
+	Center	Centro
+	Centered	Centrado
+	Change Case	Cambiar mayúsculas/minúsculas
+	Change Colors	Cambiar colores
+	Change File Type	Cambiar el tipo de archivo
+	Change Picture	Cambiar imagen
+	Change Picture…	Cambiar imagen…
+	Change Shape	Cambiar forma
+	Character Spacing	Espaciado de caracteres
+	Chart	Gráfico
+	Chart Design	Diseño de gráfico
+	Clear	Borrar
+	Clear All	Borrar todo
+	Clear All Formatting	Borrar todo el formato
+	Click to add text	Haga clic para añadir texto
+	Close	Cerrar
+	Close Path	Cerrar trazado
+	Collapse	Contraer
+	Color	Color
+	Colors	Colores
+	Columns	Columnas
+	Comment	Comentario
+	Comments	Comentarios
+	Commits	Commits
+	Company	Organización
+	Compare	Comparar
+	Compress Pictures	Comprimir imágenes
+	Contour	Contorno
+	Contrast	Contraste
+	Contributors	Colaboradores
+	Convert	Convertir
+	Convert to Shapes	Convertir en formas
+	Convert to Text	Convertir en texto
+	Copy	Copiar
+	Corrections	Correcciones
+	Create	Crear
+	Create PDF	Crear PDF
+	Crop	Recortar
+	Cross	Cruz
+	Custom	Personalizada
+	Customize Quick Access Toolbar	Personalizar la barra de herramientas de acceso rápido
+	Cut	Cortar
+	Cycle	Ciclo
+	Dark	Oscuro
+	Dark Mode	Modo oscuro
+	Dash	Guion
+	Date	Fecha
+	Date and Time	Fecha y hora
+	Decimal	Decimal
+	Decrease Font Size	Disminuir tamaño de fuente
+	Delete	Eliminar
+	Delete Columns	Eliminar columnas
+	Delete Point	Eliminar punto
+	Delete Rows	Eliminar filas
+	Delete Table	Eliminar tabla
+	Demote	Degradar
+	Depth	Profundidad
+	Design	Diseño
+	Diamond	Rombo
+	Direction	Dirección
+	Display	Visualización
+	Display name	Nombre visible
+	Distance	Distancia
+	Distribute Columns	Distribuir columnas
+	Distribute Rows	Distribuir filas
+	Distributed	Distribuido
+	Dot	Punto
+	Dotted	Punteado
+	Double	Doble
+	Down	Abajo
+	Download	Descargar
+	Draw	Dibujar
+	Draw Table	Dibujar tabla
+	Duplicate	Duplicar
+	Duration	Duración
+	Edit	Modificar
+	Edit Text	Editar texto
+	Effects	Efectos
+	Emphasis	Énfasis
+	English (Australia)	Inglés (Australia)
+	English (Canada)	Inglés (Canadá)
+	English (United Kingdom)	Inglés (Reino Unido)
+	English (United States)	Inglés (Estados Unidos)
+	Enter	Introducir
+	Equation	Ecuación
+	Eraser	Borrador
+	Exactly	Exactamente
+	Exit	Salir
+	Expand	Expandir
+	Export	Exportar
+	Export…	Exportar…
+	Eyedropper	Cuentagotas
+	File	Archivo
+	Fill	Rellenar
+	Find	Buscar
+	Find Next	Buscar siguiente
+	Find and Replace	Buscar y reemplazar
+	Find what:	Buscar:
+	Find…	Buscar…
+	First	Primero
+	First Column	Primera columna
+	First commit	Primer commit
+	First line	Primera línea
+	Fit	Ajustar
+	Fit to Window	Ajustar a ventana
+	Flat	Plano
+	Flip Horizontal	Voltear horizontalmente
+	Flip Vertical	Voltear verticalmente
+	Font	Fuente
+	Font Color	Color de fuente
+	Fonts	Fuentes
+	Font…	Fuente…
+	Footer	Pie de página
+	Foreground	Frontal
+	Format	Formato
+	Format Painter (double-click to keep it on)	Copiar formato (doble clic para mantenerlo activo)
+	Format Shape	Formato de forma
+	Format Shape…	Formato de forma…
+	French (France)	Francés (Francia)
+	From	Desde
+	From Left	Desde la izquierda
+	From Right	Desde la derecha
+	Full	Completa
+	General	General
+	Glow	Resplandor
+	Grab bag	Miscelánea
+	Gradient fill	Relleno degradado
+	Gradient stops	Puntos de degradado
+	Gradient…	Degradado…
+	Grayscale	Escala de grises
+	Gridlines	Líneas de cuadrícula
+	Group	Agrupar
+	Guides	Guías
+	Header	Encabezado
+	Header Row	Fila de encabezado
+	Height	Altura
+	Height:	Alto:
+	Help	Ayuda
+	Hide	Ocultar
+	Hide All	Ocultar todo
+	Hierarchy	Jerarquía
+	High	Alta
+	Highlighter	Resaltador
+	Home	Inicio
+	Horizontal	Horizontal
+	Icons	Iconos
+	Ignore All	Ignorar todo
+	In	Entrada
+	Increase Font Size	Aumentar tamaño de fuente
+	Indentation	Sangría
+	Info	Información
+	Ink to Shape	Tinta a forma
+	Insert	Insertar
+	Insert Hyperlink	Insertar hipervínculo
+	Insert Table	Insertar tabla
+	Insert Table…	Insertar tabla…
+	Inside Borders	Bordes interiores
+	Inside Horizontal Border	Borde horizontal interior
+	Inside Vertical Border	Borde vertical interior
+	Interface	Interfaz
+	Interface language	Idioma de la interfaz
+	Interface size	Tamaño de la interfaz
+	Italic	Cursiva
+	Japanese	Japonés
+	Join the ArtCraft community on Discord	Únete a la comunidad de ArtCraft en Discord
+	Justify	Justificar
+	Language	Idioma
+	Language:	Idioma:
+	Large	Grande
+	Last	Último
+	Last Column	Última columna
+	Last commit	Último commit
+	Layout	Disposición
+	Layouts	Diseños
+	Left	Izquierda
+	Left Border	Borde izquierdo
+	Letter	Carta
+	Light	Claro
+	Lighting	Iluminación
+	Line	Línea
+	Line Spacing	Interlineado
+	Line Spacing Options…	Opciones de interlineado…
+	Line delta	Diferencia de líneas
+	Line spacing	Interlineado
+	Linear	Lineal
+	Lines added	Líneas añadidas
+	Lines deleted	Líneas eliminadas
+	Link	Vínculo
+	Link…	Vínculo…
+	List	Lista
+	Location	Ubicación
+	Lock	Bloquear
+	Lock aspect ratio	Bloquear relación de aspecto
+	Low	Baja
+	Mark as decorative	Marcar como decorativo
+	Match case	Coincidir mayúsculas y minúsculas
+	Matrix	Matriz
+	Media	Soporte
+	Medium	Media
+	Merged PRs	PR fusionados
+	Middle	Medio
+	Mirror	Reflejar
+	Miter	Inglete
+	Model	Modelo
+	Models	Modelos
+	More Colors…	Más colores…
+	More Columns…	Más columnas…
+	More options	Más opciones
+	Motion	Movimiento
+	Move Down	Bajar
+	Move Up	Subir
+	Multiple	Varias por hoja
+	Name	Nombre
+	Name (A–Z)	Nombre (A–Z)
+	Name:	Nombre:
+	Narrow	Estrecho
+	New	Nuevo
+	New Comment	Nuevo comentario
+	New Window	Nueva ventana
+	Next	Siguiente
+	Next Page	Página siguiente
+	No Border	Sin bordes
+	No Color	Sin color
+	No Fill	Sin relleno
+	No Glow	Sin resplandor
+	No Outline	Sin contorno
+	No Reflection	Sin reflejo
+	No Shadow	Sin sombra
+	No Soft Edges	Sin bordes suaves
+	No Transform	Sin transformación
+	No contributor data was built into this copy.	Esta copia no incluye datos de colaboradores.
+	No fill	Sin relleno
+	No model credits were built into this copy.	Esta copia no incluye créditos de modelos.
+	None	Ninguno
+	Normal	Normal
+	Not saved yet	Aún no se ha guardado
+	Notes	Notas
+	Number of columns:	Número de columnas:
+	Number of rows:	Número de filas:
+	Numbering	Numeración
+	Offset X	Desplazamiento X
+	Open	Abrir
+	Open…	Abrir…
+	Options	Opciones
+	Orientation	Orientación
+	Out	Salida
+	Outside Borders	Bordes exteriores
+	Oval	Óvalo
+	PDF (*.pdf)	Archivo PDF (*.pdf)
+	PRs	PR
+	Page Number	Número de página
+	Page Setup…	Configurar página…
+	Paper	Papel
+	Paragraph	Párrafo
+	Paragraph…	Párrafo…
+	Paste	Pegar
+	Paste (⌘V)	Pegar (⌘V)
+	Paste Formatting	Pegar formato
+	Paste Special	Pegado especial
+	Paste Special…	Pegado especial…
+	Path	Trazado
+	Pattern	Motivo
+	Pause	Pausar
+	Pen	Pluma
+	Pencil	Lápiz
+	Percent:	Porcentaje:
+	Personalize	Personalizar
+	Perspective	Perspectiva
+	Picture	Imagen
+	Picture Border	Borde de imagen
+	Picture Format	Formato de imagen
+	Pictures	Imágenes
+	Play	Reproducir
+	Position	Posición
+	Preferences	Preferencias
+	Preferences…	Preferencias…
+	Presentation	Presentación
+	Preserve	Conservar
+	Preset gradients	Degradados predefinidos
+	Presets	Ajustes preestablecidos
+	Preview	Vista previa
+	Previous	Anterior
+	Previous Page	Página anterior
+	Print	Imprimir
+	Print…	Imprimir…
+	Process	Proceso
+	Product Information	Información del producto
+	Promote	Promover
+	Proofing	Revisión
+	Properties	Propiedades
+	Pyramid	Pirámide
+	Quick Access Toolbar	Barra de herramientas de acceso rápido
+	Radial	Radial
+	Real name	Nombre real
+	Recent	Recientes
+	Recolor	Volver a colorear
+	Rectangle	Rectángulo
+	Rectangular	Rectangular
+	Redo	Rehacer
+	Reflection	Reflejo
+	Regular	Regular
+	Reject	Rechazar
+	Relationship	Relación
+	Remove	Quitar
+	Remove Background	Quitar el fondo
+	Remove from Quick Access Toolbar	Quitar de la barra de herramientas de acceso rápido
+	Remove from Recent	Quitar de recientes
+	Remove stop	Quitar parada
+	Rename	Cambiar nombre
+	Reopen	Reabrir
+	Replace	Reemplazar
+	Replace All	Reemplazar todo
+	Replace Font	Reemplazar fuente
+	Replace with:	Reemplazar por:
+	Replace…	Reemplazar…
+	Reset	Restablecer
+	Reset Crop	Restablecer recorte
+	Reset Picture	Restablecer imagen
+	Reset to Defaults	Restablecer valores predeterminados
+	Resolution	Resolución
+	Resolve	Resolver
+	Resume	Reanudar
+	Reverse the order	Invertir el orden
+	Revert	Revertir
+	Review	Revisar
+	Revisions	Revisiones
+	Right	Derecha
+	Right Border	Borde derecho
+	Right-to-Left Text Direction	Dirección de texto de derecha a izquierda
+	Rotate	Girar
+	Rotate Left 90°	Girar 90° a la izquierda
+	Rotate Right 90°	Girar 90° a la derecha
+	Rotate all text 270°	Girar todo el texto 270°
+	Rotate all text 90°	Girar todo el texto 90°
+	Rotate with shape	Girar con la forma
+	Rotation	Giro
+	Round	Redondo
+	Rounded	Redondeada
+	Ruler	Regla
+	Saturation	Saturación
+	Save	Guardar
+	Save As	Guardar como
+	Save As…	Guardar como…
+	Save as type	Tipo
+	Saved	Guardado
+	Scroll ribbon left	Desplazar la cinta a la izquierda
+	Scroll ribbon right	Desplazar la cinta a la derecha
+	Search icons	Buscar iconos
+	Select	Seleccionar
+	Select All	Seleccionar todo
+	Selected	Seleccionadas
+	Selection	Selección
+	SemiBold	Seminegrita
+	Send Backward	Enviar atrás
+	Send to Back	Enviar al fondo
+	Sentence case.	Mayúscula inicial de oración.
+	Set	Fijar
+	Set Zoom	Definir zoom
+	Settings	Ajustes
+	Shading	Sombreado
+	Shadow	Sombra
+	Shape Effects	Efectos de forma
+	Shape Fill	Relleno de forma
+	Shape Format	Formato de forma
+	Shape Outline	Contorno de forma
+	Shapes	Formas
+	Show	Mostrar
+	Show All	Mostrar todo
+	Single	Sencillo
+	Size	Tamaño
+	Size:	Tamaño:
+	Small	Pequeño
+	Small caps	Versalitas
+	SmartArt	SmartArt
+	SmartArt Design	Diseño de SmartArt
+	SmartArt Styles	Estilos de SmartArt
+	Snap	Ajustar
+	Soft Edges	Bordes suaves
+	Solid	Continua
+	Solid fill	Relleno sólido
+	Sort	Ordenar
+	Space	Espacio
+	Spacing	Espaciado
+	Spacing (pt):	Espaciado (pt):
+	Special	Especial
+	Spelling	Ortografía
+	Square	Cuadrado
+	Stacked	Apilado
+	Standard Colors	Colores estándar
+	Start:	Inicio:
+	Stop	Detener
+	Strikethrough	Tachado
+	Subject	Asunto
+	Subscript	Subíndice
+	Superscript	Superíndice
+	Swedish	Sueco
+	Symbol	Símbolo
+	Tab	Tabulación
+	Table	Tabla
+	Table Design	Diseño de tabla
+	Tabs	Tabulaciones
+	Tabs…	Tabulaciones…
+	Tags	Etiquetas
+	Templates	Plantillas
+	Text	Texto
+	Text Box	Cuadro de texto
+	Text Direction	Dirección del texto
+	Text Effects	Efectos de texto
+	Text Fill	Relleno de texto
+	Text Highlight Color	Color de resaltado de texto
+	Text Outline	Contorno de texto
+	Text Pane	Panel de texto
+	Theme Colors	Colores del tema
+	Themes	Temas
+	Thesaurus	Diccionario de sinónimos
+	Tight	Ajustado
+	Title	Título
+	To	Hasta
+	Top	Arriba
+	Top Border	Borde superior
+	Top Left	Arriba a la izquierda
+	Top Right	Arriba a la derecha
+	Total Row	Fila de totales
+	Transform	Transformar
+	Translate	Traducir
+	Transparency	Transparencia
+	Trim	Cortar
+	Triple	Triple
+	Type	Tipo
+	Underline	Subrayado
+	Undo	Deshacer
+	Ungroup	Desagrupar
+	Unlock	Desbloquear
+	Up	Arriba
+	Update	Actualizar
+	Username	Nombre de usuario
+	Version	Versión
+	Vertical	Vertical
+	Video	Video
+	View	Vista
+	Volume	Volumen
+	Warp	Deformar
+	Wave	Onda
+	Weight	Grosor
+	White	Blanco
+	Wide	Ancho
+	Width	Anchura
+	Width:	Ancho:
+	WordArt	WordArt
+	Zoom	Zoom
+	Zoom In	Acercar
+	Zoom Out	Alejar

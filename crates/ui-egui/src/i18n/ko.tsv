@@ -1,0 +1,510 @@
+# 한국어 (ko) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	AaBbCcDd	AaBbCcDd
+	About	정보
+	Accept	수락
+	Action	액션
+	Add Shape	도형 추가
+	Add to Dictionary	사전에 추가
+	Add to Quick Access Toolbar	빠른 실행 도구 모음에 추가
+	Advanced	고급
+	After:	뒤쪽:
+	Agents	에이전트
+	Align	맞춤
+	Align Center	가운데 맞춤
+	Align Left	왼쪽 정렬
+	Align Right	오른쪽 정렬
+	Align Text	텍스트 맞춤
+	Alignment	정렬
+	Alignment:	맞춤:
+	All	모두
+	All Borders	모든 테두리
+	All caps	모두 대문자
+	Alt Text	대체 텍스트
+	Alt text	대체 텍스트
+	Angle	각도
+	Animations	애니메이션
+	Appearance	모양새
+	Apply to All	모두에 적용
+	Arrange	정렬 순서
+	Arrow	화살표
+	Arrows	화살표
+	At	위치
+	Audio	오디오
+	Author	만든 이
+	AutoCorrect	자동 고침
+	Automatic	자동
+	Back	뒤로
+	Background	배경
+	Backspace	Backspace
+	Banded Columns	줄무늬 열
+	Banded Rows	줄무늬 행
+	Baseline	기준선
+	Bevel	베벨
+	Binary assets added	추가된 바이너리 에셋
+	Binary assets removed	삭제된 바이너리 에셋
+	Black	검정
+	Blur	흐림
+	Bold	굵게
+	Borders	테두리
+	Both	양쪽
+	Bottom	아래쪽
+	Bottom Border	아래쪽 테두리
+	Bottom Left	왼쪽 아래
+	Bottom Right	오른쪽 아래
+	Brightness	밝기
+	Bring Forward	앞으로 가져오기
+	Bring to Front	맨 앞으로 가져오기
+	Browse	찾아보기
+	Bullets	글머리 기호
+	Cancel	취소
+	Capitalize Each Word	각 단어의 첫 글자를 대문자로
+	Caps	끝 모양
+	Categories	범주
+	Cell Margins	셀 여백
+	Center	가운데
+	Centered	가운데 맞춤
+	Change Case	대소문자 변경
+	Change Colors	색 변경
+	Change File Type	파일 형식 변경
+	Change Picture	그림 변경
+	Change Picture…	그림 변경…
+	Change Shape	도형 변경
+	Character Spacing	문자 간격
+	Chart	차트
+	Chart Design	차트 디자인
+	Clear	지우기
+	Clear All	모두 지우기
+	Clear All Formatting	모든 서식 지우기
+	Click to add text	클릭하여 텍스트 추가
+	Close	닫기
+	Close Path	패스 닫기
+	Collapse	축소
+	Color	색
+	Colors	색상
+	Columns	열
+	Comment	댓글
+	Comments	댓글
+	Commits	커밋
+	Company	회사
+	Compare	비교
+	Compress Pictures	그림 압축
+	Contour	윤곽선
+	Contrast	대비
+	Contributors	기여자
+	Convert	변환
+	Convert to Shapes	도형으로 변환
+	Convert to Text	텍스트로 변환
+	Copy	복사
+	Corrections	수정 사항
+	Create	만들기
+	Create PDF	PDF 만들기
+	Crop	자르기
+	Cross	십자
+	Custom	사용자 지정
+	Customize Quick Access Toolbar	빠른 실행 도구 모음 사용자 지정
+	Cut	잘라내기
+	Cycle	주기
+	Dark	어둡게
+	Dark Mode	다크 모드
+	Dash	선
+	Date	날짜
+	Date and Time	날짜 및 시간
+	Decimal	소수점
+	Decrease Font Size	글꼴 크기 줄이기
+	Delete	삭제
+	Delete Columns	열 삭제
+	Delete Point	포인트 삭제
+	Delete Rows	행 삭제
+	Delete Table	표 삭제
+	Demote	수준 내리기
+	Depth	깊이
+	Design	디자인
+	Diamond	마름모
+	Direction	방향
+	Display	표시
+	Display name	표시 이름
+	Distance	거리
+	Distribute Columns	열 균등 분할
+	Distribute Rows	행 균등 분할
+	Distributed	균등 분할
+	Dot	점
+	Dotted	점선
+	Double	이중선
+	Down	아래로
+	Download	다운로드
+	Draw	그리기
+	Draw Table	표 그리기
+	Duplicate	복제
+	Duration	길이
+	Edit	편집
+	Edit Text	문자 편집
+	Effects	효과
+	Emphasis	강조
+	English (Australia)	영어(오스트레일리아)
+	English (Canada)	영어(캐나다)
+	English (United Kingdom)	영어(영국)
+	English (United States)	영어(미국)
+	Enter	입력
+	Equation	수식
+	Eraser	지우개
+	Exactly	정확히
+	Exit	나가기
+	Expand	확장
+	Export	내보내기
+	Export…	내보내기…
+	Eyedropper	스포이드
+	File	파일
+	Fill	채우기
+	Find	찾기
+	Find Next	다음 찾기
+	Find and Replace	찾기 및 바꾸기
+	Find what:	찾을 내용:
+	Find…	찾기…
+	First	첫 번째
+	First Column	첫 번째 열
+	First commit	첫 번째 커밋
+	First line	첫 줄
+	Fit	맞춤
+	Flat	평면
+	Flip Horizontal	가로로 뒤집기
+	Flip Vertical	세로로 뒤집기
+	Font	글꼴
+	Font Color	글꼴 색
+	Fonts	글꼴
+	Font…	글꼴…
+	Footer	바닥글
+	Foreground	전경
+	Format	서식
+	Format Painter (double-click to keep it on)	서식 복사 (두 번 클릭하여 유지)
+	Format Shape	도형 서식
+	Format Shape…	도형 서식…
+	French (France)	프랑스어(프랑스)
+	From	시작
+	From Left	왼쪽에서
+	From Right	오른쪽에서
+	Full	전체
+	General	일반
+	Glow	광선
+	Grab bag	모음
+	Gradient fill	그라데이션 채우기
+	Gradient stops	그라데이션 중지점
+	Gradient…	그레이디언트…
+	Grayscale	회색조
+	Gridlines	눈금선
+	Group	그룹
+	Guides	안내선
+	Header	머리글
+	Header Row	머리글 행
+	Height	높이
+	Height:	높이:
+	Help	도움말
+	Hide	숨기기
+	Hide All	모두 숨기기
+	Hierarchy	계층 구조
+	High	높음
+	Highlighter	형광펜
+	Home	홈
+	Horizontal	가로
+	Icons	아이콘
+	Ignore All	모두 무시
+	Increase Font Size	글꼴 크기 늘리기
+	Indentation	들여쓰기
+	Info	정보
+	Ink to Shape	잉크를 도형으로 변환
+	Insert	삽입
+	Insert Hyperlink	하이퍼링크 삽입
+	Insert Table	표 삽입
+	Insert Table…	표 삽입…
+	Inside Borders	안쪽 테두리
+	Inside Horizontal Border	안쪽 가로 테두리
+	Inside Vertical Border	안쪽 세로 테두리
+	Interface	인터페이스
+	Interface language	인터페이스 언어
+	Interface size	인터페이스 크기
+	Italic	기울임꼴
+	Japanese	일본어
+	Join the ArtCraft community on Discord	Discord에서 ArtCraft 커뮤니티에 참여하세요
+	Justify	양쪽 맞춤
+	Language	언어
+	Language:	언어:
+	Large	크게
+	Last	마지막
+	Last Column	마지막 열
+	Last commit	최근 커밋
+	Layout	레이아웃
+	Layouts	레이아웃
+	Left	왼쪽
+	Left Border	왼쪽 테두리
+	Letter	레터
+	Light	밝게
+	Lighting	조명
+	Line	줄
+	Line Spacing	줄 간격
+	Line Spacing Options…	줄 간격 옵션…
+	Line delta	줄 증감
+	Line spacing	줄 간격
+	Linear	선형
+	Lines added	추가된 줄
+	Lines deleted	삭제된 줄
+	Link	링크
+	Link…	링크…
+	List	목록
+	Location	위치
+	Lock	잠금
+	Lock aspect ratio	가로 세로 비율 고정
+	Low	낮음
+	Mark as decorative	장식용으로 표시
+	Match case	대/소문자 구분
+	Matrix	행렬
+	Media	미디어
+	Medium	보통
+	Merged PRs	병합된 PR
+	Middle	가운데
+	Mirror	미러
+	Miter	마이터
+	Model	모델
+	Models	모델
+	More Colors…	색 더 보기…
+	More Columns…	열 더 보기…
+	Motion	모션
+	Move Down	아래로 이동
+	Move Up	위로 이동
+	Name	이름
+	Name (A–Z)	이름순(A–Z)
+	Name:	이름:
+	Narrow	좁게
+	New	새로 만들기
+	New Comment	새 댓글
+	New Window	새 창
+	Next	다음
+	Next Page	다음 페이지
+	No Border	테두리 없음
+	No Color	색 없음
+	No Fill	채우기 없음
+	No Glow	광채 없음
+	No Outline	윤곽선 없음
+	No Reflection	반사 없음
+	No Shadow	그림자 없음
+	No Soft Edges	부드러운 가장자리 없음
+	No Transform	변형 없음
+	No contributor data was built into this copy.	이 빌드에는 기여자 정보가 포함되지 않았습니다.
+	No fill	채우기 없음
+	No model credits were built into this copy.	이 빌드에는 모델 크레딧이 포함되지 않았습니다.
+	None	없음
+	Normal	보통
+	Not saved yet	아직 저장되지 않음
+	Notes	메모
+	Number of columns:	열 수:
+	Number of rows:	행 수:
+	Numbering	번호 매기기
+	Offset X	X 오프셋
+	Open	열기
+	Open…	열기…
+	Options	옵션
+	Orientation	방향
+	Outside Borders	바깥쪽 테두리
+	Oval	타원
+	PDF (*.pdf)	PDF 파일 (*.pdf)
+	PRs	PR
+	Page Number	페이지 번호
+	Page Setup…	페이지 설정…
+	Paper	용지
+	Paragraph	단락
+	Paragraph…	단락…
+	Paste	붙여넣기
+	Paste (⌘V)	붙여넣기(⌘V)
+	Paste Formatting	서식 붙여넣기
+	Paste Special	선택하여 붙여넣기
+	Paste Special…	선택하여 붙여넣기…
+	Path	패스
+	Pattern	패턴
+	Pause	일시 정지
+	Pen	펜
+	Pencil	연필
+	Percent:	퍼센트:
+	Personalize	개인 설정
+	Perspective	원근
+	Picture	그림
+	Picture Border	그림 테두리
+	Picture Format	그림 서식
+	Pictures	그림
+	Play	재생
+	Position	위치
+	Preferences	환경 설정
+	Preferences…	환경 설정…
+	Presentation	프레젠테이션
+	Preserve	유지
+	Preset gradients	미리 설정된 그라데이션
+	Presets	사전 설정
+	Preview	미리 보기
+	Previous	이전
+	Previous Page	이전 페이지
+	Print	인쇄
+	Print…	인쇄…
+	Process	프로세스
+	Product Information	제품 정보
+	Promote	수준 올리기
+	Proofing	교정
+	Properties	속성
+	Pyramid	피라미드
+	Quick Access Toolbar	빠른 실행 도구 모음
+	Radial	방사형
+	Real name	실명
+	Recent	최근 항목
+	Recolor	색상 재지정
+	Rectangle	직사각형
+	Rectangular	사각형
+	Redo	다시 실행
+	Reflection	반사
+	Regular	보통
+	Reject	거부
+	Relationship	관계
+	Remove	제거
+	Remove Background	배경 제거
+	Remove from Quick Access Toolbar	빠른 실행 도구 모음에서 제거
+	Remove from Recent	최근 항목에서 제거
+	Remove stop	색상 정지점 제거
+	Rename	이름 바꾸기
+	Reopen	다시 열기
+	Replace	바꾸기
+	Replace All	모두 바꾸기
+	Replace Font	글꼴 바꾸기
+	Replace with:	바꿀 내용:
+	Replace…	바꾸기…
+	Reset	재설정
+	Reset Crop	자르기 재설정
+	Reset Picture	그림 재설정
+	Resolution	해상도
+	Resolve	해결
+	Reverse the order	순서 뒤집기
+	Revert	되돌리기
+	Review	검토
+	Right	오른쪽
+	Right Border	오른쪽 테두리
+	Right-to-Left Text Direction	오른쪽에서 왼쪽 텍스트 방향
+	Rotate	회전
+	Rotate Left 90°	왼쪽으로 90° 회전
+	Rotate Right 90°	오른쪽으로 90° 회전
+	Rotate all text 270°	텍스트를 270° 회전
+	Rotate all text 90°	텍스트를 90° 회전
+	Rotate with shape	도형과 함께 회전
+	Rotation	회전
+	Round	원형
+	Rounded	둥근체
+	Ruler	눈금자
+	Saturation	채도
+	Save	저장
+	Save As	다른 이름으로 저장
+	Save As…	다른 이름으로 저장…
+	Save as type	파일 형식
+	Saved	저장됨
+	Scroll ribbon left	리본을 왼쪽으로 스크롤
+	Scroll ribbon right	리본을 오른쪽으로 스크롤
+	Search icons	아이콘 검색
+	Select	선택
+	Select All	모두 선택
+	Selected	선택됨
+	Selection	선택 영역
+	SemiBold	약간 굵게
+	Send Backward	뒤로 보내기
+	Send to Back	맨 뒤로 보내기
+	Sentence case.	문장식 대소문자.
+	Set	설정
+	Set Zoom	확대/축소 설정
+	Settings	설정
+	Shading	음영
+	Shadow	그림자
+	Shape Effects	모양 효과
+	Shape Fill	도형 채우기
+	Shape Format	도형 서식
+	Shape Outline	도형 윤곽선
+	Shapes	도형
+	Show	표시
+	Show All	모두 표시
+	Single	한 줄
+	Size	용지 크기
+	Size:	크기:
+	Small	작게
+	Small caps	작은 대문자
+	SmartArt	SmartArt
+	SmartArt Design	SmartArt 디자인
+	SmartArt Styles	SmartArt 스타일
+	Snap	스냅
+	Soft Edges	부드러운 가장자리
+	Solid	실선
+	Solid fill	단색 채우기
+	Sort	정렬
+	Space	공백
+	Spacing	간격
+	Spacing (pt):	간격 (pt):
+	Special	특수
+	Spelling	맞춤법 검사
+	Square	정사각형
+	Stacked	누적
+	Standard Colors	표준 색
+	Start:	시작:
+	Stop	중지
+	Strikethrough	취소선
+	Subject	주제
+	Subscript	아래 첨자
+	Superscript	위 첨자
+	Swedish	스웨덴어
+	Symbol	기호
+	Tab	탭
+	Table	표
+	Table Design	표 디자인
+	Tabs	탭
+	Tabs…	탭…
+	Templates	템플릿
+	Text	텍스트
+	Text Box	텍스트 상자
+	Text Direction	텍스트 방향
+	Text Effects	텍스트 효과
+	Text Fill	텍스트 채우기
+	Text Highlight Color	텍스트 강조 색
+	Text Outline	텍스트 윤곽선
+	Text Pane	텍스트 창
+	Theme Colors	테마 색
+	Themes	테마
+	Thesaurus	유의어 사전
+	Tight	좁게
+	Title	제목
+	To	끝
+	Top	위쪽
+	Top Border	위쪽 테두리
+	Top Left	왼쪽 위
+	Top Right	오른쪽 위
+	Total Row	요약 행
+	Transform	변형
+	Translate	번역
+	Transparency	투명도
+	Trim	가장자리 다듬기
+	Triple	삼중선
+	Type	종류
+	Underline	밑줄
+	Undo	실행 취소
+	Ungroup	그룹 해제
+	Unlock	잠금 해제
+	Up	위쪽
+	Update	업데이트
+	Username	사용자 이름
+	Version	버전
+	Vertical	세로
+	Video	비디오
+	View	보기
+	Volume	권
+	Warp	왜곡
+	Wave	파형
+	Weight	두께
+	White	흰색
+	Wide	넓게
+	Width	너비
+	Width:	너비:
+	WordArt	WordArt
+	Zoom	확대/축소
+	Zoom In	확대
+	Zoom Out	축소

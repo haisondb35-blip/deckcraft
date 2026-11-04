@@ -1,0 +1,509 @@
+# Nederlands (nl) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	AaBbCcDd	AaBbCcDd
+	About	Over
+	Accept	Accepteren
+	Action	Actie
+	Add Shape	Vorm toevoegen
+	Add to Dictionary	Aan woordenboek toevoegen
+	Add to Quick Access Toolbar	Toevoegen aan sneltoegangslijst
+	Advanced	Geavanceerd
+	After	Na
+	After:	Na:
+	Agents	Agents
+	Align	Uitlijnen
+	Align Center	Uitlijnen midden
+	Align Left	Links uitlijnen
+	Align Right	Rechts uitlijnen
+	Align Text	Tekst uitlijnen
+	Alignment	Uitlijning
+	Alignment:	Uitlijning:
+	All	Alles
+	All Borders	Alle randen
+	All caps	Alle hoofdletters
+	Alt Text	Alt-tekst
+	Alt text	Alt-tekst
+	Angle	Hoek
+	Animations	Animaties
+	Appearance	Uiterlijk
+	Apply to All	Op alles toepassen
+	Arrange	Schikken
+	Arrow	Pijl
+	Arrows	Pijlen
+	At	Bij
+	Audio	Audio
+	Author	Auteur
+	AutoCorrect	AutoCorrect
+	Automatic	Automatisch
+	Back	Terug
+	Background	Achtergrond
+	Backspace	Backspace
+	Banded Columns	Bandkolommen
+	Banded Rows	Bandrijen
+	Baseline	Basislijn
+	Bevel	Afgeschuind
+	Binary assets added	Toegevoegde binaire assets
+	Binary assets removed	Verwijderde binaire assets
+	Black	Zwart
+	Blur	Vervagen
+	Bold	Vet
+	Borders	Celranden
+	Both	Beide
+	Bottom	Onder
+	Bottom Border	Onderrand
+	Bottom Left	Linksonder
+	Bottom Right	Rechtsonder
+	Brightness	Helderheid
+	Bring Forward	Naar voren brengen
+	Bring to Front	Naar de voorgrond brengen
+	Browse	Bladeren
+	Bullets	Opsommingstekens
+	Cancel	Annuleren
+	Capitalize Each Word	Eerste letter van elk woord als hoofdletter
+	Caps	Uiteinden
+	Categories	Categorieën
+	Cell Margins	Cellmarges
+	Center	Centreren
+	Centered	Gecentreerd
+	Change Case	Hoofdlettergebruik wijzigen
+	Change Colors	Kleuren wijzigen
+	Change File Type	Bestandstype wijzigen
+	Change Picture	Afbeelding wijzigen
+	Change Picture…	Afbeelding wijzigen…
+	Change Shape	Vorm wijzigen
+	Character Spacing	Tekenafstand
+	Chart	Grafiek
+	Chart Design	Grafiekontwerp
+	Clear	Wissen
+	Clear All	Alles wissen
+	Clear All Formatting	Alle opmaak wissen
+	Click to add text	Klik om tekst toe te voegen
+	Close	Sluiten
+	Close Path	Pad sluiten
+	Collapse	Samenvouwen
+	Color	Kleur
+	Colors	Kleuren
+	Columns	Kolommen
+	Comment	Opmerking
+	Comments	Opmerkingen
+	Commits	Commits
+	Company	Bedrijf
+	Compare	Vergelijken
+	Compress Pictures	Afbeeldingen comprimeren
+	Contour	Contour
+	Contrast	Contrast
+	Contributors	Bijdragers
+	Convert	Converteren
+	Convert to Shapes	Omzetten naar vormen
+	Convert to Text	Naar tekst converteren
+	Copy	Kopiëren
+	Corrections	Correcties
+	Create	Maken
+	Create PDF	PDF maken
+	Crop	Bijsnijden
+	Cross	Kruis
+	Custom	Aangepast
+	Customize Quick Access Toolbar	Sneltoegangslijst aanpassen
+	Cut	Knippen
+	Cycle	Cyclus
+	Dark	Donker
+	Dark Mode	Donkere modus
+	Dash	Streep
+	Date	Datum
+	Date and Time	Datum en tijd
+	Decimal	Decimaal
+	Decrease Font Size	Tekengrootte verkleinen
+	Delete	Verwijderen
+	Delete Columns	Kolommen verwijderen
+	Delete Point	Punt verwijderen
+	Delete Rows	Rijen verwijderen
+	Delete Table	Tabel verwijderen
+	Demote	Verlagen
+	Depth	Diepte
+	Design	Ontwerp
+	Diamond	Ruit
+	Direction	Richting
+	Display	Weergave
+	Display name	Weergavenaam
+	Distance	Afstand
+	Distribute Columns	Kolommen gelijkmatig verdelen
+	Distribute Rows	Rijen gelijkmatig verdelen
+	Distributed	Uitgevuld
+	Dot	Punt
+	Dotted	Gestippeld
+	Double	Dubbel
+	Down	Omlaag
+	Download	Downloaden
+	Draw	Tekenen
+	Draw Table	Tabel tekenen
+	Duplicate	Dupliceren
+	Duration	Duur
+	Edit	Bewerken
+	Edit Text	Tekst bewerken
+	Effects	Effecten
+	Emphasis	Nadruk
+	English (United Kingdom)	Engels (Verenigd Koninkrijk)
+	English (United States)	Engels (Verenigde Staten)
+	Enter	Invoeren
+	Equation	Vergelijking
+	Eraser	Gum
+	Exactly	Precies
+	Exit	Afsluiten
+	Expand	Uitbreiden
+	Export	Exporteren
+	Export…	Exporteren…
+	Eyedropper	Pipet
+	File	Bestand
+	Fill	Vullen
+	Find	Zoeken
+	Find Next	Volgende zoeken
+	Find and Replace	Zoeken en vervangen
+	Find what:	Zoeken naar:
+	Find…	Zoeken…
+	First	Eerste
+	First Column	Eerste kolom
+	First commit	Eerste commit
+	First line	Eerste regel
+	Fit	Passen
+	Fit to Window	Passend in venster
+	Flat	Vlak
+	Flip Horizontal	Horizontaal spiegelen
+	Flip Vertical	Verticaal spiegelen
+	Font	Lettertype
+	Font Color	Tekstkleur
+	Fonts	Lettertypen
+	Font…	Lettertype…
+	Footer	Voettekst
+	Foreground	Voorgrond
+	Format	Opmaak
+	Format Painter (double-click to keep it on)	Opmaak kopiëren (dubbelklik om vast te zetten)
+	French (France)	Frans (Frankrijk)
+	From	Van
+	From Left	Van links
+	From Right	Van rechts
+	Full	Volledig
+	General	Algemeen
+	Glow	Gloed
+	Grab bag	Allerlei
+	Gradient stops	Verloopstops
+	Gradient…	Verloop…
+	Grayscale	Grijswaarden
+	Gridlines	Celrasterlijnen
+	Group	Groeperen
+	Guides	Hulplijnen
+	Header	Koptekst
+	Header Row	Kopregel
+	Height	Hoogte
+	Height:	Hoogte:
+	Help	Help
+	Hide	Verbergen
+	Hide All	Alles verbergen
+	Hierarchy	Hiërarchie
+	High	Hoog
+	Highlighter	Markeerstift
+	Home	Start
+	Horizontal	Horizontaal
+	Icons	Pictogrammen
+	Ignore All	Alles negeren
+	In	In
+	Increase Font Size	Tekengrootte vergroten
+	Indentation	Inspringen
+	Info	Info
+	Ink to Shape	Inkt naar vorm
+	Insert	Invoegen
+	Insert Hyperlink	Hyperlink invoegen
+	Insert Table	Tabel invoegen
+	Insert Table…	Tabel invoegen…
+	Insert…	Invoegen…
+	Inside Borders	Binnenranden
+	Inside Horizontal Border	Horizontale binnenrand
+	Inside Vertical Border	Verticale binnenrand
+	Interface	Interface
+	Interface language	Weergavetaal
+	Interface size	Grootte van de interface
+	Italic	Cursief
+	Japanese	Japans
+	Join the ArtCraft community on Discord	Sluit je aan bij de ArtCraft-community op Discord
+	Justify	Uitvullen
+	Language	Taal
+	Language:	Taal:
+	Large	Groot
+	Last	Laatste
+	Last Column	Laatste kolom
+	Last commit	Laatste commit
+	Layout	Layout
+	Layouts	Lay-outs
+	Left	Links
+	Left Border	Linkerrand
+	Letter	Letter
+	Light	Licht
+	Lighting	Belichting
+	Line	Lijn
+	Line Spacing	Regelafstand
+	Line Spacing Options…	Regelafstandopties…
+	Line delta	Regelverschil
+	Line spacing	Regelafstand
+	Linear	Lineair
+	Lines added	Toegevoegde regels
+	Lines deleted	Verwijderde regels
+	Link	Link
+	Link…	Link…
+	List	Lijst
+	Location	Locatie
+	Lock	Vergrendelen
+	Lock aspect ratio	Hoogte-breedteverhouding vergrendelen
+	Low	Laag
+	Mark as decorative	Markeren als decoratief
+	Match case	Hoofdlettergevoelig
+	Matrix	Matrix
+	Media	Media
+	Medium	Gemiddeld
+	Merged PRs	Samengevoegde PR's
+	Middle	Midden
+	Mirror	Spiegelen
+	Miter	Verstek
+	Model	Model
+	Models	Modellen
+	More Colors…	Meer kleuren…
+	More Columns…	Meer kolommen…
+	Motion	Beweging
+	Move Down	Omlaag verplaatsen
+	Move Up	Omhoog verplaatsen
+	Name	Naam
+	Name (A–Z)	Naam (A–Z)
+	Name:	Naam:
+	Narrow	Smal
+	New	Nieuw
+	New Comment	Nieuwe opmerking
+	New Window	Nieuw venster
+	Next	Volgende
+	Next Page	Volgende pagina
+	No Border	Geen rand
+	No Color	Geen kleur
+	No Fill	Geen vulling
+	No Glow	Geen schijnsel
+	No Outline	Geen omtrek
+	No Reflection	Geen spiegeling
+	No Shadow	Geen schaduw
+	No Soft Edges	Geen zachte randen
+	No Transform	Geen transformatie
+	No contributor data was built into this copy.	Er zijn geen gegevens over bijdragers opgenomen in deze build.
+	No model credits were built into this copy.	Er zijn geen modelvermeldingen opgenomen in deze build.
+	None	Geen
+	Normal	Normaal
+	Not saved yet	Nog niet opgeslagen
+	Notes	Notities
+	Number of columns:	Aantal kolommen:
+	Number of rows:	Aantal rijen:
+	Numbering	Nummering
+	Offset X	Verschuiving X
+	Open	Openen
+	Open…	Openen…
+	Options	Opties
+	Orientation	Richting
+	Out	Uit
+	Outside Borders	Buitenranden
+	Oval	Ovaal
+	PDF (*.pdf)	PDF (*.pdf)
+	PRs	PR's
+	Page Number	Paginanummer
+	Page Setup…	Pagina-instelling…
+	Paper	Papier
+	Paragraph	Alinea
+	Paragraph…	Alinea…
+	Paste	Plakken
+	Paste (⌘V)	Plakken (⌘V)
+	Paste Formatting	Opmaak plakken
+	Paste Special	Speciaal plakken
+	Paste Special…	Speciaal plakken…
+	Path	Pad
+	Pattern	Patroon
+	Pause	Pauze
+	Pen	Pen
+	Pencil	Potlood
+	Percent:	Procent:
+	Personalize	Personaliseren
+	Perspective	Perspectief
+	Picture	Afbeelding
+	Picture Border	Afbeeldingsrand
+	Picture Format	Afbeeldingsopmaak
+	Pictures	Afbeeldingen
+	Play	Afspelen
+	Position	Positie
+	Preferences	Voorkeuren
+	Preferences…	Voorkeuren…
+	Presentation	Presentatie
+	Preserve	Behouden
+	Presets	Voorinstellingen
+	Preview	Voorbeeld
+	Previous	Vorige
+	Previous Page	Vorige pagina
+	Print	Afdrukken
+	Print…	Afdrukken…
+	Process	Proces
+	Promote	Verhogen
+	Proofing	Taalcontrole
+	Properties	Eigenschappen
+	Pyramid	Piramide
+	Quick Access Toolbar	Sneltoegangslijst
+	Radial	Radiaal
+	Real name	Echte naam
+	Recent	Recent
+	Recolor	Opnieuw kleuren
+	Rectangle	Rechthoek
+	Rectangular	Rechthoekig
+	Redo	Opnieuw
+	Reflection	Spiegeling
+	Regular	Standaard
+	Reject	Weigeren
+	Relationship	Relatie
+	Remove	Verwijderen
+	Remove Background	Achtergrond verwijderen
+	Remove from Quick Access Toolbar	Verwijderen uit de sneltoegangslijst
+	Remove from Recent	Verwijderen uit recente bestanden
+	Remove stop	Kleurstop verwijderen
+	Rename	Hernoemen
+	Reopen	Opnieuw openen
+	Replace	Vervangen
+	Replace All	Alles vervangen
+	Replace Font	Lettertype vervangen
+	Replace with:	Vervangen door:
+	Replace…	Vervangen…
+	Reset	Opnieuw instellen
+	Reset Crop	Bijsnijden herstellen
+	Reset Picture	Afbeelding opnieuw instellen
+	Reset to Defaults	Standaardwaarden herstellen
+	Resolution	Resolutie
+	Resolve	Oplossen
+	Resume	Hervatten
+	Reverse the order	Volgorde omkeren
+	Revert	Terugzetten
+	Review	Controleren
+	Right	Rechts
+	Right Border	Rechterrand
+	Right-to-Left Text Direction	Tekstrichting rechts naar links
+	Rotate	Roteren
+	Rotate Left 90°	90° linksom draaien
+	Rotate Right 90°	90° rechtsom draaien
+	Rotate all text 270°	Alle tekst 270° draaien
+	Rotate all text 90°	Alle tekst 90° draaien
+	Rotation	Rotatie
+	Round	Rond
+	Rounded	Afgerond
+	Ruler	Liniaal
+	Saturation	Verzadiging
+	Save	Opslaan
+	Save As	Opslaan als
+	Save As…	Opslaan als…
+	Save as type	Opslaan als type
+	Saved	Opgeslagen
+	Scale X	Schaal X
+	Scale Y	Schaal Y
+	Scroll ribbon left	Lint naar links schuiven
+	Scroll ribbon right	Lint naar rechts schuiven
+	Search icons	Pictogrammen zoeken
+	Select	Selecteren
+	Select All	Alles selecteren
+	Selected	Geselecteerd
+	Selection	Selectie
+	SemiBold	Halfvet
+	Send Backward	Naar achteren brengen
+	Send to Back	Naar de achtergrond brengen
+	Sentence case.	Zoals in een zin.
+	Set	Instellen
+	Set Zoom	Zoom instellen
+	Settings	Instellingen
+	Shading	Arcering
+	Shadow	Schaduw
+	Shape Effects	Vormeffecten
+	Shape Fill	Vormopvulling
+	Shape Format	Vormopmaak
+	Shape Outline	Vormrand
+	Shapes	Vormen
+	Show	Weergeven
+	Show All	Alles tonen
+	Single	Enkelvoudig
+	Size	Formaat
+	Size:	Grootte:
+	Small	Klein
+	Small caps	Kleine hoofdletters
+	SmartArt	SmartArt
+	SmartArt Design	SmartArt-ontwerp
+	SmartArt Styles	SmartArt-stijlen
+	Snap	Uitlijnen
+	Soft Edges	Zachte randen
+	Solid	Ononderbroken
+	Sort	Sorteren
+	Space	Spatie
+	Spacing	Spatiëring
+	Spacing (pt):	Afstand (pt):
+	Special	Speciaal
+	Spelling	Spelling
+	Square	Vierkant
+	Stacked	Gestapeld
+	Standard Colors	Standaardkleuren
+	Start:	Begin:
+	Stop	Stoppen
+	Strikethrough	Doorhalen
+	Subject	Onderwerp
+	Subscript	Subscript
+	Superscript	Superscript
+	Swedish	Zweeds
+	Symbol	Symbool
+	Tab	Tab
+	Table	Tabel
+	Table Design	Tabelontwerp
+	Tabs	Tabs
+	Tabs…	Tabstops…
+	Templates	Sjablonen
+	Text	Tekst
+	Text Box	Tekstvak
+	Text Direction	Tekstrichting
+	Text Effects	Teksteffecten
+	Text Fill	Tekstvulling
+	Text Highlight Color	Tekstmarkeerkleur
+	Text Outline	Tekstomtrek
+	Text Pane	Tekstgebied
+	Theme Colors	Themakleuren
+	Themes	Thema's
+	Thesaurus	Thesaurus
+	Tight	Strak
+	Title	Titel
+	Top	Boven
+	Top Border	Bovenrand
+	Top Left	Linksboven
+	Top Right	Rechtsboven
+	Total Row	Totalenrij
+	Transform	Transformeren
+	Translate	Vertalen
+	Transparency	Transparantie
+	Trim	Wegsnijden
+	Triple	Drievoudig
+	Type	Type
+	Underline	Onderstrepen
+	Undo	Ongedaan maken
+	Ungroup	Groep opheffen
+	Unlock	Ontgrendelen
+	Up	Omhoog
+	Update	Bijwerken
+	Username	Gebruikersnaam
+	Version	Versie
+	Vertical	Verticaal
+	Video	Video
+	View	Weergave
+	Volume	Volume
+	Warp	Warp
+	Wave	Golf
+	Weight	Dikte
+	White	Wit
+	Wide	Breed
+	Width	Breedte
+	Width:	Breedte:
+	WordArt	WordArt
+	Zoom	Zoomen
+	Zoom In	Inzoomen
+	Zoom Out	Uitzoomen
+	Zoom…	Zoomen…

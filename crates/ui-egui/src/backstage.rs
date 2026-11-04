@@ -347,7 +347,7 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
                 t.text,
                 false,
             );
-            if resp.on_hover_text("Back (Esc)").clicked() {
+            if resp.on_hover_text(crate::i18n::tr("Back (Esc)")).clicked() {
                 out.close = true;
             }
         } else {
@@ -400,7 +400,7 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
                 // page past the right margin and clip the tiles (#1421).
                 ui.set_max_width(ui.available_width().min(CONTENT_W));
                 if bs.page != Page::Home {
-                    ui.label(RichText::new(bs.page.label()).font(theme::bold(22.0)).color(t.text));
+                    ui.label(RichText::new(crate::i18n::tr(bs.page.label())).font(theme::bold(22.0)).color(t.text));
                     ui.add_space(16.0);
                 }
                 // Errors raised on a backstage page (a missing recent file, a failed open) would
@@ -442,7 +442,7 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
 fn nav_item(ui: &mut Ui, nav: Nav, bs: &Backstage, index: usize, t: &Tokens) -> egui::Response {
     let (rect, resp) = ui.allocate_exact_size(vec2(NAV_W, ITEM_H), Sense::click());
     let selected = nav == Nav::Page(bs.page);
-    let label = nav.label();
+    let label = crate::i18n::tr(nav.label());
     resp.widget_info(|| egui::WidgetInfo::selected(egui::Role::Button, true, selected, label));
     let p = ui.painter();
     let row = rect.shrink2(vec2(6.0, 1.0));
@@ -470,12 +470,14 @@ fn separator(ui: &mut Ui, t: &Tokens) {
 
 fn heading(ui: &mut Ui, text: &str) {
     let t = Tokens::get(ui.ctx());
+    let text = crate::i18n::tr(text);
     ui.label(RichText::new(text).font(theme::bold(16.0)).color(t.text));
     ui.add_space(8.0);
 }
 
 fn dim(ui: &mut Ui, text: &str) {
     let t = Tokens::get(ui.ctx());
+    let text = crate::i18n::tr(text);
     ui.label(RichText::new(text).font(theme::font(12.5)).color(t.text_dim));
 }
 
@@ -534,6 +536,7 @@ fn options(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
         ui.vertical(|ui| {
             ui.set_width(180.0);
             for (id, label) in OPTION_PANES {
+                let label = crate::i18n::tr(label);
                 let active = current == id;
                 let (r, resp) = ui.allocate_exact_size(vec2(180.0, 32.0), egui::Sense::click());
                 resp.widget_info(|| egui::WidgetInfo::selected(egui::Role::Button, true, active, label));
@@ -569,6 +572,7 @@ fn options(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
 
 fn option_section(ui: &mut Ui, title: &str) {
     let t = Tokens::get(ui.ctx());
+    let title = crate::i18n::tr(title);
     ui.add_space(6.0);
     ui.label(RichText::new(title).font(theme::bold(15.0)).color(t.text));
     ui.add_space(4.0);
@@ -576,6 +580,7 @@ fn option_section(ui: &mut Ui, title: &str) {
 
 fn option_hint(ui: &mut Ui, text: &str) {
     let t = Tokens::get(ui.ctx());
+    let text = crate::i18n::tr(text);
     ui.label(RichText::new(text).font(theme::font(11.5)).color(t.text_dim));
 }
 
@@ -591,17 +596,17 @@ fn set_option(app: &mut SlideApp, key: &str, value: Value) {
 fn options_general(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
     option_section(ui, "Interface");
     egui::Grid::new("options_interface").num_columns(2).spacing(vec2(18.0, 10.0)).show(ui, |ui| {
-        ui.label("Interface theme");
+        ui.label(crate::i18n::tr("Interface theme"));
         let dark = app.ui.brightness == theme::Brightness::Dark;
-        craft_ui::ComboBox::from_id_salt("options_theme").width(200.0).selected_text(if dark { "Dark" } else { "Light" }).show_ui(ui, |ui| {
+        craft_ui::ComboBox::from_id_salt("options_theme").width(200.0).selected_text(crate::i18n::tr(if dark { "Dark" } else { "Light" })).show_ui(ui, |ui| {
             for (on, label) in [(false, "Light"), (true, "Dark")] {
-                if ui.selectable_label(dark == on, label).clicked() {
+                if ui.selectable_label(dark == on, crate::i18n::tr(label)).clicked() {
                     let _ = app.run("view.dark", json!({"on": on}));
                 }
             }
         });
         ui.end_row();
-        ui.label("Interface size");
+        ui.label(crate::i18n::tr("Interface size"));
         let size = (app.ui.ui_scale * 100.0).round() as i32;
         craft_ui::ComboBox::from_id_salt("options_interface_size").width(200.0).selected_text(format!("{size}%")).show_ui(ui, |ui| {
             for v in [75, 90, 100, 110, 125, 150, 175] {
@@ -611,15 +616,33 @@ fn options_general(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
             }
         });
         ui.end_row();
+        // The interface language, as in WordCraft and GridCraft: Auto follows the system.
+        ui.label(crate::i18n::tr("Interface language"));
+        let pref = app.ui.language.clone();
+        let auto = crate::i18n::tr("Auto (system language)");
+        let chosen = crate::i18n::Language::parse(&pref).filter(|_| !pref.is_empty());
+        let shown = chosen.map_or_else(|| format!("{auto} · {}", crate::i18n::Language::system().name()), |l| l.name().to_string());
+        craft_ui::ComboBox::from_id_salt("options_language").width(200.0).selected_text(shown).show_ui(ui, |ui| {
+            if ui.selectable_label(chosen.is_none(), auto).clicked() {
+                set_option(app, "language", json!(""));
+            }
+            for l in crate::i18n::Language::for_picker() {
+                if ui.selectable_label(chosen == Some(l), l.name()).clicked() {
+                    set_option(app, "language", json!(l.code()));
+                }
+            }
+        });
+        ui.end_row();
     });
     option_hint(
         ui,
         "Makes the ribbon, its buttons, menus and panes larger or smaller, on top of your system's display scaling. Slide zoom is separate.",
     );
+    option_hint(ui, "Changes the language of the ribbon, menus and panes. Your presentations are not changed.");
     ui.add_space(16.0);
     option_section(ui, "Personalize");
     ui.horizontal(|ui| {
-        ui.label("User name");
+        ui.label(crate::i18n::tr("User name"));
         let id = ui.make_persistent_id("options_user_name");
         if !ui.ctx().memory(|m| m.has_focus(id)) {
             bs.user_name.clone_from(&app.session.prefs.author);
@@ -636,10 +659,10 @@ fn options_general(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
 fn options_proofing(app: &mut SlideApp, ui: &mut Ui) {
     option_section(ui, "AutoCorrect options");
     let (mut auto, mut quotes) = (app.session.prefs.autocorrect, app.session.prefs.smart_quotes);
-    if ui.checkbox(&mut auto, "Correct text as you type (AutoCorrect)").changed() {
+    if ui.checkbox(&mut auto, crate::i18n::tr("Correct text as you type (AutoCorrect)")).changed() {
         set_option(app, "autocorrect", json!(auto));
     }
-    if ui.checkbox(&mut quotes, "Replace straight quotes with smart quotes").changed() {
+    if ui.checkbox(&mut quotes, crate::i18n::tr("Replace straight quotes with smart quotes")).changed() {
         set_option(app, "smartQuotes", json!(quotes));
     }
 }
@@ -647,12 +670,12 @@ fn options_proofing(app: &mut SlideApp, ui: &mut Ui) {
 fn options_save(app: &mut SlideApp, ui: &mut Ui) {
     option_section(ui, "Save presentations");
     ui.horizontal(|ui| {
-        ui.label("Save AutoRecover information every");
+        ui.label(crate::i18n::tr("Save AutoRecover information every"));
         let mut m = app.session.prefs.recovery_minutes;
         if ui.add(egui::DragValue::new(&mut m).range(0.5..=120.0).speed(0.5)).changed() {
             set_option(app, "recoveryMinutes", json!(m));
         }
-        ui.label("minutes");
+        ui.label(crate::i18n::tr("minutes"));
     });
     option_hint(ui, "Unsaved presentations are kept so they can be reopened after DeckCraft closes unexpectedly.");
 }
@@ -661,26 +684,26 @@ fn options_advanced(app: &mut SlideApp, ui: &mut Ui) {
     option_section(ui, "Editing options");
     let p = app.session.prefs.clone();
     let (mut snap, mut guides) = (p.snap_to_grid, p.smart_guides);
-    if ui.checkbox(&mut snap, "Snap objects to grid").changed() {
+    if ui.checkbox(&mut snap, crate::i18n::tr("Snap objects to grid")).changed() {
         set_option(app, "snapToGrid", json!(snap));
     }
-    if ui.checkbox(&mut guides, "Show smart guides").changed() {
+    if ui.checkbox(&mut guides, crate::i18n::tr("Show smart guides")).changed() {
         set_option(app, "smartGuides", json!(guides));
     }
     egui::Grid::new("options_editing").num_columns(2).spacing(vec2(18.0, 10.0)).show(ui, |ui| {
-        ui.label("Grid spacing (pt)");
+        ui.label(crate::i18n::tr("Grid spacing (pt)"));
         let mut g = p.grid_spacing;
         if ui.add(egui::DragValue::new(&mut g).range(1.0..=72.0).speed(0.5)).changed() {
             set_option(app, "gridSpacing", json!(g));
         }
         ui.end_row();
-        ui.label("Duplicate and paste offset (pt)");
+        ui.label(crate::i18n::tr("Duplicate and paste offset (pt)"));
         let mut o = p.duplicate_offset;
         if ui.add(egui::DragValue::new(&mut o).range(0.0..=72.0).speed(0.5)).changed() {
             set_option(app, "duplicateOffset", json!(o));
         }
         ui.end_row();
-        ui.label("Maximum number of undos");
+        ui.label(crate::i18n::tr("Maximum number of undos"));
         let mut u = p.undo_limit;
         if ui.add(egui::DragValue::new(&mut u).range(10..=5000)).changed() {
             set_option(app, "undoLimit", json!(u));
@@ -691,12 +714,12 @@ fn options_advanced(app: &mut SlideApp, ui: &mut Ui) {
 
 fn options_agents(app: &mut SlideApp, ui: &mut Ui) {
     option_section(ui, "Claude");
-    ui.label("Home › Claude opens a pane where Claude works on the open presentation with you. It needs Claude Code installed and signed in on this computer.");
-    if ui.button("Open the Claude pane").clicked() {
+    ui.label(crate::i18n::tr("Home › Claude opens a pane where Claude works on the open presentation with you. It needs Claude Code installed and signed in on this computer."));
+    if ui.button(crate::i18n::tr("Open the Claude pane")).clicked() {
         let _ = app.run("view.pane", json!({"pane": "assistant"}));
         app.close_backstage();
     }
     ui.add_space(16.0);
     option_section(ui, "Scripts and other agents");
-    ui.label("Every command is available to scripts and AI agents: run `deckcraft-cli mcp` for an MCP server, or start the app with `--control <port>` for the JSON control channel.");
+    ui.label(crate::i18n::tr("Every command is available to scripts and AI agents: run `deckcraft-cli mcp` for an MCP server, or start the app with `--control <port>` for the JSON control channel."));
 }

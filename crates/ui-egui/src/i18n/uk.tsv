@@ -1,0 +1,517 @@
+# Українська (uk) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	About	About
+	Accept	Прийняти
+	Accessibility Checker	Перевірка доступності
+	Action	Action
+	Add Shape	Додати фігуру
+	Add comments	Додати коментарі
+	Add to Dictionary	Add to Dictionary
+	Add to Quick Access Toolbar	Додати на панель швидкого доступу
+	Advanced	Додаткові
+	After:	Після:
+	Agents	Агенти
+	Align	Вирівняти
+	Align Center	Вирівняти по центру
+	Align Left	Align Left
+	Align Right	Align Right
+	Align Text	Вирівняти текст
+	Alignment	Alignment
+	Alignment:	Вирівнювання:
+	All	All
+	All Borders	Усі межі
+	All caps	Усі великі літери
+	Alt Text	Альтернативний текст
+	Alt text	Альтернативний текст
+	Angle	Кут
+	Animations	Анімація
+	Appearance	Вигляд
+	Apply to All	Застосувати до всіх
+	Arrange	Упорядкувати
+	Arrow	Стрілка
+	Arrows	Стрілки
+	At	У точці
+	Audio	Аудіо
+	Author	Автор
+	AutoCorrect	Автовиправлення
+	Automatic	Автоматично
+	Back	Назад
+	Background	Фон
+	Backspace	Backspace
+	Banded Columns	Смугасті стовпці
+	Banded Rows	Смугасті рядки
+	Baseline	Базова лінія
+	Bevel	Скошені
+	Binary assets added	Додано бінарних ресурсів
+	Binary assets removed	Видалені бінарні ресурси
+	Black	Чорний
+	Blur	Розмиття
+	Bold	Bold
+	Borders	Межі
+	Both	Обидва
+	Bottom	Bottom
+	Bottom Border	Нижня межа
+	Bottom Left	Знизу ліворуч
+	Bottom Right	Знизу праворуч
+	Brightness	Яскравість
+	Bring Forward	Перемістити вперед
+	Bring to Front	На передній план
+	Browse	Огляд
+	Bullets	Маркери
+	Cancel	Cancel
+	Capitalize Each Word	Кожне слово з великої літери
+	Caps	Кінці
+	Categories	Категорії
+	Cell Margins	Поля клітинки
+	Center	По центру
+	Centered	По центру
+	Change Case	Змінити регістр
+	Change Colors	Змінити кольори
+	Change File Type	Змінити тип файлу
+	Change Picture	Змінити зображення
+	Change Picture…	Змінити зображення…
+	Change Shape	Змінити фігуру
+	Character Spacing	Інтервал між символами
+	Chart	Chart
+	Chart Design	Конструктор діаграм
+	Clear	Очистити
+	Clear All	Очистити все
+	Clear All Formatting	Очистити все форматування
+	Click to add text	Клацніть, щоб додати текст
+	Close	Закрити
+	Close Path	Замкнути контур
+	Collapse	Згорнути
+	Color	Колір
+	Colors	Кольори
+	Columns	Columns
+	Comment	Коментар
+	Comments	Коментарі
+	Commits	Коміти
+	Company	Організація
+	Compare	Порівняння
+	Compress Pictures	Стиснути зображення
+	Contour	Контур
+	Contrast	Контраст
+	Contributors	Contributors
+	Convert	Перетворення
+	Convert to Shapes	Перетворити на фігури
+	Convert to Text	Перетворити на текст
+	Copy	Copy
+	Corrections	Виправлення
+	Create	Створити
+	Create PDF	Створити PDF
+	Crop	Обрізати
+	Cross	Хрест
+	Custom	Користувацький
+	Customize Quick Access Toolbar	Налаштувати панель швидкого доступу
+	Cut	Cut
+	Cycle	Цикл
+	Dark	Темна
+	Dark Mode	Темний режим
+	Dash	Штрих
+	Date	Дата
+	Date and Time	Дата й час
+	Decimal	Decimal
+	Decrease Font Size	Зменшити розмір шрифту
+	Delete	Видалити
+	Delete Columns	Видалити стовпці
+	Delete Point	Видалити точку
+	Delete Rows	Видалити рядки
+	Delete Table	Видалити таблицю
+	Demote	Понизити рівень
+	Depth	Глибина
+	Design	Дизайн
+	Diamond	Ромб
+	Direction	Напрямок
+	Display	Відображення
+	Display name	Відображуване ім’я
+	Distance	Відстань
+	Distribute Columns	Розподілити стовпці
+	Distribute Rows	Розподілити рядки
+	Distributed	Distributed
+	Dot	Крапка
+	Dotted	Пунктирне
+	Double	Double
+	Down	Down
+	Download	Завантажити
+	Draw	Малювання
+	Draw Table	Намалювати таблицю
+	Duplicate	Дублювати
+	Duration	Тривалість
+	Edit	Редагування
+	Edit Text	Редагувати текст
+	Effects	Ефекти
+	English (Australia)	Англійська (Австралія)
+	English (Canada)	Англійська (Канада)
+	English (United Kingdom)	Англійська (Велика Британія)
+	English (United States)	Англійська (США)
+	Enter	Ввід
+	Equation	Рівняння
+	Eraser	Гумка
+	Exactly	Точно
+	Exit	Вийти
+	Expand	Розгорнути
+	Export	Експорт
+	Export…	Експортувати…
+	Eyedropper	Піпетка
+	File	Файл
+	Fill	Заповнити
+	Find	Find
+	Find Next	Find Next
+	Find and Replace	Find and Replace
+	Find what:	Find what:
+	Find…	Знайти…
+	First	Перший
+	First Column	Перший стовпець
+	First commit	Перший коміт
+	First line	Перший рядок
+	Fit	Умістити
+	Flat	Плоский
+	Flip Horizontal	Віддзеркалити горизонтально
+	Flip Vertical	Віддзеркалити вертикально
+	Font	Font
+	Font Color	Колір шрифту
+	Fonts	Шрифти
+	Font…	Шрифт…
+	Footer	Нижній колонтитул
+	Foreground	Передній план
+	Format	Формат
+	Format Painter (double-click to keep it on)	Формат за зразком (двічі клацніть, щоб закріпити)
+	Format Shape	Формат фігури
+	Format Shape…	Формат фігури…
+	French (France)	Французька (Франція)
+	From	Від
+	From Left	Зліва
+	From Right	Справа
+	Full	Повна
+	General	Загальний
+	Glow	Світіння
+	Grab bag	Різне
+	Gradient fill	Градієнтна заливка
+	Gradient stops	Точки градієнта
+	Gradient…	Градієнт…
+	Grayscale	Відтінки сірого
+	Gridlines	Сітка
+	Group	Групувати
+	Guides	Напрямні
+	Header	Верхній колонтитул
+	Header Row	Рядок заголовка
+	Height	Висота
+	Height:	Висота:
+	Help	Довідка
+	Hide	Hide
+	Hide All	Приховати все
+	Hierarchy	Ієрархія
+	High	Висока
+	Highlighter	Highlighter
+	Home	Головна
+	Horizontal	За горизонталлю
+	Icons	Значки
+	Ignore All	Ігнорувати все
+	In	Початок
+	Increase Font Size	Збільшити розмір шрифту
+	Indentation	Відступи
+	Info	Відомості
+	Ink to Shape	Рукопис у фігуру
+	Insert	Вставити
+	Insert Hyperlink	Insert Hyperlink
+	Insert Table	Вставити таблицю
+	Insert Table…	Вставити таблицю…
+	Insert…	Insert…
+	Inside Borders	Внутрішні межі
+	Inside Horizontal Border	Внутрішня горизонтальна межа
+	Inside Vertical Border	Внутрішня вертикальна межа
+	Interface	Інтерфейс
+	Interface language	Мова інтерфейсу
+	Interface size	Розмір інтерфейсу
+	Italic	Italic
+	Japanese	Японська
+	Join the ArtCraft community on Discord	Приєднатися до спільноти ArtCraft у Discord
+	Justify	Justify
+	Language	Мова
+	Language:	Мова:
+	Large	Великий
+	Last	Останній
+	Last Column	Останній стовпець
+	Last commit	Останній коміт
+	Layout	Макет
+	Layouts	Макети
+	Left	Ліворуч
+	Left Border	Ліва межа
+	Letter	Letter
+	Light	Світла
+	Lighting	Освітлення
+	Line	Line
+	Line Spacing	Міжрядковий інтервал
+	Line Spacing Options…	Параметри міжрядкового інтервалу…
+	Line delta	Різниця рядків
+	Line spacing	Міжрядковий інтервал
+	Linear	Linear
+	Lines added	Додано рядків
+	Lines deleted	Видалено рядків
+	Link	Посилання
+	Link…	Link…
+	List	List
+	Location	Розташування
+	Lock	Заблокувати
+	Lock aspect ratio	Зберігати пропорції
+	Low	Низька
+	Mark as decorative	Позначити як декоративний
+	Match case	Match case
+	Matrix	Матриця
+	Media	Носій
+	Medium	Середній
+	Merged PRs	Злиті PR
+	Middle	Посередині
+	Mirror	Дзеркало
+	Miter	Гострі
+	Model	Модель
+	Models	Models
+	More Colors…	Інші кольори…
+	More Columns…	Інші стовпці…
+	More options	Додаткові параметри
+	Motion	Рух
+	Move Down	Перемістити вниз
+	Move Up	Перемістити вгору
+	Multiple	Кілька сторінок
+	Name	Name
+	Name (A–Z)	Ім’я (А–Я)
+	Name:	Name:
+	Narrow	Вузькі
+	New	Створити
+	New Comment	New Comment
+	New Window	Нове вікно
+	Next	Далі
+	Next Page	Наступна сторінка
+	No Border	Без меж
+	No Color	Без кольору
+	No Fill	Без заливки
+	No Glow	Без світіння
+	No Outline	Без контуру
+	No Reflection	Без відбиття
+	No Shadow	Без тіні
+	No Soft Edges	Без м'яких країв
+	No Transform	Без перетворення
+	No contributor data was built into this copy.	Ця збірка не містить даних про учасників.
+	No fill	Без заливки
+	No model credits were built into this copy.	Ця збірка не містить відомостей про моделі.
+	None	None
+	Normal	Звичайні
+	Not saved yet	Ще не збережено
+	Notes	Нотатки
+	Number of columns:	Кількість стовпців:
+	Number of rows:	Кількість рядків:
+	Numbering	Нумерація
+	Offset X	Зміщення X
+	Open	Відкрити
+	Open…	Open…
+	Options	Параметри
+	Orientation	Орієнтація
+	Out	Кінець
+	Outside Borders	Зовнішні межі
+	Oval	Овал
+	PDF (*.pdf)	Файл PDF (*.pdf)
+	PRs	PR
+	Page Number	Номер сторінки
+	Page Setup…	Параметри сторінки…
+	Paper	Папір
+	Paragraph	Абзац
+	Paragraph…	Абзац…
+	Paste	Вставити
+	Paste (⌘V)	Вставити (⌘V)
+	Paste Formatting	Вставити форматування
+	Paste Special	Paste Special
+	Paste Special…	Спеціальна вставка…
+	Path	Контур
+	Pattern	Візерунок
+	Pause	Пауза
+	Pen	Перо
+	Pencil	Олівець
+	Percent:	Відсотки:
+	Personalize	Персоналізація
+	Perspective	Перспектива
+	Picture	Зображення
+	Picture Border	Межа зображення
+	Picture Format	Формат зображення
+	Pictures	Зображення
+	Play	Відтворити
+	Position	Положення
+	Preferences	Налаштування
+	Preferences…	Налаштування…
+	Presentation	Представлення
+	Preserve	Зберегти
+	Preset gradients	Готові градієнти
+	Presets	Набори
+	Preview	Попередній перегляд
+	Previous	Назад
+	Previous Page	Попередня сторінка
+	Print	Друк
+	Print…	Друк…
+	Process	Процес
+	Promote	Підвищити рівень
+	Proofing	Перевірка
+	Properties	Властивості
+	Pyramid	Піраміда
+	Quick Access Toolbar	Панель швидкого доступу
+	Radial	Радіальний
+	Real name	Справжнє ім’я
+	Recent	Останні
+	Recolor	Перефарбувати
+	Rectangle	Прямокутник
+	Rectangular	Прямокутна
+	Redo	Redo
+	Reflection	Відбиття
+	Regular	Звичайний
+	Reject	Відхилити
+	Relationship	Зв’язок
+	Remove	Remove
+	Remove Background	Видалити фон
+	Remove from Quick Access Toolbar	Видалити з панелі швидкого доступу
+	Remove from Recent	Вилучити з нещодавніх
+	Remove stop	Вилучити колірну точку
+	Rename	Перейменувати
+	Reopen	Відкрити знову
+	Replace	Replace
+	Replace All	Replace All
+	Replace Font	Замінити шрифт
+	Replace with:	Replace with:
+	Replace…	Замінити…
+	Reset	Скинути
+	Reset Crop	Скинути обітнення
+	Reset Picture	Скинути зображення
+	Resolution	Роздільність
+	Resolve	Вирішити
+	Reverse the order	Зворотний порядок
+	Revert	Повернути до збереженого
+	Review	Рецензування
+	Revisions	Редакції
+	Right	Праворуч
+	Right Border	Права межа
+	Right-to-Left Text Direction	Напрямок тексту справа наліво
+	Rotate	Повернути
+	Rotate Left 90°	Повернути ліворуч на 90°
+	Rotate Right 90°	Повернути праворуч на 90°
+	Rotate all text 270°	Повернути весь текст на 270°
+	Rotate all text 90°	Повернути весь текст на 90°
+	Rotate with shape	Обертати разом із фігурою
+	Rotation	Поворот
+	Round	Круглі
+	Rounded	Заокруглений
+	Ruler	Лінійка
+	Saturation	Насиченість
+	Save	Зберегти
+	Save As	Зберегти як
+	Save As…	Зберегти як…
+	Save as type	Тип файлу
+	Saved	Збережено
+	Scroll ribbon left	Прокрутити стрічку ліворуч
+	Scroll ribbon right	Прокрутити стрічку праворуч
+	Search icons	Пошук піктограм
+	Select	Select
+	Select All	Вибрати все
+	Selected	Вибрані
+	Selection	Вибрані
+	SemiBold	Напівжирний
+	Send Backward	Перемістити назад
+	Send to Back	На задній план
+	Sentence case.	Як у реченні.
+	Set	Встановити
+	Set Zoom	Задати масштаб
+	Settings	Налаштування
+	Shading	Заливка
+	Shadow	Тінь
+	Shape Effects	Ефекти форми
+	Shape Fill	Заливка фігури
+	Shape Format	Формат фігури
+	Shape Outline	Контур фігури
+	Shapes	Фігури
+	Show	Показати
+	Show All	Показати всі
+	Single	Single
+	Size	Розмір
+	Size:	Розмір:
+	Small	Малий
+	Small caps	Малі великі літери
+	SmartArt	SmartArt
+	SmartArt Design	Конструктор SmartArt
+	SmartArt Styles	Стилі SmartArt
+	Snap	Прив'язка
+	Soft Edges	М'які краї
+	Solid	Суцільна
+	Solid fill	Суцільна заливка
+	Sort	Сортування
+	Space	Space
+	Spacing	Інтервал
+	Spacing (pt):	Інтервал (пункти):
+	Special	Спеціальний
+	Spelling	Орфографія
+	Square	Квадрат
+	Stacked	Стосом
+	Standard Colors	Стандартні кольори
+	Start:	Початок:
+	Stop	Stop
+	Strikethrough	Перекреслення
+	Subject	Тема
+	Subscript	Subscript
+	Superscript	Superscript
+	Swedish	Шведська
+	Symbol	Символ
+	Tab	Tab
+	Table	Таблиця
+	Table Design	Конструктор таблиць
+	Tabs	Табуляції
+	Tabs…	Табуляція…
+	Tags	Теги
+	Templates	Шаблони
+	Text	Текстовий
+	Text Box	Напис
+	Text Direction	Напрямок тексту
+	Text Effects	Текстові ефекти
+	Text Fill	Заливка тексту
+	Text Highlight Color	Колір виділення тексту
+	Text Outline	Контур тексту
+	Text Pane	Область тексту
+	Theme Colors	Кольори теми
+	Themes	Теми
+	Thesaurus	Тезаурус
+	Tight	Щільний
+	Title	Назва
+	To	До
+	Top	Top
+	Top Border	Верхня межа
+	Top Left	Вгорі ліворуч
+	Top Right	Вгорі праворуч
+	Total Row	Рядок підсумків
+	Transform	Трансформувати
+	Translate	Перекласти
+	Transparency	Прозорість
+	Trim	Обрізати
+	Triple	Потрійна
+	Type	Type
+	Underline	Підкреслення
+	Undo	Undo
+	Ungroup	Розгрупувати
+	Unlock	Розблокувати
+	Up	Up
+	Update	Оновити
+	Username	Ім’я користувача
+	Version	Версія
+	Vertical	Vertical
+	Video	Відео
+	View	Вигляд
+	Volume	Том
+	Warp	Деформація
+	Wave	Хвиля
+	Weight	Товщина
+	White	Білий
+	Wide	Широкі
+	Width	Ширина
+	Width:	Ширина:
+	WordArt	WordArt
+	Zoom	Масштаб
+	Zoom In	Zoom In
+	Zoom Out	Zoom Out
+	Zoom…	Zoom…

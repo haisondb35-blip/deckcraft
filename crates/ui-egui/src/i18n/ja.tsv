@@ -1,0 +1,509 @@
+# 日本語 (ja) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English,.
+
+	About	概要
+	Accept	承諾
+	Accessibility Checker	アクセシビリティチェック
+	Action	アクション
+	Add Shape	図形の追加
+	Add comments	コメントを追加
+	Add to Dictionary	辞書に追加
+	Add to Quick Access Toolbar	クイック アクセス ツール バーに追加
+	Advanced	詳細設定
+	After:	段落後:
+	Agents	エージェント
+	Align	整列
+	Align Center	中央揃え
+	Align Left	左揃え
+	Align Right	右揃え
+	Align Text	文字の配置
+	Alignment	整列
+	Alignment:	配置:
+	All	すべて
+	All Borders	格子
+	All caps	すべて大文字
+	Alt Text	代替テキスト
+	Alt text	代替テキスト
+	Angle	角度
+	Appearance	外観
+	Apply to All	すべてに適用
+	Arrange	重ね順
+	Arrow	矢印
+	Arrows	矢印
+	At	位置
+	Audio	オーディオ
+	Author	作成者
+	AutoCorrect	オートコレクト
+	Automatic	自動
+	Back	戻る
+	Background	背景
+	Backspace	Backspace
+	Banded Columns	縞模様（列）
+	Banded Rows	縞模様（行）
+	Baseline	ベースライン
+	Bevel	ベベル
+	Binary assets added	追加したバイナリファイル数
+	Binary assets removed	削除したバイナリアセット
+	Black	黒
+	Blur	ぼかし
+	Bold	太字
+	Borders	境界
+	Both	両方
+	Bottom	下
+	Bottom Border	下罫線
+	Bottom Left	左下
+	Bottom Right	右下
+	Brightness	明るさ
+	Bring Forward	前面へ
+	Bring to Front	最前面へ
+	Browse	参照
+	Bullets	箇条書き
+	Cancel	キャンセル
+	Capitalize Each Word	各単語の先頭を大文字にする
+	Caps	線端
+	Categories	カテゴリ
+	Cell Margins	セルの余白
+	Center	中央
+	Centered	中央揃え
+	Change Case	大文字と小文字の変更
+	Change Colors	色の変更
+	Change Picture	図の変更
+	Change Picture…	図の変更…
+	Change Shape	図形の変更
+	Character Spacing	文字間隔
+	Chart	グラフ
+	Chart Design	グラフのデザイン
+	Clear	クリア
+	Clear All	すべてクリア
+	Clear All Formatting	すべての書式をクリア
+	Click to add text	クリックしてテキストを追加
+	Close	閉じる
+	Close Path	パスを閉じる
+	Collapse	折りたたむ
+	Color	色
+	Colors	カラー
+	Columns	列
+	Comment	コメント
+	Comments	コメント
+	Commits	コミット
+	Company	企業
+	Compare	比較
+	Compress Pictures	図の圧縮
+	Contour	輪郭
+	Contrast	コントラスト
+	Contributors	貢献者
+	Convert	変換
+	Convert to Shapes	図形に変換
+	Convert to Text	表の解除
+	Copy	コピー
+	Corrections	修整
+	Create	作成
+	Crop	切り抜き
+	Cross	十字
+	Custom	カスタム
+	Customize Quick Access Toolbar	クイック アクセス ツール バーのユーザー設定
+	Cut	切り取り
+	Cycle	循環
+	Dark	ダーク
+	Dark Mode	ダーク モード
+	Dash	線分
+	Date	日付
+	Date and Time	日付と時刻
+	Decimal	小数点揃え
+	Decrease Font Size	フォントサイズを小さく
+	Delete	削除
+	Delete Columns	列の削除
+	Delete Point	ポイントを削除
+	Delete Rows	行の削除
+	Delete Table	表の削除
+	Demote	レベル下げ
+	Depth	深さ
+	Design	デザイン
+	Diamond	ひし形
+	Direction	方向
+	Display	表示
+	Display name	表示名
+	Distance	距離
+	Distribute Columns	列の幅を揃える
+	Distribute Rows	行の高さを揃える
+	Distributed	均等割り付け
+	Dot	点
+	Dotted	点線
+	Double	二重線
+	Down	下
+	Download	ダウンロード
+	Draw	描画
+	Draw Table	表を描画
+	Duplicate	複製
+	Duration	継続時間
+	Edit	編集
+	Edit Text	テキストを編集
+	Effects	効果
+	English (Australia)	英語（オーストラリア）
+	English (Canada)	英語（カナダ）
+	English (United Kingdom)	英語（英国）
+	English (United States)	英語（米国）
+	Enter	Enter
+	Equation	数式
+	Eraser	消しゴム
+	Exactly	固定値
+	Exit	終了
+	Expand	展開
+	Export	書き出し
+	Export…	書き出し…
+	Eyedropper	スポイト
+	File	ファイル
+	Fill	塗り
+	Find	検索
+	Find Next	次を検索
+	Find and Replace	検索と置換
+	Find what:	検索する文字列:
+	Find…	検索…
+	First	最初
+	First Column	最初の列
+	First commit	最初のコミット
+	First line	最初の行
+	Fit	合わせる
+	Flat	フラット
+	Flip Horizontal	左右反転
+	Flip Vertical	上下反転
+	Font	フォント
+	Font Color	フォントの色
+	Fonts	フォント
+	Font…	フォント…
+	Footer	フッター
+	Foreground	前景
+	Format	形式
+	Format Shape	図形の書式設定
+	Format Shape…	図形の書式設定…
+	French (France)	フランス語（フランス）
+	From	開始
+	From Left	左から
+	From Right	右から
+	Full	フル
+	General	一般
+	Glow	グロー
+	Grab bag	ランダム表示
+	Gradient fill	グラデーションの塗りつぶし
+	Gradient stops	グラデーションの分岐点
+	Gradient…	グラデーション…
+	Grayscale	グレースケール
+	Gridlines	グリッド線
+	Group	グループ
+	Guides	ガイド
+	Header	ヘッダー
+	Header Row	タイトル行
+	Height	高さ
+	Height:	高さ:
+	Help	ヘルプ
+	Hide	隠す
+	Hide All	すべて非表示
+	Hierarchy	階層構造
+	High	高
+	Highlighter	蛍光ペン
+	Home	ホーム
+	Horizontal	横
+	Icons	アイコン
+	Ignore All	すべて無視
+	In	イン
+	Increase Font Size	フォントサイズを大きく
+	Indentation	インデント
+	Info	情報
+	Ink to Shape	インクを図形に変換
+	Insert	挿入
+	Insert Hyperlink	ハイパーリンクの挿入
+	Insert Table	表の挿入
+	Insert Table…	表の挿入…
+	Inside Borders	内側の罫線
+	Inside Horizontal Border	内側の横罫線
+	Inside Vertical Border	内側の縦罫線
+	Interface	インターフェイス
+	Interface language	表示言語
+	Interface size	表示サイズ
+	Italic	斜体
+	Japanese	日本語
+	Join the ArtCraft community on Discord	Discord の ArtCraft コミュニティに参加
+	Justify	両端揃え
+	Language	言語
+	Language:	言語:
+	Large	大
+	Last	最後
+	Last Column	最後の列
+	Last commit	最後のコミット
+	Layout	レイアウト
+	Layouts	レイアウト
+	Left	左
+	Left Border	左罫線
+	Letter	レター
+	Light	ライト
+	Lighting	照明
+	Line	直線
+	Line Spacing	行間
+	Line Spacing Options…	行間のオプション…
+	Line delta	行数の増減
+	Line spacing	行間
+	Linear	直線
+	Lines added	追加した行数
+	Lines deleted	削除した行数
+	Link	リンク
+	Link…	リンク…
+	List	リスト
+	Location	場所
+	Lock	ロック
+	Lock aspect ratio	縦横比を固定する
+	Low	低
+	Mark as decorative	装飾用にする
+	Match case	大文字と小文字を区別する
+	Matrix	行列
+	Media	メディア
+	Medium	中
+	Merged PRs	マージ済みの PR
+	Middle	中央
+	Mirror	ミラー
+	Miter	マイター
+	Model	モデル
+	Models	モデル
+	More Colors…	その他の色…
+	More Columns…	段組みの詳細設定…
+	More options	詳細オプション
+	Motion	モーション
+	Move Down	下へ移動
+	Move Up	上へ移動
+	Multiple	複数
+	Name	名前
+	Name (A–Z)	名前（A–Z）
+	Name:	名前:
+	Narrow	狭い
+	New	新規
+	New Comment	新しいコメント
+	New Window	新規ウィンドウ
+	Next	次へ
+	Next Page	次のページ
+	No Border	枠なし
+	No Color	カラーなし
+	No Fill	塗りつぶしなし
+	No Glow	光彩なし
+	No Outline	輪郭なし
+	No Reflection	反射なし
+	No Shadow	影なし
+	No Soft Edges	ぼかしなし
+	No Transform	変形なし
+	No contributor data was built into this copy.	このビルドには貢献者のデータが含まれていません。
+	No fill	塗りつぶしなし
+	No model credits were built into this copy.	このビルドにはモデルのクレジットが含まれていません。
+	None	なし
+	Normal	通常
+	Not saved yet	まだ保存されていません
+	Notes	注釈
+	Number of columns:	列数:
+	Number of rows:	行数:
+	Numbering	段落番号
+	Offset X	X 軸オフセット
+	Open	開く
+	Open…	開く…
+	Options	オプション
+	Orientation	方向
+	Out	アウト
+	Outside Borders	外枠
+	Oval	楕円
+	PRs	PRs
+	Page Number	ページ番号
+	Paper	用紙
+	Paragraph	段落
+	Paragraph…	段落…
+	Paste	貼り付け
+	Paste (⌘V)	貼り付け (⌘V)
+	Paste Formatting	書式の貼り付け
+	Paste Special	特殊貼り付け
+	Paste Special…	形式を選択して貼り付け…
+	Path	パス
+	Pattern	パターン
+	Pause	一時停止
+	Pen	ペン
+	Pencil	鉛筆
+	Percent:	パーセント:
+	Personalize	個人設定
+	Perspective	遠近
+	Picture	画像
+	Picture Border	図の枠線
+	Picture Format	図の形式
+	Pictures	画像
+	Play	再生
+	Position	位置
+	Preferences	環境設定
+	Preferences…	環境設定…
+	Presentation	プレゼンテーション
+	Preserve	保持
+	Preset gradients	グラデーションのプリセット
+	Presets	プリセット
+	Preview	プレビュー
+	Previous	前へ
+	Previous Page	前のページ
+	Print	印刷
+	Print…	印刷…
+	Process	手順
+	Promote	レベル上げ
+	Proofing	文章校正
+	Properties	プロパティ
+	Pyramid	ピラミッド
+	Quick Access Toolbar	クイック アクセス ツール バー
+	Radial	円形
+	Real name	本名
+	Recent	最近使ったファイル
+	Recolor	再配色
+	Rectangle	長方形
+	Rectangular	長方形
+	Redo	やり直し
+	Reflection	反射
+	Regular	標準
+	Reject	元に戻す
+	Relationship	関係
+	Remove	削除
+	Remove Background	背景を削除
+	Remove from Quick Access Toolbar	クイック アクセス ツール バーから削除
+	Remove from Recent	最近のファイルから外す
+	Remove stop	分岐点を削除
+	Rename	名前を変更
+	Reopen	再度開く
+	Replace	置換
+	Replace All	すべて置換
+	Replace Font	フォントを置換
+	Replace with:	置換後の文字列:
+	Replace…	置換…
+	Reset	リセット
+	Reset Crop	トリミングのリセット
+	Reset Picture	図のリセット
+	Resolution	解像度
+	Resolve	解決
+	Resume	再開
+	Reverse the order	順序を逆にする
+	Revert	保存済みの状態に戻す
+	Review	レビュー
+	Revisions	リビジョン
+	Right	右
+	Right Border	右罫線
+	Right-to-Left Text Direction	右から左への文字方向
+	Rotate	回転
+	Rotate Left 90°	左へ 90 度回転
+	Rotate Right 90°	右へ 90 度回転
+	Rotate all text 270°	すべてのテキストを 270° 回転
+	Rotate all text 90°	すべてのテキストを 90° 回転
+	Rotate with shape	図形と一緒に回転する
+	Rotation	回転
+	Round	丸型
+	Rounded	丸ゴシック
+	Ruler	定規
+	Saturation	彩度
+	Save	保存
+	Save As	名前を付けて保存
+	Save As…	別名で保存…
+	Saved	保存済み
+	Scroll ribbon left	リボンを左にスクロール
+	Scroll ribbon right	リボンを右にスクロール
+	Search icons	アイコンを検索
+	Select	選択
+	Select All	すべて選択
+	Selected	選択済み
+	Selection	選択範囲
+	SemiBold	セミボールド
+	Send Backward	背面へ
+	Send to Back	最背面へ
+	Sentence case.	文の先頭文字を大文字にする。
+	Set	設定
+	Set Zoom	ズーム率を設定
+	Settings	設定
+	Shading	網かけ
+	Shadow	シャドウ
+	Shape Effects	シェイプ効果
+	Shape Fill	図形の塗りつぶし
+	Shape Format	図形の書式
+	Shape Outline	図形の枠線
+	Shapes	シェイプ
+	Show	表示
+	Show All	すべてを表示
+	Single	一重線
+	Size	サイズ
+	Size:	サイズ:
+	Small	小
+	Small caps	小型英大文字
+	SmartArt	SmartArt
+	SmartArt Design	SmartArt のデザイン
+	SmartArt Styles	SmartArt のスタイル
+	Snap	スナップ
+	Soft Edges	輪郭のぼかし
+	Solid	実線
+	Solid fill	単色の塗りつぶし
+	Sort	並べ替え
+	Space	スペース
+	Spacing	間隔
+	Spacing (pt):	間隔 (pt):
+	Special	特殊
+	Spelling	スペルチェック
+	Square	四角形
+	Stacked	積み重ね
+	Standard Colors	標準の色
+	Start:	始点:
+	Stop	停止
+	Strikethrough	取り消し線
+	Subject	件名
+	Subscript	下付き
+	Superscript	上付き
+	Swedish	スウェーデン語
+	Symbol	記号と特殊文字
+	Tab	タブ
+	Table	表
+	Table Design	テーブル デザイン
+	Tabs	タブ
+	Tabs…	タブ…
+	Tags	タグ
+	Templates	テンプレート
+	Text	テキスト
+	Text Box	テキスト ボックス
+	Text Direction	文字列の方向
+	Text Effects	文字の効果
+	Text Fill	文字の塗りつぶし
+	Text Highlight Color	蛍光ペンの色
+	Text Outline	文字の輪郭
+	Text Pane	テキスト ウィンドウ
+	Theme Colors	テーマの色
+	Themes	テーマ
+	Thesaurus	類義語辞典
+	Tight	狭い
+	Title	タイトル
+	To	変更先
+	Top	上
+	Top Border	上罫線
+	Top Left	左上
+	Top Right	右上
+	Total Row	集計行
+	Transform	変形
+	Translate	翻訳
+	Transparency	透明
+	Trim	トリミング
+	Triple	三重線
+	Type	種類
+	Underline	下線
+	Undo	取り消し
+	Ungroup	グループ解除
+	Unlock	ロック解除
+	Up	上へ
+	Update	更新
+	Username	ユーザー名
+	Version	バージョン
+	Vertical	縦
+	Video	ビデオ
+	View	表示
+	Volume	巻
+	Warp	ワープ
+	Wave	波形
+	Weight	線幅
+	White	白
+	Wide	広い
+	Width	幅
+	Width:	幅:
+	WordArt	ワードアート
+	Zoom	ズーム
+	Zoom In	ズームイン
+	Zoom Out	ズームアウト

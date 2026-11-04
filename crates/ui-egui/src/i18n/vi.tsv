@@ -1,0 +1,1268 @@
+# Tiếng Việt (vi) interface catalog for DeckCraft.
+# Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
+#   (craft-i18n's format; escapes \n \t \\). A label without a row stays English.
+# Rows come from the other Craft apps' catalogs where DeckCraft shows the same English, plus DeckCraft's own.
+
+	A fixed copy that keeps its layout on any device	Bản cố định, giữ nguyên bố cục trên mọi thiết bị
+	A photo album holds at most 48 pictures or text boxes	Một album ảnh chứa tối đa 48 ảnh hoặc hộp văn bản
+	AI Assistant	Trợ lý AI
+	ALL pictures black and white	TẤT CẢ ảnh đen trắng
+	AaBbCcDd	AaBbCcDd
+	About	Giới thiệu
+	About DeckCraft	Giới thiệu DeckCraft
+	Accept	Chấp nhận
+	Accessibility Checker	Trình kiểm tra trợ năng
+	Account	Tài khoản
+	Across	Ngang qua
+	Action	Thao tác
+	Action Settings	Thiết đặt hành động
+	Action Settings…	Thiết đặt hành động…
+	Add Assistant	Thêm trợ lý
+	Add Horizontal Guide	Thêm đường gióng ngang
+	Add Pictures…	Thêm ảnh…
+	Add Point	Thêm điểm
+	Add Section	Thêm phần
+	Add Shape	Thêm hình
+	Add Shape Above	Thêm hình phía trên
+	Add Shape After	Thêm hình phía sau
+	Add Shape Before	Thêm hình phía trước
+	Add Shape Below	Thêm hình phía dưới
+	Add Vertical Guide	Thêm đường gióng dọc
+	Add a category	Thêm thể loại
+	Add a picture or a text box first	Hãy thêm ảnh hoặc hộp văn bản trước
+	Add a tag	Thêm thẻ
+	Add a title	Thêm tiêu đề
+	Add a title with a picture or some text to get layout ideas.	Thêm tiêu đề cùng ảnh hoặc ít chữ để nhận gợi ý bố cục.
+	Add an author	Thêm tác giả
+	Add comments	Thêm bình luận
+	Add to Dictionary	Thêm vào từ điển
+	Add to Quick Access Toolbar	Thêm vào thanh công cụ truy cập nhanh
+	Added a shape	Đã thêm hình
+	Added a slide	Đã thêm trang chiếu
+	Added a text box	Đã thêm hộp văn bản
+	Advanced	Nâng cao
+	After	Sau
+	After Previous	Sau mục trước
+	After text	Sau văn bản
+	After:	Sau:
+	Agents	Tác tử
+	Album theme	Chủ đề album
+	Alert	Cảnh báo
+	Align	Căn chỉnh
+	Align Bottom	Căn dưới
+	Align Center	Căn giữa
+	Align Left	Căn trái
+	Align Middle	Căn giữa
+	Align Right	Căn phải
+	Align Selected Objects	Căn các đối tượng được chọn
+	Align Text	Căn chữ
+	Align Top	Căn trên
+	Align to Slide	Căn theo trang chiếu
+	Alignment	Căn chỉnh
+	Alignment:	Căn lề:
+	All	Tất cả
+	All Borders	Tất cả viền
+	All caps	Viết hoa toàn bộ
+	All slides	Tất cả trang chiếu
+	All slides on	Tất cả trang chiếu trên
+	Alt Text	Văn bản thay thế
+	Alt text	Văn bản thay thế
+	Angle	Góc
+	Animation Painter (double-click to keep it on)	Sao hiệu ứng động (bấm đúp để giữ)
+	Animation Pane	Ngăn hiệu ứng động
+	Animations	Hiệu ứng động
+	Appearance	Diện mạo
+	Applies to this presentation's theme colours.	Áp dụng cho màu chủ đề của bản trình bày này.
+	Apply only to this picture	Chỉ áp dụng cho ảnh này
+	Apply to All	Áp dụng cho tất cả
+	Arrange	Sắp xếp
+	Arrow	Mũi tên
+	Arrow at end	Mũi tên ở cuối
+	Arrow at start	Mũi tên ở đầu
+	Arrow down	Mũi tên xuống
+	Arrow left	Mũi tên trái
+	Arrow right	Mũi tên phải
+	Arrow up	Mũi tên lên
+	Arrows	Mũi tên
+	Arrows at both ends	Mũi tên ở hai đầu
+	As One Object	Như một đối tượng
+	Ask Claude…	Hỏi Claude…
+	Asked the app	Đã hỏi ứng dụng
+	At	Tại
+	Attachment	Tệp đính kèm
+	Audio	Âm thanh
+	Audio from File…	Âm thanh từ tệp…
+	Author	Tác giả
+	Auto (system language)	Tự động (ngôn ngữ hệ thống)
+	AutoCorrect	Tự động sửa
+	AutoCorrect options	Tùy chọn Tự Sửa
+	Automatic	Tự động
+	Available formats:	Định dạng có sẵn:
+	Award	Giải thưởng
+	Back	Quay lại
+	Back (Esc)	Quay lại (Esc)
+	Back 0.25 seconds	Lùi 0,25 giây
+	Background	Nền
+	Backspace	Backspace
+	Banded Columns	Cột xen kẽ
+	Banded Rows	Hàng xen kẽ
+	Bar chart	Biểu đồ thanh
+	Baseline	Đường cơ sở
+	Before text	Trước văn bản
+	Begin arrow	Mũi tên đầu
+	Begin size	Cỡ đầu
+	Bell	Chuông
+	Bevel	Vát
+	Binary assets added	Tài nguyên nhị phân đã thêm
+	Binary assets removed	Tài nguyên nhị phân đã xóa
+	Black	Đen
+	Black Pen	Bút đen
+	Black on	Đen trên
+	Blank Presentation	Bản trình bày trống
+	Blue Pen	Bút xanh lam
+	Blur	Mờ
+	Body	Thân bài
+	Body font	Phông thân bài
+	Body:	Thân bài:
+	Bold	Đậm
+	Bolt	Tia sét
+	Bookmark	Dấu trang
+	Borders	Viền
+	Both	Cả hai
+	Bottom	Dưới cùng
+	Bottom Border	Viền dưới
+	Bottom Left	Dưới trái
+	Bottom Right	Dưới phải
+	Bottom bevel	Vát dưới
+	Bottom left	Dưới trái
+	Bottom right	Dưới phải
+	Bottom shadow	Bóng dưới
+	Briefcase	Cặp tài liệu
+	Brightness	Độ sáng
+	Bring Forward	Đưa lên trước
+	Bring to Front	Đưa lên trên cùng
+	Browse	Duyệt
+	Browse for Themes needs the desktop app for now	Duyệt chủ đề hiện cần ứng dụng máy tính
+	Browse for Themes…	Duyệt tìm chủ đề…
+	Browsed by an individual (window)	Một người xem (cửa sổ)
+	Building	Tòa nhà
+	Bullets	Dấu đầu dòng
+	Bullets and Numbering	Dấu đầu dòng và đánh số
+	Bullets and Numbering…	Dấu đầu dòng và đánh số…
+	By	Theo
+	By Paragraph	Theo đoạn văn
+	Calendar	Lịch
+	Cameo	Khung hình
+	Camera	Máy ảnh
+	Camera capture is not available yet	Chưa thể chụp bằng máy ảnh
+	Cancel	Hủy
+	Cap type	Kiểu đầu nét
+	Capitalize Each Word	Chữ hoa đầu mỗi từ
+	Caps	Đầu nét
+	Captions under pictures	Chú thích dưới ảnh
+	Categories	Hạng mục
+	Cell Margins	Lề ô
+	Center	Giữa
+	Center Tab	Tab giữa
+	Centered	Căn giữa
+	Centered shadow	Bóng ở giữa
+	Change Case	Thay đổi kiểu chữ
+	Change Colors	Đổi màu
+	Change File Type	Đổi kiểu tệp
+	Change Picture	Đổi ảnh
+	Change Picture…	Đổi ảnh…
+	Change Shape	Đổi hình
+	Changed text	Đã đổi văn bản
+	Changes the language of the ribbon, menus and panes. Your presentations are not changed.	Đổi ngôn ngữ của Ruy-băng, menu và các ngăn. Bản trình bày của bạn không bị thay đổi.
+	Character Spacing	Khoảng cách ký tự
+	Character spacing must be a number	Giãn cách ký tự phải là một số
+	Chart	Biểu đồ
+	Chart Data	Dữ liệu biểu đồ
+	Chart Design	Thiết kế biểu đồ
+	ChatGPT couldn't finish	ChatGPT không thể hoàn tất
+	Check	Dấu kiểm
+	Check circle	Dấu kiểm tròn
+	Check for Issues	Kiểm tra vấn đề
+	Check for Updates…	Kiểm tra bản cập nhật…
+	Check the sign-in again	Kiểm tra lại đăng nhập
+	Checked how a slide looks	Đã xem trang chiếu trông thế nào
+	Checking sign-in…	Đang kiểm tra đăng nhập…
+	Chevron	Mũi chữ V
+	Choose a SmartArt Graphic	Chọn đồ họa SmartArt
+	Choose a body font.	Chọn phông thân bài.
+	Choose a font	Chọn phông
+	Choose a heading font.	Chọn phông đầu đề.
+	Choose a slide in the audience window, or press G to return.	Chọn một trang chiếu trong cửa sổ khán giả, hoặc nhấn G để quay lại.
+	Choose where to save	Chọn nơi lưu
+	Choosing a presentation to reuse needs the desktop app	Chọn bản trình bày để dùng lại cần ứng dụng máy tính
+	Choosing a sound file needs the desktop app	Chọn tệp âm thanh cần ứng dụng máy tính
+	Circle In	Tròn vào
+	Clapperboard	Bảng clapper
+	Claude couldn't finish	Claude không thể hoàn tất
+	Claude is working…	Claude đang làm…
+	Clear	Xóa
+	Clear All	Xóa tất cả
+	Clear All Formatting	Xóa tất cả định dạng
+	Click a colour in the picture to make it transparent	Bấm vào một màu trong ảnh để làm trong suốt
+	Click the preview to zoom.	Bấm vào bản xem trước để thu phóng.
+	Click the slide to take the colour under the pointer	Bấm vào trang chiếu để lấy màu dưới con trỏ
+	Click the slide to zoom in. Esc cancels.	Bấm vào trang chiếu để phóng to. Esc để hủy.
+	Click to add first slide	Bấm để thêm trang chiếu đầu tiên
+	Click to add notes	Bấm để thêm ghi chú
+	Click to add text	Bấm để thêm chữ
+	Clipboard	Bảng tạm
+	Clock	Đồng hồ
+	Clockwise	Theo chiều kim đồng hồ
+	Close	Đóng
+	Close Path	Đóng đường dẫn
+	Cloud	Đám mây
+	Collapse	Thu gọn
+	Collapse the Ribbon	Thu gọn Ruy-băng
+	Color	Màu
+	Colors	Màu
+	Column chart	Biểu đồ cột
+	Columns	Cột
+	Columns…	Cột…
+	Command Palette	Bảng lệnh
+	Comment	Chú thích
+	Comments	Chú thích
+	Commits	Commit
+	Community Links	Liên kết cộng đồng
+	Company	Công ty
+	Compare	So sánh
+	Compare needs the desktop app for now	So sánh hiện cần ứng dụng máy tính
+	Compare this presentation with a revised copy from Review › Compare.	So sánh bản trình bày này với một bản đã sửa tại Xem lại › So sánh.
+	Compare…	So sánh…
+	Compass	La bàn
+	Compound type	Kiểu nét kép
+	Compress	Nén
+	Compress Pictures	Nén ảnh
+	Compression options	Tùy chọn nén
+	Content	Nội dung
+	Contour	Đường bao
+	Contrast	Tương phản
+	Contributors	Người đóng góp
+	Convert	Chuyển đổi
+	Convert to Shapes	Chuyển thành hình
+	Convert to SmartArt	Chuyển thành SmartArt
+	Convert to Text	Chuyển thành văn bản
+	Copied the path	Đã sao chép đường dẫn
+	Copy	Sao chép
+	Copy path	Sao chép đường dẫn
+	Corner Point	Điểm góc
+	Correct text as you type (AutoCorrect)	Sửa văn bản khi gõ (Tự Sửa)
+	Corrections	Hiệu chỉnh
+	Counterclockwise	Ngược chiều kim đồng hồ
+	Create	Tạo
+	Create Handouts	Tạo bản phát tay
+	Create New Theme Colors	Tạo màu chủ đề mới
+	Create New Theme Fonts	Tạo phông chủ đề mới
+	Create PDF	Tạo PDF
+	Create PDF Document	Tạo tài liệu PDF
+	Create a PDF Document	Tạo một tài liệu PDF
+	Credits	Ghi công
+	Crop	Cắt xén
+	Crop 10% each side	Cắt 10% mỗi cạnh
+	Crop 20% each side	Cắt 20% mỗi cạnh
+	Crop to Shape	Cắt theo hình
+	Cross	Chữ thập
+	Curved Segment	Đoạn cong
+	Custom	Tùy chỉnh
+	Custom Range	Phạm vi tùy chỉnh
+	Custom Shows	Trình chiếu tùy chỉnh
+	Custom width	Độ rộng tùy chỉnh
+	Customize Colors…	Tùy chỉnh màu…
+	Customize Fonts…	Tùy chỉnh phông…
+	Customize Quick Access Toolbar	Tùy chỉnh thanh công cụ truy cập nhanh
+	Cut	Cắt
+	Cycle	Chu trình
+	Dark	Tối
+	Dark Mode	Chế độ tối
+	Dark downward diagonal	Chéo xuống đậm
+	Dark horizontal	Ngang đậm
+	Dark upward diagonal	Chéo lên đậm
+	Dark vertical	Dọc đậm
+	Dash	Nét đứt
+	Dash Dot	Gạch chấm
+	Dashed downward diagonal	Chéo xuống nét đứt
+	Dashed horizontal	Ngang nét đứt
+	Dashed upward diagonal	Chéo lên nét đứt
+	Dashed vertical	Dọc nét đứt
+	Dashes	Nét đứt
+	Date	Ngày
+	Date and Time	Ngày và giờ
+	Decimal	Căn thập phân
+	Decimal Tab	Tab thập phân
+	DeckCraft Presentation (*.deckcraft)	Bản trình bày DeckCraft (*.deckcraft)
+	DeckCraft's own format: everything is kept	Định dạng riêng của DeckCraft: giữ lại mọi thứ
+	Decrease	Giảm
+	Decrease Font Size	Giảm cỡ chữ
+	Decrease List Level	Giảm cấp danh sách
+	Default tab stops (in):	Điểm dừng tab mặc định (in):
+	Delay	Trễ
+	Delay:	Trễ:
+	Delete	Xóa
+	Delete Columns	Xóa cột
+	Delete Point	Xóa điểm
+	Delete Repeated Word	Xóa từ lặp lại
+	Delete Rows	Xóa hàng
+	Delete Segment	Xóa đoạn
+	Delete Slide	Xóa trang chiếu
+	Delete Table	Xóa bảng
+	Delete cropped areas of pictures	Xóa vùng đã cắt của ảnh
+	Demote	Hạ xuống
+	Depth	Độ sâu
+	Design	Thiết kế
+	Design Ideas	Ý tưởng thiết kế
+	Diagonal Down Border	Viền chéo xuống
+	Diagonal Up Border	Viền chéo lên
+	Diagonal brick	Gạch chéo
+	Diagonal cross	Chữ thập chéo
+	Diamond	Hình thoi
+	Diamond In	Thoi vào
+	Diamond Out	Thoi ra
+	Direction	Hướng
+	Display	Hiển thị
+	Display drawing guides on screen	Hiện đường gióng vẽ trên màn hình
+	Display grid on screen	Hiện lưới trên màn hình
+	Display name	Tên hiển thị
+	Distance	Khoảng cách
+	Distance from ground	Khoảng cách tới mặt đất
+	Distribute Columns	Chia đều cột
+	Distribute Horizontally	Phân phối theo chiều ngang
+	Distribute Rows	Chia đều hàng
+	Distribute Vertically	Phân phối theo chiều dọc
+	Distributed	Căn đều phân tán
+	Divot	Lõm
+	Do not Autofit	Không tự khớp
+	Document	Tài liệu
+	Dot	Dấu chấm
+	Dotted	Chấm
+	Dotted diamond	Thoi chấm
+	Dotted grid	Lưới chấm
+	Double	Nét đôi
+	Down	Xuống
+	Download	Tải xuống
+	Download the file	Tải tệp xuống
+	Downward diagonal	Chéo xuống
+	Draw	Vẽ
+	Draw Table	Vẽ bảng
+	Duplicate	Nhân bản
+	Duplicate Selected Slides	Nhân bản trang chiếu được chọn
+	Duplicate Slide	Nhân bản trang chiếu
+	Duplicate and paste offset (pt)	Độ lệch khi nhân bản và dán (pt)
+	Duration	Thời lượng
+	Duration:	Thời lượng:
+	Dynamic Content	Nội dung động
+	E-mail (96 ppi): minimise document size for sharing	Thư điện tử (96 ppi): giảm tối đa kích thước để chia sẻ
+	Edit	Sửa
+	Edit Alt Text…	Sửa văn bản thay thế…
+	Edit Header & Footer	Sửa đầu trang và chân trang
+	Edit Photo Album…	Sửa album ảnh…
+	Edit Points	Sửa điểm
+	Edit Text	Chỉnh sửa văn bản
+	Editing options	Tùy chọn soạn thảo
+	Effects	Hiệu ứng
+	Emphasis	Nhấn mạnh
+	End	Kết thúc
+	End Review	Kết thúc xem lại
+	End Show	Kết thúc trình chiếu
+	End arrow	Mũi tên cuối
+	End of slide show	Hết trình chiếu
+	End of slide show, click to exit.	Hết trình chiếu, bấm để thoát.
+	End size	Cỡ cuối
+	English (Australia)	Tiếng Anh (Úc)
+	English (Canada)	Tiếng Anh (Canada)
+	English (United Kingdom)	Tiếng Anh (Anh)
+	English (United States)	Tiếng Anh (Mỹ)
+	Enter	Nhập
+	Enter a scheme name.	Nhập tên bảng màu.
+	Enter a zoom percent	Nhập phần trăm thu phóng
+	Entrance	Xuất hiện
+	Equation	Phương trình
+	Erase	Tẩy
+	Eraser	Tẩy
+	Exactly	Chính xác
+	Exciting	Ấn tượng
+	Exit	Thoát
+	Exit Edit Points	Thoát sửa điểm
+	Expand	Mở rộng
+	Explicit cleanup	Dọn dẹp rõ ràng
+	Export	Xuất
+	Exported	Đã xuất
+	Export…	Xuất…
+	Extra Large (1920 px wide)	Rất lớn (rộng 1920 px)
+	Eyedropper	Ống hút màu
+	Eyedropper: click the slide (Esc cancels)	Bút hút màu: bấm vào trang chiếu (Esc để hủy)
+	File	Tệp
+	File (Alt+F)	Tệp (Alt+F)
+	Fill	Điền
+	Fill & Line	Tô và đường kẻ
+	Find	Tìm
+	Find Next	Tìm tiếp
+	Find and Replace	Tìm và Thay thế
+	Find what:	Tìm gì:
+	Find whole words only	Chỉ tìm nguyên từ
+	Find…	Tìm…
+	First	Đầu tiên
+	First Column	Cột đầu tiên
+	First commit	Commit đầu tiên
+	First line	Dòng đầu
+	Fit	Vừa khớp
+	Fit slide to current window	Khớp trang chiếu với cửa sổ hiện tại
+	Fit to Window	Khớp với cửa sổ
+	Fit to slide	Khớp với trang chiếu
+	Flag	Cờ
+	Flat	Phẳng
+	Flip Horizontal	Lật ngang
+	Flip Vertical	Lật dọc
+	Folder	Thư mục
+	Follow Path	Theo đường dẫn
+	Follow the layout	Theo bố cục
+	Font	Phông chữ
+	Font Color	Màu chữ
+	Font size must be a number	Cỡ phông phải là một số
+	Fonts	Phông chữ
+	Font…	Phông chữ…
+	Footer	Chân trang
+	Footers	Chân trang
+	For rectangles and rounded rectangles	Cho hình chữ nhật và hình chữ nhật bo góc
+	Foreground	Nền trước
+	Format	Định dạng
+	Format Background	Định dạng nền
+	Format Background…	Định dạng nền…
+	Format Painter (double-click to keep it on)	Sao định dạng (bấm đúp để giữ)
+	Format Shape	Định dạng hình
+	Format Shape…	Định dạng hình…
+	Forward 0.25 seconds	Tiến 0,25 giây
+	Frame Slides	Đóng khung trang chiếu
+	Frame shape	Hình khung
+	French (France)	Tiếng Pháp (Pháp)
+	From	Từ
+	From 	Từ
+	From Bottom	Từ dưới lên
+	From Bottom-Left	Từ dưới bên trái
+	From Bottom-Right	Từ dưới bên phải
+	From Left	Từ trái
+	From Right	Từ phải
+	From Top	Từ trên xuống
+	From Top-Left	Từ trên bên trái
+	From Top-Right	Từ trên bên phải
+	From bottom left	Từ dưới trái
+	From bottom right	Từ dưới phải
+	From center	Từ giữa
+	From slide:	Từ trang chiếu:
+	From the top-left corner of the slide	Từ góc trên bên trái của trang chiếu
+	From top left	Từ trên trái
+	From top right	Từ trên phải
+	Full	Toàn phần
+	Full Page Slides	Trang chiếu cả trang
+	General	Chung
+	Globe	Quả địa cầu
+	Glow	Ánh sáng
+	Grab bag	Hỗn hợp
+	Gradient bar	Thanh chuyển màu
+	Gradient fill	Tô chuyển màu
+	Gradient stops	Điểm dừng chuyển màu
+	Gradient…	Chuyển sắc…
+	Grayscale	Thang xám
+	Grid Options	Tùy chọn lưới
+	Grid Options…	Tùy chọn lưới…
+	Grid and Guides	Lưới và đường gióng
+	Grid spacing (pt)	Khoảng cách lưới (pt)
+	Gridlines	Đường lưới
+	Group	Nhóm
+	Group Objects	Nhóm đối tượng
+	Guides	Đường căn
+	HD (330 ppi): good quality for high-definition displays	HD (330 ppi): chất lượng tốt cho màn hình độ phân giải cao
+	Half	Một nửa
+	Hand	Bàn tay
+	Handout Master	Bản cái phát tay
+	Handouts (1 slide per page)	Bản phát tay (1 trang chiếu mỗi trang)
+	Handouts (2 slides per page)	Bản phát tay (2 trang chiếu mỗi trang)
+	Handouts (3 slides per page)	Bản phát tay (3 trang chiếu mỗi trang)
+	Handouts (4 slides per page)	Bản phát tay (4 trang chiếu mỗi trang)
+	Handouts (6 slides per page)	Bản phát tay (6 trang chiếu mỗi trang)
+	Handouts (9 slides per page)	Bản phát tay (9 trang chiếu mỗi trang)
+	Hanging	Treo
+	Header	Đầu trang
+	Header Row	Hàng tiêu đề
+	Header and Footer	Đầu trang và chân trang
+	Heading and body fonts for this presentation.	Phông đầu đề và thân bài cho bản trình bày này.
+	Heading font	Phông đầu đề
+	Heading:	Đầu đề:
+	Heart	Trái tim
+	Heavy	Đậm
+	Height	Chiều cao
+	Height (in):	Chiều cao (in):
+	Height:	Chiều cao:
+	Help	Trợ giúp
+	Hidden slides	Trang chiếu ẩn
+	Hide	Ẩn
+	Hide All	Ẩn tất cả
+	Hide During Show	Ẩn khi trình chiếu
+	Hide Slide	Ẩn trang chiếu
+	Hide background graphics	Ẩn đồ họa nền
+	Hierarchy	Phân cấp
+	High	Cao
+	Highlighter	Bút tô sáng
+	Home	Trang đầu
+	Horizontal	Ngang
+	Horizontal (in):	Ngang (in):
+	Horizontal In	Ngang vào
+	Horizontal Out	Ngang ra
+	Horizontal brick	Gạch ngang
+	Hourglass	Đồng hồ cát
+	Icons	Biểu tượng
+	Idea	Ý tưởng
+	Ignore All	Bỏ qua tất cả
+	In	Bắt đầu
+	Include hidden slides	Kèm trang chiếu ẩn
+	Increase	Tăng
+	Increase Font Size	Tăng cỡ chữ
+	Increase List Level	Tăng cấp danh sách
+	Indent after text must be a number of inches	Thụt lề sau văn bản phải là số inch
+	Indent before text must be a number of inches	Thụt lề trước văn bản phải là số inch
+	Indentation	Thụt lề
+	Info	Thông tin
+	Ink to Math (coming soon)	Mực thành toán (sắp có)
+	Ink to Shape	Mực thành hình
+	Ink to Shape: turn drawn lines, rectangles, ovals and triangles into shapes	Mực thành hình: biến nét vẽ, hình chữ nhật, hình bầu dục và tam giác thành hình
+	Ink to Text (coming soon)	Mực thành chữ (sắp có)
+	Inner	Bên trong
+	Inner shadow	Bóng trong
+	Insert	Chèn
+	Insert Hyperlink	Chèn siêu liên kết
+	Insert Picture	Chèn ảnh
+	Insert Picture in SmartArt…	Chèn ảnh vào SmartArt…
+	Insert Table	Chèn bảng
+	Insert Table…	Chèn bảng…
+	Insert picture from file…	Chèn ảnh từ tệp…
+	Inserted a chart	Đã chèn biểu đồ
+	Inserted a picture	Đã chèn ảnh
+	Inserted a table	Đã chèn bảng
+	Insert…	Chèn…
+	Inside Borders	Viền trong
+	Inside Horizontal Border	Viền ngang bên trong
+	Inside Vertical Border	Viền dọc bên trong
+	Inspect Presentation	Kiểm tra bản trình bày
+	Install	Cài đặt
+	Interface	Giao diện
+	Interface language	Ngôn ngữ giao diện
+	Interface size	Kích thước giao diện
+	Interface theme	Chủ đề giao diện
+	Italic	Nghiêng
+	JPEG Picture (*.jpg)	Ảnh JPEG (*.jpg)
+	Japanese	Tiếng Nhật
+	Join our community on Discord	Tham gia cộng đồng trên Discord
+	Join the ArtCraft community on Discord	Tham gia cộng đồng ArtCraft trên Discord
+	Join type	Kiểu nối
+	Justify	Căn đều
+	Justify low	Căn đều thấp
+	Keep Mouse Cursor Visible	Luôn hiện con trỏ chuột
+	Keeps the layout, fonts and pictures	Giữ bố cục, phông và ảnh
+	Key	Chìa khóa
+	Landscape Orientation	Hướng ngang
+	Language	Ngôn ngữ
+	Language:	Ngôn ngữ:
+	Large	Lớn
+	Large (1280 px wide)	Lớn (rộng 1280 px)
+	Large checkerboard	Bàn cờ lớn
+	Large confetti	Hoa giấy lớn
+	Large grid	Lưới lớn
+	Last	Cuối cùng
+	Last Column	Cột cuối cùng
+	Last commit	Commit cuối cùng
+	Layout	Bố cục
+	Layouts	Bố cục
+	Leave the slide background out: only what is on the slide is drawn	Bỏ nền trang chiếu: chỉ vẽ những gì trên trang chiếu
+	Left	Trái
+	Left Border	Viền trái
+	Left Down	Trái xuống
+	Left Tab	Tab trái
+	Left Up	Trái lên
+	Less Brightness	Giảm độ sáng
+	Less Contrast	Giảm tương phản
+	Let me look at the slide…	Để tôi xem trang chiếu…
+	Letter	Thư
+	Light	Sáng
+	Light downward diagonal	Chéo xuống nhạt
+	Light horizontal	Ngang nhạt
+	Light upward diagonal	Chéo lên nhạt
+	Light vertical	Dọc nhạt
+	Lighting	Chiếu sáng
+	Line	Đường thẳng
+	Line Spacing	Giãn dòng
+	Line Spacing Options…	Tùy chọn giãn dòng…
+	Line delta	Chênh lệch dòng
+	Line spacing	Giãn dòng
+	Line spacing must be a number	Giãn dòng phải là một số
+	Linear	Tuyến tính
+	Lines added	Dòng thêm
+	Lines deleted	Dòng xóa
+	Link	Liên kết
+	Link…	Liên kết…
+	List	Danh sách
+	Location	Vị trí
+	Lock	Khóa
+	Lock aspect ratio	Khóa tỷ lệ khung hình
+	Logged in	Đã đăng nhập
+	Logged in using ChatGPT	Đã đăng nhập bằng ChatGPT
+	Long Dash	Gạch dài
+	Long Dash Dot	Gạch dài chấm
+	Look up	Tra cứu
+	Looked at a slide	Đã xem một trang chiếu
+	Looked at the window	Đã xem cửa sổ
+	Looked up the commands	Đã tra các lệnh
+	Loop Until Next Sound	Lặp đến âm thanh kế tiếp
+	Loop forever	Lặp mãi
+	Loop until Stopped	Lặp đến khi dừng
+	Loose	Thưa
+	Low	Thấp
+	Mail	Thư
+	Makes the ribbon, its buttons, menus and panes larger or smaller, on top of your system's display scaling. Slide zoom is separate.	Phóng to hoặc thu nhỏ Ruy-băng, các nút, menu và ngăn, cộng thêm vào tỷ lệ hiển thị của hệ thống. Thu phóng trang chiếu là riêng.
+	Manage Presentation	Quản lý bản trình bày
+	Margins (pt)	Lề (pt)
+	Mark as decorative	Đánh dấu là trang trí
+	Match case	Khớp chữ hoa/thường
+	Material	Chất liệu
+	Matrix	Ma trận
+	Maximum number of undos	Số lần hoàn tác tối đa
+	Media	Phương tiện
+	Media control	Điều khiển phương tiện
+	Media position	Vị trí phương tiện
+	Medium	Vừa
+	Medium (960 px wide)	Vừa (rộng 960 px)
+	Megaphone	Loa
+	Mention	Nhắc đến
+	Merge Shapes	Hợp nhất hình
+	Merged PRs	PR đã gộp
+	Message	Tin nhắn
+	Middle	Giữa
+	Minus	Dấu trừ
+	Mirror	Gương
+	Mirror type	Kiểu phản chiếu
+	Miter	Vát xiên
+	Model	Mô hình
+	Models	Mô hình
+	Moon	Mặt trăng
+	More Brightness	Tăng độ sáng
+	More Colors…	Màu khác…
+	More Columns…	Thêm cột…
+	More Contrast	Tăng tương phản
+	More Picture Styles	Thêm kiểu ảnh
+	More options	Thêm tùy chọn
+	More presentations	Thêm bản trình bày
+	More templates	Thêm mẫu
+	More themes	Thêm chủ đề
+	Motion	Chuyển động
+	Motion Paths	Đường chuyển động
+	Move	Di chuyển
+	Move Down	Di chuyển xuống
+	Move Section Down	Chuyển phần xuống
+	Move Section Up	Chuyển phần lên
+	Move Up	Di chuyển lên
+	Multiple	Nhiều
+	Music	Âm nhạc
+	Mute	Tắt tiếng
+	Name	Tên
+	Name (A–Z)	Tên (A–Z)
+	Name:	Tên:
+	Narrow	Hẹp
+	Narrow horizontal	Ngang hẹp
+	Narrow vertical	Dọc hẹp
+	New	Mới
+	New Comment	Nhận xét mới
+	New Photo Album…	Album ảnh mới…
+	New Presentation	Bản trình bày mới
+	New Slide	Trang chiếu mới
+	New Slide (⇧⌘N)	Trang chiếu mới (⇧⌘N)
+	New Text Box	Hộp văn bản mới
+	New Window	Cửa sổ mới
+	New Window needs a slide	Cửa sổ mới cần một trang chiếu
+	New Window needs an open presentation	Cửa sổ mới cần một bản trình bày đang mở
+	New chat	Cuộc trò chuyện mới
+	New comments are recorded under this name.	Chú thích mới được ghi dưới tên này.
+	Next	Tiếp
+	Next Page	Trang tiếp theo
+	Next ▶	Tiếp ▶
+	No Border	Không viền
+	No Color	Không màu
+	No Fill	Không tô
+	No Glow	Không phát sáng
+	No Outline	Không viền
+	No Recolor	Không tô màu lại
+	No Reflection	Không phản chiếu
+	No Shadow	Không bóng đổ
+	No Soft Edges	Không cạnh mềm
+	No Transform	Không biến đổi
+	No comments.	Không có chú thích.
+	No contributor data was built into this copy.	Bản sao này không tích hợp sẵn dữ liệu người đóng góp.
+	No differences left.	Không còn khác biệt.
+	No fill	Không tô
+	No glow	Không phát sáng
+	No icons match.	Không có biểu tượng phù hợp.
+	No line	Không đường kẻ
+	No model credits were built into this copy.	Bản sao này không tích hợp sẵn thông tin ghi công mô hình.
+	No notes.	Không có ghi chú.
+	No pictures yet	Chưa có ảnh
+	No presentation is open.	Không có bản trình bày nào đang mở.
+	No shadow	Không bóng
+	No slides.	Không có trang chiếu.
+	No soft edges	Không làm mềm cạnh
+	None	Không có
+	Normal	Bình thường
+	Not a copy of this presentation: slides are matched by position.	Không phải bản sao của bản trình bày này: trang chiếu được so theo vị trí.
+	Not installed	Chưa cài đặt
+	Not logged in	Chưa đăng nhập
+	Not saved yet	Chưa lưu
+	Not signed in	Chưa đăng nhập
+	Notes	Ghi chú
+	Notes Master	Bản cái ghi chú
+	Notes Page	Trang ghi chú
+	Notes Pages	Các trang ghi chú
+	Notes, pressed	Ghi chú, đang bật
+	Nothing to print: every slide in the range is hidden.	Không có gì để in: mọi trang chiếu trong phạm vi đều bị ẩn.
+	Number must be a whole number from 1 to 16	Số phải là số nguyên từ 1 đến 16
+	Number of columns:	Số cột:
+	Number of rows:	Số hàng:
+	Numbering	Đánh số
+	Offset X	Lệch X
+	Offset Y	Độ lệch Y
+	Offset bottom	Lệch dưới
+	Offset left	Lệch trái
+	Offset right	Lệch phải
+	Offset top	Lệch trên
+	On Click	Khi bấm
+	On Click of… (none)	Khi bấm vào… (không có)
+	On Mouse Click	Khi bấm chuột
+	Open	Mở
+	Open Arrow	Mũi tên mở
+	Open Dialog	Mở hộp thoại
+	Open Path	Đường hở
+	Open a presentation from a folder (Ctrl+O)	Mở bản trình bày từ thư mục (Ctrl+O)
+	Open another window on this presentation	Mở một cửa sổ khác của bản trình bày này
+	Open file location	Mở vị trí tệp
+	Open source under MIT OR Apache-2.0. Not affiliated with Microsoft.	Mã nguồn mở theo MIT OR Apache-2.0. Không liên kết với Microsoft.
+	Open the Claude pane	Mở ngăn Claude
+	Opened a presentation	Đã mở bản trình bày
+	Opened the presentation as a PDF to print	Đã mở bản trình bày dạng PDF để in
+	Opens in PowerPoint and other presentation apps	Mở được trong PowerPoint và các ứng dụng trình chiếu khác
+	Opens on any device with a PDF viewer	Mở được trên mọi thiết bị có trình xem PDF
+	Open…	Mở…
+	Options	Tùy chọn
+	Order Objects	Sắp thứ tự đối tượng
+	Orientation	Hướng chữ
+	Other Sound…	Âm thanh khác…
+	Out	Kết thúc
+	Outer	Bên ngoài
+	Outer shadow	Bóng ngoài
+	Outline (*.txt)	Dàn ý (*.txt)
+	Outline View	Dạng xem dàn ý
+	Outlined diamond	Thoi viền
+	Outside Borders	Viền ngoài
+	Oval	Hình bầu dục
+	Oval ends	Đầu bầu dục
+	PDF (*.pdf)	PDF (*.pdf)
+	PNG Picture (*.png)	Ảnh PNG (*.png)
+	PRs	PR
+	Page Number	Số trang
+	Page Setup…	Thiết lập trang…
+	Pane	Ngăn
+	Paper	Giấy
+	Paper size	Khổ giấy
+	Paragraph	Đoạn văn
+	Paragraph…	Đoạn…
+	Paste	Dán
+	Paste (⌘V)	Dán (⌘V)
+	Paste Formatting	Dán định dạng
+	Paste Special	Dán đặc biệt
+	Paste Special…	Dán đặc biệt…
+	Paste and Match Formatting	Dán và khớp định dạng
+	Path	Đường dẫn
+	Pattern	Họa tiết
+	Pattern fill	Tô mẫu hoa văn
+	Pause	Tạm dừng
+	Pause animated GIF	Tạm dừng GIF động
+	Pen	Bút
+	Pen Color	Màu bút
+	Pen Style	Kiểu bút
+	Pen Weight	Độ dày bút
+	Pencil	Bút chì
+	Percent:	Phần trăm:
+	Personalize	Cá nhân hóa
+	Perspective	Phối cảnh
+	Perspective heroic left facing	Phối cảnh hướng trái
+	Perspective shadow	Bóng phối cảnh
+	Phone	Điện thoại
+	Photo Album	Album ảnh
+	Photo Album options	Tùy chọn album ảnh
+	Photo Album…	Album ảnh…
+	Pick a design for this slide. Ideas are generated on your device.	Chọn một thiết kế cho trang chiếu này. Gợi ý được tạo ngay trên máy của bạn.
+	Picked a tool	Đã chọn một công cụ
+	Picture	Ảnh
+	Picture Border	Viền ảnh
+	Picture Format	Định dạng ảnh
+	Picture from File…	Ảnh từ tệp…
+	Picture layout	Bố cục ảnh
+	Picture or texture fill	Tô ảnh hoặc họa tiết
+	Picture source	Nguồn ảnh
+	Pictures	Ảnh
+	Pictures are already at or below that resolution	Ảnh đã ở mức phân giải đó hoặc thấp hơn
+	Pictures in album	Ảnh trong album
+	Pie chart	Biểu đồ tròn
+	Pin	Ghim
+	Plaid	Kẻ ô
+	Play	Phát
+	Play Across Slides	Phát qua các trang chiếu
+	Play Full Screen	Phát toàn màn hình
+	Play Narrations	Phát lời thuyết minh
+	Play animated GIF	Phát GIF động
+	Play from Current Slide	Phát từ trang chiếu hiện tại
+	Play from Start	Phát từ đầu
+	Play or pause media	Phát hoặc tạm dừng phương tiện
+	Play this slide's animations on the canvas	Phát hiệu ứng động của trang chiếu này trên vùng vẽ
+	Play this slide's transition	Phát hiệu ứng chuyển tiếp của trang chiếu này
+	Playback	Phát lại
+	Plus	Dấu cộng
+	Portrait Orientation	Hướng dọc
+	Position	Vị trí
+	Position Objects	Định vị đối tượng
+	PowerPoint Presentation (*.pptx)	Bản trình bày PowerPoint (*.pptx)
+	Preferences	Tùy chọn
+	Preferences…	Tùy chọn…
+	Presentation	Trình bày
+	Presentations	Bản trình bày
+	Presentations and slide shows, rebuilt from scratch in pure Rust.	Bản trình bày và trình chiếu, viết lại từ đầu bằng Rust thuần.
+	Presentations you open show up here. Use Open to browse for one.	Các bản trình bày bạn mở sẽ hiện ở đây. Dùng Mở để duyệt tìm.
+	Presenter View	Dạng xem người thuyết trình
+	Presenter View — DeckCraft	Dạng xem người thuyết trình — DeckCraft
+	Preserve	Giữ hồ sơ nhúng
+	Preset gradients	Chuyển màu đặt sẵn
+	Presets	Thiết lập sẵn
+	Pressed a key	Đã nhấn một phím
+	Preview	Xem trước
+	Preview Animations	Xem trước hiệu ứng động
+	Previewing animations	Đang xem trước hiệu ứng động
+	Previous	Trước
+	Previous Page	Trang trước
+	Print	In
+	Print (220 ppi): excellent quality on most printers and screens	In (220 ppi): chất lượng rất tốt trên hầu hết máy in và màn hình
+	Print All Slides	In tất cả trang chiếu
+	Print Current Slide	In trang chiếu hiện tại
+	Print Hidden Slides	In trang chiếu ẩn
+	Print layout	Bố cục in
+	Print range	Phạm vi in
+	Print them for your audience	In cho khán giả của bạn
+	Print…	In…
+	Process	Quy trình
+	Product Information	Thông tin sản phẩm
+	Programs	Chương trình
+	Promote	Nâng lên
+	Proofing	Hiệu đính
+	Properties	Thuộc tính
+	Put a picture in the selected node's picture placeholder	Đặt ảnh vào chỗ dành sẵn cho ảnh của nút được chọn
+	Pyramid	Kim tự tháp
+	Quick Access Toolbar	Thanh công cụ truy cập nhanh
+	Radial	Hướng tâm
+	Ran a command	Đã chạy một lệnh
+	Ran several commands	Đã chạy vài lệnh
+	Read the presentation	Đã đọc bản trình bày
+	Reading View	Dạng xem đọc
+	Real name	Tên thật
+	Recent	Gần đây
+	Recolor	Tô màu lại
+	Record	Ghi
+	Recording narration needs audio capture (coming soon)	Ghi lời thuyết minh cần thu âm (sắp có)
+	Recover Unsaved Presentations	Khôi phục bản trình bày chưa lưu
+	Rectangle	Hình chữ nhật
+	Rectangular	Chữ nhật
+	Red Pen	Bút đỏ
+	Redo	Làm lại
+	Reflection	Phản chiếu
+	Refresh	Làm mới
+	Regroup	Nhóm lại
+	Regular	Thường
+	Reject	Từ chối
+	Relationship	Mối quan hệ
+	Remove	Gỡ bỏ
+	Remove All Sections	Loại bỏ tất cả các phần
+	Remove Background	Gỡ bỏ nền
+	Remove Less (tighter)	Bớt ít hơn (sát hơn)
+	Remove More (looser)	Bớt nhiều hơn (rộng hơn)
+	Remove Section	Loại bỏ phần
+	Remove Section & Slides	Loại bỏ phần và trang chiếu
+	Remove from Quick Access Toolbar	Gỡ khỏi thanh công cụ truy cập nhanh
+	Remove from Recent	Xóa khỏi Gần đây
+	Remove stop	Xóa điểm dừng
+	Remove the picture style	Bỏ kiểu ảnh
+	Rename	Đổi tên
+	Rename Layout	Đổi tên bố cục
+	Rename Section	Đổi tên phần
+	Rename Section…	Đổi tên phần…
+	Reopen	Mở lại
+	Replace	Thay thế
+	Replace All	Thay thế tất cả
+	Replace Font	Thay thế phông chữ
+	Replace Fonts…	Thay phông…
+	Replace straight quotes with smart quotes	Thay dấu nháy thẳng bằng dấu nháy cong
+	Replace with:	Thay bằng:
+	Replace…	Thay thế…
+	Reply…	Trả lời…
+	Rescan Installed Fonts	Quét lại phông đã cài
+	Reset	Đặt lại
+	Reset 3-D	Đặt lại 3-D
+	Reset Background	Đặt lại nền
+	Reset Crop	Đặt lại cắt xén
+	Reset Effects	Đặt lại hiệu ứng
+	Reset Picture	Đặt lại ảnh
+	Reset Slide	Đặt lại trang chiếu
+	Reset Slide Background	Đặt lại nền trang chiếu
+	Reset Style	Đặt lại kiểu
+	Reset to Defaults	Đặt lại mặc định
+	Resize shape to fit text	Đổi cỡ hình cho vừa văn bản
+	Resolution	Độ phân giải
+	Resolve	Giải quyết
+	Resume	Tiếp tục
+	Reuse Slides	Dùng lại trang chiếu
+	Reuse Slides (Keep Source Formatting)…	Dùng lại trang chiếu (giữ định dạng nguồn)…
+	Reuse Slides needs the desktop app	Dùng lại trang chiếu cần ứng dụng máy tính
+	Reuse Slides…	Dùng lại trang chiếu…
+	Reverse the order	Đảo ngược thứ tự
+	Revert	Hoàn nguyên
+	Review	Xem lại
+	Revisions	Các bản sửa đổi
+	Rewind after Playing	Tua lại sau khi phát
+	Ribbon Tab	Tab Ruy-băng
+	Right	Phải
+	Right Border	Viền bên phải
+	Right Down	Phải xuống
+	Right Tab	Tab phải
+	Right Up	Phải lên
+	Right-click any ribbon button to add it.	Bấm chuột phải vào nút trên Ruy-băng để thêm nó.
+	Right-to-Left Text Direction	Hướng chữ từ phải sang trái
+	Rotate	Xoay
+	Rotate Left	Xoay trái
+	Rotate Left 90°	Xoay trái 90°
+	Rotate Right	Xoay phải
+	Rotate Right 90°	Xoay phải 90°
+	Rotate all text 270°	Xoay toàn bộ chữ 270°
+	Rotate all text 90°	Xoay toàn bộ chữ 90°
+	Rotate with shape	Xoay cùng hình
+	Rotation	Xoay
+	Rotation (°):	Xoay (°):
+	Round	Tròn
+	Round Dot	Chấm tròn
+	Rounded	Tròn
+	Ruler	Thước
+	Same title	Cùng tiêu đề
+	Sample deck: Northern Lights	Bản mẫu: Northern Lights
+	Saturation	Độ bão hòa
+	Save	Lưu
+	Save As	Lưu thành
+	Save As…	Lưu thành…
+	Save AutoRecover information every	Lưu thông tin Tự Phục hồi sau mỗi
+	Save as type	Lưu dưới dạng
+	Save presentations	Lưu bản trình bày
+	Saved	Đã lưu
+	Saved the presentation	Đã lưu bản trình bày
+	Saving a copy needs a file picker, which this window doesn't have.	Lưu bản sao cần hộp chọn tệp, cửa sổ này không có.
+	Scale Height	Tỷ lệ chiều cao
+	Scale Width	Tỷ lệ chiều rộng
+	Scale X	Tỷ lệ X
+	Scale Y	Tỷ lệ Y
+	Scale height	Tỷ lệ chiều cao
+	Scale height (%):	Tỷ lệ chiều cao (%):
+	Scale width	Tỷ lệ chiều rộng
+	Scale width (%):	Tỷ lệ chiều rộng (%):
+	Scheme name	Tên bảng màu
+	Screenshot	Ảnh chụp màn hình
+	Screenshot (not available yet)	Ảnh chụp màn hình (chưa có)
+	Scripts and other agents	Tập lệnh và các tác tử khác
+	Scroll ribbon left	Cuộn dải lệnh sang trái
+	Scroll ribbon right	Cuộn dải lệnh sang phải
+	Search	Tìm kiếm
+	Search commands (⇧⌘P)	Tìm lệnh (⇧⌘P)
+	Search commands…	Tìm lệnh…
+	Search for a file	Tìm tệp
+	Search for a word	Tìm một từ
+	Search for themes and templates	Tìm chủ đề và mẫu
+	Search icons	Tìm biểu tượng
+	Seconds per slide:	Số giây mỗi trang chiếu:
+	Section	Phần
+	Section Zoom	Thu phóng phần
+	Select	Chọn
+	Select All	Chọn tất cả
+	Select a SmartArt graphic to edit its text.	Chọn một đồ họa SmartArt để sửa văn bản.
+	Select a picture to rotate it or change brightness and contrast	Chọn một ảnh để xoay hoặc đổi độ sáng và tương phản
+	Select a shape to format it.	Chọn một hình để định dạng.
+	Select a word on the slide, or type one above.	Chọn một từ trên trang chiếu, hoặc nhập ở trên.
+	Select an object on the slide and add an animation from the Animations tab.	Chọn một đối tượng trên trang chiếu rồi thêm hiệu ứng động từ tab Hiệu ứng động.
+	Selected	Đã chọn
+	Selection	Vùng chọn
+	Selection Pane…	Ngăn chọn…
+	SemiBold	Nửa đậm
+	Send	Gửi
+	Send Backward	Đưa ra sau
+	Send to Back	Đưa xuống dưới cùng
+	Sentence case.	Viết hoa đầu câu.
+	Set	Đặt
+	Set Transparent Color	Đặt màu trong suốt
+	Set Transparent Color: click the colour in the picture (Esc cancels)	Đặt màu trong suốt: bấm vào màu trong ảnh (Esc để hủy)
+	Set Up Show…	Thiết lập trình chiếu…
+	Set Up Slide Show	Thiết lập trình chiếu
+	Set Zoom	Đặt thu phóng
+	Set as Default Shape	Đặt làm hình mặc định
+	Settings	Cài đặt
+	Several slides on each page of a PDF	Nhiều trang chiếu trên mỗi trang PDF
+	Shading	Tô nền
+	Shadow	Bóng
+	Shape Effects	Hiệu ứng hình dạng
+	Shape Fill	Tô nền hình
+	Shape Format	Định dạng hình
+	Shape Outline	Viền hình
+	Shapes	Hình
+	Share	Chia sẻ
+	Shingle	Ngói
+	Show	Hiện
+	Show All	Hiện tất cả
+	Show Media Controls	Hiện điều khiển phương tiện
+	Show Slide	Hiện trang chiếu
+	Show smart guides	Hiện đường gióng thông minh
+	Shrink text on overflow	Thu nhỏ chữ khi tràn
+	Sign in	Đăng nhập
+	Sign-in unknown	Không rõ trạng thái đăng nhập
+	Simple, white	Đơn giản, trắng
+	Single	Đơn
+	Size	Khổ giấy
+	Size & Properties	Kích thước và thuộc tính
+	Size and Position	Kích thước và vị trí
+	Size and Position…	Kích thước và vị trí…
+	Size:	Kích thước:
+	Slide Image	Ảnh trang chiếu
+	Slide Master	Bản cái trang chiếu
+	Slide Number	Số trang chiếu
+	Slide Show	Trình chiếu
+	Slide Size	Kích thước trang chiếu
+	Slide Sorter	Sắp xếp trang chiếu
+	Slide Zoom	Thu phóng trang chiếu
+	Slide background fill	Tô nền trang chiếu
+	Slide text	Văn bản trang chiếu
+	Slide timings recorded.	Đã ghi thời gian trang chiếu.
+	Slide title	Tiêu đề trang chiếu
+	Slides	Trang chiếu
+	Slides from Outline	Trang chiếu từ dàn ý
+	Slides from Outline…	Trang chiếu từ dàn ý…
+	Slides per page	Số trang chiếu mỗi trang
+	Slides:	Trang chiếu:
+	Small	Nhỏ
+	Small (640 px wide)	Nhỏ (rộng 640 px)
+	Small caps	Chữ hoa nhỏ
+	Small checkerboard	Bàn cờ nhỏ
+	Small confetti	Hoa giấy nhỏ
+	Small grid	Lưới nhỏ
+	SmartArt	SmartArt
+	SmartArt Design	Thiết kế SmartArt
+	SmartArt Styles	Kiểu SmartArt
+	SmartArt text	Văn bản SmartArt
+	Smooth Corners	Bo góc mềm
+	Smooth Point	Điểm trơn
+	Snap	Bắt dính
+	Snap objects to grid	Bám đối tượng vào lưới
+	Snap objects to other objects	Bám đối tượng vào đối tượng khác
+	Soft Edges	Cạnh mềm
+	Solid	Liền
+	Solid diamond	Thoi đặc
+	Solid fill	Tô đặc
+	Solid line	Nét liền
+	Sort	Sắp xếp
+	Sound:	Âm thanh:
+	Source on GitHub	Mã nguồn trên GitHub
+	Space	Dấu cách
+	Spacing	Khoảng cách
+	Spacing (pt):	Khoảng cách (pt):
+	Spacing after	Giãn cách sau
+	Spacing after must be a number	Giãn cách sau phải là một số
+	Spacing before	Giãn cách trước
+	Spacing before must be a number	Giãn cách trước phải là một số
+	Special	Đặc biệt
+	Special indent must be a number of inches	Thụt lề đặc biệt phải là số inch
+	Specify the company	Nhập công ty
+	Specify the subject	Nhập chủ đề
+	Spelling	Chính tả
+	Sphere	Hình cầu
+	Square	Hình vuông
+	Square Dot	Chấm vuông
+	Stacked	Xếp chồng
+	Standard (4:3)	Chuẩn (4:3)
+	Standard Colors	Màu chuẩn
+	Star	Ngôi sao
+	Start After Previous	Bắt đầu sau mục trước
+	Start Automatically	Bắt đầu tự động
+	Start On Click	Bắt đầu khi bấm
+	Start With Previous	Bắt đầu cùng mục trước
+	Start from Beginning	Bắt đầu từ đầu
+	Start:	Bắt đầu:
+	Started a new presentation	Đã bắt đầu bản trình bày mới
+	Stealth	Mũi nhọn
+	Stealth end	Đầu mũi nhọn
+	Stop	Dừng
+	Straight Point	Điểm thẳng
+	Straight Segment	Đoạn thẳng
+	Strikethrough	Gạch ngang
+	Subject	Chủ đề
+	Subscript	Chỉ số dưới
+	Subtle	Tinh tế
+	Summary Zoom	Thu phóng tóm tắt
+	Sun	Mặt trời
+	Superscript	Chỉ số trên
+	Swedish	Tiếng Thụy Điển
+	Symbol	Ký hiệu
+	Tab	Tab
+	Tab stop position (in):	Vị trí điểm dừng tab (in):
+	Tab stops:	Điểm dừng tab:
+	Table	Bảng
+	Table Design	Thiết kế bảng
+	Table Eraser	Tẩy bảng
+	Table…	Bảng…
+	Tabs	Tab
+	Tabs…	Mốc tab…
+	Tags	Thẻ
+	Target	Mục tiêu
+	Task Pane	Ngăn tác vụ
+	Templates	Mẫu
+	Text	Văn bản
+	Text Box	Hộp văn bản
+	Text Direction	Hướng văn bản
+	Text Effects	Hiệu ứng chữ
+	Text Fill	Tô chữ
+	Text Highlight Color	Màu tô sáng chữ
+	Text Options	Tùy chọn văn bản
+	Text Outline	Viền chữ
+	Text Pane	Ngăn văn bản
+	Text box:	Hộp văn bản:
+	Text boxes have no picture options	Hộp văn bản không có tùy chọn ảnh
+	Text is longer than 400 characters	Văn bản dài hơn 400 ký tự
+	Text ruler	Thước văn bản
+	That file is empty	Tệp đó trống
+	That picture is larger than 32 MB	Ảnh đó lớn hơn 32 MB
+	The Eyedropper takes colours from a slide	Bút hút màu lấy màu từ trang chiếu
+	The current slide as a compressed picture	Trang chiếu hiện tại dưới dạng ảnh nén
+	The current slide as a picture	Trang chiếu hiện tại dưới dạng ảnh
+	The people and models who built DeckCraft.	Những người và mô hình đã xây dựng DeckCraft.
+	The picture list is invalid	Danh sách ảnh không hợp lệ
+	The presentation has no sections. Add one with Home › Section.	Bản trình bày chưa có phần nào. Thêm tại Trang đầu › Phần.
+	The presentation keeps its own file	Bản trình bày giữ tệp riêng của nó
+	The slide titles and bullet text as plain text	Tiêu đề trang chiếu và chữ đầu dòng dưới dạng văn bản thuần
+	The slide titles and bullet text for word processors	Tiêu đề trang chiếu và chữ đầu dòng cho trình soạn thảo văn bản
+	Theme Colors	Màu chủ đề
+	Themes	Chủ đề
+	Themes (whole presentation)	Chủ đề (cả bản trình bày)
+	There are no unsaved changes.	Không có thay đổi chưa lưu.
+	There are no unsaved presentations to recover	Không có bản trình bày chưa lưu nào để khôi phục
+	Thesaurus	Từ điển đồng nghĩa
+	Thick Thin	Dày mỏng
+	Thin Thick	Mỏng dày
+	This presentation has never been saved.	Bản trình bày này chưa từng được lưu.
+	This presentation has unsaved changes. Revert goes back to the saved file.	Bản trình bày này có thay đổi chưa lưu. Hoàn nguyên sẽ trở về tệp đã lưu.
+	This slide has no animations	Trang chiếu này không có hiệu ứng động
+	Three a page leaves lines for notes	Ba trang chiếu một trang, có dòng để ghi chú
+	Thumbs up	Thích
+	Tight	Khít
+	Tile picture as texture	Lát ảnh như họa tiết
+	Timer	Hẹn giờ
+	Title	Tiêu đề
+	To	Đến
+	To Bottom	Xuống dưới
+	To Left	Sang trái
+	To Right	Sang phải
+	To Top-Right	Lên trên bên phải
+	To slide:	Đến trang chiếu:
+	Top	Trên
+	Top Border	Viền trên
+	Top Left	Trên trái
+	Top Left Corner	Góc trên bên trái
+	Top Right	Trên phải
+	Top bevel	Vát trên
+	Top left	Trên trái
+	Top right	Trên phải
+	Total Row	Hàng tổng
+	Transform	Biến đổi
+	Transitions	Chuyển tiếp
+	Translate	Dịch
+	Translation needs a language model (not bundled)	Dịch cần mô hình ngôn ngữ (không đi kèm)
+	Transparency	Độ trong suốt
+	Transparent background	Nền trong suốt
+	Trellis	Giàn lưới
+	Trend	Xu hướng
+	Trigger	Kích hoạt
+	Trim	Cắt bỏ
+	Trim Media	Cắt phương tiện
+	Triple	Nét ba
+	Type	Loại
+	Type and organise the diagram's text	Nhập và sắp xếp văn bản của sơ đồ
+	Type the text for the new text box	Nhập văn bản cho hộp văn bản mới
+	Type your text here	Nhập văn bản của bạn ở đây
+	Typed text	Đã gõ văn bản
+	Underline	Gạch chân
+	Undo	Hoàn tác
+	Ungroup	Bỏ nhóm
+	Unlock	Mở khóa
+	Up	Lên
+	Update	Cập nhật
+	Update automatically	Cập nhật tự động
+	Upward diagonal	Chéo lên
+	Use Timings	Dùng thời gian đã ghi
+	Used the pointer	Đã dùng con trỏ
+	User	Người dùng
+	User name	Tên người dùng
+	Username	Tên người dùng
+	Users	Người dùng (nhóm)
+	Version	Phiên bản
+	Vertical	Dọc
+	Vertical (in):	Dọc (in):
+	Vertical In	Dọc vào
+	Vertical Out	Dọc ra
+	Vertical alignment	Căn dọc
+	Very Loose	Rất thưa
+	Very Tight	Rất sát
+	Very loose	Rất thưa
+	Very tight	Rất sát
+	Video	Video
+	Video from File…	Video từ tệp…
+	View	Xem
+	Volume	Tập
+	Warning	Cảnh báo
+	Warp	Biến dạng
+	Wave	Sóng
+	Wavy	Lượn sóng
+	Weave	Đan
+	Web (150 ppi): good for web pages and projectors	Web (150 ppi): tốt cho trang web và máy chiếu
+	Weight	Độ dày
+	Went to a slide	Đã chuyển đến một trang chiếu
+	White	Trắng
+	White on	Trắng trên
+	Wide	Rộng
+	Wide downward diagonal	Chéo xuống rộng
+	Wide upward diagonal	Chéo lên rộng
+	Widescreen (16:9)	Màn hình rộng (16:9)
+	Width	Chiều rộng
+	Width (in):	Chiều rộng (in):
+	Width (pixels):	Chiều rộng (điểm ảnh):
+	Width:	Chiều rộng:
+	Width: 	Chiều rộng:
+	Window title bar	Thanh tiêu đề cửa sổ
+	With Previous	Cùng mục trước
+	WordArt	WordArt
+	Wrap text in shape	Ngắt dòng văn bản trong hình
+	X Rotation	Xoay X
+	Y Rotation	Xoay Y
+	Z Rotation	Xoay Z
+	Zig zag	Zíc zắc
+	Zoom	Thu phóng
+	Zoom In	Phóng to
+	Zoom Out	Thu nhỏ
+	Zoom level	Mức thu phóng
+	Zoom on	Thu phóng vào
+	Zoom to	Thu phóng tới
+	Zoom…	Thu phóng…

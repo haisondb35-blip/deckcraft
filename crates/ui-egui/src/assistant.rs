@@ -1108,18 +1108,18 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
             label.on_hover_text(tip);
         }
         if sign_in
-            && ui.small_button("Sign in").clicked()
+            && ui.small_button(crate::i18n::tr("Sign in")).clicked()
             && let Err(e) = a.sign_in()
         {
             a.messages.push(Msg { role: Role::Error, text: e });
         }
         if matches!(a.login, Login::Missing)
-            && ui.small_button("Install").on_hover_text(a.provider.install_hint()).clicked()
+            && ui.small_button(crate::i18n::tr("Install")).on_hover_text(a.provider.install_hint()).clicked()
             && let Err(e) = a.install()
         {
             a.messages.push(Msg { role: Role::Error, text: e });
         }
-        if ui.small_button("↻").on_hover_text("Check the sign-in again").clicked() {
+        if ui.small_button("↻").on_hover_text(crate::i18n::tr("Check the sign-in again")).clicked() {
             a.check_login();
         }
     });
@@ -1128,7 +1128,7 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
     let list_h = (ui.available_height() - input_h).max(80.0);
     egui::ScrollArea::vertical().max_height(list_h).auto_shrink([false, false]).stick_to_bottom(true).show(ui, |ui| {
         if a.messages.is_empty() {
-            ui.label(egui::RichText::new("Ask Claude to build or change slides, rewrite text, or check the presentation. Changes appear here as Claude makes them and can be undone.").color(t.text_dim));
+            ui.label(egui::RichText::new(crate::i18n::tr("Ask Claude to build or change slides, rewrite text, or check the presentation. Changes appear here as Claude makes them and can be undone.")).color(t.text_dim));
         }
         for (i, m) in a.messages.iter().enumerate() {
             match m.role {
@@ -1158,13 +1158,13 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
         if a.busy() {
             ui.horizontal(|ui| {
                 ui.spinner();
-                ui.label(egui::RichText::new("Claude is working…").color(t.text_dim));
+                ui.label(egui::RichText::new(crate::i18n::tr("Claude is working…")).color(t.text_dim));
             });
         }
     });
     ui.separator();
     let busy = a.busy();
-    let edit = egui::TextEdit::multiline(&mut a.input).hint_text("Ask Claude…").desired_rows(2).desired_width(f32::INFINITY);
+    let edit = egui::TextEdit::multiline(&mut a.input).hint_text(crate::i18n::tr("Ask Claude…")).desired_rows(2).desired_width(f32::INFINITY);
     let resp = ui.add_enabled(!busy, edit);
     let enter = resp.has_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter) && !i.modifiers.shift);
     if enter {
@@ -1176,13 +1176,13 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
     let mut send = enter;
     ui.horizontal(|ui| {
         if a.busy() {
-            if ui.button("Stop").clicked() {
+            if ui.button(crate::i18n::tr("Stop")).clicked() {
                 a.stop();
             }
-        } else if ui.add_enabled(!a.input.trim().is_empty(), egui::Button::new("Send")).clicked() {
+        } else if ui.add_enabled(!a.input.trim().is_empty(), egui::Button::new(crate::i18n::tr("Send"))).clicked() {
             send = true;
         }
-        if ui.add_enabled(!a.messages.is_empty(), egui::Button::new("New chat")).clicked() {
+        if ui.add_enabled(!a.messages.is_empty(), egui::Button::new(crate::i18n::tr("New chat"))).clicked() {
             a.new_chat();
         }
     });
