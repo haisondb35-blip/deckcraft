@@ -27,6 +27,7 @@ pub mod icons;
 pub mod media;
 pub mod menus;
 pub mod opening;
+pub mod presenter;
 pub mod ribbon;
 pub mod settings;
 pub mod show;
@@ -129,7 +130,7 @@ pub const UI_COMMANDS: &[(&str, &str, Option<&str>, &str)] = &[
     ("show.end", "End Show", None, "{}"),
     ("animation.preview", "Preview Animations", None, "{on?: bool, from?: effect index}"),
     ("app.home", "Home", None, "{on?}"),
-    ("app.backstage", "File", Some("Alt+F"), "{page?: home|new|open|info|saveAs|print|export|account|options, on?: bool}"),
+    ("app.backstage", "File", Some("Alt+F"), "{page?: home|new|open|info|saveAs|print|export|about|options, on?: bool}"),
     (
         "options.set",
         "Options",

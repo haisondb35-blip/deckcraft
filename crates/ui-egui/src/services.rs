@@ -39,6 +39,8 @@ pub type ClipboardSetObjectsFn = Box<dyn FnMut(&str, Option<&str>, Option<&[u8]>
 
 #[derive(Default)]
 pub struct Services {
+    /// Browser-owned presenter popup; absent on native hosts.
+    pub presenter: Option<Box<dyn crate::presenter::Host>>,
     /// Open-file dialog for a purpose (`open`, `picture`, `audio`, `video`) → path.
     pub pick_open: Option<PickFn>,
     /// Save dialog with a suggested name → path.

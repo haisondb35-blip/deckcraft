@@ -158,8 +158,10 @@ enum Drag {
     },
     Resize {
         id: ShapeId,
-        handle: u8,
         orig: Xfrm,
+        ids: Vec<ShapeId>,
+        handle: u8,
+        origs: Vec<(ShapeId, Xfrm)>,
         start: Point,
     },
     Crop {

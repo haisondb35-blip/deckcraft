@@ -2,7 +2,7 @@
 //! bar until Esc or the back arrow returns to the presentation. With nothing open it is the start
 //! screen: PowerPoint's start screen and File › Home are the same page.
 //!
-//! A side menu on the left picks a page (Home, New, Open, Info, Save As, Print, Export, Account);
+//! A side menu on the left picks a page (Home, New, Open, Info, Save As, Print, Export, About);
 //! Save, Close and Options act at once. Every action runs an existing command through
 //! [`SlideApp::run`] or one of the app's file helpers ([`SlideApp::export_as`],
 //! [`SlideApp::print_pdf`], [`SlideApp::save_as_dialog`]); the state here is UI-only and never
@@ -24,7 +24,7 @@ mod print;
 
 pub use files::split_path;
 use files::{home, new_page, open_page};
-use info::{PROPERTIES, account, commit_props, info, save_as};
+use info::{PROPERTIES, about, commit_props, info, save_as};
 pub use info::{SAVE_TYPES, format_bytes};
 use print::{export, print};
 pub use print::{print_page_size, print_params, print_slides};
@@ -47,12 +47,12 @@ pub enum Page {
     SaveAs,
     Print,
     Export,
-    Account,
+    About,
     Options,
 }
 
 impl Page {
-    pub const ALL: [Page; 9] = [Page::Home, Page::New, Page::Open, Page::Info, Page::SaveAs, Page::Print, Page::Export, Page::Account, Page::Options];
+    pub const ALL: [Page; 9] = [Page::Home, Page::New, Page::Open, Page::Info, Page::SaveAs, Page::Print, Page::Export, Page::About, Page::Options];
 
     /// The id `app.backstage {page}` takes.
     pub fn id(self) -> &'static str {
@@ -64,13 +64,17 @@ impl Page {
             Page::SaveAs => "saveAs",
             Page::Print => "print",
             Page::Export => "export",
-            Page::Account => "account",
+            Page::About => "about",
             Page::Options => "options",
         }
     }
 
     pub fn parse(id: &str) -> Option<Page> {
         let id = id.trim();
+        // Keep existing control-channel callers working after the visible page rename.
+        if id.eq_ignore_ascii_case("about") {
+            return Some(Page::About);
+        }
         Page::ALL.into_iter().find(|p| p.id().eq_ignore_ascii_case(id))
     }
 
@@ -84,7 +88,7 @@ impl Page {
             Page::SaveAs => "Save As",
             Page::Print => "Print",
             Page::Export => "Export",
-            Page::Account => "Account",
+            Page::About => "About",
             Page::Options => "Options",
         }
     }
@@ -98,7 +102,7 @@ impl Page {
             Page::SaveAs => Icon::SaveAs,
             Page::Print => Icon::Print,
             Page::Export => Icon::Export,
-            Page::Account => Icon::Account,
+            Page::About => Icon::Help,
             Page::Options => Icon::Settings,
         }
     }
@@ -141,7 +145,7 @@ pub fn entries(has_doc: bool) -> (Vec<Nav>, Vec<Nav>) {
     if has_doc {
         top.extend([Nav::Page(Page::Info), Nav::Save, Nav::Page(Page::SaveAs), Nav::Page(Page::Print), Nav::Page(Page::Export), Nav::Close]);
     }
-    (top, vec![Nav::Page(Page::Account), Nav::Page(Page::Options)])
+    (top, vec![Nav::Page(Page::About), Nav::Page(Page::Options)])
 }
 
 /// Print page: which slides.
@@ -415,7 +419,7 @@ pub fn show(app: &mut SlideApp, ui: &mut Ui) {
                     Page::SaveAs => save_as(app, ui, &mut bs, &mut out),
                     Page::Print => print(app, ui, &mut bs),
                     Page::Export => export(app, ui, &mut bs),
-                    Page::Account => account(app, ui),
+                    Page::About => about(app, ui),
                     Page::Options => options(app, ui, &mut bs),
                 }
             });
