@@ -18,6 +18,7 @@ use std::sync::{Arc, Mutex};
 
 use serde_json::{Value, json};
 
+pub mod embed;
 mod memory;
 pub use memory::{Memory, Store};
 
@@ -191,7 +192,8 @@ The presentation the user has open is in the running app: work on it only throug
 (every change can be undone with Ctrl+Z). Look before you change: inspect the document or slide, and render a slide to check your result. \
 Prefer the app's commands (list_commands, run_command) over pointer input. \
 Reply in the language the user writes in. Work silently: don't narrate your steps. Your final reply is read in the narrow pane, so keep it short: \
-one or two plain sentences, then at most five short bullet points saying what you changed or found. No headings, tables or code unless asked.";
+one or two plain sentences, then at most five short bullet points saying what you changed or found. No headings, tables or code unless asked. Other Craft apps open on this computer (GridCraft, WordCraft, DeckCraft, PdfCraft, PhotoCraft, VectorCraft, FilmCraft, CadCraft) may be connected too, as tools named after the app: \
+use them when the user asks for another app's data (for example, read the drawing open in CadCraft to build from it), and don't change another app's document unless asked.";
 
 /// Claude Code's own tools the pane refuses: Claude works on the presentation, not the computer.
 pub const REFUSED_TOOLS: &[&str] =
@@ -201,6 +203,10 @@ pub struct Assistant {
     pub messages: Vec<Msg>,
     /// Where each file\'s conversation is remembered (the desktop app sets it; none in tests).
     pub memory: Option<Store>,
+    /// The conversations a save writes into their files (Save chat with file).
+    pub shelf: Arc<Mutex<memory::Shelf>>,
+    /// Reads the conversation saved in a file (the apps whose files can hold one).
+    pub embedded_reader: Option<fn(&str) -> Option<Value>>,
     /// The document the conversation is about: its identity in this run, and its file.
     doc: Option<(u64, Option<String>)>,
     /// Conversations about documents not saved yet, by identity, while this window runs.
@@ -236,6 +242,8 @@ impl Default for Assistant {
         Assistant {
             messages: Vec::new(),
             memory: None,
+            shelf: Arc::default(),
+            embedded_reader: None,
             doc: None,
             untitled: std::collections::HashMap::new(),
             retry: None,
@@ -261,6 +269,9 @@ impl Default for Assistant {
 impl Drop for Assistant {
     fn drop(&mut self) {
         self.stop();
+        if let Some(m) = &self.memory {
+            m.leave();
+        }
         // The remembered conversations\' folder stays; a temporary one goes.
         if self.memory.is_none()
             && let Some(d) = &self.work_dir
@@ -343,7 +354,8 @@ impl Assistant {
             }
         };
         let cli = self.cli.clone().or_else(cli_path).ok_or("deckcraft-cli wasn't found next to DeckCraft; reinstall DeckCraft")?;
-        let config = mcp_config(&cli, port, &self.token);
+        let mut config = mcp_config(&cli, port, &self.token);
+        self.join_peers(&mut config);
         let path = dir.join("mcp.json");
         std::fs::write(&path, config.to_string()).map_err(|e| format!("couldn't write {}: {e}", path.display()))?;
         Ok((dir, path, mcp_server(&cli, port, &self.token)))
@@ -565,6 +577,7 @@ impl Assistant {
 
     /// Keep the conversation for the document it is about.
     fn remember(&mut self) {
+        self.shelve();
         let m = self.current();
         match &self.doc {
             Some((_, Some(path))) => {
@@ -596,9 +609,9 @@ impl Assistant {
         } else if let Some(p) = path {
             let mut m = self.memory.as_ref().map(|s| s.load(p)).unwrap_or_default();
             if m.is_empty()
-                && let Some(v) = embedded
+                && let Some(v) = embedded.cloned().or_else(|| self.embedded_reader.and_then(|read| read(p)))
             {
-                m = Memory::from_json(v);
+                m = Memory::from_json(&v);
             }
             Some(m)
         } else {
@@ -657,7 +670,9 @@ pub fn mcp_server(cli: &Path, port: u16, token: &str) -> McpServer {
 
 /// What Codex is told before the first question (it has no separate system prompt).
 pub fn codex_instructions() -> String {
-    format!("{SYSTEM_PROMPT} Use only the deckcraft tools: don't run shell commands or read or write files on the computer.")
+    format!(
+        "{SYSTEM_PROMPT} Use only the deckcraft tools (and, when the user asks for their data, the other Craft apps\' tools): don't run shell commands or read or write files on the computer."
+    )
 }
 
 /// A TOML basic string, for Codex's `-c key=value` settings.
@@ -698,6 +713,7 @@ pub fn codex_args(l: &Launch) -> Vec<String> {
             server.env.iter().map(|(k, v)| format!("{k}={}", toml_str(v))).collect::<Vec<_>>().join(",")
         ));
     }
+    a.extend(memory::codex_peer_args(&l.mcp_config, "deckcraft"));
     if let Some(s) = &l.session {
         a.push("resume".into());
         a.push(s.clone());
@@ -794,6 +810,7 @@ pub fn claude_args(l: &Launch) -> Vec<String> {
         .into_iter()
         .map(String::from)
         .collect();
+    memory::allow_peers(&mut a, &l.mcp_config);
     a.push("--mcp-config".into());
     a.push(l.mcp_config.to_string_lossy().into_owned());
     a.push("--disallowedTools".into());
@@ -1313,6 +1330,13 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
             }
         } else if ui.add_enabled(!a.input.trim().is_empty(), egui::Button::new(crate::i18n::tr("Send"))).clicked() {
             send = true;
+        }
+        if a.can_save_with_file() {
+            let mut on = a.save_with_file();
+            let tip = "Also keep this conversation inside the file when it is saved, so it opens with the file on another computer. Off: kept only on this computer.";
+            if ui.checkbox(&mut on, "Save chat with file").on_hover_text(tip).changed() {
+                a.set_save_with_file(on);
+            }
         }
         if ui.add_enabled(!a.messages.is_empty(), egui::Button::new(crate::i18n::tr("New chat"))).clicked() {
             a.new_chat();

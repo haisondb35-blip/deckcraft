@@ -5,6 +5,8 @@ impl SlideApp {
     /// Drain pending control requests, executing ordinary requests and admitting screenshots for
     /// later saving and reply.
     pub(super) fn drain_control(&mut self, ctx: &egui::Context) {
+        // Open from the start and listed for the other Craft apps (once).
+        self.assistant.share(ctx);
         // The Claude pane's own channel, then the `--control` one.
         if let Some(rx) = self.assistant.control_rx.take() {
             self.drain_from(&rx, ctx);

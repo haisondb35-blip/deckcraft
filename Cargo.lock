@@ -1329,6 +1329,7 @@ dependencies = [
  "sys-locale",
  "toml",
  "web-time",
+ "zip 3.0.0",
 ]
 
 [[package]]

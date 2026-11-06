@@ -29,8 +29,26 @@ pub fn read_file(path: &str) -> Result<Vec<u8>, String> {
 /// The bytes go to a temporary sibling first and are renamed over `path`, so a failed save never
 /// truncates the old file. The sibling is in the same folder, so it is inside the root whenever
 /// `path` is.
+/// Changes the bytes of a file about to be saved, or None to keep them: the desktop app's Save
+/// chat with file (the assistant's conversation, written into the file).
+pub type SaveHook = Box<dyn Fn(&str, &[u8]) -> Option<Vec<u8>> + Send + Sync>;
+
+static SAVE_HOOK: std::sync::OnceLock<SaveHook> = std::sync::OnceLock::new();
+
+/// Sets the [`SaveHook`] (once per run).
+pub fn set_save_hook(hook: SaveHook) {
+    let _ = SAVE_HOOK.set(hook);
+}
+
+#[cfg_attr(target_arch = "wasm32", allow(dead_code))]
+fn hooked(path: &str, bytes: &[u8]) -> Option<Vec<u8>> {
+    SAVE_HOOK.get().and_then(|h| h(path, bytes))
+}
+
 #[cfg(not(target_arch = "wasm32"))]
 pub fn write_file(path: &str, bytes: &[u8]) -> Result<(), String> {
+    let hooked = hooked(path, bytes);
+    let bytes = hooked.as_deref().unwrap_or(bytes);
     use std::io::Write;
     use std::sync::atomic::{AtomicU64, Ordering};
     static COUNTER: AtomicU64 = AtomicU64::new(0);
