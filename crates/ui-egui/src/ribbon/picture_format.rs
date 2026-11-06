@@ -61,7 +61,11 @@ pub(super) fn picture_format(app: &mut SlideApp, ui: &mut Ui) {
             ui.separator();
             // As in PowerPoint, the pointer picks the colour in the picture itself: a colour
             // chosen from a grid almost never matches a photo's pixels.
-            if ui.button(crate::i18n::tr("Set Transparent Color")).on_hover_text(crate::i18n::tr("Click a colour in the picture to make it transparent")).clicked() {
+            if ui
+                .button(crate::i18n::tr("Set Transparent Color"))
+                .on_hover_text(crate::i18n::tr("Click a colour in the picture to make it transparent"))
+                .clicked()
+            {
                 crate::eyedropper::request_transparent_color(ui.ctx());
                 ui.close();
             }

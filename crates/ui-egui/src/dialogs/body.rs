@@ -306,7 +306,8 @@ fn dlg_quit(app: &mut SlideApp, ui: &mut Ui, _d: &mut Dialog) -> bool {
             done = true;
         }
         ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-            let save = ui.add(egui::Button::new(egui::RichText::new(crate::i18n::tr("Save")).color(t.accent_text)).fill(t.accent).min_size(vec2(72.0, 24.0)));
+            let save = ui
+                .add(egui::Button::new(egui::RichText::new(crate::i18n::tr("Save")).color(t.accent_text)).fill(t.accent).min_size(vec2(72.0, 24.0)));
             if save.clicked() || ui.input(|i| i.key_pressed(egui::Key::Enter)) {
                 if app.save_all() {
                     app.quit_confirmed = true;
@@ -336,7 +337,8 @@ fn dlg_close(app: &mut SlideApp, ui: &mut Ui, _d: &mut Dialog) -> bool {
             done = true;
         }
         ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-            let save = ui.add(egui::Button::new(egui::RichText::new(crate::i18n::tr("Save")).color(t.accent_text)).fill(t.accent).min_size(vec2(72.0, 24.0)));
+            let save = ui
+                .add(egui::Button::new(egui::RichText::new(crate::i18n::tr("Save")).color(t.accent_text)).fill(t.accent).min_size(vec2(72.0, 24.0)));
             if save.clicked() || ui.input(|i| i.key_pressed(egui::Key::Enter)) {
                 app.save();
                 // In the browser a save is a download: the presentation stays "unsaved". A page

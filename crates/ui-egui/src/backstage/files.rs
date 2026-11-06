@@ -289,7 +289,10 @@ pub(super) fn open_page(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
         ui.vertical(|ui| {
             ui.set_width(230.0);
             place_row(ui, Icon::Recent, "Recent", true, 220.0);
-            if place_row(ui, Icon::OpenFolder, "Browse", false, 220.0).on_hover_text(crate::i18n::tr("Open a presentation from a folder (Ctrl+O)")).clicked() {
+            if place_row(ui, Icon::OpenFolder, "Browse", false, 220.0)
+                .on_hover_text(crate::i18n::tr("Open a presentation from a folder (Ctrl+O)"))
+                .clicked()
+            {
                 let _ = app.run("app.openDialog", json!({}));
             }
             if app.session.recovery_dir.is_some() {

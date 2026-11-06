@@ -11,7 +11,9 @@ pub(super) fn revisions(app: &mut SlideApp, ui: &mut Ui) {
     let changes = v["changes"].as_array().cloned().unwrap_or_default();
     ui.label(egui::RichText::new(format!("Compared with {}", v["name"].as_str().unwrap_or("?"))).color(t.text_dim));
     if v["byPosition"].as_bool() == Some(true) {
-        ui.label(egui::RichText::new(crate::i18n::tr("Not a copy of this presentation: slides are matched by position.")).size(11.0).color(t.text_faint));
+        ui.label(
+            egui::RichText::new(crate::i18n::tr("Not a copy of this presentation: slides are matched by position.")).size(11.0).color(t.text_faint),
+        );
     }
     ui.add_space(4.0);
     if changes.is_empty() {

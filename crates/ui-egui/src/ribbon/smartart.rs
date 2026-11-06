@@ -12,7 +12,10 @@ pub(super) fn smartart_design(app: &mut SlideApp, ui: &mut Ui) {
     };
     let at = row.min(n.saturating_sub(1));
     group(ui, |ui| {
-        if big_button(ui, Icon::SmartArt, "Text\nPane", gid.is_some()).on_hover_text(crate::i18n::tr("Type and organise the diagram's text")).clicked() {
+        if big_button(ui, Icon::SmartArt, "Text\nPane", gid.is_some())
+            .on_hover_text(crate::i18n::tr("Type and organise the diagram's text"))
+            .clicked()
+        {
             run(app, "view.pane", json!({"pane": "smartart", "toggle": true}));
         }
         rows(ui, |ui| {

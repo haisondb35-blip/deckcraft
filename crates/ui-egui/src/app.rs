@@ -202,6 +202,9 @@ impl SlideApp {
     /// How the Claude pane opens its control channel (the desktop app's server).
     pub fn with_assistant_control(mut self, starter: crate::assistant::ControlStarter) -> Self {
         self.assistant.starter = Some(starter);
+        // Each file's conversation with the assistant is remembered, in the folder all the Craft
+        // apps share (ArtCraft/AI).
+        self.assistant.use_memory(if std::env::var_os("DECKCRAFT_NO_PREFS").is_none() { crate::assistant::Store::shared() } else { None });
         self
     }
 

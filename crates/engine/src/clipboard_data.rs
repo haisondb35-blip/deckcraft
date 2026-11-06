@@ -95,8 +95,16 @@ pub fn decode(bytes: &[u8]) -> Option<(u64, Clipboard)> {
         let n = take_len(&mut rest)?;
         m.data = Arc::new(take(&mut rest, n)?.to_vec());
     }
-    let clip =
-        Clipboard { shapes: data.shapes, placeholders: data.placeholders, slides: data.slides, media, text: data.text, plain: data.plain, source_theme: data.source_theme, pastes: 0 };
+    let clip = Clipboard {
+        shapes: data.shapes,
+        placeholders: data.placeholders,
+        slides: data.slides,
+        media,
+        text: data.text,
+        plain: data.plain,
+        source_theme: data.source_theme,
+        pastes: 0,
+    };
     Some((data.stamp, clip))
 }
 

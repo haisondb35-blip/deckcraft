@@ -157,7 +157,8 @@ impl SlideApp {
                     // integrations that still send an empty `Paste`, and for a browser's Copy
                     // Image, whose text is only the picture's link. Never insert twice.
                     let wants_picture = text.is_empty() || super::clipboard::names_a_picture(&text, html.as_deref());
-                    let img = if wants_picture && !pasted_image_event && !ours { self.services.clipboard_image.as_mut().and_then(|f| f()) } else { None };
+                    let img =
+                        if wants_picture && !pasted_image_event && !ours { self.services.clipboard_image.as_mut().and_then(|f| f()) } else { None };
                     let revision = self.session.active().map(|d| d.revision);
                     let r = match img {
                         Some(png) => self

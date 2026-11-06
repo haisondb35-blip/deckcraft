@@ -84,15 +84,7 @@ pub fn title_bar(app: &mut SlideApp, ui: &mut Ui) {
         if icon_toggle(&mut right, Icon::Sparkle, "AI Assistant", true, app.ui.pane.as_deref() == Some("assistant")).clicked() {
             let _ = app.run("view.pane", json!({"pane": "assistant", "toggle": true}));
         }
-        if icon_toggle(
-            &mut right,
-            Icon::Palette,
-            "Light/Dark appearance",
-            true,
-            false,
-        )
-        .clicked()
-        {
+        if icon_toggle(&mut right, Icon::Palette, "Light/Dark appearance", true, false).clicked() {
             let _ = app.run("view.dark", json!({}));
         }
     });

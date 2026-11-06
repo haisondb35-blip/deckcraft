@@ -1728,7 +1728,7 @@ fn interface_size_applies_when_the_slider_is_let_go() {
     );
     harness.run_steps(2);
     // Ctrl+, opens File > Options here; the Preferences dialog is still opened by name.
-        harness.state_mut().dialog = Some(crate::dialogs::Dialog::new("preferences"));
+    harness.state_mut().dialog = Some(crate::dialogs::Dialog::new("preferences"));
     harness.run_steps(4);
     let before = harness.state().ui.ui_scale;
     let rect = harness.query_all_by_role_and_label(egui::accesskit::Role::Slider, "Interface size").next().expect("the Interface size slider").rect();
@@ -1791,7 +1791,7 @@ fn preferences_and_format_pane_name_every_input() {
     );
     harness.run_steps(3);
     // Ctrl+, opens File > Options here; the Preferences dialog is still opened by name.
-        harness.state_mut().dialog = Some(crate::dialogs::Dialog::new("preferences"));
+    harness.state_mut().dialog = Some(crate::dialogs::Dialog::new("preferences"));
     harness.run_steps(3);
     harness.check_accessibility();
     harness.key_press(egui::Key::Escape);
@@ -2512,7 +2512,11 @@ fn a_pictures_context_menu_starts_crop_mode() {
     let mut harness = canvas_harness();
     let svg = b"<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8'><rect width='8' height='8' fill='red'/></svg>";
     let app = harness.state_mut();
-    let id = app.session.execute("insert.picture", &json!({"name": "p.svg", "data": deckcraft_engine::cmd::base64_encode(svg), "rect": [80, 60, 800, 420]})).unwrap()["id"].clone();
+    let id = app
+        .session
+        .execute("insert.picture", &json!({"name": "p.svg", "data": deckcraft_engine::cmd::base64_encode(svg), "rect": [80, 60, 800, 420]}))
+        .unwrap()["id"]
+        .clone();
     app.session.execute("edit.select", &json!({"ids": [id.clone()]})).unwrap();
     harness.run_steps(3);
     let crops = |h: &egui_kittest::Harness<'_, SlideApp>| h.query_all_by_label("Crop").count();

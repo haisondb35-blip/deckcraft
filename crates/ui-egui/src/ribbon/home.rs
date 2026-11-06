@@ -34,7 +34,8 @@ fn clipboard_group(app: &mut SlideApp, ui: &mut Ui) {
             small(app, ui, Icon::Copy, "Copy", "edit.copy", json!({}));
             let on = app.session.painter.is_some();
             let en = enabled(app, "format.painter");
-            let r = small_button(ui, Icon::FormatPainter, "Format", en, on).on_hover_text(crate::i18n::tr("Format Painter (double-click to keep it on)"));
+            let r =
+                small_button(ui, Icon::FormatPainter, "Format", en, on).on_hover_text(crate::i18n::tr("Format Painter (double-click to keep it on)"));
             if r.double_clicked() {
                 run(app, "format.painter", json!({"sticky": true}));
             } else if r.clicked() {
@@ -259,7 +260,11 @@ fn font_group(app: &mut SlideApp, ui: &mut Ui, st: &Value) {
                         run(app, "format.color", json!({"color": cref_param(&c)}));
                     }
                 });
-                if ui.add_enabled(en, egui::Button::new(crate::i18n::tr("Font…")).min_size(vec2(52.0, 22.0))).on_hover_text(crate::i18n::tr("Font")).clicked() {
+                if ui
+                    .add_enabled(en, egui::Button::new(crate::i18n::tr("Font…")).min_size(vec2(52.0, 22.0)))
+                    .on_hover_text(crate::i18n::tr("Font"))
+                    .clicked()
+                {
                     run(app, "format.fontDialog", json!({}));
                 }
             });
@@ -386,7 +391,11 @@ fn paragraph_group(app: &mut SlideApp, ui: &mut Ui, st: &Value) {
                 });
                 let r = icon_toggle(ui, Icon::SmartArt, "Convert to SmartArt", enabled(app, "smartArt.fromText"), false);
                 egui::Popup::menu(&r).show(|ui| smartart_gallery(app, ui, "smartArt.fromText", json!({}), "", ("", ""), None));
-                if ui.add_enabled(en, egui::Button::new(crate::i18n::tr("Paragraph…")).min_size(vec2(88.0, 22.0))).on_hover_text(crate::i18n::tr("Paragraph")).clicked() {
+                if ui
+                    .add_enabled(en, egui::Button::new(crate::i18n::tr("Paragraph…")).min_size(vec2(88.0, 22.0)))
+                    .on_hover_text(crate::i18n::tr("Paragraph"))
+                    .clicked()
+                {
                     run(app, "format.paragraphDialog", json!({}));
                 }
             });

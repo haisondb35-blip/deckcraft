@@ -98,8 +98,10 @@ fn section_header(app: &mut SlideApp, ui: &mut Ui, h: &Header<'_>) -> Rect {
     let name_rect = Rect::from_min_max(pos2(r.min.x + 40.0, r.min.y + 4.0), pos2(r.max.x - 56.0, r.max.y - 4.0));
     if let Some(mut buf) = renaming {
         let edit_id = ui.scope_id().with(("sorter-rename", h.uid, h.index));
-        let out =
-            ui.put(name_rect, egui::TextEdit::singleline(&mut buf).id(edit_id).hint_text(crate::i18n::tr("Name")).font(theme::bold(13.0)).margin(vec2(4.0, 2.0)));
+        let out = ui.put(
+            name_rect,
+            egui::TextEdit::singleline(&mut buf).id(edit_id).hint_text(crate::i18n::tr("Name")).font(theme::bold(13.0)).margin(vec2(4.0, 2.0)),
+        );
         let already = app.sorter.rename_started;
         if !already {
             out.request_focus();
@@ -496,7 +498,11 @@ fn outline_slide(app: &mut SlideApp, ui: &mut Ui, t: &Tokens, i: usize, s: &deck
         let cur_title = s.title();
         let mut v: String = ui.data_mut(|d| d.get_temp(id).unwrap_or_else(|| cur_title.clone()));
         let resp = ui.add(
-            egui::TextEdit::singleline(&mut v).hint_text(crate::i18n::tr("Slide title")).font(theme::bold(14.0)).frame(egui::Frame::NONE).desired_width(f32::INFINITY),
+            egui::TextEdit::singleline(&mut v)
+                .hint_text(crate::i18n::tr("Slide title"))
+                .font(theme::bold(14.0))
+                .frame(egui::Frame::NONE)
+                .desired_width(f32::INFINITY),
         );
         if resp.gained_focus() {
             let _ = app.run("slide.go", json!({"index": i}));
@@ -524,8 +530,13 @@ fn outline_slide(app: &mut SlideApp, ui: &mut Ui, t: &Tokens, i: usize, s: &deck
         let mut v: String = ui.data_mut(|d| d.get_temp(id).unwrap_or_else(|| cur_text.clone()));
         ui.horizontal(|ui| {
             ui.add_space(36.0);
-            let resp = ui
-                .add(egui::TextEdit::multiline(&mut v).hint_text(crate::i18n::tr("Slide text")).frame(egui::Frame::NONE).desired_width(f32::INFINITY).desired_rows(1));
+            let resp = ui.add(
+                egui::TextEdit::multiline(&mut v)
+                    .hint_text(crate::i18n::tr("Slide text"))
+                    .frame(egui::Frame::NONE)
+                    .desired_width(f32::INFINITY)
+                    .desired_rows(1),
+            );
             if resp.gained_focus() {
                 let _ = app.run("slide.go", json!({"index": i}));
             }

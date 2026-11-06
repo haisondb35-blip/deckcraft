@@ -599,13 +599,16 @@ fn options_general(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
     egui::Grid::new("options_interface").num_columns(2).spacing(vec2(18.0, 10.0)).show(ui, |ui| {
         ui.label(crate::i18n::tr("Interface theme"));
         let dark = app.ui.brightness == theme::Brightness::Dark;
-        craft_ui::ComboBox::from_id_salt("options_theme").width(200.0).selected_text(crate::i18n::tr(if dark { "Dark" } else { "Light" })).show_ui(ui, |ui| {
-            for (on, label) in [(false, "Light"), (true, "Dark")] {
-                if ui.selectable_label(dark == on, crate::i18n::tr(label)).clicked() {
-                    let _ = app.run("view.dark", json!({"on": on}));
+        craft_ui::ComboBox::from_id_salt("options_theme").width(200.0).selected_text(crate::i18n::tr(if dark { "Dark" } else { "Light" })).show_ui(
+            ui,
+            |ui| {
+                for (on, label) in [(false, "Light"), (true, "Dark")] {
+                    if ui.selectable_label(dark == on, crate::i18n::tr(label)).clicked() {
+                        let _ = app.run("view.dark", json!({"on": on}));
+                    }
                 }
-            }
-        });
+            },
+        );
         ui.end_row();
         ui.label(crate::i18n::tr("Interface size"));
         let size = (app.ui.ui_scale * 100.0).round() as i32;
