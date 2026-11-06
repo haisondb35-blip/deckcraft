@@ -458,7 +458,7 @@ pub struct MediaStatus {
 /// The theme a copy drew with. The colours and the map stay apart, as in
 /// `deckcraft_model::resolve::Ctx::color`: the map renames only `tx1`, `bg1`, `tx2` and `bg2`, and
 /// a direct `dk1` keeps the theme's colour.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SourceTheme {
     /// The theme's own colours, no colour map applied.
     pub colors: deckcraft_color::ColorScheme,

@@ -23,11 +23,13 @@ struct Data {
     stamp: u64,
     plain: String,
     shapes: Vec<Shape>,
+    #[serde(default)]
+    placeholders: Vec<Shape>,
     slides: Vec<Slide>,
     /// Without bytes; they follow the JSON in this order.
     media: Vec<MediaItem>,
     text: Option<TextBody>,
-    source_theme: Option<(deckcraft_color::ColorScheme, deckcraft_model::theme::FontScheme)>,
+    source_theme: Option<crate::SourceTheme>,
 }
 
 /// A stamp for a new copy: nanoseconds since the Unix epoch, 1 when the clock can't say. A window
@@ -46,6 +48,7 @@ pub fn encode(clip: &Clipboard, stamp: u64) -> Option<Vec<u8>> {
         stamp,
         plain: clip.plain.clone(),
         shapes: clip.shapes.clone(),
+        placeholders: clip.placeholders.clone(),
         slides: clip.slides.clone(),
         media: clip.media.clone(),
         text: clip.text.clone(),
@@ -93,7 +96,7 @@ pub fn decode(bytes: &[u8]) -> Option<(u64, Clipboard)> {
         m.data = Arc::new(take(&mut rest, n)?.to_vec());
     }
     let clip =
-        Clipboard { shapes: data.shapes, slides: data.slides, media, text: data.text, plain: data.plain, source_theme: data.source_theme, pastes: 0 };
+        Clipboard { shapes: data.shapes, placeholders: data.placeholders, slides: data.slides, media, text: data.text, plain: data.plain, source_theme: data.source_theme, pastes: 0 };
     Some((data.stamp, clip))
 }
 
