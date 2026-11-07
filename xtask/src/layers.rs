@@ -33,6 +33,8 @@ impl Class {
 /// The layering table. Names are package names without the `deckcraft-`
 /// prefix.
 pub const TABLE: &[(&str, Class)] = &[
+    // The system clipboard shared by every Craft app: a leaf, used only by the app.
+    ("craft-clipboard", Class::Layer(0)),
     ("geom", Class::Layer(0)),
     // Codecs and containers (ported from FilmCraft): L0 standalone leaves, L1 codecs over
     // `bitstream`, and `media` (probe, decode, playback mixer) at L2.
