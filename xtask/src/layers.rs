@@ -35,6 +35,9 @@ impl Class {
 pub const TABLE: &[(&str, Class)] = &[
     // The system clipboard shared by every Craft app: a leaf, used only by the app.
     ("craft-clipboard", Class::Layer(0)),
+    // The synced cloud folder shared by every Craft app (settings, AI memory, earlier versions):
+    // a leaf, used by the UI.
+    ("craft-sync", Class::Layer(0)),
     ("geom", Class::Layer(0)),
     // Codecs and containers (ported from FilmCraft): L0 standalone leaves, L1 codecs over
     // `bitstream`, and `media` (probe, decode, playback mixer) at L2.

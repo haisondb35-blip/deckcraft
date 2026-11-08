@@ -900,6 +900,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "craft-sync"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "serde_json",
+]
+
+[[package]]
 name = "craft-ui"
 version = "0.1.0"
 source = "git+https://github.com/storytold/craft-libs?rev=c5a1cbfb5f9049f9270955caffb5bee5997aebf7#c5a1cbfb5f9049f9270955caffb5bee5997aebf7"
@@ -1319,6 +1327,7 @@ dependencies = [
 name = "deckcraft-ui-egui"
 version = "0.15.1"
 dependencies = [
+ "craft-sync",
  "craft-ui",
  "craft-update",
  "deckcraft-anim",
@@ -1339,6 +1348,7 @@ dependencies = [
  "skrifa 0.47.0",
  "sys-locale",
  "toml",
+ "ureq",
  "web-time",
  "zip 3.0.0",
 ]
