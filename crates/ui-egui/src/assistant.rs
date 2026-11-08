@@ -1441,7 +1441,9 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
     ui.add_space(4.0);
     let input_h = 96.0;
     let name = a.provider.name();
-    let intro = crate::i18n::tr("Ask Claude to build or change slides, rewrite text, or check the presentation. Changes appear here as Claude makes them and can be undone.");
+    let intro = crate::i18n::tr(
+        "Ask Claude to build or change slides, rewrite text, or check the presentation. Changes appear here as Claude makes them and can be undone.",
+    );
     let intro = intro.replace("Claude", name);
     let working = crate::i18n::tr("Claude is working…");
     let working = working.replace("Claude", name);
