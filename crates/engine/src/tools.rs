@@ -19,6 +19,7 @@ mod hit;
 mod pointer;
 
 pub use crop::{CROP_PAN, crop_drag, crop_picture_corners};
+pub(crate) use drag::MAX_GESTURE_POINTS;
 pub use hit::{line_xfrm, resize_box, table_rows, text_pos};
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
@@ -292,6 +293,8 @@ pub struct ToolState {
     pub path_closing: bool,
     /// The picture in crop mode (Picture Format › Crop): its frame shows crop handles.
     pub crop: Option<ShapeId>,
+    /// Whether the last freeform press added a vertex (it adds none at the point cap).
+    pub press_added_vertex: bool,
     /// The shape in Edit Points: its vertices are handles instead of the box's.
     pub edit_points: Option<ShapeId>,
     /// The vertex (path, index) whose control handles show in Edit Points.
