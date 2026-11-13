@@ -847,7 +847,7 @@ dependencies = [
 [[package]]
 name = "craft-audio"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=75895c0321d8cb6e175a42466cba050352b117c5#75895c0321d8cb6e175a42466cba050352b117c5"
+source = "git+https://github.com/storytold/craft-libs?rev=09dcbc225b95232998498a40ca56e24716571d53#09dcbc225b95232998498a40ca56e24716571d53"
 dependencies = [
  "craft-media",
  "thiserror 2.0.21",
@@ -894,7 +894,7 @@ dependencies = [
 [[package]]
 name = "craft-media"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=75895c0321d8cb6e175a42466cba050352b117c5#75895c0321d8cb6e175a42466cba050352b117c5"
+source = "git+https://github.com/storytold/craft-libs?rev=09dcbc225b95232998498a40ca56e24716571d53#09dcbc225b95232998498a40ca56e24716571d53"
 dependencies = [
  "thiserror 2.0.21",
 ]
@@ -961,6 +961,16 @@ dependencies = [
  "winreg",
  "winsafe",
  "zip 9.1.0",
+]
+
+[[package]]
+name = "craft-video"
+version = "0.1.0"
+source = "git+https://github.com/storytold/craft-libs?rev=09dcbc225b95232998498a40ca56e24716571d53#09dcbc225b95232998498a40ca56e24716571d53"
+dependencies = [
+ "craft-media",
+ "rayon",
+ "thiserror 2.0.21",
 ]
 
 [[package]]
@@ -1056,7 +1066,7 @@ checksum = "0c87e182de0887fd5361989c677c4e8f5000cd9491d6d563161a8f3a5519fc7f"
 
 [[package]]
 name = "deckcraft"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "arboard",
  "chrono",
@@ -1080,7 +1090,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-anim"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "deckcraft-geom",
  "deckcraft-model",
@@ -1088,24 +1098,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "deckcraft-av1"
-version = "0.18.2"
-dependencies = [
- "deckcraft-bitstream",
- "rayon",
- "thiserror 2.0.21",
-]
-
-[[package]]
-name = "deckcraft-bitstream"
-version = "0.18.2"
-dependencies = [
- "craft-media",
-]
-
-[[package]]
 name = "deckcraft-cli"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "deckcraft-engine",
  "deckcraft-mcp",
@@ -1115,14 +1109,14 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-color"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "serde",
 ]
 
 [[package]]
 name = "deckcraft-engine"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "chrono",
  "deckcraft-anim",
@@ -1148,7 +1142,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-fonts"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "epaint_default_fonts",
  "harfrust 0.13.3",
@@ -1160,7 +1154,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-format"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "deckcraft-model",
  "serde",
@@ -1171,33 +1165,15 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-geom"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "kurbo",
  "serde",
 ]
 
 [[package]]
-name = "deckcraft-h264"
-version = "0.18.2"
-dependencies = [
- "deckcraft-bitstream",
- "rayon",
- "thiserror 2.0.21",
-]
-
-[[package]]
-name = "deckcraft-hevc"
-version = "0.18.2"
-dependencies = [
- "deckcraft-bitstream",
- "rayon",
- "thiserror 2.0.21",
-]
-
-[[package]]
 name = "deckcraft-mcp"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "deckcraft-engine",
  "deckcraft-render",
@@ -1207,14 +1183,11 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-media"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "craft-audio",
  "craft-media",
- "deckcraft-av1",
- "deckcraft-h264",
- "deckcraft-hevc",
- "deckcraft-vp9",
+ "craft-video",
  "image",
  "log",
  "symphonia",
@@ -1223,7 +1196,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-metafile"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "image",
  "kurbo",
@@ -1232,7 +1205,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-model"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "deckcraft-color",
  "deckcraft-geom",
@@ -1244,7 +1217,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-pdf"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "craft-pdf",
  "deckcraft-fonts",
@@ -1262,7 +1235,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-pptx"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "deckcraft-color",
  "deckcraft-engine",
@@ -1278,7 +1251,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-render"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "deckcraft-anim",
  "deckcraft-color",
@@ -1297,7 +1270,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-text"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "chrono",
  "deckcraft-color",
@@ -1311,7 +1284,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-ui-egui"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "craft-sync",
  "craft-ui",
@@ -1340,17 +1313,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "deckcraft-vp9"
-version = "0.18.2"
-dependencies = [
- "deckcraft-bitstream",
- "rayon",
- "thiserror 2.0.21",
-]
-
-[[package]]
 name = "deckcraft-web"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "craft-web-api",
  "craft-web-host",
@@ -6335,7 +6299,7 @@ checksum = "9440ea3e5aeabb0ac63af70daf835274065238cdd0cec83418f417eae38bacee"
 
 [[package]]
 name = "xtask"
-version = "0.18.2"
+version = "0.18.3"
 dependencies = [
  "serde_json",
 ]

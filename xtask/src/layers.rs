@@ -39,14 +39,8 @@ pub const TABLE: &[(&str, Class)] = &[
     // a leaf, used by the UI.
     ("craft-sync", Class::Layer(0)),
     ("geom", Class::Layer(0)),
-    // Video codecs (ported from FilmCraft): `bitstream` is an L0 standalone leaf, the codecs sit
-    // over it at L1, and `media` (probe, decode, playback mixer) at L2. Containers and the Opus
-    // decoder come from craft-libs (craft-media, craft-audio).
-    ("bitstream", Class::Standalone),
-    ("h264", Class::Layer(1)),
-    ("hevc", Class::Layer(1)),
-    ("vp9", Class::Layer(1)),
-    ("av1", Class::Layer(1)),
+    // `media` (probe, decode, playback mixer) at L2. Containers, the Opus decoder and the video
+    // decoders come from craft-libs (craft-media, craft-audio, craft-video).
     ("media", Class::Layer(2)),
     ("color", Class::Layer(0)),
     // WMF/EMF reader (ported from WordCraft).
