@@ -943,7 +943,7 @@ dependencies = [
 [[package]]
 name = "craft-cfb"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=ea24422ae9859dc5da398d0462bc87f8e02e0d10#ea24422ae9859dc5da398d0462bc87f8e02e0d10"
+source = "git+https://github.com/storytold/craft-libs?rev=8048f8ef92da80fb3ce5a056d59ca591ee66faf1#8048f8ef92da80fb3ce5a056d59ca591ee66faf1"
 
 [[package]]
 name = "craft-clipboard"
@@ -963,7 +963,7 @@ source = "git+https://github.com/storytold/craft-libs?rev=254e9a409b410dc93c0e06
 [[package]]
 name = "craft-codepage"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=63196e66f3033a6623eb629af95a104d26986725#63196e66f3033a6623eb629af95a104d26986725"
+source = "git+https://github.com/storytold/craft-libs?rev=d0193d7e94b5ec180ecc2a152ea72047d39ac632#d0193d7e94b5ec180ecc2a152ea72047d39ac632"
 
 [[package]]
 name = "craft-deckcraft-format"
@@ -980,20 +980,9 @@ dependencies = [
 [[package]]
 name = "craft-drawingml"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=44d83fa8f635333dcb3c231f87381387a1f5631b#44d83fa8f635333dcb3c231f87381387a1f5631b"
+source = "git+https://github.com/storytold/craft-libs?rev=8048f8ef92da80fb3ce5a056d59ca591ee66faf1#8048f8ef92da80fb3ce5a056d59ca591ee66faf1"
 dependencies = [
- "craft-xml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=44d83fa8f635333dcb3c231f87381387a1f5631b)",
- "kurbo",
- "log",
- "serde",
-]
-
-[[package]]
-name = "craft-drawingml"
-version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=cff5af869dbf6926801c9ac63a927d155202ba3b#cff5af869dbf6926801c9ac63a927d155202ba3b"
-dependencies = [
- "craft-xml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=cff5af869dbf6926801c9ac63a927d155202ba3b)",
+ "craft-xml",
  "kurbo",
  "log",
  "serde",
@@ -1067,10 +1056,10 @@ dependencies = [
 [[package]]
 name = "craft-opc"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=ea24422ae9859dc5da398d0462bc87f8e02e0d10#ea24422ae9859dc5da398d0462bc87f8e02e0d10"
+source = "git+https://github.com/storytold/craft-libs?rev=8048f8ef92da80fb3ce5a056d59ca591ee66faf1#8048f8ef92da80fb3ce5a056d59ca591ee66faf1"
 dependencies = [
- "craft-xml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=ea24422ae9859dc5da398d0462bc87f8e02e0d10)",
- "craft-zip 0.1.0 (git+https://github.com/storytold/craft-libs?rev=ea24422ae9859dc5da398d0462bc87f8e02e0d10)",
+ "craft-xml",
+ "craft-zip 0.1.0 (git+https://github.com/storytold/craft-libs?rev=8048f8ef92da80fb3ce5a056d59ca591ee66faf1)",
  "log",
  "thiserror 2.0.21",
 ]
@@ -1085,11 +1074,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "craft-pptx"
+version = "0.1.0"
+source = "git+https://github.com/storytold/craft-libs?rev=8048f8ef92da80fb3ce5a056d59ca591ee66faf1#8048f8ef92da80fb3ce5a056d59ca591ee66faf1"
+dependencies = [
+ "craft-drawingml",
+ "craft-opc",
+ "craft-xml",
+ "kurbo",
+ "log",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.21",
+]
+
+[[package]]
 name = "craft-rtf"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=63196e66f3033a6623eb629af95a104d26986725#63196e66f3033a6623eb629af95a104d26986725"
+source = "git+https://github.com/storytold/craft-libs?rev=d0193d7e94b5ec180ecc2a152ea72047d39ac632#d0193d7e94b5ec180ecc2a152ea72047d39ac632"
 dependencies = [
- "craft-codepage 0.1.0 (git+https://github.com/storytold/craft-libs?rev=63196e66f3033a6623eb629af95a104d26986725)",
+ "craft-codepage 0.1.0 (git+https://github.com/storytold/craft-libs?rev=d0193d7e94b5ec180ecc2a152ea72047d39ac632)",
  "encoding_rs",
 ]
 
@@ -1182,29 +1186,10 @@ dependencies = [
 [[package]]
 name = "craft-xml"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=44d83fa8f635333dcb3c231f87381387a1f5631b#44d83fa8f635333dcb3c231f87381387a1f5631b"
+source = "git+https://github.com/storytold/craft-libs?rev=8048f8ef92da80fb3ce5a056d59ca591ee66faf1#8048f8ef92da80fb3ce5a056d59ca591ee66faf1"
 dependencies = [
  "quick-xml 0.41.0",
  "serde",
- "thiserror 2.0.21",
-]
-
-[[package]]
-name = "craft-xml"
-version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=cff5af869dbf6926801c9ac63a927d155202ba3b#cff5af869dbf6926801c9ac63a927d155202ba3b"
-dependencies = [
- "quick-xml 0.41.0",
- "serde",
- "thiserror 2.0.21",
-]
-
-[[package]]
-name = "craft-xml"
-version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=ea24422ae9859dc5da398d0462bc87f8e02e0d10#ea24422ae9859dc5da398d0462bc87f8e02e0d10"
-dependencies = [
- "quick-xml 0.41.0",
  "thiserror 2.0.21",
 ]
 
@@ -1221,7 +1206,7 @@ dependencies = [
 [[package]]
 name = "craft-zip"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=ea24422ae9859dc5da398d0462bc87f8e02e0d10#ea24422ae9859dc5da398d0462bc87f8e02e0d10"
+source = "git+https://github.com/storytold/craft-libs?rev=8048f8ef92da80fb3ce5a056d59ca591ee66faf1#8048f8ef92da80fb3ce5a056d59ca591ee66faf1"
 dependencies = [
  "flate2",
  "thiserror 2.0.21",
@@ -1301,7 +1286,7 @@ checksum = "0c87e182de0887fd5361989c677c4e8f5000cd9491d6d563161a8f3a5519fc7f"
 
 [[package]]
 name = "deckcraft"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "arboard",
  "chrono",
@@ -1325,7 +1310,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-anim"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "deckcraft-geom",
  "deckcraft-model",
@@ -1334,7 +1319,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-cli"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "deckcraft-engine",
  "deckcraft-mcp",
@@ -1344,14 +1329,14 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-color"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
- "craft-drawingml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=44d83fa8f635333dcb3c231f87381387a1f5631b)",
+ "craft-drawingml",
 ]
 
 [[package]]
 name = "deckcraft-engine"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "chrono",
  "craft-mime",
@@ -1363,6 +1348,7 @@ dependencies = [
  "deckcraft-media",
  "deckcraft-model",
  "deckcraft-pdf",
+ "deckcraft-ppt",
  "deckcraft-pptx",
  "deckcraft-render",
  "deckcraft-text",
@@ -1378,7 +1364,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-fonts"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "epaint_default_fonts",
  "harfrust 0.13.3",
@@ -1390,7 +1376,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-format"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "craft-deckcraft-format",
  "craft-rtf",
@@ -1401,16 +1387,16 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-geom"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
- "craft-drawingml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=44d83fa8f635333dcb3c231f87381387a1f5631b)",
+ "craft-drawingml",
  "kurbo",
  "serde",
 ]
 
 [[package]]
 name = "deckcraft-mcp"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "craft-mcp-server",
  "deckcraft-engine",
@@ -1421,7 +1407,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-media"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "craft-audio",
  "craft-media",
@@ -1434,9 +1420,9 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-model"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
- "craft-drawingml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=44d83fa8f635333dcb3c231f87381387a1f5631b)",
+ "craft-drawingml",
  "deckcraft-color",
  "deckcraft-geom",
  "serde",
@@ -1447,7 +1433,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-pdf"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "craft-pdf",
  "deckcraft-fonts",
@@ -1464,21 +1450,34 @@ dependencies = [
 ]
 
 [[package]]
-name = "deckcraft-pptx"
-version = "0.19.6"
+name = "deckcraft-ppt"
+version = "0.19.7"
 dependencies = [
- "craft-cfb",
- "craft-drawingml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=44d83fa8f635333dcb3c231f87381387a1f5631b)",
- "craft-drawingml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=cff5af869dbf6926801c9ac63a927d155202ba3b)",
- "craft-opc",
- "craft-xml 0.1.0 (git+https://github.com/storytold/craft-libs?rev=ea24422ae9859dc5da398d0462bc87f8e02e0d10)",
  "deckcraft-color",
  "deckcraft-engine",
  "deckcraft-geom",
  "deckcraft-model",
- "deckcraft-text",
  "image",
  "log",
+ "miniz_oxide 0.9.1",
+ "serde_json",
+ "thiserror 2.0.21",
+]
+
+[[package]]
+name = "deckcraft-pptx"
+version = "0.19.7"
+dependencies = [
+ "craft-cfb",
+ "craft-drawingml",
+ "craft-opc",
+ "craft-pptx",
+ "craft-xml",
+ "deckcraft-color",
+ "deckcraft-engine",
+ "deckcraft-geom",
+ "deckcraft-model",
+ "image",
  "quick-xml 0.41.0",
  "serde_json",
  "thiserror 2.0.21",
@@ -1487,7 +1486,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-render"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "craft-metafile",
  "deckcraft-anim",
@@ -1506,7 +1505,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-text"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "chrono",
  "deckcraft-color",
@@ -1520,7 +1519,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-ui-egui"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "craft-sync",
  "craft-ui",
@@ -1550,7 +1549,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-web"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "craft-web-api",
  "craft-web-host",
@@ -6763,7 +6762,7 @@ checksum = "9440ea3e5aeabb0ac63af70daf835274065238cdd0cec83418f417eae38bacee"
 
 [[package]]
 name = "xtask"
-version = "0.19.6"
+version = "0.19.7"
 dependencies = [
  "serde_json",
 ]
