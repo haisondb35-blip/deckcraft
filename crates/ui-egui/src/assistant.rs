@@ -48,7 +48,55 @@ pub struct Launch {
     pub server: McpServer,
     /// Address, model and key, for an assistant reached over HTTP ([`Provider::is_api`]).
     pub api: Option<api::Config>,
+    /// The Claude model that answers (Claude Code's `--model`).
+    pub model: ClaudeModel,
 }
+
+/// Which Claude model answers in the pane. Sonnet by default: it does the app's work well for a
+/// fraction of Opus's use of the plan's limits; Opus for hard jobs, Haiku for quick ones.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum ClaudeModel {
+    #[default]
+    Sonnet,
+    Opus,
+    Haiku,
+}
+
+impl ClaudeModel {
+    pub const ALL: [ClaudeModel; 3] = [ClaudeModel::Sonnet, ClaudeModel::Opus, ClaudeModel::Haiku];
+
+    /// Claude Code's alias for it.
+    pub fn key(self) -> &'static str {
+        match self {
+            ClaudeModel::Sonnet => "sonnet",
+            ClaudeModel::Opus => "opus",
+            ClaudeModel::Haiku => "haiku",
+        }
+    }
+
+    pub fn label(self) -> &'static str {
+        match self {
+            ClaudeModel::Sonnet => "Sonnet",
+            ClaudeModel::Opus => "Opus",
+            ClaudeModel::Haiku => "Haiku",
+        }
+    }
+
+    pub fn from_key(key: &str) -> Option<ClaudeModel> {
+        ClaudeModel::ALL.into_iter().find(|m| m.key() == key)
+    }
+
+    /// How hard it thinks (Claude Code's `--effort`), whatever the user's own Claude Code
+    /// settings say: low, but medium for Opus, chosen for hard jobs.
+    pub fn effort(self) -> &'static str {
+        if self == ClaudeModel::Opus { "medium" } else { "low" }
+    }
+}
+
+/// Past this many tokens of conversation (what one step reads again), the next question starts
+/// a fresh conversation with a recap instead: every tool call re-reads the whole conversation, and
+/// a long one (slide images pile up in it) spends the plan's limits many times faster.
+pub const CONTEXT_LIMIT: u64 = 120_000;
 
 /// Which assistant answers in the pane: Claude Code, or ChatGPT through OpenAI's Codex CLI. Both
 /// are programs installed and signed in on this computer, and both get only this app's tools.
@@ -204,6 +252,8 @@ pub enum Event {
     Answer(String),
     /// Finished, with the error if it failed.
     Done(Option<String>),
+    /// How many tokens of conversation the assistant read for its last step.
+    Context(u64),
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -230,7 +280,8 @@ const MAX_LINE: u64 = 16 << 20;
 /// Appended to Claude Code's system prompt.
 pub const SYSTEM_PROMPT: &str = "You are the assistant inside DeckCraft, a presentation editor compatible with PowerPoint, shown in a narrow side pane. \
 The presentation the user has open is in the running app: work on it only through the deckcraft tools, which act on exactly what the user sees \
-(every change can be undone with Ctrl+Z). Look before you change: inspect the document or slide, and render a slide to check your result. \
+(every change can be undone with Ctrl+Z). Look before you change: inspect the document or slide (text, cheap) and render a slide only to check a visual result, \
+at scale 0.5 unless you must read small detail; don't render the same slide twice without a change in between. \
 Prefer the app's commands (list_commands, run_command) over pointer input. \
 Reply in the language the user writes in. Work silently: don't narrate your steps. Your final reply is read in the narrow pane, so keep it short: \
 one or two plain sentences, then at most five short bullet points saying what you changed or found. No headings, tables or code unless asked. Other Craft apps open on this computer (GridCraft, WordCraft, DeckCraft, PdfCraft, PhotoCraft, VectorCraft, FilmCraft, CadCraft, FigCraft, LightCraft, EffectCraft) may be connected too, as tools named after the app: \
@@ -282,6 +333,10 @@ pub struct Assistant {
     pub api_open: bool,
     /// The assistant last chosen was read from the shared settings.
     provider_read: bool,
+    /// The Claude model that answers.
+    pub model: ClaudeModel,
+    /// Tokens of conversation the assistant read for its last step ([`CONTEXT_LIMIT`]).
+    pub context: u64,
 }
 
 impl Default for Assistant {
@@ -312,6 +367,8 @@ impl Default for Assistant {
             api: api::Config::default(),
             api_open: false,
             provider_read: false,
+            model: ClaudeModel::default(),
+            context: 0,
         }
     }
 }
@@ -367,6 +424,7 @@ impl Assistant {
         self.messages.clear();
         self.session = None;
         self.retry = None;
+        self.context = 0;
         self.remember();
     }
 
@@ -419,6 +477,12 @@ impl Assistant {
         }
         self.input.clear();
         self.last_note = None;
+        // A long conversation goes on in a fresh one, with the recap below.
+        let fresh = self.session.is_some() && self.context > CONTEXT_LIMIT;
+        if fresh {
+            self.session = None;
+        }
+        self.context = 0;
         // Earlier messages without a conversation to continue (another computer, another
         // assistant, or it is gone): they travel with the question.
         let recap = memory::recap(&self.messages).map(|r| memory::with_recap(&r, &prompt));
@@ -426,6 +490,10 @@ impl Assistant {
         let asked = if self.session.is_none() { recap.unwrap_or_else(|| prompt.clone()) } else { prompt.clone() };
         self.answered = false;
         self.push(Role::User, prompt.clone());
+        if fresh {
+            self.work("Long conversation: continued in a fresh one with a recap, to save usage".to_string());
+        }
+        let model = self.model;
         let launched = self.prepare(ctx).and_then(|(work_dir, mcp_config, server)| {
             (self.launcher)(Launch {
                 prompt: asked,
@@ -435,6 +503,7 @@ impl Assistant {
                 provider: self.provider,
                 server,
                 api: self.api_config(),
+                model,
             })
         });
         match launched {
@@ -592,6 +661,7 @@ impl Assistant {
         for e in events {
             match e {
                 Event::Session(id) => self.session = Some(id),
+                Event::Context(n) => self.context = n,
                 Event::Text(t) => {
                     self.answered = true;
                     let first = t.lines().map(str::trim).find(|l| !l.is_empty()).unwrap_or_default();
@@ -644,7 +714,16 @@ impl Assistant {
     fn relaunch(&mut self, ctx: &egui::Context, prompt: String) {
         self.answered = false;
         let launched = self.prepare(ctx).and_then(|(work_dir, mcp_config, server)| {
-            (self.launcher)(Launch { prompt, session: None, mcp_config, work_dir, provider: self.provider, server, api: self.api_config() })
+            (self.launcher)(Launch {
+                prompt,
+                session: None,
+                mcp_config,
+                work_dir,
+                provider: self.provider,
+                server,
+                api: self.api_config(),
+                model: self.model,
+            })
         });
         match launched {
             Ok(r) => self.running = Some(r),
@@ -782,6 +861,9 @@ pub fn codex_args(l: &Launch) -> Vec<String> {
     // window through the screen instead of the app's tools, and are refused here: leave them out.
     // Sign-in still comes from Codex's folder.
     a.insert(3, "--ignore-user-config".into());
+    // Thinks less per step: the pane's jobs are many small tool calls, and effort spends the plan.
+    a.push("-c".into());
+    a.push("model_reasoning_effort=\"low\"".into());
     let server = &l.server;
     a.push("-c".into());
     a.push(format!("mcp_servers.deckcraft.command={}", toml_str(&server.command.to_string_lossy())));
@@ -830,7 +912,10 @@ pub fn parse_codex_line(line: &str) -> Vec<Event> {
             s(item, "tool").map(|t| Event::Step(describe(&t, item.get("arguments").unwrap_or(&Value::Null)))).into_iter().collect()
         }
         (Some("item.started"), Some("command_execution")) => vec![Event::Step("Ran a command".into())],
-        (Some("turn.completed"), _) => vec![Event::Done(None)],
+        (Some("turn.completed"), _) => {
+            let read = v.pointer("/usage/input_tokens").and_then(Value::as_u64);
+            read.map(Event::Context).into_iter().chain([Event::Done(None)]).collect()
+        }
         (Some("turn.failed"), _) => {
             vec![Event::Done(Some(v.pointer("/error/message").and_then(Value::as_str).unwrap_or("ChatGPT couldn't finish").to_string()))]
         }
@@ -903,6 +988,11 @@ pub fn claude_args(l: &Launch) -> Vec<String> {
         .map(String::from)
         .collect();
     memory::allow_peers(&mut a, &l.mcp_config);
+    // The model and effort the pane chose, not the user's own Claude Code defaults.
+    a.push("--model".into());
+    a.push(l.model.key().into());
+    a.push("--effort".into());
+    a.push(l.model.effort().into());
     a.push("--mcp-config".into());
     a.push(l.mcp_config.to_string_lossy().into_owned());
     a.push("--disallowedTools".into());
@@ -948,20 +1038,28 @@ pub fn parse_line(line: &str) -> Vec<Event> {
     let s = |v: &Value, k: &str| v.get(k).and_then(Value::as_str).map(str::to_string);
     match v.get("type").and_then(Value::as_str) {
         Some("system") if v.get("subtype").and_then(Value::as_str) == Some("init") => s(&v, "session_id").map(Event::Session).into_iter().collect(),
-        Some("assistant") => v
-            .pointer("/message/content")
-            .and_then(Value::as_array)
-            .map(|parts| {
-                parts
-                    .iter()
-                    .filter_map(|p| match p.get("type").and_then(Value::as_str) {
-                        Some("text") => s(p, "text").filter(|t| !t.trim().is_empty()).map(|t| Event::Text(t.trim().to_string())),
-                        Some("tool_use") => s(p, "name").map(|n| Event::Step(describe(&n, p.get("input").unwrap_or(&Value::Null)))),
-                        _ => None,
-                    })
-                    .collect()
-            })
-            .unwrap_or_default(),
+        Some("assistant") => {
+            let mut out: Vec<Event> = v
+                .pointer("/message/content")
+                .and_then(Value::as_array)
+                .map(|parts| {
+                    parts
+                        .iter()
+                        .filter_map(|p| match p.get("type").and_then(Value::as_str) {
+                            Some("text") => s(p, "text").filter(|t| !t.trim().is_empty()).map(|t| Event::Text(t.trim().to_string())),
+                            Some("tool_use") => s(p, "name").map(|n| Event::Step(describe(&n, p.get("input").unwrap_or(&Value::Null)))),
+                            _ => None,
+                        })
+                        .collect()
+                })
+                .unwrap_or_default();
+            // What this step read: the whole conversation so far.
+            if let Some(u) = v.pointer("/message/usage") {
+                let n = |k: &str| u.get(k).and_then(Value::as_u64).unwrap_or(0);
+                out.push(Event::Context(n("input_tokens") + n("cache_creation_input_tokens") + n("cache_read_input_tokens")));
+            }
+            out
+        }
         Some("result") => {
             let mut out: Vec<Event> = s(&v, "session_id").map(Event::Session).into_iter().collect();
             let failed = v.get("is_error").and_then(Value::as_bool).unwrap_or(false);
@@ -1373,6 +1471,9 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
             a.provider = p;
             a.load_api();
         }
+        if let Some(m) = a.memory.as_ref().and_then(Store::model_choice).as_deref().and_then(ClaudeModel::from_key) {
+            a.model = m;
+        }
     }
     if a.login == Login::Unchecked {
         if a.api.url.is_empty() {
@@ -1394,6 +1495,20 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
             a.set_provider(chosen);
             if let Some(store) = &a.memory {
                 store.set_provider_choice(chosen.key());
+            }
+        }
+        if a.provider == Provider::Claude {
+            let mut model = a.model;
+            craft_ui::ComboBox::from_id_salt("assistant_model").selected_text(model.label()).show_ui(ui, |ui| {
+                for m in ClaudeModel::ALL {
+                    ui.selectable_value(&mut model, m, m.label());
+                }
+            });
+            if model != a.model {
+                a.model = model;
+                if let Some(store) = &a.memory {
+                    store.set_model_choice(model.key());
+                }
             }
         }
         let (text, sign_in) = match &a.login {
@@ -1535,6 +1650,9 @@ mod tests {
         assert_eq!(parse_line(r#"{"type":"system","subtype":"init","session_id":"abc","tools":[]}"#), vec![Event::Session("abc".into())]);
         let a = r#"{"type":"assistant","message":{"content":[{"type":"text","text":" Đã thêm slide. "},{"type":"tool_use","name":"mcp__deckcraft__add_slide","input":{}}]}}"#;
         assert_eq!(parse_line(a), vec![Event::Text("Đã thêm slide.".into()), Event::Step("Added a slide".into())]);
+        // A step's usage says how much of the conversation it read.
+        let u = r#"{"type":"assistant","message":{"content":[],"usage":{"input_tokens":3,"cache_creation_input_tokens":100,"cache_read_input_tokens":2000}}}"#;
+        assert_eq!(parse_line(u), vec![Event::Context(2103)]);
         assert_eq!(
             parse_line(r#"{"type":"result","subtype":"success","is_error":false,"result":" Xong. ","session_id":"abc"}"#),
             vec![Event::Session("abc".into()), Event::Answer("Xong.".into()), Event::Done(None)]
@@ -1555,8 +1673,11 @@ mod tests {
             provider: Provider::Claude,
             server: McpServer::default(),
             api: None,
+            model: ClaudeModel::default(),
         };
         let a = claude_args(&l);
+        assert!(a.windows(2).any(|w| w[0] == "--model" && w[1] == "sonnet"), "Sonnet unless chosen: {a:?}");
+        assert!(a.windows(2).any(|w| w[0] == "--effort" && w[1] == "low"), "{a:?}");
         let has = |pair: [&str; 2]| a.windows(2).any(|w| w[0] == pair[0] && w[1] == pair[1]);
         assert!(a.contains(&"--strict-mcp-config".to_string()));
         assert!(has(["--allowedTools", "mcp__deckcraft"]) && has(["--mcp-config", "m.json"]) && has(["--resume", "s1"]));
@@ -1653,10 +1774,12 @@ mod tests {
             provider: Provider::Codex,
             server,
             api: None,
+            model: ClaudeModel::default(),
         };
         let a = codex_args(&l);
         assert_eq!(&a[..6], ["exec", "--json", "--skip-git-repo-check", "--ignore-user-config", "--sandbox", "read-only"]);
         assert!(a.contains(&"approval_policy=\"never\"".to_string()));
+        assert!(a.contains(&"model_reasoning_effort=\"low\"".to_string()), "{a:?}");
         assert!(a.contains(&r#"mcp_servers.deckcraft.command="C:\\Program Files\\App\\deckcraft-cli.exe""#.to_string()), "{a:?}");
         assert!(a.contains(&r#"mcp_servers.deckcraft.args=["mcp","--app","4242"]"#.to_string()), "{a:?}");
         assert!(
@@ -1689,8 +1812,9 @@ mod tests {
         assert_eq!(events[1], Event::Text("I'll look.".into()));
         assert!(matches!(&events[2], Event::Step(_)), "{events:?}");
         assert_eq!(events[3], Event::Text("There are **0 documents open**.".into()));
-        assert_eq!(events[4], Event::Done(None));
-        assert_eq!(events.len(), 5, "a finished tool call adds nothing");
+        assert_eq!(events[4], Event::Context(1));
+        assert_eq!(events[5], Event::Done(None));
+        assert_eq!(events.len(), 6, "a finished tool call adds nothing");
         assert_eq!(parse_codex_line(r#"{"type":"turn.failed","error":{"message":"usage limit"}}"#), vec![Event::Done(Some("usage limit".into()))]);
         assert_eq!(parse_codex_line(r#"{"type":"error","message":"stream closed"}"#), vec![Event::Done(Some("stream closed".into()))]);
         for junk in ["", "not json", "{}", "[1]"] {
