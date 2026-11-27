@@ -1486,7 +1486,7 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
     }
     ui.horizontal(|ui| {
         let mut chosen = a.provider;
-        craft_ui::ComboBox::from_id_salt("assistant_provider").selected_text(chosen.label()).show_ui(ui, |ui| {
+        egui::ComboBox::from_id_salt("assistant_provider").selected_text(chosen.label()).show_ui(ui, |ui| {
             for p in Provider::ALL {
                 ui.selectable_value(&mut chosen, p, p.label());
             }
@@ -1499,7 +1499,7 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
         }
         if a.provider == Provider::Claude {
             let mut model = a.model;
-            craft_ui::ComboBox::from_id_salt("assistant_model").selected_text(model.label()).show_ui(ui, |ui| {
+            egui::ComboBox::from_id_salt("assistant_model").selected_text(model.label()).show_ui(ui, |ui| {
                 for m in ClaudeModel::ALL {
                     ui.selectable_value(&mut model, m, m.label());
                 }

@@ -599,7 +599,7 @@ fn options_general(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
     egui::Grid::new("options_interface").num_columns(2).spacing(vec2(18.0, 10.0)).show(ui, |ui| {
         ui.label(crate::i18n::tr("Interface theme"));
         let dark = app.ui.brightness == theme::Brightness::Dark;
-        craft_ui::ComboBox::from_id_salt("options_theme").width(200.0).selected_text(crate::i18n::tr(if dark { "Dark" } else { "Light" })).show_ui(
+        egui::ComboBox::from_id_salt("options_theme").width(200.0).selected_text(crate::i18n::tr(if dark { "Dark" } else { "Light" })).show_ui(
             ui,
             |ui| {
                 for (on, label) in [(false, "Light"), (true, "Dark")] {
@@ -612,7 +612,7 @@ fn options_general(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
         ui.end_row();
         ui.label(crate::i18n::tr("Interface size"));
         let size = (app.ui.ui_scale * 100.0).round() as i32;
-        craft_ui::ComboBox::from_id_salt("options_interface_size").width(200.0).selected_text(format!("{size}%")).show_ui(ui, |ui| {
+        egui::ComboBox::from_id_salt("options_interface_size").width(200.0).selected_text(format!("{size}%")).show_ui(ui, |ui| {
             for v in [75, 90, 100, 110, 125, 150, 175] {
                 if ui.selectable_label(size == v, format!("{v}%")).clicked() {
                     set_option(app, "uiScale", json!(v as f64 / 100.0));
@@ -626,7 +626,7 @@ fn options_general(app: &mut SlideApp, ui: &mut Ui, bs: &mut Backstage) {
         let auto = crate::i18n::tr("Auto (system language)");
         let chosen = crate::i18n::Language::parse(&pref).filter(|_| !pref.is_empty());
         let shown = chosen.map_or_else(|| format!("{auto} · {}", crate::i18n::Language::system().name()), |l| l.name().to_string());
-        craft_ui::ComboBox::from_id_salt("options_language").width(200.0).selected_text(shown).show_ui(ui, |ui| {
+        egui::ComboBox::from_id_salt("options_language").width(200.0).selected_text(shown).show_ui(ui, |ui| {
             if ui.selectable_label(chosen.is_none(), auto).clicked() {
                 set_option(app, "language", json!(""));
             }
