@@ -50,46 +50,111 @@ pub struct Launch {
     pub api: Option<api::Config>,
     /// The Claude model that answers (Claude Code's `--model`).
     pub model: ClaudeModel,
+    /// How hard Claude or Codex thinks each step.
+    pub effort: Effort,
 }
 
-/// Which Claude model answers in the pane. Sonnet by default: it does the app's work well for a
-/// fraction of Opus's use of the plan's limits; Opus for hard jobs, Haiku for quick ones.
+/// Which Claude model answers in the pane, by version. Sonnet by default: it does the app's work
+/// well for a fraction of Opus's use of the plan's limits; Opus or Fable for hard jobs, Haiku for
+/// quick ones.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub enum ClaudeModel {
     #[default]
     Sonnet,
     Opus,
     Haiku,
+    Fable,
 }
 
 impl ClaudeModel {
-    pub const ALL: [ClaudeModel; 3] = [ClaudeModel::Sonnet, ClaudeModel::Opus, ClaudeModel::Haiku];
+    pub const ALL: [ClaudeModel; 4] = [ClaudeModel::Sonnet, ClaudeModel::Opus, ClaudeModel::Haiku, ClaudeModel::Fable];
 
-    /// Claude Code's alias for it.
+    /// The model's id, for Claude Code's `--model`.
     pub fn key(self) -> &'static str {
         match self {
-            ClaudeModel::Sonnet => "sonnet",
-            ClaudeModel::Opus => "opus",
-            ClaudeModel::Haiku => "haiku",
+            ClaudeModel::Sonnet => "claude-sonnet-5-5",
+            ClaudeModel::Opus => "claude-opus-5-5",
+            ClaudeModel::Haiku => "claude-haiku-5-5",
+            ClaudeModel::Fable => "claude-fable-5-2",
         }
     }
 
     pub fn label(self) -> &'static str {
         match self {
-            ClaudeModel::Sonnet => "Sonnet",
-            ClaudeModel::Opus => "Opus",
-            ClaudeModel::Haiku => "Haiku",
+            ClaudeModel::Sonnet => "Sonnet 5.5",
+            ClaudeModel::Opus => "Opus 5.5",
+            ClaudeModel::Haiku => "Haiku 5.5",
+            ClaudeModel::Fable => "Fable 5.2",
         }
     }
 
+    /// The model with this id, or this alias (`sonnet`, `opus`, `haiku`: saved before versions).
     pub fn from_key(key: &str) -> Option<ClaudeModel> {
-        ClaudeModel::ALL.into_iter().find(|m| m.key() == key)
+        let old = [("sonnet", ClaudeModel::Sonnet), ("opus", ClaudeModel::Opus), ("haiku", ClaudeModel::Haiku)];
+        ClaudeModel::ALL.into_iter().find(|m| m.key() == key).or_else(|| old.into_iter().find(|(k, _)| *k == key).map(|(_, m)| m))
     }
 
-    /// How hard it thinks (Claude Code's `--effort`), whatever the user's own Claude Code
-    /// settings say: low, but medium for Opus, chosen for hard jobs.
-    pub fn effort(self) -> &'static str {
-        if self == ClaudeModel::Opus { "medium" } else { "low" }
+    /// What Auto effort means for it: medium for the models chosen for hard jobs, else low.
+    fn auto_effort(self) -> Effort {
+        if matches!(self, ClaudeModel::Opus | ClaudeModel::Fable) { Effort::Medium } else { Effort::Low }
+    }
+}
+
+/// How hard the assistant thinks each step (Claude Code's `--effort`, Codex's reasoning effort),
+/// whatever the user's own settings say. More thinking spends more of the plan; Auto is low, or
+/// medium for Opus and Fable.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum Effort {
+    #[default]
+    Auto,
+    Low,
+    Medium,
+    High,
+    XHigh,
+    Max,
+}
+
+impl Effort {
+    pub const ALL: [Effort; 6] = [Effort::Auto, Effort::Low, Effort::Medium, Effort::High, Effort::XHigh, Effort::Max];
+
+    pub fn key(self) -> &'static str {
+        match self {
+            Effort::Auto => "auto",
+            Effort::Low => "low",
+            Effort::Medium => "medium",
+            Effort::High => "high",
+            Effort::XHigh => "xhigh",
+            Effort::Max => "max",
+        }
+    }
+
+    pub fn label(self) -> &'static str {
+        match self {
+            Effort::Auto => "Auto",
+            Effort::Low => "Low",
+            Effort::Medium => "Medium",
+            Effort::High => "High",
+            Effort::XHigh => "Extra high",
+            Effort::Max => "Max",
+        }
+    }
+
+    pub fn from_key(key: &str) -> Option<Effort> {
+        Effort::ALL.into_iter().find(|e| e.key() == key)
+    }
+
+    /// Claude Code's `--effort` for `model`.
+    pub fn claude(self, model: ClaudeModel) -> &'static str {
+        if self == Effort::Auto { model.auto_effort().key() } else { self.key() }
+    }
+
+    /// Codex's `model_reasoning_effort`: it goes up to high.
+    pub fn codex(self) -> &'static str {
+        match self {
+            Effort::Auto | Effort::Low => "low",
+            Effort::Medium => "medium",
+            Effort::High | Effort::XHigh | Effort::Max => "high",
+        }
     }
 }
 
@@ -335,6 +400,8 @@ pub struct Assistant {
     provider_read: bool,
     /// The Claude model that answers.
     pub model: ClaudeModel,
+    /// How hard Claude or Codex thinks each step.
+    pub effort: Effort,
     /// Tokens of conversation the assistant read for its last step ([`CONTEXT_LIMIT`]).
     pub context: u64,
 }
@@ -368,6 +435,7 @@ impl Default for Assistant {
             api_open: false,
             provider_read: false,
             model: ClaudeModel::default(),
+            effort: Effort::default(),
             context: 0,
         }
     }
@@ -493,7 +561,7 @@ impl Assistant {
         if fresh {
             self.work("Long conversation: continued in a fresh one with a recap, to save usage".to_string());
         }
-        let model = self.model;
+        let (model, effort) = (self.model, self.effort);
         let launched = self.prepare(ctx).and_then(|(work_dir, mcp_config, server)| {
             (self.launcher)(Launch {
                 prompt: asked,
@@ -504,6 +572,7 @@ impl Assistant {
                 server,
                 api: self.api_config(),
                 model,
+                effort,
             })
         });
         match launched {
@@ -723,6 +792,7 @@ impl Assistant {
                 server,
                 api: self.api_config(),
                 model: self.model,
+                effort: self.effort,
             })
         });
         match launched {
@@ -861,9 +931,9 @@ pub fn codex_args(l: &Launch) -> Vec<String> {
     // window through the screen instead of the app's tools, and are refused here: leave them out.
     // Sign-in still comes from Codex's folder.
     a.insert(3, "--ignore-user-config".into());
-    // Thinks less per step: the pane's jobs are many small tool calls, and effort spends the plan.
+    // The pane's effort (low unless chosen): its jobs are many small tool calls, and effort spends the plan.
     a.push("-c".into());
-    a.push("model_reasoning_effort=\"low\"".into());
+    a.push(format!("model_reasoning_effort=\"{}\"", l.effort.codex()));
     let server = &l.server;
     a.push("-c".into());
     a.push(format!("mcp_servers.deckcraft.command={}", toml_str(&server.command.to_string_lossy())));
@@ -992,7 +1062,7 @@ pub fn claude_args(l: &Launch) -> Vec<String> {
     a.push("--model".into());
     a.push(l.model.key().into());
     a.push("--effort".into());
-    a.push(l.model.effort().into());
+    a.push(l.effort.claude(l.model).into());
     a.push("--mcp-config".into());
     a.push(l.mcp_config.to_string_lossy().into_owned());
     a.push("--disallowedTools".into());
@@ -1474,6 +1544,9 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
         if let Some(m) = a.memory.as_ref().and_then(Store::model_choice).as_deref().and_then(ClaudeModel::from_key) {
             a.model = m;
         }
+        if let Some(e) = a.memory.as_ref().and_then(Store::effort_choice).as_deref().and_then(Effort::from_key) {
+            a.effort = e;
+        }
     }
     if a.login == Login::Unchecked {
         if a.api.url.is_empty() {
@@ -1508,6 +1581,24 @@ pub fn pane(app: &mut crate::SlideApp, ui: &mut egui::Ui) {
                 a.model = model;
                 if let Some(store) = &a.memory {
                     store.set_model_choice(model.key());
+                }
+            }
+        }
+        if matches!(a.provider, Provider::Claude | Provider::Codex) {
+            let mut effort = a.effort;
+            egui::ComboBox::from_id_salt("assistant_effort")
+                .selected_text(format!("Effort: {}", effort.label()))
+                .show_ui(ui, |ui| {
+                    for e in Effort::ALL {
+                        ui.selectable_value(&mut effort, e, e.label());
+                    }
+                })
+                .response
+                .on_hover_text("How hard it thinks each step: more effort uses more of your plan. Auto is Low, or Medium for Opus and Fable.");
+            if effort != a.effort {
+                a.effort = effort;
+                if let Some(store) = &a.memory {
+                    store.set_effort_choice(effort.key());
                 }
             }
         }
@@ -1646,6 +1737,15 @@ mod tests {
     use super::*;
 
     #[test]
+    fn the_chosen_effort_reaches_claude_and_codex() {
+        assert_eq!(Effort::Auto.claude(ClaudeModel::Sonnet), "low");
+        assert_ne!(Effort::Auto.claude(ClaudeModel::Opus), "low", "Opus thinks more on Auto");
+        assert_eq!(Effort::Max.claude(ClaudeModel::Haiku), "max", "a chosen effort wins over the model's");
+        assert_eq!(Effort::Max.codex(), "high", "Codex goes up to high");
+        assert_eq!(ClaudeModel::from_key("opus"), Some(ClaudeModel::Opus), "a choice saved before versions still reads");
+    }
+
+    #[test]
     fn stream_json_lines_become_events() {
         assert_eq!(parse_line(r#"{"type":"system","subtype":"init","session_id":"abc","tools":[]}"#), vec![Event::Session("abc".into())]);
         let a = r#"{"type":"assistant","message":{"content":[{"type":"text","text":" Đã thêm slide. "},{"type":"tool_use","name":"mcp__deckcraft__add_slide","input":{}}]}}"#;
@@ -1674,9 +1774,10 @@ mod tests {
             server: McpServer::default(),
             api: None,
             model: ClaudeModel::default(),
+            effort: Effort::default(),
         };
         let a = claude_args(&l);
-        assert!(a.windows(2).any(|w| w[0] == "--model" && w[1] == "sonnet"), "Sonnet unless chosen: {a:?}");
+        assert!(a.windows(2).any(|w| w[0] == "--model" && w[1] == "claude-sonnet-5-5"), "Sonnet unless chosen: {a:?}");
         assert!(a.windows(2).any(|w| w[0] == "--effort" && w[1] == "low"), "{a:?}");
         let has = |pair: [&str; 2]| a.windows(2).any(|w| w[0] == pair[0] && w[1] == pair[1]);
         assert!(a.contains(&"--strict-mcp-config".to_string()));
@@ -1775,6 +1876,7 @@ mod tests {
             server,
             api: None,
             model: ClaudeModel::default(),
+            effort: Effort::default(),
         };
         let a = codex_args(&l);
         assert_eq!(&a[..6], ["exec", "--json", "--skip-git-repo-check", "--ignore-user-config", "--sandbox", "read-only"]);

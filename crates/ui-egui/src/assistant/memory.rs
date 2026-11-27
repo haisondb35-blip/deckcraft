@@ -352,6 +352,19 @@ impl Store {
             let _ = std::fs::write(self.dir.join("settings.json"), v.to_string());
         }
     }
+
+    /// The effort last chosen in any Craft app's pane.
+    pub fn effort_choice(&self) -> Option<String> {
+        self.settings().get("effort").and_then(Value::as_str).map(str::to_string)
+    }
+
+    pub fn set_effort_choice(&self, key: &str) {
+        let mut v = self.settings();
+        v["effort"] = json!(key);
+        if std::fs::create_dir_all(&self.dir).is_ok() {
+            let _ = std::fs::write(self.dir.join("settings.json"), v.to_string());
+        }
+    }
 }
 
 impl super::Assistant {
